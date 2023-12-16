@@ -1,0 +1,105 @@
+:root {
+  --blue: #025354;
+}
+
+body {
+  background-color: #FDFEFE;
+}
+
+.frame {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  mask-image: url(/assets/a_mask.svg);
+  mask-size: 100%;
+}
+.frame__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 40%;
+  top: 5%;
+  left: 5%;
+  z-index: 100;
+  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: 4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.frame__snow-wrapper {
+  position: absolute;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  animation: snow_wiggle 5s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.frame__snow {
+  width: 100%;
+  animation: snow 60s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.frame__person {
+  position: absolute;
+  z-index: 10;
+  max-width: 100%;
+  bottom: 0;
+  left: 0;
+  transform: scale(1);
+  transition: 0.2s linear;
+}
+.frame__person:hover {
+  transform: scale(1.02);
+}
+.frame__outline {
+  max-width: 100%;
+  max-height: calc(100svh - 4rem);
+  color: var(--blue);
+  opacity: 0;
+  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: 2s;
+  pointer-events: none;
+}
+.frame.in-view .frame__text,
+.frame.in-view .frame__outline {
+  opacity: 1;
+}
+.frame.in-view .frame__snow,
+.frame.in-view .frame__snow-wrapper {
+  animation-play-state: running;
+}
+
+@keyframes snow {
+  from {
+    transform: translate3d(0%, -100%, 0);
+  }
+  to {
+    transform: translate3d(0%, 100vh, 0);
+  }
+}
+@keyframes snow_wiggle {
+  0%, 100% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+  20%, 55% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+  76% {
+    transform: translate3d(4px, -1px, 0);
+  }
+  30% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+.slide {
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+  color: var(--blue);
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=style.css.map */
