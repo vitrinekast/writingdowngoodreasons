@@ -1,12 +1,7 @@
+@import "variables.scss";
 @import "base.scss";
-@import "frame.scss";
-
-
-.slide {
-    width: max-content;
-    margin: 0 auto;
-    position: relative;
-    color: var(--blue);
-    overflow: hidden;
-}
+@import "typography.scss";
+@import "grid.scss";
+@import "page.scss";
+@import "frame/frame.scss";
 

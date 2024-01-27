@@ -1,0 +1,42 @@
+@import "variables.scss";
+
+.page {
+  border: 2px solid lightgrey;
+  color: var(--blue);
+  overflow: hidden;
+  min-height: 80svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $page--padding;
+  max-height: 100svh;
+  margin-bottom: 10svh;
+  scroll-snap-align: center;
+
+  .page {
+    padding: 0 0;
+    min-height: auto;
+    margin-bottom: unset;
+    max-height: auto;
+    scroll-snap-align: unset;
+  }
+
+  .grid,
+  .page {
+    align-self: stretch;
+  }
+  &--spread {
+    @extend .page;
+    gap: $gap;
+    & > .page {
+      flex-basis: 50%;
+    }
+  }
+
+  //   page specific layouts
+  &--3 {
+    .frame--asset {
+      max-height: 30vh;
+    }
+  }
+}

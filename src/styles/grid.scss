@@ -1,0 +1,23 @@
+@import "variables.scss";
+
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $gap;
+
+  .cell {
+    grid-column-end: span 3;
+    margin: 0 0;
+    height: 100%;
+  }
+
+  @for $i from 1 through 6 {
+    .cell--w-#{$i} {
+      grid-column-end: span $i;
+    }
+
+    .cell--h-#{$i} {
+      grid-row-end: span $i;
+    }
+  }
+}

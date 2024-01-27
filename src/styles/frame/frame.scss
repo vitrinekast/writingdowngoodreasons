@@ -1,0 +1,127 @@
+
+$z-text: 100;
+$z-vis: 40;
+
+@import "animations.scss";
+@import "../variables.scss";
+
+.frame {
+  --mask-url: url(/assets/frame_2/frame_mask.svg);
+  margin: 0 auto;
+  text-align: center;
+  mask-image: var(--mask-url);
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  max-height: calc(100svh - #{$page--padding*2 });
+  display: flex;
+  position: relative;
+
+  img {
+    object-fit: contain;
+  }
+
+  &-group {
+    display: flex;
+    flex-gap: $gap;
+  }
+
+  &--dummy {
+    background: red;
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  &__text {
+    text-align: left;
+  }
+
+  &--background {
+    background: #00686a;
+    color: white;
+    padding: 1rem;
+
+    .frame__text {
+      align-self: center;
+    }
+  }
+
+  &--1 .frame__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 40%;
+    top: 5%;
+    left: 5%;
+    z-index: $z-text;
+    transition: $transition;
+    transition-delay: 4s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__snow-wrapper {
+    position: absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    animation: snow_wiggle 5s linear infinite;
+    animation-play-state: paused;
+    pointer-events: none;
+  }
+
+  &__snow {
+    width: 100%;
+    animation: snow 60s linear infinite;
+    animation-play-state: paused;
+    pointer-events: none;
+  }
+
+  &__background {
+    z-index: 1;
+  }
+
+  &__person {
+    opacity: 0;
+    transition-delay: 1s;
+    transition: $transition;
+    transition-delay: 3s;
+    z-index: 10;
+  }
+
+  &__person,
+  &__background {
+    position: absolute;
+    
+    max-width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__outline {
+    position: absolute;
+    color: var(--blue);
+    opacity: 0;
+    transition: $transition;
+    transition-delay: 2s;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.in-view, & {
+    .frame__text,
+    .frame__outline,
+    .frame__person {
+      opacity: 1;
+    }
+
+    .frame__snow,
+    .frame__snow-wrapper {
+      animation-play-state: running;
+    }
+  }
+}

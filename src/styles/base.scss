@@ -1,7 +1,26 @@
+@import "variables.scss";
+
 :root {
-    --blue: #025354;
+  --blue: #025354;
+}
+
+html,
+body {
+  margin: 0 0;
 }
 
 body {
-    background-color: #FDFEFE;
+  background-color: #e8e3d178;
+  scroll-snap-type: y mandatory;
+}
+
+.container {
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

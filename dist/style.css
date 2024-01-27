@@ -2,18 +2,179 @@
   --blue: #025354;
 }
 
+html,
 body {
-  background-color: #FDFEFE;
+  margin: 0 0;
 }
 
+body {
+  background-color: rgba(232, 227, 209, 0.4705882353);
+  scroll-snap-type: y mandatory;
+}
+
+.container {
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "Nik";
+  src: local("/assets/fonts/Nik.otf"), url("/assets/fonts/Nik.otf") format("opentype"), url("/assets/fonts/Nik.otf") format("woff");
+}
+body {
+  font-family: "Nik";
+  text-align: center;
+  line-height: 1.5;
+}
+
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+}
+.grid .cell {
+  grid-column-end: span 3;
+  margin: 0 0;
+  height: 100%;
+}
+.grid .cell--w-1 {
+  grid-column-end: span 1;
+}
+.grid .cell--h-1 {
+  grid-row-end: span 1;
+}
+.grid .cell--w-2 {
+  grid-column-end: span 2;
+}
+.grid .cell--h-2 {
+  grid-row-end: span 2;
+}
+.grid .cell--w-3 {
+  grid-column-end: span 3;
+}
+.grid .cell--h-3 {
+  grid-row-end: span 3;
+}
+.grid .cell--w-4 {
+  grid-column-end: span 4;
+}
+.grid .cell--h-4 {
+  grid-row-end: span 4;
+}
+.grid .cell--w-5 {
+  grid-column-end: span 5;
+}
+.grid .cell--h-5 {
+  grid-row-end: span 5;
+}
+.grid .cell--w-6 {
+  grid-column-end: span 6;
+}
+.grid .cell--h-6 {
+  grid-row-end: span 6;
+}
+
+.page, .page--spread {
+  border: 2px solid lightgrey;
+  color: var(--blue);
+  overflow: hidden;
+  min-height: 80svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  max-height: 100svh;
+  margin-bottom: 10svh;
+  scroll-snap-align: center;
+}
+.page .page, .page--spread .page, .page .page--spread, .page--spread .page--spread {
+  padding: 0 0;
+  min-height: auto;
+  margin-bottom: unset;
+  max-height: auto;
+  scroll-snap-align: unset;
+}
+.page .grid, .page--spread .grid,
+.page .page,
+.page--spread .page,
+.page .page--spread,
+.page--spread .page--spread {
+  align-self: stretch;
+}
+.page--spread {
+  gap: 2rem;
+}
+.page--spread > .page, .page--spread > .page--spread {
+  flex-basis: 50%;
+}
+.page--3 .frame--asset {
+  max-height: 30vh;
+}
+
+@keyframes snow {
+  from {
+    transform: translate3d(0%, -100%, 0);
+  }
+  to {
+    transform: translate3d(0%, 100vh, 0);
+  }
+}
+@keyframes snow_wiggle {
+  0%, 100% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+  20%, 55% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+  76% {
+    transform: translate3d(4px, -1px, 0);
+  }
+  30% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
 .frame {
-  max-width: 900px;
+  --mask-url: url(/assets/frame_2/frame_mask.svg);
   margin: 0 auto;
   text-align: center;
-  mask-image: url(/assets/a_mask.svg);
+  mask-image: var(--mask-url);
   mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  max-height: calc(100svh - 8rem);
+  display: flex;
+  position: relative;
+}
+.frame img {
+  object-fit: contain;
+}
+.frame-group {
+  display: flex;
+  flex-gap: 2rem;
+}
+.frame--dummy {
+  background: red;
+  min-width: 100px;
+  min-height: 100px;
 }
 .frame__text {
+  text-align: left;
+}
+.frame--background {
+  background: #00686a;
+  color: white;
+  padding: 1rem;
+}
+.frame--background .frame__text {
+  align-self: center;
+}
+.frame--1 .frame__text {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,64 +203,45 @@ body {
   animation-play-state: paused;
   pointer-events: none;
 }
+.frame__background {
+  z-index: 1;
+}
 .frame__person {
-  position: absolute;
+  opacity: 0;
+  transition-delay: 1s;
+  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: 3s;
   z-index: 10;
+}
+.frame__person, .frame__background {
+  position: absolute;
   max-width: 100%;
   bottom: 0;
   left: 0;
-  transform: scale(1);
-  transition: 0.2s linear;
-}
-.frame__person:hover {
-  transform: scale(1.02);
 }
 .frame__outline {
-  max-width: 100%;
-  max-height: calc(100svh - 4rem);
+  position: absolute;
   color: var(--blue);
   opacity: 0;
   transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
   transition-delay: 2s;
   pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 .frame.in-view .frame__text,
-.frame.in-view .frame__outline {
+.frame.in-view .frame__outline,
+.frame.in-view .frame__person, .frame .frame__text,
+.frame .frame__outline,
+.frame .frame__person {
   opacity: 1;
 }
 .frame.in-view .frame__snow,
-.frame.in-view .frame__snow-wrapper {
+.frame.in-view .frame__snow-wrapper, .frame .frame__snow,
+.frame .frame__snow-wrapper {
   animation-play-state: running;
-}
-
-@keyframes snow {
-  from {
-    transform: translate3d(0%, -100%, 0);
-  }
-  to {
-    transform: translate3d(0%, 100vh, 0);
-  }
-}
-@keyframes snow_wiggle {
-  0%, 100% {
-    transform: translate3d(-5px, 1px, 0);
-  }
-  20%, 55% {
-    transform: translate3d(-5px, 1px, 0);
-  }
-  76% {
-    transform: translate3d(4px, -1px, 0);
-  }
-  30% {
-    transform: translate3d(2px, 0, 0);
-  }
-}
-.slide {
-  width: max-content;
-  margin: 0 auto;
-  position: relative;
-  color: var(--blue);
-  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
