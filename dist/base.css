@@ -23,4 +23,8 @@ img {
   max-width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /*# sourceMappingURL=base.css.map */

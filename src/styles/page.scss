@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 .page {
-  border: 2px solid lightgrey;
+  // border: 2px solid lightgrey;
   color: var(--blue);
   overflow: hidden;
   min-height: 80svh;
@@ -9,7 +9,6 @@
   justify-content: center;
   align-items: center;
   padding: $page--padding;
-  max-height: 100svh;
   margin-bottom: 10svh;
   scroll-snap-align: center;
 
@@ -27,7 +26,7 @@
   }
   &--spread {
     @extend .page;
-    gap: $gap;
+    gap: $gap*2;
     & > .page {
       flex-basis: 50%;
     }

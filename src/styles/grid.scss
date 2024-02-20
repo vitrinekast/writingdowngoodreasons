@@ -9,6 +9,8 @@
     grid-column-end: span 3;
     margin: 0 0;
     height: 100%;
+    border: 1px solid red;
+    
   }
 
   @for $i from 1 through 6 {

@@ -1,24 +1,24 @@
-@keyframes snow {
-  from {
-    transform: translate3d(0%, -100%, 0);
-  }
-  to {
-    transform: translate3d(0%, 100vh, 0);
-  }
+.overlay, .anim--bird-away {
+  position: relative;
 }
-@keyframes snow_wiggle {
-  0%, 100% {
-    transform: translate3d(-5px, 1px, 0);
-  }
-  20%, 55% {
-    transform: translate3d(-5px, 1px, 0);
-  }
-  76% {
-    transform: translate3d(4px, -1px, 0);
-  }
-  30% {
-    transform: translate3d(2px, 0, 0);
-  }
+.overlay:before, .anim--bird-away:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+  width: 100%;
+  content: "";
+  height: 100%;
+}
+
+.anim--bird-away:before {
+  background-image: url("../assets/frame_5b/frame-3--asset-step2.png");
+  background-size: cover;
+  opacity: 0;
+  transition: 0.2s linear;
+}
+.anim--bird-away:hover:before {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=animations.css.map */
