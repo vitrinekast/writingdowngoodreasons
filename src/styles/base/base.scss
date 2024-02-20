@@ -1,9 +1,3 @@
-@import "variables.scss";
-
-:root {
-  --blue: #025354;
-}
-
 html,
 body {
   margin: 0 0;
@@ -11,7 +5,6 @@ body {
 
 body {
   background-color: #e8e3d178;
-  scroll-snap-type: y mandatory;
 }
 
 .container {

@@ -1,11 +1,9 @@
 $z-text: 100;
 $z-vis: 40;
 
-@import "animations.scss";
-@import "../variables.scss";
 
 .frame {
-  --mask-url: url(/assets/frame_2/frame_mask.svg);
+  --mask-url: url(/public/assets/frame_2/frame_mask.svg);
   margin: 0 auto;
   text-align: center;
   mask-image: var(--mask-url);
@@ -41,7 +39,6 @@ $z-vis: 40;
     min-height: 100px;
   }
 
-
   &__text {
     text-align: left;
   }
@@ -52,7 +49,7 @@ $z-vis: 40;
   }
 
   &--background {
-    background: #3E7777;
+    background: #3e7777;
     color: white;
     padding: 1rem;
 

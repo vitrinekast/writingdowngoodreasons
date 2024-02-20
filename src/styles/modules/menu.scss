@@ -1,6 +1,6 @@
 $offset: 2rem;
 
-.nav {
+.menu {
 
   &--wrapper {
     
@@ -11,7 +11,7 @@ $offset: 2rem;
     right: $offset * 1.5;
     bottom: $offset * 1.5;
     z-index: 2;
-    background-image: url("../assets/chapter_2/menu/background.png");
+    background-image: url("../public/assets/chapter_2/menu/background.png");
     background-size: cover;
     padding: $offset;
     display: flex;
@@ -27,7 +27,7 @@ $offset: 2rem;
       right: $offset;
       bottom: $offset;
       z-index: 2;
-      background-image: url("../assets/chapter_2/menu/background_border.png");
+      background-image: url("../public/assets/chapter_2/menu/background_border.png");
       background-size: cover;
       background-size: contain;
       background-repeat: no-repeat;
@@ -63,27 +63,3 @@ $offset: 2rem;
 }
 
 
-.lightbox {
-  position: fixed;
-  background-color: rgba(0,0,0,.4);
-  width: 100%;
-  height: 100%;
-  z-index:5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  opacity: 0;
-  transition: all .3s linear;
-  transform: translate3d(0, -100%, 0);
-
-  &__img {
-    max-width: 80svw;
-    max-height: 80svh;
-  }
-
-  body[lightbox="open"] & {
-      opacity: 1;
-    transform: translate3d(0, 0%, 0);
-  }
-}
