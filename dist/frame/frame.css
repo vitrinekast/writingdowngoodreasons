@@ -36,6 +36,10 @@
 .frame img {
   object-fit: contain;
 }
+.frame--scroller {
+  mask-image: none;
+  max-height: none;
+}
 .frame-group {
   display: flex;
   flex-gap: 2rem;
@@ -51,6 +55,10 @@
 }
 .frame__text {
   text-align: left;
+}
+.frame__element {
+  position: absolute;
+  border: 2px solid red;
 }
 .frame--background {
   background: #3E7777;
@@ -88,6 +96,13 @@
   animation: snow 60s linear infinite;
   animation-play-state: paused;
   pointer-events: none;
+}
+.frame__revealable {
+  opacity: 0;
+  transition: 1s linear;
+}
+.frame__revealable[shown=true] {
+  opacity: 1;
 }
 .frame__background {
   z-index: 1;

@@ -2,6 +2,7 @@
   display: grid !important;
   grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
+  height: 100%;
 }
 .grid .cell {
   grid-column-end: span 3;

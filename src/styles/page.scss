@@ -26,15 +26,20 @@
   }
   &--spread {
     @extend .page;
-    gap: $gap*2;
+    gap: $gap * 2;
     & > .page {
       flex-basis: 50%;
     }
   }
 
+  &--fullwidth {
+    @extend .page;
+    padding: 0 0;
+  }
+
   //   page specific layouts
   &--3 {
-    .frame--asset {
+    .frame__asset {
       max-height: 30vh;
     }
   }
