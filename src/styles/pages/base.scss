@@ -1,6 +1,6 @@
 .page {
   // border: 2px solid lightgrey;
-  color: var(--blue);
+  color: $color--text;
   overflow: hidden;
   min-height: 80svh;
   display: flex;
@@ -24,7 +24,7 @@
   }
   &--spread {
     @extend .page;
-    gap: $gap * 2;
+    gap: $grid--gap * 2;
     & > .page {
       flex-basis: 50%;
     }

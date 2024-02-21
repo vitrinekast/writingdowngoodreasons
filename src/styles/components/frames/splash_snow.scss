@@ -1,0 +1,72 @@
+.f-s-snow {
+  &__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 40%;
+    top: 5%;
+    left: 5%;
+    z-index: $z-text;
+    transition: $transition--base;
+    transition-delay: 4s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__snow-wrapper {
+    position: absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    animation: snow_wiggle 5s linear infinite;
+    animation-play-state: paused;
+    pointer-events: none;
+  }
+
+  &__snow {
+    width: 100%;
+    animation: snow 60s linear infinite;
+    animation-play-state: paused;
+    pointer-events: none;
+  }
+
+  &__person {
+    opacity: 0;
+    transition-delay: 1s;
+    transition: $transition--base;
+    transition-delay: 3s;
+    z-index: 10;
+  }
+}
+
+
+@keyframes snow {
+  from {
+    transform: translate3d(0%, -100%, 0);
+  }
+
+  to {
+    transform: translate3d(0%, 100vh, 0);
+  }
+}
+
+@keyframes snow_wiggle {
+  0%,
+  100% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+
+  20%,
+  55% {
+    transform: translate3d(-5px, 1px, 0);
+  }
+
+  76% {
+    transform: translate3d(4px, -1px, 0);
+  }
+
+  30% {
+    transform: translate3d(2px, 0, 0);
+  }
+}

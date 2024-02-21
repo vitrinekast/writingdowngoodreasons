@@ -15,7 +15,6 @@ $offset: 2rem;
     background-size: cover;
     padding: $offset;
     display: flex;
-    display: none;
     border: 2px solid green;
 
     &:before {
@@ -32,6 +31,7 @@ $offset: 2rem;
       background-size: contain;
       background-repeat: no-repeat;
       background-size: 100% 100%;
+      
     }
   }
 

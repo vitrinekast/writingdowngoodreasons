@@ -1,7 +1,7 @@
 .grid {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr);
-  gap: $gap;
+  gap: $grid--gap;
   height: 100%;
 
   .cell {

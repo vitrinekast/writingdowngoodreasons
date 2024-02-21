@@ -1,12 +1,25 @@
-$transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
-$gap: 2rem;
+$grid--gap: 2rem;
 
 $page--padding: 4rem;
-
-$gutter: 100px;
 
 :root {
   --blue: #025354;
 }
 
-$color--body: orange;
+$gutter--sm: .5rem;
+$gutter--md: 1rem;
+$gutter--lg: 2rem;
+$gutter--xl: 4rem;
+$gutter--xxl: 8rem;
+
+$color--body: #e8e3d178;
+$color--text: #025354;
+$color--frame-bg: #3e7777;
+$color--text-alt: $color--body;
+$color--backdrop: rgba(232, 227, 209, 0.7);
+
+$transition--base: all .4s cubic-bezier(0.25, 0, 0, 1);
+
+// Z-indexes
+$z-text: 100;
+$z-vis: 40;

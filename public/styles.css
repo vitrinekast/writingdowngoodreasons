@@ -84,16 +84,64 @@ body {
   grid-row-end: span 6;
 }
 
-.overlay, .anim--bird-away {
+.overlay, .f-bird-away {
   position: relative;
 }
-.overlay:before, .anim--bird-away:before {
+.overlay:before, .f-bird-away:before {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   content: "";
   height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.f-bird-away:before {
+  background-image: url("../public/assets/frame_5b/frame-3--asset-step2.png");
+  background-size: cover;
+  opacity: 0;
+  transition: 0.2s linear;
+}
+.f-bird-away:hover:before {
+  opacity: 1;
+}
+
+.f-s-snow__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 40%;
+  top: 5%;
+  left: 5%;
+  z-index: 100;
+  transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+  transition-delay: 4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.f-s-snow__snow-wrapper {
+  position: absolute;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  animation: snow_wiggle 5s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.f-s-snow__snow {
+  width: 100%;
+  animation: snow 60s linear infinite;
+  animation-play-state: paused;
+  pointer-events: none;
+}
+.f-s-snow__person {
+  opacity: 0;
+  transition-delay: 1s;
+  transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
+  transition-delay: 3s;
+  z-index: 10;
 }
 
 @keyframes snow {
@@ -118,16 +166,6 @@ body {
     transform: translate3d(2px, 0, 0);
   }
 }
-.anim--bird-away:before {
-  background-image: url("../public/assets/frame_5b/frame-3--asset-step2.png");
-  background-size: cover;
-  opacity: 0;
-  transition: 0.2s linear;
-}
-.anim--bird-away:hover:before {
-  opacity: 1;
-}
-
 .frame {
   --mask-url: url(/public/assets/frame_2/frame_mask.svg);
   margin: 0 auto;
@@ -139,6 +177,7 @@ body {
   max-height: calc(100svh - 8rem);
   display: flex;
   position: relative;
+  text-align: left;
 }
 .frame img {
   object-fit: contain;
@@ -147,79 +186,30 @@ body {
   mask-image: none;
   max-height: none;
 }
-.frame-group {
-  display: flex;
-  flex-gap: 2rem;
-}
 .frame--fit {
   aspect-ratio: 2/3;
   min-height: calc(100svh - 8rem);
 }
-.frame--dummy {
-  background: red;
-  min-width: 100px;
-  min-height: 100px;
-}
-.frame__text {
-  text-align: left;
-}
 .frame__element {
   position: absolute;
-  border: 2px solid red;
 }
-.frame--background {
+.frame--filled {
   background: #3e7777;
-  color: white;
+  color: rgba(232, 227, 209, 0.4705882353);
   padding: 1rem;
 }
-.frame--background .frame__text {
+.frame--filled .frame__text {
   align-self: center;
-}
-.frame--1 .frame__text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 40%;
-  top: 5%;
-  left: 5%;
-  z-index: 100;
-  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
-  transition-delay: 4s;
-  opacity: 0;
-  pointer-events: none;
-}
-.frame__snow-wrapper {
-  position: absolute;
-  max-width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 30;
-  animation: snow_wiggle 5s linear infinite;
-  animation-play-state: paused;
-  pointer-events: none;
-}
-.frame__snow {
-  width: 100%;
-  animation: snow 60s linear infinite;
-  animation-play-state: paused;
-  pointer-events: none;
 }
 .frame__revealable {
   opacity: 0;
-  transition: 1s linear;
+  transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 }
 .frame__revealable[shown=true] {
   opacity: 1;
 }
 .frame__background {
   z-index: 1;
-}
-.frame__person {
-  opacity: 0;
-  transition-delay: 1s;
-  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
-  transition-delay: 3s;
-  z-index: 10;
 }
 .frame__person, .frame__background {
   position: absolute;
@@ -229,9 +219,9 @@ body {
 }
 .frame__outline {
   position: absolute;
-  color: var(--blue);
+  color: #025354;
   opacity: 0;
-  transition: opacity 4s cubic-bezier(0.2, 0, 0, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0, 0, 1);
   transition-delay: 2s;
   pointer-events: none;
   top: 0;
@@ -239,16 +229,16 @@ body {
   height: 100%;
   width: 100%;
 }
-.frame.in-view .frame__text,
+.frame.in-view .f-s-snow__text,
 .frame.in-view .frame__outline,
-.frame.in-view .frame__person, .frame .frame__text,
+.frame.in-view .f-s-snow__person, .frame .f-s-snow__text,
 .frame .frame__outline,
-.frame .frame__person {
+.frame .f-s-snow__person {
   opacity: 1;
 }
-.frame.in-view .frame__snow,
-.frame.in-view .frame__snow-wrapper, .frame .frame__snow,
-.frame .frame__snow-wrapper {
+.frame.in-view .f-s-snow__snow,
+.frame.in-view .f-s-snow__snow-wrapper, .frame .f-s-snow__snow,
+.frame .f-s-snow__snow-wrapper {
   animation-play-state: running;
 }
 
@@ -264,7 +254,6 @@ body {
   background-size: cover;
   padding: 2rem;
   display: flex;
-  display: none;
   border: 2px solid green;
 }
 .menu--wrapper:before {
@@ -306,7 +295,7 @@ body {
 
 .lightbox {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(232, 227, 209, 0.7);
   width: 100%;
   height: 100%;
   z-index: 5;
@@ -317,6 +306,7 @@ body {
   opacity: 0;
   transition: all 0.3s linear;
   transform: translate3d(0, -100%, 0);
+  backdrop-filter: blur(3px);
 }
 .lightbox__img {
   max-width: 80svw;
@@ -328,7 +318,7 @@ body[lightbox=open] .lightbox {
 }
 
 .page, .page--fullwidth, .page--spread {
-  color: var(--blue);
+  color: #025354;
   overflow: hidden;
   min-height: 80svh;
   display: flex;

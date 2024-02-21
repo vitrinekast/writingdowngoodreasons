@@ -1,0 +1,91 @@
+.frame {
+  --mask-url: url(/public/assets/frame_2/frame_mask.svg);
+  margin: 0 auto;
+  text-align: center;
+  mask-image: var(--mask-url);
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  max-height: calc(100svh - #{$page--padding * 2});
+  display: flex;
+  position: relative;
+  text-align: left;
+
+  img {
+    object-fit: contain;
+  }
+
+  &--scroller {
+    mask-image: none;
+    max-height: none;
+  }
+
+  &--fit {
+    aspect-ratio: 2 / 3;
+    min-height: calc(100svh - #{$page--padding * 2});
+  }
+
+  &__element {
+    position: absolute;
+  }
+
+  &--filled {
+    background: $color--frame-bg;
+    color: $color--text-alt;
+    padding: $gutter--md;
+
+    .frame__text {
+      align-self: center;
+    }
+  }
+
+  &__revealable {
+    opacity: 0;
+    transition: $transition--base;
+
+    &[shown="true"] {
+      opacity: 1;
+    }
+  }
+
+  &__background {
+    z-index: 1;
+  }
+
+  &__person,
+  &__background {
+    position: absolute;
+    max-width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__outline {
+    position: absolute;
+    color: $color--text;
+    opacity: 0;
+    transition: $transition--base;
+    transition-delay: 2s;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  // to be made smarter (of course)
+
+  &.in-view,
+  & {
+    .f-s-snow__text,
+    .frame__outline,
+    .f-s-snow__person {
+      opacity: 1;
+    }
+
+    .f-s-snow__snow,
+    .f-s-snow__snow-wrapper {
+      animation-play-state: running;
+    }
+  }
+}
