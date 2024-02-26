@@ -1,9 +1,9 @@
 @font-face {
   font-family: "Nik";
   src:
-    local("/public/assets/fonts/Nik.otf"),
-    url("/public/assets/fonts/Nik.otf") format("opentype"),
-    url("/public/assets/fonts/Nik.otf") format("woff");
+    local("../assets/fonts/Nik.otf"),
+    url("../assets/fonts/Nik.otf") format("opentype"),
+    url("../assets/fonts/Nik.otf") format("woff");
 }
 
 body {
