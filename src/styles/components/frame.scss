@@ -1,8 +1,8 @@
 .frame {
-  --mask-url: url(../assets/images/frame_2/frame_mask.svg);
+  --mask-url: url(@/assets/images/frame_2/frame_mask.svg);
   margin: 0 auto;
   text-align: center;
-  mask-image: var(--mask-url);
+  
   mask-size: 100%;
   mask-repeat: no-repeat;
   mask-position: center center;
@@ -10,6 +10,20 @@
   display: flex;
   position: relative;
   text-align: left;
+
+  &--sm {
+    max-height: 30vh;
+  }
+  
+  &--fit {
+    aspect-ratio: 2 / 3;
+    /* min-height: calc(100svh - #{$page--padding * 2}); */
+    min-height: 80vh;
+  }
+  
+  &--masked {
+    mask-image: var(--mask-url);
+  }
 
   img {
     object-fit: contain;
@@ -31,7 +45,7 @@
 
   &--filled {
     background: $color--frame-bg;
-    color: $color--text-alt;
+    color: white;
     padding: $gutter--md;
 
     .frame__text {
@@ -40,7 +54,7 @@
   }
 
   &__revealable {
-    opacity: 0;
+    // opacity: 0;
     transition: $transition--base;
 
     &[shown="true"] {
@@ -49,7 +63,7 @@
   }
 
   &__background {
-    z-index: 1;
+    z-index: -1;
   }
 
   &__person,
@@ -63,7 +77,7 @@
   &__outline {
     position: absolute;
     color: $color--text;
-    opacity: 0;
+    // opacity: 0;
     transition: $transition--base;
     transition-delay: 2s;
     pointer-events: none;

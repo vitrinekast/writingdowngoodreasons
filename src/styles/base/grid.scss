@@ -3,6 +3,7 @@
   grid-template-columns: repeat(6, 1fr);
   gap: $grid--gap;
   height: 100%;
+  grid-auto-rows: 1fr;
 
   .cell {
     grid-column-end: span 3;
