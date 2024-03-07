@@ -28,3 +28,6 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+.vite-ssg-temp
+/.vite-ssg-temp
