@@ -6,27 +6,27 @@ import Frame from "@/components/Frame.vue";
 <template>
     <main>
         <Page>
-            <Frame type="fit" mask="frame_2/frame_mask.svg" outline="frame_2/frame_outline.svg">
-                <img class="f-s-snow__text" src="@assets/frame_2/frame_text.svg">
+            <Frame type="fit" mask="ch-1_frame_2" outline="ch-1_frame_2">
+                <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
                 <div class="f-s-snow__snow-wrapper">
-                    <img class="f-s-snow__snow" src="@assets/frame_2/frame_snow.png" alt="">
+                    <img class="f-s-snow__snow" src="@assets/ch-1_frame_2/frame_snow.png" alt="">
                 </div>
-                <img class="f-s-snow__person" src="@assets/frame_2/frame_person.png" alt="">
-                <img class="frame__background" src="@assets/frame_2/frame_background.png" alt="">
+                <img class="f-s-snow__person" src="@assets/ch-1_frame_2/frame_person.png" alt="">
+                <img class="ch-1_frame__background" src="@assets/ch-1_frame_2/frame_background.png" alt="">
             </Frame>
         </Page>
 
         <Page>
             <h2>I've always found great</h2>
             <Frame size="sm">
-                <img class="frame__asset" src="@assets/frame_3/asset--trimmed.png" alt="">
+                <img class="ch-1_frame__asset" src="@assets/ch-1_frame_3/asset--trimmed.png" alt="">
             </Frame>
             <h2>comfort in the cold</h2>
         </Page>
 
         <Page type="fit">
             <div class="frame">
-                <img class="frame__asset" src="@assets/frame_4/asset--trimmed.png" alt="">
+                <img class="ch-1_frame__asset" src="@assets/ch-1_frame_4/asset--trimmed.png" alt="">
             </div>
         </Page>
 
@@ -34,37 +34,32 @@ import Frame from "@/components/Frame.vue";
         <section class="page--spread">
             <Page>
                 <div class="grid">
-                    <Frame class="cell cell--w-3" mask="frame_5a/frame-2--mask.svg"
-                        outline="frame_5a/frame-2--traced.svg">
-                        <img src="@assets/frame_5a/frame-1--asset.png" alt="" class="frame__asset">
+                    <Frame class="cell cell--w-3" mask="ch-1_frame_5a-2" outline="ch-1_frame_5a-2">
+                        <img src="@assets/ch-1_frame_5a-1/frame_asset.png" alt="" class="ch-1_frame__asset">
+
                     </Frame>
 
-                    <Frame class="cell cell--w-3" type="filled" mask="frame_5a/frame-2--mask.svg"
-                        outline="frame_5a/frame-2--traced.svg">
+                    <Frame class="cell cell--w-3" type="filled" mask="ch-1_frame_5a-2" outline="ch-1_frame_5a-2">
                         <p class="frame__text">The cold feels safe. It's melancholic and calm.</p>
                     </Frame>
 
-                    <Frame class="cell cell--w-4" type="filled" mask="frame_5a/frame-3--mask.svg"
-                        outline="frame_5a/frame-3--traced.svg">
+                    <Frame class="cell cell--w-4" type="filled" mask="ch-1_frame_5a-3" outline="ch-1_frame_5a-3">
                         <p class="frame__text">The snow crunches shoftly. Under your boots, besides that it's quiet.
                             Sounds
                             are
                             muffled under the blanket of snow, a frozen whisper in the stillness.</p>
                     </Frame>
 
-                    <Frame class="cell cell--w-2" mask="frame_5a/frame-4--mask.svg"
-                        outline="frame_5a/frame-4--traced.svg">
-                        <img src="@assets/frame_5a/frame-4--asset.png" alt="" class="frame__asset">
+                    <Frame class="cell cell--w-2" mask="ch-1_frame_5a-4" outline="ch-1_frame_5a-4">
+                        <img src="@assets/ch-1_frame_5a-4/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
 
-                    <Frame class="cell cell--w-3" mask="frame_5a/frame-5--mask.svg"
-                        outline="frame_5a/frame-5--traced.svg">
-                        <img src="@assets/frame_5a/frame-5--asset.png" alt="" class="frame__asset">f
+                    <Frame class="cell cell--w-3" mask="ch-1_frame_5a-5" outline="ch-1_frame_5a-5">
+                        <img src="@assets/ch-1_frame_5a-5/frame_asset.png" alt="" class="ch-1_frame__asset">f
                     </Frame>
 
-                    <Frame class="cell cell--w-3" mask="frame_5a/frame-6--mask.svg"
-                        outline="frame_5a/frame-6--traced.svg">
-                        <img src="@assets/frame_5a/frame-6--asset.png" alt="" class="frame__asset">
+                    <Frame class="cell cell--w-3" mask="ch-1_frame_5a-6" outline="ch-1_frame_5a-6">
+                        <img src="@assets/ch-1_frame_5a-6/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
 
 
@@ -73,26 +68,24 @@ import Frame from "@/components/Frame.vue";
 
             <Page>
                 <div class="grid">
-                    <Frame class="cell--w-6" mask='frame_5b/frame-1--mask.svg' outline="frame_5b/frame-1--frame.svg">
-                        <img src="@assets/frame_5b/frame-1--asset.png" alt="" class="frame__asset">
+                    <Frame class="cell--w-6" mask='ch-1_frame_5b-1' outline="ch-1_frame_5b-1">
+                        <img src="@assets/ch-1_frame_5b-1/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
-                    <Frame class=" cell--w-3 " mask='frame_5b/frame-2--mask.svg' outline="frame_5b/frame-2--frame.svg">
-                        <img src="@assets/frame_5b/frame-2--asset.png" alt="" class="frame__asset">
+                    <Frame class=" cell--w-3 " mask='ch-1_frame_5b-2' outline="ch-1_frame_5b-2">
+                        <img src="@assets/ch-1_frame_5b-2/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
-                    <Frame class=" cell--w-3 f-bird-away " mask='frame_5b/frame-3--mask.svg'
-                        outline="frame_5b/frame-3--frame.svg">
-                        <img src="@assets/frame_5b/frame-3--asset.png" alt="" class="frame__asset">
+                    <Frame class=" cell--w-3 f-bird-away " mask='ch-1_frame_5b-3' outline="ch-1_frame_5b-3">
+                        <img src="@assets/ch-1_frame_5b-3/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
 
-                    <Frame class="cell cell--w-4 " mask='frame_5b/frame-4--mask.svg' type="filled"
-                        outline="frame_5b/frame-4--frame.svg">
+                    <Frame class="cell cell--w-4 " mask='ch-1_frame_5b-4' type="filled" outline="ch-1_frame_5b-4">
                         <p class="frame__text">it gives me a glass like clarity that I only experience when the air is
                             crisp. The hush of a snow covered landscape creates a comforting sense of tranquility and
                             isolation</p>
                     </Frame>
 
-                    <Frame class=" cell--w-2 " mask='frame_5b/frame-5--mask.svg' outline="frame_5b/frame-5--frame.svg">
-                        <img src="@assets/frame_5b/frame-5--asset.png" alt="" class="frame__asset">
+                    <Frame class=" cell--w-2 " mask='ch-1_frame_5b-5' outline="ch-1_frame_5b-5">
+                        <img src="@assets/ch-1_frame_5b-5/frame_asset.png" alt="" class="ch-1_frame__asset">
                     </Frame>
 
                 </div>

@@ -1,7 +1,7 @@
 .f-bird-away {
   @extend .overlay;
   &:before {
-    background-image: url("../public/assets/frame_5b/frame-3--asset-step2.png");
+    // background-image: url("../public/assets/frame_5b/frame-3--asset-step2.png");
     background-size: cover;
     opacity: 0;
     transition: 0.2s linear;

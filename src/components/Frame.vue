@@ -1,21 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
+const outlineImg = ref()
+const maskImg = ref()
 const props = defineProps({
   size: { type: String, required: false },
   type: { type: String, require: false },
   mask: { type: String, require: false },
-  outline: { type: String, require: false },
+  outline: { type: String, require: false }
 })
 
-const outlineSrc = computed(() => {
-  const path = new URL('@/assets/images/', import.meta.url);
-  return `${path}/${props.outline}`
+const maskSrc = computed(() => {
+  return props.mask ? import(`@assets/${props.mask}/frame_mask.svg`).then(image => {
+    maskImg.value = `url('${image.default}')`;
+  }) : false
 });
 
-const maskSrc = computed(() => {
-  const path = new URL('@/assets/images/', import.meta.url);
-  return `url('${path}/${props.mask}')`;
+const outlineSrc = computed(() => {
+  return props.outline ? import(`@assets/${props.outline}/frame_outline.svg`).then(imageImports => {
+    outlineImg.value = imageImports.default
+  }) : false
 });
 
 const BEM = (base, modifier) => {
@@ -26,7 +30,8 @@ const BEM = (base, modifier) => {
 
 <template>
   <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
-    <img v-if="outline" class="frame__outline" :src="outlineSrc" alt="">
+    <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt="">
+    <span v-if="maskSrc"></span>
     <slot></slot>
 
   </div>
@@ -34,6 +39,6 @@ const BEM = (base, modifier) => {
 
 <style scoped>
 .frame--masked {
-  --mask-url: v-bind(maskSrc);
+  --mask-url: v-bind(maskImg);
 }
 </style>
