@@ -26,7 +26,10 @@ const routes = [
   },
 ];
 
+
 export const createApp = ViteSSG(App, {
   base: import.meta.env.BASE_URL,
   routes,
+  
+  
 });

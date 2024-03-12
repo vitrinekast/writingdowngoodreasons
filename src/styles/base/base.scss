@@ -11,6 +11,10 @@ body {
   width: max-content;
   margin: 0 auto;
   position: relative;
+
+  &--sm {
+    max-width: max(80vw, 800px);
+  }
 }
 
 img {

@@ -7,7 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AudioPlayer: typeof import('./src/components/AudioPlayer.vue')['default']
     Button: typeof import('./src/components/Button.vue')['default']
+    copy: typeof import('./src/components/Frame copy.vue')['default']
     Frame: typeof import('./src/components/Frame.vue')['default']
     Lightbox: typeof import('./src/components/Lightbox.vue')['default']
     Page: typeof import('./src/components/Page.vue')['default']

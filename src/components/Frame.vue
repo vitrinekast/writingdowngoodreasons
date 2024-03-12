@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { BEM } from '../utils';
 
 const outlineImg = ref()
 const maskImg = ref()
@@ -22,14 +23,11 @@ const outlineSrc = computed(() => {
   }) : false
 });
 
-const BEM = (base, modifier) => {
-  return modifier ? `${base}--${modifier}` : '';
-}
-
 </script>
 
 <template>
   <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
+
     <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt="">
     <span v-if="maskSrc"></span>
     <slot></slot>

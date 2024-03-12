@@ -10,6 +10,13 @@
   margin-bottom: 10svh;
   scroll-snap-align: center;
 
+  @media screen and (max-width: 800px) {
+    border: 1px solid red;
+    padding: 1rem;
+    min-height: 100svh;
+    margin-bottom: 0;
+  }
+
   .page {
     padding: 0 0;
     min-height: auto;
@@ -22,11 +29,23 @@
   .page {
     align-self: stretch;
   }
+
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
     & > .page {
       flex-basis: 50%;
+    }
+
+    @media screen and (max-width: 800px) {
+      border: 1px solid red;
+      padding: 1rem;
+      min-height: 100svh;
+      flex-direction: column;
+
+      .page {
+        flex-basis: 100%;
+      }
     }
   }
 

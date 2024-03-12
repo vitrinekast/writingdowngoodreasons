@@ -22,7 +22,10 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/vue-splide": "^0.6.12",
     "sass": "^1.71.1",
+    "swiper": "^11.0.7",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-markdown": "^0.26.0",
     "vite-plugin-pages": "^0.32.0",

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Transition, ref, watch } from 'vue';
+import { Transition, ref } from 'vue';
+import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
-import Button from './Button.vue';
 
 const lightboximage = ref();
 const showMenu = ref(false);
+const sample = ref();
 
 const showLightbox = (src) => {
 
@@ -15,12 +16,13 @@ const showLightbox = (src) => {
     }, 10)
 }
 
-
 </script>
 
 <template>
     <Lightbox :src="lightboximage" />
 
+    <AudioPlayer :sample="sample"/>
+    
     <a class="button" @click="showMenu = true">
         open prikbord
     </a>
@@ -31,17 +33,17 @@ const showLightbox = (src) => {
             <div class="grid">
                 <div class="frame cell cell--w-3 cell--h-2 menu__frame">
                     <img class="frame__asset fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_1.png" alt=""
-                        @click="showLightbox('/src/assets/images/chapter_2/menu/photo_1.png')">
+                       @mouseover="sample='audio__plants-move'"  @click="showLightbox('/src/assets/images/chapter_2/menu/photo_1.png')">
                 </div>
                 <div class="frame cell cell--w-3 menu__frame">
                     <img class="frame__asset fn-lightbox"
                         lightbox-src="/src/assets/images/chapter_2/menu/letter_expanded.png"
                         src="/src/assets/images/chapter_2/menu/letter.png" alt=""
-                        @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
+                        @mouseover="sample='audio__page-flip'" @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
                 </div>
                 <div class="frame cell cell--w-3 menu__frame">
                     <img class="frame__asset fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_2.png" alt=""
-                        @click="showLightbox('/src/assets/images/chapter_2/menu/photo_2.png')">
+                    @mouseover="sample='audio__car-start'" @click="showLightbox('/src/assets/images/chapter_2/menu/photo_2.png')">
                 </div>
             </div>
         </nav>

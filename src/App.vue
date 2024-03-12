@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
@@ -10,7 +11,6 @@
       <router-link to="/">start</router-link>
     </nav>
   </header>
-
   <router-view></router-view>
 
 </template>

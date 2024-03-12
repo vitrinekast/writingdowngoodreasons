@@ -22,9 +22,10 @@
   
   &--masked {
     mask-image: var(--mask-url);
+    mask-size: 100% 100%;
   }
 
-  img {
+  img:not(.frame__outline) {
     object-fit: contain;
   }
 
@@ -77,6 +78,7 @@
     position: absolute;
     color: $color--text;
     // opacity: 0;
+    object-fit: auto;
     transition: $transition--base;
     transition-delay: 2s;
     pointer-events: none;

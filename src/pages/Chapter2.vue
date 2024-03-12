@@ -10,7 +10,7 @@ import Prikbord from "@/components/Prikbord.vue";
     
     <Prikbord></Prikbord>
 
-    
+<!--     
     <Page msg="page--fullwidth">
         <div class="frame frame--scroller fn-reveal-container">
             <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset.png" alt="">
@@ -25,7 +25,7 @@ import Prikbord from "@/components/Prikbord.vue";
             <img class="frame__element frame__element--feet " reveal-position="50%"
                 src="/src/assets/images/chapter_2/frame_1/element--feet.png" alt="">
         </div>
-    </section>
+    </section> -->
 </template>
 
 <style scoped></style>
