@@ -14,6 +14,7 @@ declare module 'vue' {
     Lightbox: typeof import('./src/components/Lightbox.vue')['default']
     Page: typeof import('./src/components/Page.vue')['default']
     Prikbord: typeof import('./src/components/Prikbord.vue')['default']
+    Revealable: typeof import('./src/components/Revealable.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

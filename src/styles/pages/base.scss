@@ -11,7 +11,6 @@
   scroll-snap-align: center;
 
   @media screen and (max-width: 800px) {
-    border: 1px solid red;
     padding: 1rem;
     min-height: 100svh;
     margin-bottom: 0;
@@ -38,7 +37,6 @@
     }
 
     @media screen and (max-width: 800px) {
-      border: 1px solid red;
       padding: 1rem;
       min-height: 100svh;
       flex-direction: column;
