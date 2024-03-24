@@ -1,32 +1,49 @@
 .page {
-  // border: 2px solid lightgrey;
   color: $color--text;
   overflow: hidden;
-  min-height: 80svh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: $page--padding;
-  margin-bottom: 10svh;
-  scroll-snap-align: center;
+  max-width: calc(100svw - #{$page--padding * 2});
+  height: 100%;
+  
+  @media screen and (max-width: 800px) {
+    padding: $page--padding 0;
+    max-width: calc(100svw - #{$page--padding});
+  }
 
   .page {
     padding: 0 0;
     min-height: auto;
     margin-bottom: unset;
     max-height: auto;
-    scroll-snap-align: unset;
   }
 
   .grid,
   .page {
     align-self: stretch;
   }
+
+  &--sm {
+    @extend .page;
+  }
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
     & > .page {
       flex-basis: 50%;
+    }
+
+    @media screen and (max-width: 800px) {
+      padding: 1rem;
+      min-height: 100svh;
+      flex-direction: column;
+      gap: 0;
+
+      .page {
+        flex-basis: 100%;
+      }
     }
   }
 

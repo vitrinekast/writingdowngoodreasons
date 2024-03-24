@@ -1,21 +1,17 @@
 $offset: 2rem;
 
 .menu {
-
-  &--wrapper {
-    
-    color: blue;
+  &--prikbord {
     position: fixed;
     top: $offset * 1.5;
     left: $offset * 1.5;
     right: $offset * 1.5;
     bottom: $offset * 1.5;
     z-index: 2;
-    background-image: url("../public/assets/chapter_2/menu/background.png");
+    background-image: url("@/assets/images/chapter_2/menu/background.png");
     background-size: cover;
     padding: $offset;
     display: flex;
-    border: 2px solid green;
 
     &:before {
       content: "";
@@ -26,18 +22,26 @@ $offset: 2rem;
       right: $offset;
       bottom: $offset;
       z-index: 2;
-      background-image: url("../public/assets/chapter_2/menu/background_border.png");
+      background-image: url("@/assets/images/chapter_2/menu/background_border.png");
       background-size: cover;
       background-size: contain;
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      
     }
   }
 
+
+  &__close {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 190;
+  }
+ 
   &__frame {
     padding: 50px;
     transition: 0.4s cubic-bezier(0.2, 0, 0, 1);
+    cursor: pointer;
 
     &:nth-child(1) {
       transform: translate3d(8px, -4px, 0) rotate(-5deg) scale(1);
@@ -53,7 +57,6 @@ $offset: 2rem;
     &:nth-child(3) {
       max-width: 500px;
       transform: translate3d(-30px, -50px, 0) rotate(-15deg) scale(1);
-      box-shadow: 10px 10px 10px 10px yellow;
 
       &:hover {
         transform: translate3d(-30px, -50px, 0) rotate(-12deg) scale(1.03);
@@ -61,5 +64,3 @@ $offset: 2rem;
     }
   }
 }
-
-

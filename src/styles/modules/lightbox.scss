@@ -5,20 +5,15 @@
   height: 100%;
   z-index: 5;
   display: flex;
+  flex-direction: column;
+  gap: 0;
   justify-content: center;
   align-items: center;
   display: flex;
-  opacity: 0;
-  transition: all 0.3s linear;
-  transform: translate3d(0, -100%, 0);
   backdrop-filter: blur(3px);
+
   &__img {
     max-width: 80svw;
     max-height: 80svh;
-  }
-
-  body[lightbox="open"] & {
-    opacity: 1;
-    transform: translate3d(0, 0%, 0);
   }
 }

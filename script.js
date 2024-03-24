@@ -73,8 +73,6 @@ var scrollController = (function () {
         return (window.innerHeight - rect.top) / ((window.innerHeight + rect.height) / 1);
     }
 
-
-
     var onScroll = function () {
         console.log("did a scroll");
 

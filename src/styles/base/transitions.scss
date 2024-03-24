@@ -1,0 +1,21 @@
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.down-enter-active,
+.down-leave-active {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.down-enter-from,
+.down-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
