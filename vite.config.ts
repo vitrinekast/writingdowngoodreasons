@@ -1,16 +1,20 @@
+import Vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from "node:url";
-import path from "path";
-import Pages from 'vite-plugin-pages'
-import Markdown from 'unplugin-vue-markdown/vite'
-import Components from 'unplugin-vue-components/vite'
-import Vue from '@vitejs/plugin-vue'
+import Components from 'unplugin-vue-components/vite';
+import Markdown from 'unplugin-vue-markdown/vite';
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import Pages from 'vite-plugin-pages';
 
 export default defineConfig({
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
+    }),
+    ViteImageOptimizer({
+      png: {
+        quality: 10,
+      },
     }),
     Pages({
       extensions: ['vue', 'md'],
