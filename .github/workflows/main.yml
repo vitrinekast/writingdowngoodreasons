@@ -23,4 +23,4 @@ jobs:
         username: vitrinekast.xyz
         local-dir: "./dist/"
         server-dir: "./comic/"
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.PASSWORD }}
