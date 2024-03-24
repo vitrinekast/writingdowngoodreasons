@@ -10,14 +10,16 @@
   position: relative;
   text-align: left;
 
+  overflow: hidden;
+
   &--sm {
     max-height: 30vh;
   }
   
   &--fit {
-    aspect-ratio: 2 / 3;
-    /* min-height: calc(100svh - #{$page--padding * 2}); */
+    // aspect-ratio: 2 / 3;
     min-height: 80vh;
+    max-width: calc(100vw - #{$page--padding});
   }
   
   &--masked {
@@ -34,13 +36,13 @@
     max-height: none;
   }
 
-  &--fit {
-    aspect-ratio: 2 / 3;
-    min-height: calc(100svh - #{$page--padding * 2});
-  }
-
   &__element {
     position: absolute;
+  }
+  &__asset {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   &--filled {

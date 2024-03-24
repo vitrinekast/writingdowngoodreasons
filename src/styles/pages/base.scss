@@ -1,13 +1,10 @@
 .page {
-  // border: 2px solid lightgrey;
   color: $color--text;
   overflow: hidden;
-  // min-height: 80svh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: $page--padding;
-  // margin-bottom: 10svh;
 
   @media screen and (max-width: 800px) {
     padding: 1rem;

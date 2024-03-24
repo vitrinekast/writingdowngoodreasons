@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch src/styles/_style.scss:public/styles.css",
-    "start": "vite",
+    "start": "vite --host",
     "build": "clear && vite-ssg build"
   },
   "repository": {
