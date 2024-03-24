@@ -1,23 +1,20 @@
 <script setup>
 import { register } from 'swiper/element/bundle';
+import { Keyboard, Mousewheel, EffectCreative } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/vue';
-import { Keyboard, Scrollbar, Mousewheel, FreeMode } from 'swiper/modules';
-
+import { isMobile } from '../utils';
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "./Chapter1/Page3A.vue";
 import Page3B from "./Chapter1/Page3B.vue";
 
 import 'swiper/css';
-import 'swiper/element/css/pagination';
 import 'swiper/element/css/mousewheel';
-import 'swiper/element/css/free-mode';
+import 'swiper/element/css/pagination';
+import 'swiper/css/effect-creative';
 
-const modules = [Keyboard, Scrollbar, Mousewheel, FreeMode];
+const modules = [Keyboard, Mousewheel, EffectCreative];
 
-const isMobile = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-}
 
 register();
 
@@ -27,8 +24,18 @@ register();
 
     <main>
 
-        <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
-            :mousewheel="true" :pagination="true" :navigation="false" :modules="modules">
+        <swiper-container :speed="300" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
+            :mousewheel="true" :pagination="true" :navigation="false" :effect="'creative'" :modules="modules"
+            :creativeEffect="{
+            prev: {
+                shadow: true,
+                translate: [0, 0, -400],
+                opacity: 0
+            },
+            next: {
+                translate: [0, '100%', 0],
+            },
+        }">
 
             <swiper-slide>
                 <Page>
@@ -95,6 +102,7 @@ swiper-slide,
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e8e3d178;
 
 }
 </style>

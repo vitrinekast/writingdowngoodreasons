@@ -5,11 +5,12 @@
   justify-content: center;
   align-items: center;
   padding: $page--padding;
-
+  max-width: calc(100svw - #{$page--padding * 2});
+  height: 100%;
+  
   @media screen and (max-width: 800px) {
-    padding: 1rem;
-    min-height: 100svh;
-    margin-bottom: 0;
+    padding: $page--padding 0;
+    max-width: calc(100svw - #{$page--padding});
   }
 
   .page {
@@ -24,6 +25,9 @@
     align-self: stretch;
   }
 
+  &--sm {
+    @extend .page;
+  }
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
@@ -35,6 +39,7 @@
       padding: 1rem;
       min-height: 100svh;
       flex-direction: column;
+      gap: 0;
 
       .page {
         flex-basis: 100%;

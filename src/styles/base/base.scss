@@ -11,7 +11,11 @@ body {
   width: max-content;
   margin: 0 auto;
   position: relative;
-
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   &--sm {
     max-width: max(80vw, 800px);
   }

@@ -14,12 +14,20 @@
 
   &--sm {
     max-height: 30vh;
+    margin: 1rem auto;
   }
   
+  
+  
   &--fit {
-    // aspect-ratio: 2 / 3;
-    min-height: 80vh;
+    // min-height: 80vh;
     max-width: calc(100vw - #{$page--padding});
+
+    @media screen and (min-width: 800px) {
+      aspect-ratio: 2/3;
+    }
+
+    
   }
   
   &--masked {
@@ -28,7 +36,7 @@
   }
 
   img:not(.frame__outline) {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &--scroller {
@@ -41,7 +49,7 @@
   }
   &__asset {
     width: 100%;
-    height: 100%;
+    // height: 100%;
     object-fit: contain;
   }
 
@@ -52,6 +60,11 @@
 
     .frame__text {
       align-self: center;
+    }
+
+    @media screen and (max-width: 800px) {
+      padding: $gutter--sm;
+      font-size: 12px;
     }
   }
 
