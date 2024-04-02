@@ -5,7 +5,8 @@ import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "@/components/frames/Chapter1/Page3A.vue";
 import Page3B from "@/components/frames/Chapter1/Page3B.vue";
-import { isMobile } from '@tenrok/vue-device-detect'
+import pkg from '@tenrok/vue-device-detect';
+const { isMobile } = pkg;
 
 register();
 

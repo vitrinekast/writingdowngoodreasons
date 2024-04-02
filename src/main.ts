@@ -36,7 +36,6 @@ export const createApp = ViteSSG(
   App,
   { routes },
   ({ app, router, initialState }) => {
-    console.log(app);
     app.use(VueDeviceDetect)
   },
 )
