@@ -29,8 +29,8 @@ function getRef(swiperInstance) {
 
     <main>
 
-        <swiper-container :speed="300" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
-            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'slide'"
+        <swiper-container :speed="3000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
+            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'creative'"
             :freeMode="isMobile ? false : true" :modules="modules" :breakpoints="{
             768: {
                 freeMode: true,
@@ -107,6 +107,6 @@ swiper-slide,
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e8e3d178;
+    background-color: #e8e3d1;
 }
 </style>

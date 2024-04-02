@@ -15,12 +15,12 @@ $offset: 2rem;
 
     &:before {
       content: "";
-      position: fixed;
+      position: absolute;
       pointer-events: none;
-      top: $offset;
-      left: $offset;
-      right: $offset;
-      bottom: $offset;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
       z-index: 2;
       background-image: url("@/assets/images/chapter_2/menu/background_border.png");
       background-size: cover;

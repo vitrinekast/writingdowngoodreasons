@@ -42,6 +42,7 @@ const onScroll = (e) => {
 </script>
 
 <template>
+    <main>
 
     <Prikbord></Prikbord>
 
@@ -54,6 +55,7 @@ const onScroll = (e) => {
                 src="/src/assets/images/chapter_2/frame_1/element--feet.png" alt="">
         </div>
     </Page>
+    </main>
 </template>
 
 <style scoped>
