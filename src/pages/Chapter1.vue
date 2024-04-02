@@ -5,20 +5,18 @@ import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "@/components/frames/Chapter1/Page3A.vue";
 import Page3B from "@/components/frames/Chapter1/Page3B.vue";
-import pkg from '@tenrok/vue-device-detect';
-const { isMobile } = pkg;
-
-register();
-
+import { useMediaQuery } from '@vueuse/core'
 import 'swiper/css';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import 'swiper/css/effect-creative';
-import { onMounted, ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 
 
+register();
+
+const isMobile = useMediaQuery('(max-width: 900px)')
 const modules = [Keyboard, Mousewheel, EffectCreative];
-
 const swiper = ref(null);
 
 function getRef(swiperInstance) {
@@ -47,8 +45,6 @@ function getRef(swiperInstance) {
                 translate: [0, '100%', 0],
             },
         }">
-
-
             <swiper-slide>
 
                 <Page>
@@ -112,6 +108,5 @@ swiper-slide,
     justify-content: center;
     align-items: center;
     background-color: #e8e3d178;
-
 }
 </style>

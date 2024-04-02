@@ -1,7 +1,5 @@
-import "./styles/_style.scss";
-import Vue from "vue";
 import { ViteSSG } from "vite-ssg";
-import VueDeviceDetect from '@tenrok/vue-device-detect'
+import "./styles/_style.scss";
 
 import App from "./App.vue";
 
@@ -34,8 +32,5 @@ const routes = [
 
 export const createApp = ViteSSG(
   App,
-  { routes },
-  ({ app, router, initialState }) => {
-    app.use(VueDeviceDetect)
-  },
+  { routes }
 )
