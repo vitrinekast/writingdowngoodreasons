@@ -26,11 +26,6 @@ function getRef(swiperInstance) {
     console.log("a")
 }
 
-watchEffect(() => {
-    console.log("watcheffect", isMobile())
-    console.log("swiper:", swiper.value, document.querySelector("swiper-container"));
-})
-
 </script>
 
 <template>
