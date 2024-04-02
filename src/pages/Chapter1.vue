@@ -1,7 +1,6 @@
 <script setup>
 import { register } from 'swiper/element/bundle';
 import { Keyboard, Mousewheel, EffectCreative } from 'swiper/modules';
-import { SwiperSlide } from 'swiper/vue';
 import { isMobile } from '../utils';
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
