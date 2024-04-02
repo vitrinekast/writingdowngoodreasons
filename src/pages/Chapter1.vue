@@ -5,18 +5,31 @@ import { SwiperSlide } from 'swiper/vue';
 import { isMobile } from '../utils';
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
-import Page3A from "./Chapter1/Page3A.vue";
-import Page3B from "./Chapter1/Page3B.vue";
+import Page3A from "@/components/frames/Chapter1/Page3A.vue";
+import Page3B from "@/components/frames/Chapter1/Page3B.vue";
+
+register();
 
 import 'swiper/css';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import 'swiper/css/effect-creative';
+import { onMounted, ref, watchEffect } from 'vue';
+
 
 const modules = [Keyboard, Mousewheel, EffectCreative];
 
+const swiper = ref(null);
 
-register();
+function getRef(swiperInstance) {
+    swiper.value = swiperInstance
+    console.log("a")
+}
+
+watchEffect(() => {
+    console.log("watcheffect", isMobile())
+    console.log("swiper:", swiper.value, document.querySelector("swiper-container"));
+})
 
 </script>
 
@@ -25,11 +38,15 @@ register();
     <main>
 
         <swiper-container :speed="300" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
-            :mousewheel="true" :pagination="true" :navigation="false" :effect="'creative'" :modules="modules"
-            :creativeEffect="{
+            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile() ? 'creative' : 'slide'"
+            :freeMode="isMobile() ? false : true" :modules="modules" :breakpoints="{
+            768: {
+                freeMode: true,
+            },
+        }" :creativeEffect="{
             prev: {
                 shadow: true,
-                translate: [0, 0, -400],
+                translate: [0, 0, -40],
                 opacity: 0
             },
             next: {
@@ -65,7 +82,7 @@ register();
                     </div>
                 </Page>
             </swiper-slide>
-
+            
             <swiper-slide v-if="!isMobile()">
                 <section class="page--spread">
                     <Page3A />

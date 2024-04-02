@@ -10,6 +10,11 @@ export default defineConfig({
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('swiper-')
+        }
+      }
     }),
     ViteImageOptimizer({
       png: {
