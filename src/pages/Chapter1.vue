@@ -1,11 +1,11 @@
 <script setup>
 import { register } from 'swiper/element/bundle';
 import { Keyboard, Mousewheel, EffectCreative } from 'swiper/modules';
-import { isMobile } from '../utils';
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "@/components/frames/Chapter1/Page3A.vue";
 import Page3B from "@/components/frames/Chapter1/Page3B.vue";
+import { isMobile } from '@tenrok/vue-device-detect'
 
 register();
 
@@ -22,7 +22,6 @@ const swiper = ref(null);
 
 function getRef(swiperInstance) {
     swiper.value = swiperInstance
-    console.log("a")
 }
 
 </script>
@@ -32,8 +31,8 @@ function getRef(swiperInstance) {
     <main>
 
         <swiper-container :speed="300" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
-            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile() ? 'creative' : 'slide'"
-            :freeMode="isMobile() ? false : true" :modules="modules" :breakpoints="{
+            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'slide'"
+            :freeMode="isMobile ? false : true" :modules="modules" :breakpoints="{
             768: {
                 freeMode: true,
             },
@@ -48,7 +47,9 @@ function getRef(swiperInstance) {
             },
         }">
 
+
             <swiper-slide>
+
                 <Page>
                     <Frame type="fit" mask="ch-1_frame_2" outline="ch-1_frame_2">
                         <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
@@ -76,26 +77,22 @@ function getRef(swiperInstance) {
                     </div>
                 </Page>
             </swiper-slide>
-            
-            <swiper-slide v-if="!isMobile()">
+
+            <swiper-slide v-if="!isMobile">
                 <section class="page--spread">
                     <Page3A />
                     <Page3B />
                 </section>
             </swiper-slide>
 
-            <swiper-slide v-if="isMobile()">
+            <swiper-slide v-if="isMobile">
                 <Page3A />
             </swiper-slide>
-            <swiper-slide v-if="isMobile()">
+            <swiper-slide v-if="isMobile">
                 <Page3B />
             </swiper-slide>
 
         </swiper-container>
-
-
-
-
 
     </main>
 </template>
