@@ -30,3 +30,15 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.fade-asset-enter-active,
+.fade-asset-leave-active {
+  transition: opacity 1s ease-out;
+  will-change: opacity;
+  opacity: 1;
+}
+
+.fade-asset-enter-from,
+.fade-asset-leave-to {
+  opacity: 0;
+}

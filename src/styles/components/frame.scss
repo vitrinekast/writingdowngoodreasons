@@ -29,28 +29,45 @@
 
     
   }
+
+
+  img:not(.frame__outline) {
+    object-fit: contain;
+  }
+
   
   &--masked {
     mask-image: var(--mask-url);
     mask-size: 100% 100%;
-  }
 
-  img:not(.frame__outline) {
-    object-fit: cover;
+    img:not(.frame__outline) {
+      object-fit: cover;
+    }
   }
 
   &--scroller {
     mask-image: none;
     max-height: none;
   }
+  &--hoverable {
+    cursor: pointer;
+  }
 
   &__element {
     position: absolute;
   }
-  &__asset {
+  &__asset, &__asset--hover {
     width: 100%;
     // height: 100%;
     object-fit: contain;
+  }
+
+  &__asset--hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height :100%;
+    width: 100%;
   }
 
   &--filled {
@@ -93,6 +110,7 @@
     position: absolute;
     color: $color--text;
     // opacity: 0;
+    z-index: 1;
     object-fit: auto;
     transition: $transition--base;
     transition-delay: 2s;

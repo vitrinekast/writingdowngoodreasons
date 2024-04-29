@@ -28,6 +28,7 @@
     "@tenrok/vue-device-detect": "^1.0.0",
     "@vueuse/core": "^10.9.0",
     "sass": "^1.71.1",
+    "scratchcard-js": "^1.5.5",
     "swiper": "^11.0.7",
     "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-markdown": "^0.26.0",

@@ -1,6 +1,10 @@
 <script setup>
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
+import { Transition, ref } from "vue";
+
+const showBirdAway = ref(false);
+
 </script>
 
 <template>
@@ -12,8 +16,12 @@ import Page from "@/components/Page.vue";
             <Frame class=" cell--w-3 " mask='ch-1_frame_5b-2' outline="ch-1_frame_5b-2">
                 <img src="@assets/ch-1_frame_5b-2/frame_asset.png" alt="" class="frame__asset">
             </Frame>
-            <Frame class=" cell--w-3 f-bird-away " mask='ch-1_frame_5b-3' outline="ch-1_frame_5b-3">
+            <Frame class=" cell--w-3" mask='ch-1_frame_5b-3' outline="ch-1_frame_5b-3" @mouseover="s    howBirdAway = true" @mouseleave="showBirdAway = false" type="hoverable">
                 <img src="@assets/ch-1_frame_5b-3/frame_asset.png" alt="" class="frame__asset">
+                
+                <Transition name="fade-asset">
+                    <img src="@assets/ch-1_frame_5b-3/frame-3--asset-step2.png" alt="" v-if="showBirdAway" class="frame__asset--hover">
+                </Transition>
             </Frame>
 
             <Frame class="cell cell--w-4 " mask='ch-1_frame_5b-4' type="filled" outline="ch-1_frame_5b-4">
