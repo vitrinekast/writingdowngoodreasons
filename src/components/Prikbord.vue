@@ -4,16 +4,20 @@ import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
 
 const lightboximage = ref();
-const showMenu = ref(false);
+const showMenu = ref(true);
+const showClose = ref(false);
 const sample = ref();
+
+setTimeout(() => {
+    console.log(showClose)
+    showClose.value = true;
+}, 3000)
 
 const showLightbox = (src) => {
 
     lightboximage.value = "";
 
-    setTimeout(function () {
-        lightboximage.value = src;
-    }, 10)
+
 }
 
 </script>
@@ -21,29 +25,39 @@ const showLightbox = (src) => {
 <template>
     <Lightbox :src="lightboximage" />
 
-    <AudioPlayer :sample="sample"/>
-    
+    <AudioPlayer :sample="sample" />
+
     <a class="button" @click="showMenu = true">
         open prikbord
     </a>
 
+
+    <Transition name="fade">
+        <div class="menu__backdrop" v-if="showMenu"></div>
+    </Transition>
+
+    <Transition name="fade">
+        <a class="button menu__close" v-if="showMenu && showClose" @click="showMenu = false">back</a>
+    </Transition>
+    
     <Transition name="down">
         <nav class="menu menu--prikbord" v-if="showMenu">
-            <a class="button menu__close" @click="showMenu = false">back</a>
             <div class="grid">
                 <div class="frame cell cell--w-3 cell--h-2 menu__frame">
                     <img class="frame__asset fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_1.png" alt=""
-                       @mouseover="sample='audio__plants-move'"  @click="showLightbox('/src/assets/images/chapter_2/menu/photo_1.png')">
+                        @mouseover="sample = 'audio__plants-move'"
+                        @click="showLightbox('/src/assets/images/chapter_2/menu/photo_1.png')">
                 </div>
                 <div class="frame cell cell--w-3 menu__frame">
                     <img class="frame__asset fn-lightbox"
                         lightbox-src="/src/assets/images/chapter_2/menu/letter_expanded.png"
-                        src="/src/assets/images/chapter_2/menu/letter.png" alt=""
-                        @mouseover="sample='audio__page-flip'" @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
+                        src="/src/assets/images/chapter_2/menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
+                        @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
                 </div>
                 <div class="frame cell cell--w-3 menu__frame">
                     <img class="frame__asset fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_2.png" alt=""
-                    @mouseover="sample='audio__car-start'" @click="showLightbox('/src/assets/images/chapter_2/menu/photo_2.png')">
+                        @mouseover="sample = 'audio__car-start'"
+                        @click="showLightbox('/src/assets/images/chapter_2/menu/photo_2.png')">
                 </div>
             </div>
         </nav>

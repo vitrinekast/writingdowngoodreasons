@@ -29,22 +29,23 @@ function getRef(swiperInstance) {
 
     <main>
 
-        <swiper-container :speed="3000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
+        <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
             :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'creative'"
             :freeMode="isMobile ? false : true" :modules="modules" :breakpoints="{
-            768: {
-                freeMode: true,
-            },
-        }" :creativeEffect="{
-            prev: {
-                shadow: true,
-                translate: [0, 0, -40],
-                opacity: 0
-            },
-            next: {
-                translate: [0, '100%', 0],
-            },
-        }">
+                768: {
+                    freeMode: true,
+                },
+            }" :creativeEffect="{
+                prev: {
+                    shadow: false,
+                    translate: [0, -100, -90],
+                    opacity: 0
+                },
+                next: {
+                    translate: [0, '100%', 0],
+                    opacity: 0
+                },
+            }">
             <swiper-slide>
 
                 <Page>
