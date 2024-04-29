@@ -36,7 +36,7 @@
   }
 
   img:not(.frame__outline) {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   &--scroller {
@@ -103,7 +103,14 @@
     width: 100%;
   }
 
-  // to be made smarter (of course)
+  
+  &__button {
+    position: absolute;
+    left: 50%;
+    bottom: 3rem;
+    transform: translate3d(-50%, 0, 0);
+  }
+
 
   &.in-view,
   & {

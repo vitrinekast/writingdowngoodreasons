@@ -7,6 +7,7 @@
   color: white;
   display: inline-flex;
   cursor: pointer;
+  text-decoration:none;
 
   &:before {
     content: "";
@@ -29,6 +30,6 @@
     filter: brightness(80%);
     transform: scale(1.02) rotate3d(1, 1, 1, 4deg);
   }
-  &--rect {
-  }
+
+  &--rect {}
 }

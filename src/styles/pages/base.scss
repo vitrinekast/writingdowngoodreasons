@@ -8,7 +8,7 @@
   max-width: calc(100svw - #{$page--padding * 2});
   height: 100%;
   margin: 0 auto;
-  
+
   @media screen and (max-width: 800px) {
     padding: $page--padding 0;
     max-width: calc(100svw - #{$page--padding});
@@ -29,10 +29,12 @@
   &--sm {
     @extend .page;
   }
+
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
-    & > .page {
+
+    &>.page {
       flex-basis: 50%;
     }
 
@@ -46,6 +48,14 @@
         flex-basis: 100%;
       }
     }
+  }
+
+  &--fixed {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+
   }
 
   &--fullwidth {

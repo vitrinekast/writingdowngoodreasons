@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="page">
+  <section :class="`page ${BEM('page', props.type)} `">
     <div :class="`container ${BEM('container', props.size)} `">
       <slot></slot>
     </div>
