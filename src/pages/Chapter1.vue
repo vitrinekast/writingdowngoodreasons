@@ -1,6 +1,6 @@
 <script setup>
 import { register } from 'swiper/element/bundle';
-import { Keyboard, Mousewheel, EffectCreative } from 'swiper/modules';
+import { Keyboard, Mousewheel, EffectCreative, Navigation } from 'swiper/modules';
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "@/components/frames/Chapter1/Page3A.vue";
@@ -10,18 +10,54 @@ import 'swiper/css';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import 'swiper/css/effect-creative';
-import { ref } from 'vue';
-
+import { onMounted, ref } from 'vue';
 
 register();
 
-const isMobile = useMediaQuery('(max-width: 900px)')
-const modules = [Keyboard, Mousewheel, EffectCreative];
-const swiper = ref(null);
+const isMobile = useMediaQuery('(max-width: 900px)');
+const modules = [Keyboard, Mousewheel, EffectCreative, Navigation];
+const swiperContainer = ref(null);
 
-function getRef(swiperInstance) {
-    swiper.value = swiperInstance
-}
+// swiper parameters
+const swiperParams = {
+    slidesPerView: "auto",
+    speed: 3000,
+    keyboard: true,
+    direction: 'vertical',
+    mousewheel: true,
+    freeMode: "isMobile ? false : true",
+    pagination: true,
+    navigation: false,
+    effect: 'creative',
+    grabCursor: true,
+    modules: modules,
+    breakpoints: {
+        768: {
+            freeMode: true,
+        },
+    },
+    historyKey: "slide",
+    creativeEffect: {
+        prev: {
+            shadow: false,
+            translate: [0, -10, -90],
+            opacity: 0
+        },
+        next: {
+            translate: [0, '100%', 0],
+            opacity: 0
+        },
+    },
+    grabCursor: true,
+};
+
+onMounted(() => {
+    Object.assign(swiperContainer.value, swiperParams);
+    console.log("nu dan?");
+
+    swiperContainer.value.initialize();
+});
+
 
 </script>
 
@@ -29,25 +65,8 @@ function getRef(swiperInstance) {
 
     <main>
 
-        <swiper-container :speed="3000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
-            :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'creative'"
-            :freeMode="isMobile ? false : true" :modules="modules" :breakpoints="{
-                768: {
-                    freeMode: true,
-                },
-            }" :creativeEffect="{
-                prev: {
-                    shadow: false,
-                    translate: [0, -10, -90],
-                    opacity: 0
-                },
-                next: {
-                    translate: [0, '100%', 0],
-                    opacity: 0
-                },
-            }">
+        <swiper-container ref="swiperContainer" init="false">
             <swiper-slide>
-
                 <Page>
                     <Frame type="fit" mask="ch-1_frame_2" outline="ch-1_frame_2">
                         <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
@@ -72,7 +91,7 @@ function getRef(swiperInstance) {
                 <Page type="fit-fill">
                     <div class="frame">
                         <img class="frame__asset" src="@assets/ch-1_frame_4/asset.png" alt="">
-                        <!-- <img class="frame__video" src="@assets/ch-1_frame_4/animation--water.gif" alt=""> -->
+
                         <video class="frame__video" autoplay playsinline loop>
                             <source src="@assets/ch-1_frame_4/animation--water.mov">
                         </video>
@@ -88,12 +107,21 @@ function getRef(swiperInstance) {
             </swiper-slide>
 
             <swiper-slide v-if="isMobile">
-                <Page3A />
-            </swiper-slide>
-            <swiper-slide v-if="isMobile">
-                <Page3B />
-            </swiper-slide>
+                <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true" :direction="'horizontal'"
+                    :mousewheel="true" :pagination="true" :navigation="false" :freeMode="isMobile ? false : true"
+                    :modules="modules">
+                    <swiper-slide lazy="true">
+                        <Page3A />
+                    </swiper-slide>
+                    <swiper-slide lazy="true">
+                        <Page3B />
+                    </swiper-slide>
 
+                    <swiper-slide lazy="true">
+                        <router-link class="button" to="/chapter-2">Next</router-link>
+                    </swiper-slide>
+                </swiper-container>
+            </swiper-slide>
         </swiper-container>
 
     </main>
@@ -106,6 +134,7 @@ swiper-container,
     overflow: hidden;
 }
 
+
 swiper-slide,
 .swiper-slide {
     height: 100svh;
@@ -113,5 +142,19 @@ swiper-slide,
     justify-content: center;
     align-items: center;
     background-color: #e8e3d1;
+}
+
+.mini {
+    height: 100px;
+}
+
+swiper-container::part(bullet-active) {
+    background: url("@/assets/icons/icon__pagination-active.png");
+    background-size: contain;
+}
+
+swiper-container::part(bullet) {
+    background: url("@/assets/icons/icon__pagination.png");
+    background-size: contain;
 }
 </style>
