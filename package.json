@@ -27,6 +27,7 @@
     "@splidejs/vue-splide": "^0.6.12",
     "@tenrok/vue-device-detect": "^1.0.0",
     "@vueuse/core": "^10.9.0",
+    
     "sass": "^1.71.1",
     "scratchcard-js": "^1.5.5",
     "swiper": "^11.0.7",

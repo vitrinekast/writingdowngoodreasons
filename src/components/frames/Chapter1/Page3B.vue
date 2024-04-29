@@ -13,10 +13,10 @@ const showBirdAway = ref(false);
             <Frame class="cell--w-6" mask='ch-1_frame_5b-1' outline="ch-1_frame_5b-1">
                 <img src="@assets/ch-1_frame_5b-1/frame_asset.png" alt="" class="frame__asset">
             </Frame>
-            <Frame class=" cell--w-3 " mask='ch-1_frame_5b-2' outline="ch-1_frame_5b-2">
+            <Frame class=" cell--w-3" mask='ch-1_frame_5b-2' outline="ch-1_frame_5b-2">
                 <img src="@assets/ch-1_frame_5b-2/frame_asset.png" alt="" class="frame__asset">
             </Frame>
-            <Frame class=" cell--w-3" mask='ch-1_frame_5b-3' outline="ch-1_frame_5b-3" @mouseover="s    howBirdAway = true" @mouseleave="showBirdAway = false" type="hoverable">
+            <Frame class="cell--w-3" mask='ch-1_frame_5b-3' outline="ch-1_frame_5b-3" @mouseover="showBirdAway = true" @mouseleave="showBirdAway = false" type="hoverable">
                 <img src="@assets/ch-1_frame_5b-3/frame_asset.png" alt="" class="frame__asset">
                 
                 <Transition name="fade-asset">
