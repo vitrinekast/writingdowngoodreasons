@@ -29,7 +29,7 @@ function getRef(swiperInstance) {
 
     <main>
 
-        <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
+        <swiper-container :speed="3000" :slidesPerView="'auto'" :keyboard="true" :direction="'vertical'"
             :mousewheel="true" :pagination="true" :navigation="false" :effect="isMobile ? 'creative' : 'creative'"
             :freeMode="isMobile ? false : true" :modules="modules" :breakpoints="{
                 768: {
@@ -38,7 +38,7 @@ function getRef(swiperInstance) {
             }" :creativeEffect="{
                 prev: {
                     shadow: false,
-                    translate: [0, -100, -90],
+                    translate: [0, -10, -90],
                     opacity: 0
                 },
                 next: {
@@ -73,7 +73,7 @@ function getRef(swiperInstance) {
                     <div class="frame">
                         <img class="frame__asset" src="@assets/ch-1_frame_4/asset.png" alt="">
                         <!-- <img class="frame__video" src="@assets/ch-1_frame_4/animation--water.gif" alt=""> -->
-                        <video class="frame__video" autoplay playsinline controls loop>
+                        <video class="frame__video" autoplay playsinline loop>
                             <source src="@assets/ch-1_frame_4/animation--water.mov">
                         </video>
                     </div>

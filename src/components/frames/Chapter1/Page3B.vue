@@ -24,12 +24,8 @@ const showBirdAway = ref(false);
                 </Transition>
             </Frame>
 
-            <Frame class="cell cell--w-4 " mask='ch-1_frame_5b-4' type="filled" outline="ch-1_frame_5b-4">
-                <p class="frame__text">it gives me a glass like clarity that I only experience when the
-                    air is
-                    crisp. The hush of a snow covered landscape creates a comforting sense of
-                    tranquility and
-                    isolation</p>
+            <Frame class="cell cell--w-4 " mask='ch-1_frame_5b-4'  outline="ch-1_frame_5b-4">
+                <img src="@assets/ch-1_frame_5b-4/frame_asset.png" alt="" class="frame__asset">
             </Frame>
 
             <Frame class=" cell--w-2 " mask='ch-1_frame_5b-5' outline="ch-1_frame_5b-5">
