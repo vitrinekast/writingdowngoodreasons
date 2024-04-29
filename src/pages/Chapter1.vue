@@ -69,9 +69,13 @@ function getRef(swiperInstance) {
                 </Page>
             </swiper-slide>
             <swiper-slide>
-                <Page type="fit">
+                <Page type="fit-fill">
                     <div class="frame">
-                        <img class="frame__asset" src="@assets/ch-1_frame_4/asset--trimmed.png" alt="">
+                        <img class="frame__asset" src="@assets/ch-1_frame_4/asset.png" alt="">
+                        <!-- <img class="frame__video" src="@assets/ch-1_frame_4/animation--water.gif" alt=""> -->
+                        <video class="frame__video" autoplay playsinline controls loop>
+                            <source src="@assets/ch-1_frame_4/animation--water.mov">
+                        </video>
                     </div>
                 </Page>
             </swiper-slide>

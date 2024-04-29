@@ -1,7 +1,7 @@
 .frame {
   margin: 0 auto;
   text-align: center;
-  
+
   mask-size: 100%;
   mask-repeat: no-repeat;
   mask-position: center center;
@@ -16,9 +16,9 @@
     max-height: 30vh;
     margin: 1rem auto;
   }
-  
-  
-  
+
+
+
   &--fit {
     // min-height: 80vh;
     max-width: calc(100vw - #{$page--padding});
@@ -27,7 +27,7 @@
       aspect-ratio: 2/3;
     }
 
-    
+
   }
 
 
@@ -35,7 +35,7 @@
     object-fit: contain;
   }
 
-  
+
   &--masked {
     mask-image: var(--mask-url);
     mask-size: 100% 100%;
@@ -49,6 +49,7 @@
     mask-image: none;
     max-height: none;
   }
+
   &--hoverable {
     cursor: pointer;
   }
@@ -56,7 +57,9 @@
   &__element {
     position: absolute;
   }
-  &__asset, &__asset--hover {
+
+  &__asset,
+  &__asset--hover {
     width: 100%;
     // height: 100%;
     object-fit: contain;
@@ -66,7 +69,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    height :100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
   }
 
@@ -121,7 +132,7 @@
     width: 100%;
   }
 
-  
+
   &__button {
     position: absolute;
     left: 50%;
@@ -132,6 +143,7 @@
 
   &.in-view,
   & {
+
     .f-s-snow__text,
     .frame__outline,
     .f-s-snow__person {
