@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Transition, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
-import Lightbox from './Lightbox.vue';
 
 const lightboximage = ref();
 const showMenu = ref(true);
@@ -9,21 +8,29 @@ const showClose = ref(false);
 const sample = ref();
 
 setTimeout(() => {
-    console.log(showClose)
     showClose.value = true;
 }, 3000)
 
 const showLightbox = (src) => {
+    lightboximage.value = src;
+}
 
-    lightboximage.value = "";
-
-
+const hideLightbox = () => {
+    lightboximage.value = false;
 }
 
 </script>
 
 <template>
-    <Lightbox :src="lightboximage" />
+
+    <Transition>
+        <div class="lightbox" v-if="lightboximage">
+            <img :src="lightboximage" class="lightbox__img fn-lightbox-img" alt="">
+            <a class="button lightbox__close" @click="hideLightbox">
+                sluit
+            </a>
+        </div>
+    </Transition>
 
     <AudioPlayer :sample="sample" />
 
@@ -39,7 +46,7 @@ const showLightbox = (src) => {
     <Transition name="fade">
         <a class="button menu__close" v-if="showMenu && showClose" @click="showMenu = false">back</a>
     </Transition>
-    
+
     <Transition name="down">
         <nav class="menu menu--prikbord" v-if="showMenu">
             <div class="grid">
@@ -51,7 +58,8 @@ const showLightbox = (src) => {
                 <div class="frame cell cell--w-3 menu__frame">
                     <img class="frame__asset fn-lightbox"
                         lightbox-src="/src/assets/images/chapter_2/menu/letter_expanded.png"
-                        src="/src/assets/images/chapter_2/menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
+                        src="/src/assets/images/chapter_2/menu/letter.png" alt=""
+                        @mouseover="sample = 'audio__page-flip'"
                         @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
                 </div>
                 <div class="frame cell cell--w-3 menu__frame">
