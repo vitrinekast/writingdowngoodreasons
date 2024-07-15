@@ -33,9 +33,11 @@
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
+    max-height: 80%;
 
     &>.page {
       flex-basis: 50%;
+      height: 100%;
     }
 
     @media screen and (max-width: 800px) {

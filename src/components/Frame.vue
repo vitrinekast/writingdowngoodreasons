@@ -12,8 +12,17 @@ const props = defineProps({
 const outlineImg = ref()
 
 const styleObject = reactive({
-
+  transform: 'rotate(0deg)',
 })
+
+const setNewPos = () => {
+  const offset1 = 5;
+  const offset2 = 2;
+  styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}%, ${Math.random() * offset1 - offset2}%) scale(1)`;
+  setTimeout(setNewPos, Math.random() * 10000 + 1000);
+
+}
+
 
 onMounted(() => {
   console.log(`the component is now mounted.`, styleObject);
@@ -30,12 +39,15 @@ onMounted(() => {
     })
   }
 
+  setTimeout(setNewPos, 1000);
+
 });
 
 </script>
 
 <template>
-  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`"  :style="styleObject">
+  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`"
+    :style="styleObject">
     <img v-if="props.outline" class="frame__outline" :src="outlineImg" alt="" />
     <slot></slot>
 
@@ -45,6 +57,10 @@ onMounted(() => {
 
 
 <style scoped>
+.frame {
+  transition: transform 7s;
+}
+
 .frame--masked {
   mask-size: 100% 100%;
 }

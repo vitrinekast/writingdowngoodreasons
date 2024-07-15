@@ -38,6 +38,7 @@
   }
 
   &__person {
+    object-fit: contain;
     z-index: 10;
   }
 }
