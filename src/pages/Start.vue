@@ -1,12 +1,13 @@
 <script setup>
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
-import { Transition, ref } from "vue";
+import { Transition, computed, ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const showIntro = ref(true);
-
+const outlineImg = ref()
+const maskImg = ref()
 
 const onClick = () => {
   showIntro.value = false;
@@ -16,44 +17,78 @@ const onClick = () => {
 
 }
 
+const maskSrc = computed(() => {
+  return import(`@assets/ch-intro/frame_mask.svg`).then(image => {
+    maskImg.value = `url('${image.default}')`;
+  })
+});
+
+const outlineSrc = computed(() => {
+  return import(`@assets/ch-intro/frame_outline.svg`).then(imageImports => {
+    console.log(imageImports.default);
+    outlineImg.value = imageImports.default
+  });
+});
+
 </script>
 
 <template>
 
-  <nav class="nav">
-    <router-link to="/chapter-1">chapter 1</router-link>
-    <router-link to="/chapter-2">chapter 2</router-link>
-    <router-link to="/test">test</router-link>
-    <router-link to="/">start</router-link>
-  </nav>
+  
   <main>
     <Transition name="intro">
       <Page type="fixed" v-if="showIntro">
-        <div class="frame">
-          <img class="frame__asset" src="@assets/ch-intro/asset--trimmed.webp" alt="">
+        <div class="intro frame frame--masked">
+          <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt="" />
+          <span v-if="maskSrc" style="display: none;"></span>
+          <img class="frame__asset frame__background" src="@assets/ch-intro/intro_bergen.webp" alt="">
 
+          <img class="frame__asset intro__text intro__text--top" src="@assets/ch-intro/intro_top.webp" alt="">
+          <img class="frame__asset intro__text intro__text--middle" src="@assets/ch-intro/intro_middle.webp" alt="">
+          <img class="frame__asset intro__text intro__text--bottom" src="@assets/ch-intro/intro_bottom.webp" alt="">
           <a class="button frame__button" @click="onClick">Begin</a>
+
         </div>
+
       </Page>
     </Transition>
   </main>
 
 </template>
 
-<style scoped>
-.nav {
-  position: fixed;
-}
+<style lang="scss">
+$transition: all 2s ease-out;
 
 
-.intro-enter-active,
-.intro-leave-active {
-  transition: all 4s ease;
-}
 
-.intro-enter-from,
-.intro-leave-to {
-  opacity: 0;
-  transform: scale(10);
+// .intro__text {
+//   overflow: hidden;
+//   width: auto;
+//   height: auto;
+//   max-height: 100%;
+//   object-fit: contain;
+
+//   &--top {
+//     padding-top: 2rem;
+//     padding-bottom: 1rem;
+//   }
+
+//   &--middle {
+//     padding-top: 1rem;
+//     padding-bottom: 1rem;
+//   }
+
+//   &--middle:hover {
+//     cursor: pointer;
+//     animation: interactive 4s linear infinite;
+//   }
+// }
+</style>
+
+<style scoped lang="scss">
+.frame--masked {
+  --mask-url: v-bind(maskImg);
+  overflow: hidden;
+  mask-size: 110%;
 }
 </style>

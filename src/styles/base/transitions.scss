@@ -1,44 +1,69 @@
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
+$chapter1-duration: 5;
 
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
 
-.down-enter-active,
-.down-leave-active {
-  transition: transform .5s ease-out;
-  will-change: transform;
-}
-
-.down-enter-from,
-.down-leave-to {
-  transform: translate3d(0, -120%, 0);
-}
-
+// Fallback fade transitions
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .5s ease-out;
-  will-change: opacity;
+  transition: opacity .2s;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.fade-enter-from .fade-leave {
   opacity: 1;
 }
 
-.fade-enter-from,
+.fade-enter,
 .fade-leave-to {
   opacity: 0;
 }
 
-.fade-asset-enter-active,
-.fade-asset-leave-active {
-  transition: opacity 1s ease-out;
-  will-change: opacity;
-  opacity: 1;
+
+// Chapter 1 page in
+.chapter-1-enter-active {
+  transition: opacity 30s;
+
+  .frame__background,
+  .frame__outline,
+  .f-s-snow__text,
+  .f-s-snow__person, 
+  .f-s-snow__snow {
+
+    transition: opacity 4s linear 3s;
+  }
+
+  .frame__background {
+    transition-delay: 5s;
+  }
+
+  .f-s-snow__text {
+    transition-delay: 12s;
+  }
+
+  .f-s-snow__person {
+    transition-delay: 8s;
+  }
 }
 
-.fade-asset-enter-from,
-.fade-asset-leave-to {
-  opacity: 0;
+
+.chapter-1-leave-active {
+  transition: opacity 10s;
+}
+
+// from intro to chapter 1: disappear the intro
+.chapter-1-leave-to .intro {
+
+  // all the zero opacities
+  .frame__button,
+  .frame__outline,
+  .intro__text--middle,
+  .intro__text--bottom,
+  .frame__background {
+    opacity: 0;
+  }
+
+  .frame__outline {
+    filter: blur(1px);
+  }
 }

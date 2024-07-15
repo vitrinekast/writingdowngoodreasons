@@ -10,14 +10,10 @@
   position: relative;
   text-align: left;
 
-  overflow: hidden;
-
   &--sm {
     max-height: 30vh;
     margin: 1rem auto;
   }
-
-
 
   &--fit {
     // min-height: 80vh;
@@ -40,9 +36,9 @@
     mask-image: var(--mask-url);
     mask-size: 100% 100%;
 
-    img:not(.frame__outline) {
-      object-fit: cover;
-    }
+    // img:not(.frame__outline) {
+    //   object-fit: cover;
+    // }
   }
 
   &--scroller {
@@ -96,15 +92,6 @@
     }
   }
 
-  &__revealable {
-    // opacity: 0;
-    transition: $transition--base;
-
-    &[shown="true"] {
-      opacity: 1;
-    }
-  }
-
   &__background {
     z-index: -1;
   }
@@ -120,39 +107,15 @@
   &__outline {
     position: absolute;
     color: $color--text;
-    // opacity: 0;
     z-index: 1;
     object-fit: auto;
-    transition: $transition--base;
-    transition-delay: 2s;
+    // transition: $transition--base;
+    transition: opacity 2s;
     pointer-events: none;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-  }
-
-
-  &__button {
-    position: absolute;
-    left: 50%;
-    bottom: 3rem;
-    transform: translate3d(-50%, 0, 0);
-  }
-
-
-  &.in-view,
-  & {
-
-    .f-s-snow__text,
-    .frame__outline,
-    .f-s-snow__person {
-      opacity: 1;
-    }
-
-    .f-s-snow__snow,
-    .f-s-snow__snow-wrapper {
-      animation-play-state: running;
-    }
+    opacity: 1;
   }
 }

@@ -1,5 +1,15 @@
 .f-s-snow {
-  
+  @at-root .chapter-1-enter-from & {
+    .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
+      opacity: 0;
+    }
+  }
+
+  @at-root .chapter-1-enter-to & {
+    .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
+      opacity: 1;
+    }
+  }
   &__text {
     position: absolute;
     top: 0;
@@ -8,11 +18,7 @@
     top: 5%;
     left: 7%;
     z-index: $z-text;
-    transition: $transition--base;
-    transition-delay: 4s;
-    opacity: 0;
     pointer-events: none;
-    
   }
 
   &__snow-wrapper {
@@ -22,22 +28,16 @@
     left: 0;
     z-index: 30;
     animation: snow_wiggle 5s linear infinite;
-    animation-play-state: paused;
     pointer-events: none;
   }
 
   &__snow {
     width: 100%;
     animation: snow 60s linear infinite;
-    animation-play-state: paused;
     pointer-events: none;
   }
 
   &__person {
-    opacity: 0;
-    transition-delay: 1s;
-    transition: $transition--base;
-    transition-delay: 3s;
     z-index: 10;
   }
 }
@@ -54,6 +54,7 @@
 }
 
 @keyframes snow_wiggle {
+
   0%,
   100% {
     transform: translate3d(-5px, 1px, 0);

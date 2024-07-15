@@ -28,8 +28,8 @@ const outlineSrc = computed(() => {
 <template>
   <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
 
-    <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt="">
-    <span v-if="maskSrc"></span>
+    <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt=""/>
+    <span v-if="maskSrc" style="display: none;"></span>
     <slot></slot>
 
   </div>
@@ -38,5 +38,7 @@ const outlineSrc = computed(() => {
 <style scoped>
 .frame--masked {
   --mask-url: v-bind(maskImg);
+  overflow: hidden;
 }
+
 </style>

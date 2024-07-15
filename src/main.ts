@@ -9,6 +9,7 @@ const routes = [
     path: "/chapter-1",
     name: "Chapter 1",
     component: () => import("./pages/Chapter1.vue"),
+    meta: { transition: 'chapter-1' },
   },
 
   {
@@ -20,6 +21,16 @@ const routes = [
     path: "",
     name: "start",
     component: () => import("./pages/Start.vue"),
+  },
+  {
+    path: "/test1",
+    name: "test1",
+    component: () => import("./pages/testy1.vue"),
+  },
+  {
+    path: "/test2",
+    name: "test2",
+    component: () => import("./pages/testy2.vue"),
   },
   {
     path: "/:catchAll(.*)",

@@ -68,7 +68,7 @@ onMounted(() => {
         <swiper-container ref="swiperContainer" init="false">
             <swiper-slide>
                 <Page>
-                    <Frame type="fit" mask="ch-1_frame_2" outline="ch-1_frame_2">
+                    <Frame type="fit f-s-snow" mask="ch-1_frame_2" outline="ch-1_frame_2">
                         <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
                         <div class="f-s-snow__snow-wrapper">
                             <img class="f-s-snow__snow" src="@assets/ch-1_frame_2/frame_snow.png" alt="">
@@ -141,7 +141,7 @@ swiper-slide,
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e8e3d1;
+    /* background-color: #e8e3d1; */
 }
 
 .mini {

@@ -1,0 +1,121 @@
+$transition: all 2s ease-out;
+
+.frame.intro {
+  aspect-ratio: 2/3;
+  display: grid;
+  grid-template-rows: 30% 80px 80px 1fr;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  padding: 2rem;
+
+  perspective: 1200px;
+  transition: $transition;
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+
+  .frame__button {
+    transform: translate3d(0, 0, 0);
+    transition: .5s linear;
+    align-self: start;
+    margin-top: 50px;
+
+    @at-root .chapter-1-leave-to & {
+      transform: translate3d(0, 10px, 100px);
+    }
+  }
+
+  .intro__text {
+    transform: translateZ(0px);
+    transition: $transition;
+
+    transform-origin: center bottom;
+    object-position: center center;
+
+    &--top {
+      transition: transform 2s linear 0s, opacity 2s linear 6s;
+    }
+
+    @at-root .chapter-1-leave-to & {
+      transform: translateZ(100px) scale(.8) translateY(150px) rotateX(12deg);
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+
+  .frame__outline {
+    filter: blur(0px);
+    transition: 1s filter 0s, 1s opacity 1s;
+  }
+
+  .frame__background {
+    transform: scale(1.2) translateZ(0px);
+    transition: $transition;
+    transform-origin: center 90%;
+    z-index: 2;
+    opacity: 1;
+    transition: transform 3s, opacity 2s .5s;
+
+    @at-root .chapter-1-leave-to & {
+      opacity: 0;
+      transform: scale(1.1) translateZ(100px);
+    }
+  }
+}
+
+
+@keyframes interactive {
+
+  0%,
+  5%,
+  7%,
+  10%,
+  35%,
+  23%,
+  25% {
+    opacity: 1;
+    transform: skew(0deg);
+    filter: hue-rotate(90deg);
+  }
+
+  2%,
+  4%,
+  24% {
+    // opacity: 0;
+    transform: skew(2deg);
+    filter: hue-rotate(3deg);
+  }
+
+  8%,
+  9%,
+  32% {
+    // opacity: 0;
+    transform: rotate(-18deg);
+    filter: hue-rotate(-30deg);
+  }
+}
+
+.intro__text {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+
+  &--top {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  &--middle {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &--middle:hover {
+    cursor: pointer;
+    animation: interactive 4s linear infinite;
+  }
+}
