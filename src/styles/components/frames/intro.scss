@@ -3,13 +3,13 @@ $transition: all 2s ease-out;
 .frame.intro {
   aspect-ratio: 2/3;
   display: grid;
-  grid-template-rows: 30% 80px 80px 1fr;
+  grid-template-rows: 280px 80px 80px 1fr;
   justify-content: center;
   align-items: center;
   justify-items: center;
   align-content: center;
-  padding: 2rem;
-
+  padding: 10vh 2rem;
+  height: 100%;
   perspective: 1200px;
   transition: $transition;
   transform: rotateX(0deg) rotateY(0deg);
@@ -21,6 +21,7 @@ $transition: all 2s ease-out;
     transition: .5s linear;
     align-self: start;
     margin-top: 50px;
+    z-index: 10;
 
     @at-root .chapter-1-leave-to & {
       transform: translate3d(0, 10px, 100px);

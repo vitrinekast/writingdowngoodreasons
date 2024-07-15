@@ -1,5 +1,4 @@
 <script setup>
-import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import { Transition, computed, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -8,14 +7,6 @@ const router = useRouter();
 const showIntro = ref(true);
 const outlineImg = ref()
 const maskImg = ref()
-
-const onClick = () => {
-  showIntro.value = false;
-  setTimeout(() => {
-    router.push("/chapter-1");
-  }, (4000));
-
-}
 
 const maskSrc = computed(() => {
   return import(`@assets/ch-intro/frame_mask.svg`).then(image => {
@@ -46,7 +37,7 @@ const outlineSrc = computed(() => {
           <img class="frame__asset intro__text intro__text--top" src="@assets/ch-intro/intro_top.webp" alt="">
           <img class="frame__asset intro__text intro__text--middle" src="@assets/ch-intro/intro_middle.webp" alt="">
           <img class="frame__asset intro__text intro__text--bottom" src="@assets/ch-intro/intro_bottom.webp" alt="">
-          <a class="button frame__button" @click="onClick">Begin</a>
+          <router-link class="button frame__button" to="/chapter-1">Begin</router-link>
 
         </div>
 
@@ -56,34 +47,6 @@ const outlineSrc = computed(() => {
 
 </template>
 
-<style lang="scss">
-$transition: all 2s ease-out;
-
-
-
-// .intro__text {
-//   overflow: hidden;
-//   width: auto;
-//   height: auto;
-//   max-height: 100%;
-//   object-fit: contain;
-
-//   &--top {
-//     padding-top: 2rem;
-//     padding-bottom: 1rem;
-//   }
-
-//   &--middle {
-//     padding-top: 1rem;
-//     padding-bottom: 1rem;
-//   }
-
-//   &--middle:hover {
-//     cursor: pointer;
-//     animation: interactive 4s linear infinite;
-//   }
-// }
-</style>
 
 <style scoped lang="scss">
 .frame--masked {
