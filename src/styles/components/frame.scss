@@ -23,18 +23,11 @@
       aspect-ratio: 2/3;
     }
 
-
   }
-
-
-  img:not(.frame__outline) {
-    object-fit: contain;
-  }
-
 
   &--masked {
-    mask-image: var(--mask-url);
-    mask-size: 100% 100%;
+    // mask-image: var(--mask-url);
+    // mask-size: 100% 100%;
 
     // img:not(.frame__outline) {
     //   object-fit: cover;
@@ -58,6 +51,14 @@
   &__asset--hover {
     width: 100%;
     // height: 100%;
+    object-fit: cover;
+  }
+
+  &__asset-text {
+    background-image: url("../assets/images/gui/text-bg.png");
+    object-fit: contain;
+  }
+  &__asset--contain {
     object-fit: contain;
   }
 

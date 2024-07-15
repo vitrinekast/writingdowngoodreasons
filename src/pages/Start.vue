@@ -29,7 +29,7 @@ const outlineSrc = computed(() => {
   <main>
     <Transition name="intro">
       <Page type="fixed" v-if="showIntro">
-        <div class="intro frame frame--masked">
+        <div class="intro frame">
           <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt="" />
           <span v-if="maskSrc" style="display: none;"></span>
           <img class="frame__asset frame__background" src="@assets/ch-intro/intro_bergen.webp" alt="">
@@ -47,11 +47,3 @@ const outlineSrc = computed(() => {
 
 </template>
 
-
-<style scoped lang="scss">
-.frame--masked {
-  --mask-url: v-bind(maskImg);
-  overflow: hidden;
-  mask-size: 110%;
-}
-</style>

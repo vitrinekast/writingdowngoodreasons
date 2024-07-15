@@ -27,7 +27,7 @@ const showBirdAway = ref(false);
             </Frame>
 
             <Frame class="cell cell--w-4 " mask='ch-1_frame_5b-4' outline="ch-1_frame_5b-4">
-                <img loading='lazy' src="@assets/ch-1_frame_5b-4/frame_asset.png" alt="" class="frame__asset">
+                <img loading='lazy' src="@assets/ch-1_frame_5b-4/frame_asset.png" alt="" class="frame__asset-text">
             </Frame>
 
             <Frame class=" cell--w-2 " mask='ch-1_frame_5b-5' outline="ch-1_frame_5b-5">

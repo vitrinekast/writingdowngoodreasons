@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: $page--padding;
+  // padding: $page--padding;
   max-width: calc(100svw - #{$page--padding * 2});
   height: 100%;
   margin: 0 auto;
@@ -22,7 +22,7 @@
   }
 
   .grid,
-  .page {
+  .page:not(.page--fit) {
     align-self: stretch;
   }
 
@@ -48,6 +48,16 @@
         flex-basis: 100%;
       }
     }
+  }
+
+
+  &--fit {
+    align-self: center;
+    height: auto;
+    @media screen and (min-width: 800px) {
+      aspect-ratio: 148 / 210;
+    }
+
   }
 
   &--fit-fill {

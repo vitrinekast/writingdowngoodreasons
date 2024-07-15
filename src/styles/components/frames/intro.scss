@@ -1,7 +1,8 @@
 $transition: all 2s ease-out;
 
 .frame.intro {
-  aspect-ratio: 2/3;
+  // aspect-ratio: 2/3;
+  aspect-ratio: 148 / 210;
   display: grid;
   grid-template-rows: 280px 80px 80px 1fr;
   justify-content: center;

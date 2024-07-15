@@ -36,16 +36,22 @@ const swiperParams = {
             freeMode: true,
         },
     },
-    historyKey: "slide",
+    history: {
+        replaceState: true,
+    },
     creativeEffect: {
         prev: {
             shadow: false,
-            translate: [0, -10, -90],
+            translate: [-20, "-20%", -180],
+            scale: .8,
+            rotate: [0, 0, Math.random() * 10 - 10],
             opacity: 0
         },
+        perspective: true,
         next: {
-            translate: [0, '100%', 0],
-            opacity: 0
+            translate: [0, '400%', 0],
+            opacity: 0,
+            scale: 1.2
         },
     },
     grabCursor: true,
@@ -68,8 +74,8 @@ onMounted(() => {
         <swiper-container ref="swiperContainer" init="false">
             <swiper-slide>
                 <Page>
-                    <Frame type="fit f-s-snow" mask="ch-1_frame_2" outline="ch-1_frame_2">
-                        <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
+                    <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
+                    <Frame mask="ch-1_frame_2" outline="ch-1_frame_2">
                         <div class="f-s-snow__snow-wrapper">
                             <img class="f-s-snow__snow" src="@assets/ch-1_frame_2/frame_snow.png" alt="">
                         </div>
@@ -82,7 +88,7 @@ onMounted(() => {
                 <Page size="sm">
                     <h2>I've always found great</h2>
                     <Frame size="sm">
-                        <img class="frame__asset" src="@assets/ch-1_frame_3/asset--trimmed.png" alt="">
+                        <img class="frame__asset--contain" src="@assets/ch-1_frame_3/asset--trimmed.png" alt="">
                     </Frame>
                     <h2>comfort in the cold</h2>
                 </Page>
@@ -90,7 +96,7 @@ onMounted(() => {
             <swiper-slide>
                 <Page type="fit-fill">
                     <div class="frame">
-                        <img class="frame__asset" src="@assets/ch-1_frame_4/asset.png" alt="">
+                        <img class="frame__asset--contain" src="@assets/ch-1_frame_4/asset.png" alt="">
 
                         <video class="frame__video" autoplay playsinline loop>
                             <source src="@assets/ch-1_frame_4/animation--water.mov">

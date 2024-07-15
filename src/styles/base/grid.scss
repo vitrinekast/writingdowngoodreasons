@@ -3,7 +3,7 @@
   grid-template-columns: repeat(6, 1fr);
   gap: $grid--gap;
   height: 100%;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: minmax(0, 1fr);
 
   @media screen and (max-width: 800px) {
     gap: 1rem;

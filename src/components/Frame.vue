@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted, reactive } from 'vue';
 import { BEM } from '../utils';
 
-const outlineImg = ref()
-const maskImg = ref()
 const props = defineProps({
   size: { type: String, required: false },
   type: { type: String, require: false },
@@ -11,34 +9,43 @@ const props = defineProps({
   outline: { type: String, require: false }
 })
 
-const maskSrc = computed(() => {
-  return props.mask ? import(`@assets/${props.mask}/frame_mask.svg`).then(image => {
-    maskImg.value = `url('${image.default}')`;
-  }) : false
-});
+const outlineImg = ref()
 
-const outlineSrc = computed(() => {
-  return props.outline ? import(`@assets/${props.outline}/frame_outline.svg`).then(imageImports => {
-    outlineImg.value = imageImports.default
-  }) : false
+const styleObject = reactive({
+
+})
+
+onMounted(() => {
+  console.log(`the component is now mounted.`, styleObject);
+
+  if (props.mask) {
+    import(`@assets/${props.mask}/frame_mask.svg`).then(image => {
+      styleObject['mask-image'] = `url('${image.default}')`;
+    });
+  }
+
+  if (props.outline) {
+    import(`@assets/${props.outline}/frame_outline.svg`).then(imageImports => {
+      outlineImg.value = imageImports.default
+    })
+  }
+
 });
 
 </script>
 
 <template>
-  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
-
-    <img v-if="outlineSrc" class="frame__outline" :src="outlineImg" alt=""/>
-    <span v-if="maskSrc" style="display: none;"></span>
+  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`"  :style="styleObject">
+    <img v-if="props.outline" class="frame__outline" :src="outlineImg" alt="" />
     <slot></slot>
 
   </div>
 </template>
 
+
+
 <style scoped>
 .frame--masked {
-  --mask-url: v-bind(maskImg);
-  overflow: hidden;
+  mask-size: 100% 100%;
 }
-
 </style>
