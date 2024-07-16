@@ -36,6 +36,8 @@ $transition: all 2s ease-out;
     transform-origin: center bottom;
     object-position: center center;
 
+    object-fit: contain;
+
     &--top {
       transition: transform 2s linear 0s, opacity 2s linear 6s;
     }
