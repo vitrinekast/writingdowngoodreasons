@@ -23,12 +23,10 @@ const swiperContainerNest = ref(null);
 // swiper parameters
 const swiperParams = {
     slidesPerView: "auto",
-    speed: 3000,
+    speed: 300,
     keyboard: true,
     direction: 'vertical',
-
     mousewheel: true,
-
     freeMode: "isMobile ? false : true",
     pagination: true,
     navigation: false,
@@ -54,8 +52,7 @@ const swiperParams = {
             opacity: 0,
             scale: 1.2
         }
-    },
-    grabCursor: true,
+    }
 };
 
 onMounted(() => {
@@ -67,7 +64,6 @@ onMounted(() => {
         keyboard: false
     });
     Object.assign(swiperContainerNest.value, swiperParams);
-    // console.log("nu dan?");
 
     swiperContainer.value.initialize();
     swiperContainerNest.value.initialize();
@@ -121,41 +117,41 @@ onMounted(() => {
                             <h2>comfort in the cold</h2>
                         </Page>
                     </swiper-slide>
-                    <swiper-slide>
-                        <Page type="fit-fill">
-                            <div class="frame">
-                                <img class="frame__asset--contain" src="@assets/ch-1_frame_4/asset.png" alt="">
+                        <swiper-slide>
+                            <Page type="fit-fill">
+                                <div class="frame">
+                                    <img class="frame__asset--contain" src="@assets/ch-1_frame_4/asset.png" alt="">
 
-                                <video class="frame__video" autoplay playsinline loop>
-                                    <source src="@assets/ch-1_frame_4/animation--water.mov">
-                                </video>
-                            </div>
-                        </Page>
-                    </swiper-slide>
-
-                    <swiper-slide v-if="!isMobile">
-                        <section class="page--spread">
-                            <Page3A />
-                            <Page3B />
-                        </section>
-                    </swiper-slide>
-
-                    <swiper-slide v-if="isMobile">
-                        <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true"
-                            :direction="'horizontal'" :mousewheel="true" :pagination="true" :navigation="false"
-                            :freeMode="isMobile ? false : true" :modules="modules">
-                            <swiper-slide lazy="true">
+                                    <video class="frame__video" autoplay playsinline loop>
+                                        <source src="@assets/ch-1_frame_4/animation--water.mov">
+                                    </video>
+                                </div>
+                            </Page>
+                        </swiper-slide>
+                        <swiper-slide v-if="!isMobile">
+                            <section class="page--spread">
                                 <Page3A />
-                            </swiper-slide>
-                            <swiper-slide lazy="true">
                                 <Page3B />
-                            </swiper-slide>
+                            </section>
+                        </swiper-slide>
 
-                            <swiper-slide lazy="true">
-                                <router-link class="button" to="/chapter-2">Next</router-link>
-                            </swiper-slide>
-                        </swiper-container>
-                    </swiper-slide>
+                        <swiper-slide v-if="isMobile">
+                            <swiper-container :speed="1000" :slidesPerView="'auto'" :keyboard="true"
+                                :direction="'horizontal'" :mousewheel="true" :pagination="true" :navigation="false"
+                                :freeMode="isMobile ? false : true" :modules="modules">
+                                <swiper-slide lazy="true">
+                                    <Page3A />
+                                </swiper-slide>
+                                <swiper-slide lazy="true">
+                                    <Page3B />
+                                </swiper-slide>
+
+                                <swiper-slide lazy="true">
+                                    <router-link class="button" to="/chapter-2">Next</router-link>
+                                </swiper-slide>
+                            </swiper-container>
+                        </swiper-slide>
+
                 </swiper-container>
             </swiper-slide>
             <swiper-slide class="smaller">

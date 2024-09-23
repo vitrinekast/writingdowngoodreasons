@@ -1,11 +1,11 @@
 .f-s-snow {
-  @at-root .chapter-1-enter-from & {
+  @at-root .chapter-1-enter-from {
     .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
       opacity: 0;
     }
   }
 
-  @at-root .chapter-1-enter-to & {
+  @at-root .chapter-1-enter-to {
     .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
       opacity: 1;
     }
@@ -15,10 +15,15 @@
     top: 0;
     left: 0;
     max-width: 40%;
-    top: 9%;
-    left: 7%;
+    top: 110px;
+    left: 20px;
     z-index: $z-text;
     pointer-events: none;
+
+    @include break($break--mobile) {
+      top: 30px;
+      left: 20px;
+    }
   }
 
   &__snow-wrapper {

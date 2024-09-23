@@ -10,8 +10,17 @@ const revealables = ref([]);
 // TODO: turn this into a directive
 onMounted(() => {
     window.addEventListener("scroll", onScroll)
+
+
 })
 
+const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+    }
+}
 
 watchEffect(() => {
     revealables.value.forEach((r) => {
@@ -44,17 +53,17 @@ const onScroll = (e) => {
 <template>
     <main>
 
-    <Prikbord></Prikbord>
+        <Prikbord></Prikbord>
 
 
-    <Page msg="page--fullwidth">
-        <div class="frame frame--scroller fn-reveal-container" ref="target">
-            <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset.png" alt="">
+        <Page class="page--fullwidth" @click="toggleFullScreen">
+            <div class="frame frame--scroller fn-reveal-container" ref="target">
+                <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset.png" alt="">
 
-            <img class="frame__element frame__revealable" :ref="(el) => { revealables.push(el) }" reveal-from=".4"
-                src="/src/assets/images/chapter_2/frame_1/element--feet.png" alt="">
-        </div>
-    </Page>
+                <img class="frame__element frame__revealable" :ref="(el) => { revealables.push(el) }" reveal-from=".4"
+                    src="/src/assets/images/chapter_2/frame_1/element--feet.png" alt="">
+            </div>
+        </Page>
     </main>
 </template>
 

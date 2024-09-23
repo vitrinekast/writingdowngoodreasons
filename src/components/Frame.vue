@@ -18,7 +18,7 @@ const styleObject = reactive({
 const setNewPos = () => {
   const offset1 = 5;
   const offset2 = 2;
-  styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}%, ${Math.random() * offset1 - offset2}%) scale(1)`;
+  styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}px, ${Math.random() * offset1 - offset2}px) scale(1)`;
   setTimeout(setNewPos, Math.random() * 10000 + 1000);
 
 }

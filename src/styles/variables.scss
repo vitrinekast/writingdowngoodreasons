@@ -6,7 +6,7 @@ $page--padding: 4rem;
   --blue: #025354;
 }
 
-$gutter--sm: .5rem;
+$gutter--sm: 0.5rem;
 $gutter--md: 1rem;
 $gutter--lg: 2rem;
 $gutter--xl: 4rem;
@@ -18,11 +18,23 @@ $color--frame-bg: #3e7777;
 $color--text-alt: $color--body;
 $color--backdrop: rgba(232, 227, 209, 0.7);
 
-$transition--base: all .4s cubic-bezier(0.25, 0, 0, 1);
+$transition--base: all 0.4s cubic-bezier(0.25, 0, 0, 1);
 
 // Z-indexes
 $z-text: 100;
 $z-vis: 40;
 
+$font-family: "Nik";
+$break--mobile: 800px;
 
-$font-family:  "Nik";
+@mixin break($break-size: $break--mobile) {
+  @media screen and (max-width: $break-size) {
+    @content;
+  }
+}
+
+@mixin break-min($break-size: $break--mobile) {
+  @media screen and (min-width: $break-size) {
+    @content;
+  }
+}

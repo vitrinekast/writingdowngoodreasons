@@ -1,16 +1,19 @@
 .page {
   color: $color--text;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  // padding: $page--padding;
   max-width: calc(100svw - #{$page--padding * 2});
   height: 100%;
-  margin: 0 auto;
+  margin: 0 auto;  
 
-  @media screen and (max-width: 800px) {
-    padding: $page--padding 0;
+  &:has(.frame--scroller) {
+    overflow: scroll;
+    display: block;
+  }
+
+  @include break($break--mobile) {
+    padding: 0;
     max-width: calc(100svw - #{$page--padding});
   }
 
@@ -40,7 +43,11 @@
       height: 100%;
     }
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-height: 800px) {
+      gap: 2rem;
+    }
+
+    @include break($break--mobile) {
       padding: 1rem;
       min-height: 100svh;
       flex-direction: column;
@@ -77,6 +84,11 @@
   &--fullwidth {
     @extend .page;
     padding: 0 0;
+
+    @include break($break--mobile) {
+      max-width: 100% !important;
+    }
+  
   }
 
   //   page specific layouts

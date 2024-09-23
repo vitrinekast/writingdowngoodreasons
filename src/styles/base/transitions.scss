@@ -4,7 +4,7 @@ $chapter1-duration: 5;
 // Fallback fade transitions
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .2s;
+  transition: opacity 4s;
   position: absolute;
   left: 0;
   width: 100%;
@@ -19,6 +19,30 @@ $chapter1-duration: 5;
   opacity: 0;
 }
 
+
+
+// // Priknbord transitions
+.prikbord-enter,
+.prikbord-leave-from {
+  transform: translate3d(-50%, -200%, 0);
+}
+
+.prikbord-enter-to {
+  transform: translate3d(-50%, -59%, 0);
+}
+
+.prikbord-enter-active {
+  transition: transform 0s ease;
+}
+
+.prikbord-leave-active {
+  transition: transform .8s cubic-bezier(0.88, -0.1, 0.32, 1.8), opacity 10s ease;
+}
+
+.prikbord-enter-from,
+.prikbord-leave-to {
+  transform: translate3d(-50%, -200%, 0) !important;
+}
 
 // Chapter 1 page in
 .chapter-1-enter-active {

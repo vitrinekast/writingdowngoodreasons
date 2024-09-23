@@ -5,7 +5,11 @@
   height: 100%;
   grid-auto-rows: minmax(0, 1fr);
 
-  @media screen and (max-width: 800px) {
+  @include break($break--mobile) {
+    gap: 1rem;
+  }
+
+  @media screen and (max-height: 800px) {
     gap: 1rem;
   }
 

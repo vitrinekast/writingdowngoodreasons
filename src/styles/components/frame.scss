@@ -1,3 +1,5 @@
+
+
 .frame {
   margin: 0 auto;
   text-align: center;
@@ -10,6 +12,10 @@
   position: relative;
   text-align: left;
 
+  @include break($break--mobile) {
+    max-height: 100%;
+  }
+
   &--sm {
     max-height: 30vh;
     margin: 1rem auto;
@@ -19,7 +25,7 @@
     // min-height: 80vh;
     max-width: calc(100vw - #{$page--padding});
 
-    @media screen and (min-width: 800px) {
+    @include break($break--mobile) {
       aspect-ratio: 2/3;
     }
 
