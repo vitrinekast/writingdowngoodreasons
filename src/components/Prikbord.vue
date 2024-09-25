@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { Transition, ref, reactive, onMounted, computed } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
+import Lightbox from './Lightbox.vue';
 
-const lightboximage = ref();
+const lbImage = ref();
 const showMenu = ref(true);
 const sample = ref();
 const cursor = ref();
-const prikProgress = ref([]);
+const progress = ref([]);
 
 const meterValue = computed(() => {
-    const part = 1 / 3;
-    console.log("ja hoor");
-    return prikProgress.value.length > 0 ? part * prikProgress.value.length : 0;
+    return progress.value.length > 0 ? (1 / 3) * progress.value.length : 0;
 })
 
 const mousePos = reactive({
@@ -21,22 +20,26 @@ const mousePos = reactive({
     startY: 0
 })
 
-const showLightbox = (src) => {
-    if (prikProgress.value.indexOf(src) == -1) {
-        prikProgress.value.push(src);
-    } 
-    
-    lightboximage.value = src;
+const openImage = (src) => {
+    if (progress.value.indexOf(src) == -1) {
+        progress.value.push(src);
+    }
+
+    lbImage.value = src;
 }
 
-const hideLightbox = () => {
-    lightboximage.value = false;
+const onClose = () => {
+    console.log(progress.value.length)
+    if (progress.value.length >= 3) {
+        showMenu.value = false
+    }
 }
 
 onMounted(() => {
     console.log("mount", cursor.value);
     setCursorPos(cursor.value);
 })
+
 const setCursorPos = (el) => {
     const c = el.getBoundingClientRect();
     mousePos.w = c.width;
@@ -47,29 +50,19 @@ const setCursorPos = (el) => {
 const onMouseMove = (e) => {
     mousePos.transform = `translate(${e.clientX - mousePos.startX - (mousePos.w / 2)}px, ${e.clientY - mousePos.startY - (mousePos.w / 2)}px)`;
 }
+
 </script>
 
 <template>
     <div class="menu__cursor" :style="mousePos" ref="cursor" v-if="showMenu"></div>
-   
-    <Transition>
-        <div class="lightbox" v-if="lightboximage" @mousemove="onMouseMove">
 
-            <img :src="lightboximage" class="lightbox__img fn-lightbox-img" alt="">
-            <a class="button lightbox__close" @click="hideLightbox">
-                sluit
-            </a>
-
-        </div>
-    </Transition>
+    <Lightbox @mousemove="onMouseMove" v-model="lbImage" @close="onClose" />
 
     <AudioPlayer :sample="sample" />
 
     <Transition name="fade">
         <div class="menu__backdrop" v-if="showMenu"></div>
     </Transition>
- 
-
 
     <Transition name="prikbord" :duration="5500">
         <nav class="menu menu--prikbord" v-if="showMenu" @mousemove="onMouseMove">
@@ -78,21 +71,21 @@ const onMouseMove = (e) => {
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_1.png"
                     alt="" @mouseover="sample = 'audio__plants-move'"
-                    @click="showLightbox('/src/assets/images/chapter_2/menu/photo_1.png')">
+                    @click="openImage('/src/assets/images/chapter_2/menu/photo_1.png')">
             </div>
-            <div class=" menu__frame">
+            <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox"
                     lightbox-src="/src/assets/images/chapter_2/menu/letter_expanded.png"
                     src="/src/assets/images/chapter_2/menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
-                    @click="showLightbox('/src/assets/images/chapter_2/menu/letter_expanded.png')">
+                    @click="openImage('/src/assets/images/chapter_2/menu/letter_expanded.png')">
             </div>
-            <div class=" menu__frame">
+            <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_2.png"
                     alt="" @mouseover="sample = 'audio__car-start'"
-                    @click="showLightbox('/src/assets/images/chapter_2/menu/photo_2.png')">
+                    @click="openImage('/src/assets/images/chapter_2/menu/photo_2.png')">
             </div>
 
-            <meter class="menu__meter" :value="meterValue" @click="showMenu = false">60%</meter>
+            <meter class="menu__meter" :value="meterValue" @click="showMenu.value = false"></meter>
         </nav>
 
 

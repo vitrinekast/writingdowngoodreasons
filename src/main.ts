@@ -6,16 +6,21 @@ import App from "./App.vue";
 
 const routes = [
   {
-    path: "/chapter-1",
+    path: "/chapter-1/page-1",
     name: "Chapter 1",
-    component: () => import("./pages/Chapter1.vue"),
+    component: () => import("./pages/Chapter1/Page1.vue"),
     meta: { transition: 'chapter-1' },
   },
 
   {
-    path: "/chapter-2",
-    name: "Chapter 2",
-    component: () => import("./pages/Chapter2.vue"),
+    path: "/chapter-1/page-2",
+    name: "Chapter 1 Page 2",
+    component: () => import("./pages/Chapter1/Page2.vue"),
+  },
+  {
+    path: "/chapter-1/page-3",
+    name: "Chapter 1 Page 3",
+    component: () => import("./pages/Chapter1/Page3.vue"),
   },
   {
     path: "",

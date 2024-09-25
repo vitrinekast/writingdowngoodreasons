@@ -13,6 +13,7 @@
 @import "utils/overlay.scss";
 
 @import "elements/button.scss";
+@import "elements/slider.scss";
 
 
 // components
@@ -22,8 +23,10 @@
 @import "components/frame.scss";
 
 // modules
+@import "modules/swiper.scss";
 @import "modules/menu.scss";
 @import "modules/lightbox.scss";
+@import "modules/nav.scss";
 
 // pages
 @import "pages/base.scss";

@@ -1,0 +1,83 @@
+.nav {
+  &--multislide {
+    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 9;
+    .nav__vertical,
+    .nav__horizontal {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav__horizontal {
+      flex-direction: column;
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+    }
+    button {
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      background-image: url(@assets/gui/arrow.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      
+      width: 40px;
+      height: 40px;
+
+      &[disabled] {
+        opacity: .5;
+      }
+      &.up {
+        transform: rotate(-90deg);
+      }
+
+      &.down {
+        transform: rotate(90deg);
+      }
+
+      &.left {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &--slider {
+    position: fixed;
+    bottom: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 9;
+
+    .nav__button {
+      width: 50px;
+      height: 40px;
+      display: block;
+      background-image: url(@assets/gui/arrow.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+      z-index: 2;
+
+      &.left {
+        transform: rotate(180deg);
+      }
+
+      &:active,
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &[disabled] {
+        opacity: 0.6;
+      }
+    }
+  }
+}

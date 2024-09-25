@@ -25,7 +25,6 @@ const setNewPos = () => {
 
 
 onMounted(() => {
-  console.log(`the component is now mounted.`, styleObject);
 
   if (props.mask) {
     import(`@assets/${props.mask}/frame_mask.svg`).then(image => {

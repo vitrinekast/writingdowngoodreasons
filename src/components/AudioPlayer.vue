@@ -31,7 +31,7 @@ const audioSrc = computed(() => {
 </script>
 
 <template>
-  <h1>{{ message }}</h1>
+  
   <span class="wrapper">{{ audioSrc }}</span>
   <button class="button--icon" @click="audioEnabled = !audioEnabled;">
 

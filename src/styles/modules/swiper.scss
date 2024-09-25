@@ -1,0 +1,57 @@
+swiper-container,
+.swiper-container {
+  height: 100svh;
+  overflow: hidden;
+}
+
+swiper-slide,
+.swiper-slide {
+  height: 100svh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+
+  &.swiper-slide-active swiper-container::part(button-next) {
+    --offset: 0px;
+  }
+}
+
+.smaller {
+  height: 250px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+swiper-container::part(bullet-active) {
+  background: url("@/assets/icons/icon__pagination-active.png");
+  background-size: contain;
+}
+
+swiper-container::part(bullet) {
+  background: url("@/assets/icons/icon__pagination.png");
+  background-size: contain;
+}
+
+swiper-container::part(button-next),
+swiper-container::part(button-prev) {
+    --offset: 100px;
+  background-image: url(@assets/gui/arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: auto;
+  bottom: 1rem;
+  width: 2rem;
+  left: calc(50% + 2rem);
+  transform: translate3d(-50%, var(--offset), 0) rotate(3deg);
+  transition: 0.2s linear;
+  transition-delay: 2s;
+}
+
+swiper-container::part(button-prev) {
+  left: calc(50% - 2rem);
+  transform: translate3d(-50%, 3px, 0) rotate(182deg);
+}

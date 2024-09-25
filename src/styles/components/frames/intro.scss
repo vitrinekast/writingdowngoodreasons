@@ -23,6 +23,7 @@ $transition: all 2s ease-out;
   
 
   @include break($break--mobile) {
+    grid-template-rows: 150px 80px 80px 100px;
     .frame__outline  {
       display: none;
     }
