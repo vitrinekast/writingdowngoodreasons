@@ -5,8 +5,6 @@ import Markdown from 'unplugin-vue-markdown/vite';
 import { defineConfig } from "vite";
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import Pages from 'vite-plugin-pages';
-import { VitePWA } from 'vite-plugin-pwa'
-
 
 export default defineConfig({
   
@@ -19,7 +17,6 @@ export default defineConfig({
         }
       }
     }),
-    VitePWA({ registerType: 'autoUpdate' }),
     ViteImageOptimizer({
       png: {
         quality: 10,
