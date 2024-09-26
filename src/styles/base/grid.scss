@@ -5,6 +5,11 @@
   height: 100%;
   grid-auto-rows: minmax(0, 1fr);
 
+  &--center {
+    justify-items: center;
+    grid-auto-rows: min-content;
+  }
+
   @include break($break--mobile) {
     gap: 1rem;
   }
@@ -17,6 +22,10 @@
     grid-column-end: span 3;
     margin: 0 0;
     height: 100%;
+
+    &--100 {
+      width: 100%;
+    }
   }
 
   @for $i from 1 through 6 {
@@ -29,3 +38,5 @@
     }
   }
 }
+
+

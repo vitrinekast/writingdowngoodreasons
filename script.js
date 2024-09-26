@@ -17,6 +17,7 @@ var lightbox = (function () {
         document.body.setAttribute("lightbox", "open");
         imgEl.src = src;
         var rotation = (Math.floor(Math.random() * 12)) - 6;
+        console.log("rotating?")
         imgEl.style.transform = "rotate(" + rotation + "deg)";
     }
 

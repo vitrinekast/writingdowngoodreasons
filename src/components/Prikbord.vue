@@ -69,20 +69,20 @@ const onMouseMove = (e) => {
 
 
             <div class="menu__frame">
-                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_1.png"
+                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_1.png"
                     alt="" @mouseover="sample = 'audio__plants-move'"
-                    @click="openImage('/src/assets/images/chapter_2/menu/photo_1.png')">
+                    @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
             </div>
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox"
-                    lightbox-src="/src/assets/images/chapter_2/menu/letter_expanded.png"
-                    src="/src/assets/images/chapter_2/menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
-                    @click="openImage('/src/assets/images/chapter_2/menu/letter_expanded.png')">
+                    lightbox-src="/src/assets/images/ch-1-p-2_menu/letter_expanded.png"
+                    src="/src/assets/images/ch-1-p-2_menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
+                    @click="openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
             </div>
             <div class="menu__frame">
-                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/chapter_2/menu/photo_2.png"
+                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_2.png"
                     alt="" @mouseover="sample = 'audio__car-start'"
-                    @click="openImage('/src/assets/images/chapter_2/menu/photo_2.png')">
+                    @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
             </div>
 
             <meter class="menu__meter" :value="meterValue" @click="showMenu.value = false"></meter>

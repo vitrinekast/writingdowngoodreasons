@@ -1,5 +1,3 @@
-
-
 .frame {
   margin: 0 auto;
   text-align: center;
@@ -28,7 +26,6 @@
     @include break($break--mobile) {
       aspect-ratio: 2/3;
     }
-
   }
 
   &--masked {
@@ -51,6 +48,8 @@
 
   &__element {
     position: absolute;
+    opacity: 1;
+    transition: opacity 0.41s linear;
   }
 
   &__asset,

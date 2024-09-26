@@ -27,7 +27,7 @@ const swiperParams = {
     mousewheel: true,
     pagination: true,
     navigation: false,
-    centeredSlides	: true,
+    centeredSlides: true,
     centeredSlidesBounds: true,
     grabCursor: true,
     modules: modules,
@@ -52,26 +52,26 @@ onMounted(() => {
     <main>
 
 
-<Prikbord />
+        <Prikbord />
         <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false">
             <swiper-slide>
                 <Page class="page--fullwidth">
-                    <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset-01.jpg" alt="">
+                    <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-01.jpg" alt="">
                 </Page>
             </swiper-slide>
             <swiper-slide>
                 <Page class="page--fullwidth">
-                    <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset-02.jpg" alt="">
+                    <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-02.jpg" alt="">
                 </Page>
             </swiper-slide>
             <swiper-slide>
                 <Page class="page--fullwidth">
-                    <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset-03.jpg" alt="">
+                    <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-03.jpg" alt="">
                 </Page>
             </swiper-slide>
             <swiper-slide>
                 <Page class="page--fullwidth">
-                    <img class="frame__asset" src="/src/assets/images/chapter_2/frame_1/asset-04.jpg" alt="">
+                    <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-04.jpg" alt="">
                 </Page>
             </swiper-slide>
 
@@ -108,7 +108,7 @@ swiper-slide,
 
 
 
-.smaller {
+.slide--250 {
     height: 250px !important;
     display: flex;
     flex-direction: column;

@@ -5,7 +5,9 @@
   align-items: center;
   max-width: calc(100svw - #{$page--padding * 2});
   height: 100%;
-  margin: 0 auto;  
+  margin: 0 auto;
+  padding-top: #{$page--padding * 2};  
+  padding-bottom: #{$page--padding * 2};  
 
   &:has(.frame--scroller) {
     overflow: scroll;
@@ -14,6 +16,8 @@
 
   @include break($break--mobile) {
     padding: 0;
+    padding-top: #{$page--padding * .5};  
+    padding-bottom: #{$page--padding * .5};  
     max-width: calc(100svw - #{$page--padding * 0.5});
   }
 

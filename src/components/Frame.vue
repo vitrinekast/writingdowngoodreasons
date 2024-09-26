@@ -18,8 +18,8 @@ const styleObject = reactive({
 const setNewPos = () => {
   const offset1 = 5;
   const offset2 = 2;
-  styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}px, ${Math.random() * offset1 - offset2}px) scale(1)`;
-  setTimeout(setNewPos, Math.random() * 10000 + 1000);
+  // styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}px, ${Math.random() * offset1 - offset2}px) scale(1)`;
+  // setTimeout(setNewPos, Math.random() * 10000 + 1000);
 
 }
 
@@ -33,6 +33,7 @@ onMounted(() => {
   }
 
   if (props.outline) {
+    console.log(`@assets/${props.outline}/frame_outline.svg`);
     import(`@assets/${props.outline}/frame_outline.svg`).then(imageImports => {
       outlineImg.value = imageImports.default
     })
