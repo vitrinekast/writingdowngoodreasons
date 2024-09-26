@@ -14,7 +14,7 @@ register();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
-const prikbordOpen = ref(false);
+const prikbordOpen = ref(true);
 
 onMounted(() => {
 
