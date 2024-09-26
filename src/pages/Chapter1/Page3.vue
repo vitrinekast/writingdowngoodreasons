@@ -1,48 +1,5 @@
 <script setup>
-import Page from "@/components/Page.vue";
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-import { register } from 'swiper/element/bundle';
-import 'swiper/element/css/mousewheel';
-import 'swiper/element/css/pagination';
-import { EffectCreative, Keyboard, Mousewheel, Navigation } from 'swiper/modules';
-import { onMounted, ref } from 'vue';
-import Prikbord from "../../components/Prikbord.vue";
-import NextPage from "../../components/nextPage.vue";
 
-register();
-
-
-const modules = [Keyboard, Mousewheel, EffectCreative, Navigation];
-const swiperContainer = ref(null);
-const swiperContainerNest = ref(null);
-
-
-// swiper parameters
-const swiperParams = {
-    slidesPerView: "auto",
-    speed: 3000,
-    keyboard: true,
-    direction: 'vertical',
-    mousewheel: true,
-    pagination: true,
-    navigation: false,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
-    grabCursor: true,
-    modules: modules,
-};
-
-onMounted(() => {
-
-    Object.assign(swiperContainerNest.value, swiperParams);
-
-
-    swiperContainerNest.value.initialize();
-
-
-
-});
 
 
 </script>
@@ -53,10 +10,16 @@ onMounted(() => {
         hier komt een slider
         <input type="range" min="0" max="100" step="1" value="20">
 
+        <Page size="sm">
+            <h2>I've always found great</h2>
+            <Frame size="sm">
+                <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.png" alt="">
+            </Frame>
+            <h2>comfort in the cold</h2>
+        </Page>
+        
+
     </main>
 </template>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>

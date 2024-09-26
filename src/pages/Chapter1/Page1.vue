@@ -120,13 +120,13 @@ const canGoRight =false;
                 <swiper-container ref="pageTopC" init="false">
                     <swiper-slide>
                         <Page>
-                            <img class="f-s-snow__text" src="@assets/ch-1_frame_2/frame_text.svg">
-                            <Frame type="fit f-s-snow" mask="ch-1_frame_2" outline="ch-1_frame_2">
+                            <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
+                            <Frame type="fit f-s-snow" mask="ch-1-p-1_frame_2" outline="ch-1-p-1_frame_2">
                                 <div class="f-s-snow__snow-wrapper">
-                                    <img class="f-s-snow__snow" src="@assets/ch-1_frame_2/frame_snow.png" alt="">
+                                    <img class="f-s-snow__snow" src="@assets/ch-1-p-1_frame_2/frame_snow.png" alt="">
                                 </div>
-                                <img class="f-s-snow__person" src="@assets/ch-1_frame_2/frame_person.png" alt="">
-                                <img class="frame__background" src="@assets/ch-1_frame_2/frame_background.png" alt="">
+                                <img class="f-s-snow__person" src="@assets/ch-1-p-1_frame_2/frame_person.png" alt="">
+                                <img class="frame__background" src="@assets/ch-1-p-1_frame_2/frame_background.png" alt="">
                             </Frame>
                         </Page>
                     </swiper-slide>
@@ -134,7 +134,7 @@ const canGoRight =false;
                         <Page size="sm">
                             <h2>I've always found great</h2>
                             <Frame size="sm">
-                                <img class="frame__asset--contain" src="@assets/ch-1_frame_3/asset--trimmed.png" alt="">
+                                <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.png" alt="">
                             </Frame>
                             <h2>comfort in the cold</h2>
                         </Page>
@@ -142,10 +142,10 @@ const canGoRight =false;
                     <swiper-slide>
                         <Page type="fit-fill">
                             <div class="frame">
-                                <img class="frame__asset--contain" src="@assets/ch-1_frame_4/asset.png" alt="">
+                                <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.png" alt="">
 
                                 <video class="frame__video" autoplay playsinline loop>
-                                    <source src="@assets/ch-1_frame_4/animation--water.mov">
+                                    <source src="@assets/ch-1-p-1_frame_4/animation--water.mov">
                                 </video>
                             </div>
                         </Page>
