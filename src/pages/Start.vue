@@ -21,11 +21,20 @@ const outlineSrc = computed(() => {
   });
 });
 
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
+
+
 </script>
 
 <template>
 
-  
+
   <main>
     <Transition name="intro">
       <Page type="fixed" v-if="showIntro">
@@ -37,8 +46,11 @@ const outlineSrc = computed(() => {
           <img class="frame__asset intro__text intro__text--top" src="@assets/ch-intro/intro_top.webp" alt="">
           <img class="frame__asset intro__text intro__text--middle" src="@assets/ch-intro/intro_middle.webp" alt="">
           <img class="frame__asset intro__text intro__text--bottom" src="@assets/ch-intro/intro_bottom.webp" alt="">
-          <router-link class="button frame__button" to="/chapter-1/page-1">Begin</router-link>
+          <div>
 
+            <router-link @click="toggleFullScreen" class="button frame__button"
+              to="/chapter-1/page-1">Begin</router-link>
+          </div>
         </div>
 
       </Page>
@@ -46,4 +58,3 @@ const outlineSrc = computed(() => {
   </main>
 
 </template>
-
