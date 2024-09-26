@@ -49,7 +49,7 @@ const toggleFullScreen = () => {
           <div>
 
             <router-link @click="toggleFullScreen" class="button frame__button"
-              to="/chapter-1/page-1">Begin</router-link>
+              to="/chapter-1/page-1">Begin and go fullscreen</router-link>
           </div>
         </div>
 
