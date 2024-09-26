@@ -2,13 +2,15 @@
 import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
-
+const emit = defineEmits(['close']);
 
 const lbImage = ref();
 const showMenu = ref(true);
 const sample = ref();
 const cursor = ref();
 const progress = ref([]);
+
+const menuModel = defineModel()
 
 const meterValue = computed(() => {
     return progress.value.length > 0 ? (1 / 3) * progress.value.length : 0;
@@ -29,12 +31,17 @@ const openImage = (src) => {
     lbImage.value = src;
 }
 
-const onClose = () => {
+const onLBClose = () => {
     console.log(progress.value.length)
     if (progress.value.length >= 3) {
-        showMenu.value = false
+        closeMenu();
     }
 }
+const closeMenu = () => {
+    menuModel.value = false
+    emit('close');
+}
+
 
 onMounted(() => {
     console.log("mount", cursor.value);
@@ -42,10 +49,14 @@ onMounted(() => {
 })
 
 const setCursorPos = (el) => {
-    const c = el.getBoundingClientRect();
-    mousePos.w = c.width;
-    mousePos.startX = c.left
-    mousePos.startY = c.top
+    if (el) {
+        const c = el.getBoundingClientRect();
+        mousePos.w = c.width;
+        mousePos.startX = c.left
+        mousePos.startY = c.top
+    } else {
+        console.log("started with a closed menu so didnt set the cursor");
+    }
 }
 
 const onMouseMove = (e) => {
@@ -55,18 +66,18 @@ const onMouseMove = (e) => {
 </script>
 
 <template>
-    <div class="menu__cursor" :style="mousePos" ref="cursor" v-if="showMenu"></div>
+    <div class="menu__cursor" :style="mousePos" ref="cursor" v-if="menuModel"></div>
 
-    <Lightbox @mousemove="onMouseMove" v-model="lbImage" @close="onClose" />
+    <Lightbox @mousemove="onMouseMove" v-model="lbImage" @close="onLBClose" />
 
     <AudioPlayer :sample="sample" />
 
     <Transition name="fade">
-        <div class="menu__backdrop" v-if="showMenu"></div>
+        <div class="menu__backdrop" v-if="menuModel"></div>
     </Transition>
 
     <Transition name="prikbord" :duration="5500">
-        <nav class="menu menu--prikbord" v-if="showMenu" @mousemove="onMouseMove">
+        <nav class="menu menu--prikbord" v-if="menuModel" @mousemove="onMouseMove">
 
 
             <div class="menu__frame">
@@ -95,8 +106,8 @@ const onMouseMove = (e) => {
     <Transition name="prikbord-meter" :duration="5500">
 
 
-        <input class="menu__meter" type="range" min="0" max="1" step="0.3" :value="meterValue" v-if="showMenu"
-            @click="showMenu.value = false">
+        <input class="menu__meter" type="range" min="0" max="1" step="0.3" :value="meterValue" v-if="menuModel"
+            @click="closeMenu">
 
     </Transition>
 </template>

@@ -44,6 +44,7 @@
     &>.page {
       flex-basis: 50%;
       height: 100%;
+      max-width: 50%;
     }
 
     @media screen and (max-height: 800px) {
@@ -89,7 +90,6 @@
   &--fullwidth {
     @extend .page;
     padding: 0 0;
-    border: 1px solid red;
     height: auto;
 
     @include break($break--mobile) {

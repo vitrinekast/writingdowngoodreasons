@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
 const emit = defineEmits(['close']);
 const model = defineModel()
 
-onMounted(() => {
-    console.log(model);
-})
 
 const close = () => {
     model.value = false;

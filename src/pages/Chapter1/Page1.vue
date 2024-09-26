@@ -28,13 +28,15 @@ onMounted(() => {
         ...swiperParam,
         direction: 'vertical',
         allowSlideNext: false,
-        keyboard: false
+        keyboard: false,
+        slideActiveClass: 'parent-active'
     });
     Object.assign(pageTopC.value, {
         ...swiperParam,
-        speed: 3000,
+        speed: 1200,
         direction: 'vertical',
         pagination: true,
+        followFinger: true,
         effect: 'creative',
         breakpoints: {
             768: {
@@ -44,16 +46,15 @@ onMounted(() => {
         creativeEffect: {
             prev: {
                 shadow: false,
-                translate: [-20, "-20%", -180],
+                translate: [-20, "-10%", -180],
                 scale: .8,
-                rotate: [0, 0, Math.random() * 10 - 10],
+                rotate: [0, 0, 7],
                 opacity: 0
             },
             perspective: true,
             next: {
-                translate: [0, '400%', 0],
-                opacity: 0,
-                scale: 1.2
+                translate: [0, '100%', 0],
+                opacity: 0
             }
         }
     });
@@ -62,6 +63,7 @@ onMounted(() => {
         Object.assign(spreadC.value, {
             ...swiperParam,
             speed: 800,
+            direction: "horizontal",
             navigation: true
         });
         spreadC.value.initialize();
@@ -116,7 +118,7 @@ const canGoRight =false;
     <main>
         <swiper-container ref="pageC" init="false">
             <swiper-slide>
-                <swiper-container ref="pageTopC" init="false">
+                <swiper-container ref="pageTopC" init="false" parallax>
                     <swiper-slide>
                         <Page>
                             <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
@@ -129,16 +131,16 @@ const canGoRight =false;
                             </Frame>
                         </Page>
                     </swiper-slide>
-                    <swiper-slide>
+                    <swiper-slide data-swiper-parallax>
                         <Page size="sm">
-                            <h2>I've always found great</h2>
-                            <Frame size="sm">
+                            <h2 >I've always found great</h2>
+                            <Frame size="sm" data-swiper-parallax>
                                 <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.png" alt="">
                             </Frame>
-                            <h2>comfort in the cold</h2>
+                            <h2 data-swiper-parallax>comfort in the cold</h2>
                         </Page>
                     </swiper-slide>
-                    <swiper-slide>
+                    <swiper-slide data-swiper-parallax>
                         <Page type="fit-fill">
                             <div class="frame">
                                 <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.png" alt="">
@@ -149,7 +151,7 @@ const canGoRight =false;
                             </div>
                         </Page>
                     </swiper-slide>
-                    <swiper-slide>
+                    <swiper-slide data-swiper-parallax>
 
                         <template v-if="!isMobile">
                             <section class="page--spread">

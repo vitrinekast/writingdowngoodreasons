@@ -10,18 +10,19 @@ export const swiperParam = {
   speed: 400,
   slidesPerView: "auto",
   keyboard: true,
-  direction: "horizontal",
+  direction: 'vertical',
   mousewheel: true,
   modules: swiperModules,
-  pagination: false,
-  navigation: false,
-  grabCursor: true,
-  injectStyles: [
-    `
-.swiper-button-next svg, .swiper-button-prev svg {
-  display: none;
-}
+  initialSlide: 0
+//   pagination: false,
+//   navigation: false,
+//   grabCursor: true,
+//   injectStyles: [
+//     `
+// .swiper-button-next svg, .swiper-button-prev svg {
+//   display: none;
+// }
 
-`,
-  ],
+// `,
+  // ],
 };
