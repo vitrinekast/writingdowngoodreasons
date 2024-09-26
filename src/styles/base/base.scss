@@ -49,20 +49,3 @@ img {
 * {
   box-sizing: border-box;
 }
-
-meter::-webkit-meter-optimum-value {
-  background: var(--blue);
-}
-meter::-moz-meter-bar {
-  /* Firefox Pseudo Class */
-  background: var(--blue);
-}
-
-
-meter {
-  height: 30px;
-  outline: none;
-  background: var(--blue);
-  border-radius: 30px;
-  overflow: hidden;
-}

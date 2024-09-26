@@ -85,7 +85,7 @@ const onMouseMove = (e) => {
                     @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
             </div>
 
-            <meter class="menu__meter" :value="meterValue" @click="showMenu.value = false"></meter>
+            <input class="menu__meter" type="range" min="0" max="1" step="0.3" :value="meterValue"  @click="showMenu.value = false">
         </nav>
 
 
