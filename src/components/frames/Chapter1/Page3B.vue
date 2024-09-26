@@ -11,7 +11,7 @@ const showBirdAway = ref(false);
     <Page type="fit">
         <div class="grid">
             <Frame class="cell--w-6" mask='ch-1-p-1_frame_5b-1' outline="ch-1-p-1_frame_5b-1">
-                <img loading='lazy' src="@assets/ch-1-p-1_frame_5b-1/frame_asset.png" alt="" class="frame__asset">
+                <img loading='lazy' src="@assets/ch-1-p-1_frame_5b-1/frame_asset.jpg" alt="" class="frame__asset">
             </Frame>
             <Frame class=" cell--w-3" mask='ch-1-p-1_frame_5b-2' outline="ch-1-p-1_frame_5b-2">
                 <img loading='lazy' src="@assets/ch-1-p-1_frame_5b-2/frame_asset.png" alt="" class="frame__asset">

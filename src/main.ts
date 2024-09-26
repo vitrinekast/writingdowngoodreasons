@@ -11,7 +11,6 @@ const routes = [
     component: () => import("./pages/Chapter1/Page1.vue"),
     meta: { transition: 'chapter-1' },
   },
-
   {
     path: "/chapter-1/page-2",
     name: "Chapter 1 Page 2",

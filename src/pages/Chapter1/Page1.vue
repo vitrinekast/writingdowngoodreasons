@@ -84,7 +84,6 @@ onMounted(() => {
         
 
         // check if everything is seen;
-        console.log(spreadC.value.swiper.activeIndex)
         if (e.detail[0].activeIndex === e.detail[0].slides.length - 1 && spreadC.value.swiper.activeIndex > 0) {
             pageC.value.setAttribute("allow-slide-next", "true");
         } else {
@@ -144,7 +143,7 @@ const canGoRight =false;
                             <div class="frame">
                                 <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.png" alt="">
 
-                                <video class="frame__video" autoplay playsinline loop>
+                                <video class="frame__video" autoplay playsinline loop muted>
                                     <source src="@assets/ch-1-p-1_frame_4/animation--water.mov">
                                 </video>
                             </div>
