@@ -6,7 +6,7 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <meta name="theme-color" content="#e8e3d178">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Nik's Super Internat Comic</title>
   <meta content="An internet comic" name="description">
   <meta name="og:locale" content="nl_NL">
@@ -21,7 +21,166 @@
   <meta name="twitter:title" content="Nik's Super Internat Comic">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="mask-icon" href="/mask-icon.svg" color="#FFFFFF">
-  
+  <meta name="Author" content="Nik & Vitrinekast">
+
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- tabbed display mode -->
+  <meta http-equiv="origin-trial"
+    content="AoIGzgmzMUG9DsPZtn7kRZdSmF+BekgqhBlvzekLZKXJVIt0hxa+rHV1zfsflXCSPFMYPFEhoVHsxUAHOaOHCAEAAABteyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiV2ViQXBwVGFiU3RyaXAiLCJleHBpcnkiOjE3MjI5ODg3OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+
+  <!-- captured surface control -->
+  <meta http-equiv="origin-trial"
+    content="ApmGS/vR7zZSNNm7EDAbNE6peAF/JQaml+WcxxXMhXop9p+Q0OmKVfhwgyBW+PtzR6tubbqlUKifQB8FPM0DTQUAAAB1eyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiQ2FwdHVyZWRTdXJmYWNlQ29udHJvbCIsImV4cGlyeSI6MTczMzE4NDAwMCwiaXNTdWJkb21haW4iOnRydWV9">
+
+  <!-- element capture -->
+  <meta http-equiv="origin-trial"
+    content="AqrvJYyPNio2a9eCvBLYkdyjsfizuZtnf0yQjflfSlaGT5jmWkuITrWFUyh2aBTdTI32YaIJwJLadVBugzXbAwgAAABaeyJvcmlnaW4iOiJodHRwczovL3doYXRwd2FjYW5kby50b2RheTo0NDMiLCJmZWF0dXJlIjoiRWxlbWVudENhcHR1cmUiLCJleHBpcnkiOjE3NDIzNDIzOTl9">
+
+  <!-- optional since iOS 11.3, replaced with display: standalone in manifest, still needed to display startup images -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- replaced by theme-color meta tag since iOS 15 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="msapplication-TileColor" content="#da532c">
+
+  <!-- Apple splash screen images -->
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2048-2732.png"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2732-2048.png"
+    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1668-2388.png"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2388-1668.png"
+    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1536-2048.png"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2048-1536.png"
+    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1668-2224.png"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2224-1668.png"
+    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1620-2160.png"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2160-1620.png"
+    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1290-2796.png"
+    media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2796-1290.png"
+    media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1179-2556.png"
+    media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2556-1179.png"
+    media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1284-2778.png"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2778-1284.png"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1170-2532.png"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2532-1170.png"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1125-2436.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2436-1125.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1242-2688.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2688-1242.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-828-1792.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1792-828.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1242-2208.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-2208-1242.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-750-1334.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1334-750.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-640-1136.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-1136-640.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
+  <!-- Apple splash screen images dark mode-->
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2048-2732.png"
+    media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2732-2048.png"
+    media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1668-2388.png"
+    media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2388-1668.png"
+    media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1536-2048.png"
+    media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2048-1536.png"
+    media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1668-2224.png"
+    media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2224-1668.png"
+    media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1620-2160.png"
+    media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2160-1620.png"
+    media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1290-2796.png"
+    media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2796-1290.png"
+    media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1179-2556.png"
+    media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2556-1179.png"
+    media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1284-2778.png"
+    media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2778-1284.png"
+    media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1170-2532.png"
+    media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2532-1170.png"
+    media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1125-2436.png"
+    media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2436-1125.png"
+    media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1242-2688.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2688-1242.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-828-1792.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1792-828.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1242-2208.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-2208-1242.png"
+    media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-750-1334.png"
+    media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1334-750.png"
+    media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-640-1136.png"
+    media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <link rel="apple-touch-startup-image" href="https://whatpwacando.today/src/img/pwa/apple-splash-dark-1136-640.png"
+    media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
+  <script>
+    const handleInstallPrompt = e => {
+      e.preventDefault();
+
+      window.deferredPrompt = e;
+    };
+
+    window.addEventListener('beforeinstallprompt', handleInstallPrompt);
+  </script>
+
+
 
 </head>
 
