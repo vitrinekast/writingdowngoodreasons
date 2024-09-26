@@ -3,6 +3,7 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
 
+
 const lbImage = ref();
 const showMenu = ref(true);
 const sample = ref();
@@ -69,8 +70,8 @@ const onMouseMove = (e) => {
 
 
             <div class="menu__frame">
-                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_1.png"
-                    alt="" @mouseover="sample = 'audio__plants-move'"
+                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_1.png" alt=""
+                    @mouseover="sample = 'audio__plants-move'"
                     @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
             </div>
             <div class="menu__frame">
@@ -80,15 +81,22 @@ const onMouseMove = (e) => {
                     @click="openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
             </div>
             <div class="menu__frame">
-                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_2.png"
-                    alt="" @mouseover="sample = 'audio__car-start'"
+                <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_2.png" alt=""
+                    @mouseover="sample = 'audio__car-start'"
                     @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
             </div>
 
-            <input class="menu__meter" type="range" min="0" max="1" step="0.3" :value="meterValue"  @click="showMenu.value = false">
         </nav>
+
 
 
     </Transition>
 
+    <Transition name="prikbord-meter" :duration="5500">
+
+
+        <input class="menu__meter" type="range" min="0" max="1" step="0.3" :value="meterValue" v-if="showMenu"
+            @click="showMenu.value = false">
+
+    </Transition>
 </template>
