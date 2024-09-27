@@ -131,10 +131,10 @@ const canGoRight = false;
                 <template v-if="isMobile">
 
                     <swiper-container ref="spreadC" init="false">
-                        <swiper-slide lazy="true">
+                        <swiper-slide>
                             <Page3A />
                         </swiper-slide>
-                        <swiper-slide lazy="true">
+                        <swiper-slide>
                             <Page3B />
                         </swiper-slide>
 
