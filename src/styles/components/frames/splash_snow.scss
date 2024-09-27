@@ -1,24 +1,37 @@
 .f-s-snow {
+
+  @at-root .container:has(.f-s-snow) {
+    aspect-ratio: 53/78;
+  }
+
   @at-root .chapter-1-enter-from {
-    .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
+    .f-s-snow__text,
+    .f-s-snow__snow,
+    .f-s-snow__person,
+    .frame__outline,
+    .frame__background {
       opacity: 0;
     }
   }
 
   @at-root .chapter-1-enter-to {
-    .f-s-snow__text, .f-s-snow__snow, .f-s-snow__person, .frame__outline, .frame__background {
+    .f-s-snow__text,
+    .f-s-snow__snow,
+    .f-s-snow__person,
+    .frame__outline,
+    .frame__background {
       opacity: 1;
     }
   }
   &__text {
     position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 40%;
-    top: -20px;
-    left: 110px;
+    top: 60px;
+    left: 32px;
+    max-width: 70%;
+  
     z-index: $z-text;
     pointer-events: none;
+    
 
     @include break($break--mobile) {
       top: 30px;
@@ -48,7 +61,6 @@
   }
 }
 
-
 @keyframes snow {
   from {
     transform: translate3d(0%, -100%, 0);
@@ -60,7 +72,6 @@
 }
 
 @keyframes snow_wiggle {
-
   0%,
   100% {
     transform: translate3d(-5px, 1px, 0);

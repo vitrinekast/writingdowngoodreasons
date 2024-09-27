@@ -17,27 +17,19 @@ register();
 const isMobile = useMediaQuery('(max-width: 900px)');
 
 const pageC = ref(null);
-const pageTopC = ref(null);
 const spreadC = ref(null);
-
 const showDown = ref(true);
-
 
 onMounted(() => {
     Object.assign(pageC.value, {
         ...swiperParam,
-        direction: 'vertical',
-        allowSlideNext: false,
-        keyboard: false,
-        slideActiveClass: 'parent-active'
-    });
-    Object.assign(pageTopC.value, {
-        ...swiperParam,
         speed: 1200,
-        direction: 'vertical',
+
         pagination: true,
         followFinger: true,
-        effect: 'creative',
+        draggable: true,
+        cssMode: true,
+        // effect: 'creative',
         breakpoints: {
             768: {
                 freeMode: true,
@@ -69,34 +61,11 @@ onMounted(() => {
         spreadC.value.initialize();
     }
 
-
     pageC.value.initialize();
-    pageTopC.value.initialize();
-
-    pageTopC.value.addEventListener('swiperslidechange', (e) => {
-        if(e.detail[0].activeIndex === 3) {
-            if(spreadC.value.swiper.activeIndex > 0) {
-                showDown.value = true;
-            } else {
-                showDown.value = false;
-            }
-        } else {
-            showDown.value = true;
-        }
-        
-
-        // check if everything is seen;
-        if (e.detail[0].activeIndex === e.detail[0].slides.length - 1 && spreadC.value.swiper.activeIndex > 0) {
-            pageC.value.setAttribute("allow-slide-next", "true");
-        } else {
-            pageC.value.setAttribute("allow-slide-next", "false");
-        }
-    });
-
 });
 
 const goDown = () => {
-    pageTopC.value.swiper.slideNext();
+    pageC.value.swiper.slideNext();
 }
 
 const goLeft = () => {
@@ -110,75 +79,72 @@ const goRight = () => {
 }
 
 const canGoLeft = false;
-const canGoRight =false;
+const canGoRight = false;
 
 </script>
 
 <template>
     <main>
-        <swiper-container ref="pageC" init="false">
+        <swiper-container ref="pageC" init="false" parallax>
             <swiper-slide>
-                <swiper-container ref="pageTopC" init="false" parallax>
-                    <swiper-slide>
-                        <Page>
-                            <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
-                            <Frame type="fit f-s-snow" mask="ch-1-p-1_frame_2" outline="ch-1-p-1_frame_2">
-                                <div class="f-s-snow__snow-wrapper">
-                                    <img class="f-s-snow__snow" src="@assets/ch-1-p-1_frame_2/frame_snow.png" alt="">
-                                </div>
-                                <img class="f-s-snow__person" src="@assets/ch-1-p-1_frame_2/frame_person.png" alt="">
-                                <img class="frame__background" src="@assets/ch-1-p-1_frame_2/frame_background.png" alt="">
-                            </Frame>
-                        </Page>
-                    </swiper-slide>
-                    <swiper-slide data-swiper-parallax>
-                        <Page size="sm">
-                            <h2 >I've always found great</h2>
-                            <Frame size="sm" data-swiper-parallax>
-                                <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.png" alt="">
-                            </Frame>
-                            <h2 data-swiper-parallax>comfort in the cold</h2>
-                        </Page>
-                    </swiper-slide>
-                    <swiper-slide data-swiper-parallax>
-                        <Page type="fit-fill">
-                            <div class="frame">
-                                <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.png" alt="">
-
-                                <video class="frame__video" autoplay playsinline loop muted>
-                                    <source src="@assets/ch-1-p-1_frame_4/animation--water.mov">
-                                </video>
-                            </div>
-                        </Page>
-                    </swiper-slide>
-                    <swiper-slide data-swiper-parallax>
-
-                        <template v-if="!isMobile">
-                            <section class="page--spread">
-                                <Page3A />
-                                <Page3B />
-                            </section>
-
-                        </template>
-
-                        <template v-if="isMobile">
-
-                            <swiper-container ref="spreadC" init="false">
-                                <swiper-slide lazy="true">
-                                    <Page3A />
-                                </swiper-slide>
-                                <swiper-slide lazy="true">
-                                    <Page3B />
-                                </swiper-slide>
-
-                            </swiper-container>
-                        </template>
-
-                    </swiper-slide>
-                </swiper-container>
+                <Page>
+                    <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
+                    <Frame type="fit f-s-snow" mask="ch-1-p-1_frame_2" outline="ch-1-p-1_frame_2">
+                        <div class="f-s-snow__snow-wrapper">
+                            <img class="f-s-snow__snow" src="@assets/ch-1-p-1_frame_2/frame_snow.webp" alt="">
+                        </div>
+                        <img class="f-s-snow__person" src="@assets/ch-1-p-1_frame_2/frame_person.webp" alt="">
+                        <img class="frame__background" src="@assets/ch-1-p-1_frame_2/frame_background.webp" alt="">
+                    </Frame>
+                </Page>
             </swiper-slide>
+            <swiper-slide data-swiper-parallax>
+                <Page size="sm">
+                    <h2>I've always found great</h2>
+                    <Frame size="sm" data-swiper-parallax>
+                        <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.webp" alt="">
+                    </Frame>
+                    <h2 data-swiper-parallax>comfort in the cold</h2>
+                </Page>
+            </swiper-slide>
+            <swiper-slide data-swiper-parallax>
+                <Page type="fit-fill">
+                    <div class="frame">
+                        <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.webp" alt="">
 
-            <nextPage />
+                        <video class="frame__video" autoplay playsinline loop muted>
+                            <source src="@assets/ch-1-p-1_frame_4/animation--water.mov">
+                        </video>
+                    </div>
+                </Page>
+            </swiper-slide>
+            <swiper-slide data-swiper-parallax>
+
+                <template v-if="!isMobile">
+                    <section class="page--spread">
+                        <Page3A />
+                        <Page3B />
+                    </section>
+
+                </template>
+
+                <template v-if="isMobile">
+
+                    <swiper-container ref="spreadC" init="false">
+                        <swiper-slide lazy="true">
+                            <Page3A />
+                        </swiper-slide>
+                        <swiper-slide lazy="true">
+                            <Page3B />
+                        </swiper-slide>
+
+                    </swiper-container>
+                </template>
+
+            </swiper-slide>
+            <swiper-slide class="slide--auto">
+                <nextPage to="'/chapter-1/page-2'" />
+            </swiper-slide>
         </swiper-container>
 
         <nav class="nav--multislide" v-if="false">

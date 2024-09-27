@@ -22,6 +22,7 @@ const outlineSrc = computed(() => {
 });
 
 const toggleFullScreen = () => {
+  console.log(window.location);
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
   } else if (document.exitFullscreen) {
@@ -49,7 +50,7 @@ const toggleFullScreen = () => {
           <div>
 
             <router-link @click="toggleFullScreen" class="button frame__button"
-              to="/chapter-1/page-1">Begin and go fullscreen</router-link>
+              to="/chapter-1/page-1">Begin</router-link>
           </div>
         </div>
 

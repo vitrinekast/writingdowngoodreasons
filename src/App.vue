@@ -16,7 +16,7 @@ onMounted(() => {
  
 
   <header>
-    <audio src="/src/assets/audio/bg/bg__intro.m4a" autoplay loop></audio>
+    <!-- <audio src="/src/assets/audio/bg/bg__intro.m4a" autoplay loop></audio> -->
   </header>
 
 

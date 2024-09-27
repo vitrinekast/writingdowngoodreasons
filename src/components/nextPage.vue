@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+const props = defineProps({
+  to: { type: String, required: false, default: '/chapter-1/page-2' }
+})
 
 </script>
 
@@ -7,7 +9,7 @@
     <swiper-slide class="slide--250">
         <h5>Wow you've unlocked the next chapter</h5>
         
-        <router-link to="/chapter-1/page-2" class="button">Next</router-link>
+        <router-link :to="props.to" class="button">Next</router-link>
     </swiper-slide>
 
 </template>

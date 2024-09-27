@@ -61,7 +61,7 @@ const onMenuClose = () => {
                 </Page>
             </swiper-slide>
 
-            <NextPage />
+            <nextPage to="/chapter-1/page-3" /> 
 
         </swiper-container>
 

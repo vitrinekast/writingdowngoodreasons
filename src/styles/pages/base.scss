@@ -6,8 +6,8 @@
   max-width: calc(100svw - #{$page--padding * 2});
   height: 100%;
   margin: 0 auto;
-  padding-top: #{$page--padding * 2};  
-  padding-bottom: #{$page--padding * 2};  
+  padding-top: #{$page--padding * 1};  
+  padding-bottom: #{$page--padding * 1};  
 
   &:has(.frame--scroller) {
     overflow: scroll;
