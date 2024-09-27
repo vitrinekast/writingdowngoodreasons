@@ -28,7 +28,7 @@ onMounted(() => {
 
 
 
-    <div class="preloader" v-if="!preloadStore.loaded">
+    <div class="preloader" v-if="!preloadStore.loaded && preloadStore.waitCount > 0">
       <!-- Add custom loader (spinner, progress bar, etc.) -->
       <p>loading... {{ Math.round(preloadStore.progress * 100) }}%</p>
       <input type="range" min="0" max="1" :value="preloadStore.progress">
