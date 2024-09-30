@@ -23,13 +23,6 @@ const outlineSrc = computed(() => {
 
 const toggleFullScreen = () => {
   console.log(window.location);
-
-  router.push('/chapter-1/page-1')
-
-
-  if(window.location.hostname === "localhost") {
-    return false;
-  }
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
   } else if (document.exitFullscreen) {
