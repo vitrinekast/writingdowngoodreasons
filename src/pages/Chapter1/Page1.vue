@@ -113,7 +113,8 @@ const canGoRight = false;
                         <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.webp" alt="">
 
                         <video class="frame__video" autoplay playsinline loop muted>
-                            <source src="@assets/ch-1-p-1_frame_4/animation--water.mov">
+                            <source src="@assets/ch-1-p-1_frame_4/animation--water.mov" type='video/mp4; codecs="hvc1"'>
+                            <source src="@assets/ch-1-p-1_frame_4/animation--water-vp9-chrome.webm" type="video/webm">
                         </video>
                     </div>
                 </Page>
@@ -143,7 +144,7 @@ const canGoRight = false;
 
             </swiper-slide>
             <swiper-slide class="slide--auto">
-                <nextPage to="'/chapter-1/page-2'" />
+                <nextPage to="/chapter-1/page-2" />
             </swiper-slide>
         </swiper-container>
 

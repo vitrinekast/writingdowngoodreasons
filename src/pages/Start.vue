@@ -59,3 +59,5 @@ const toggleFullScreen = () => {
   </main>
 
 </template>
+<style>
+</style>
