@@ -1,7 +1,7 @@
 {
-    "name": "NIK COMIC",
-    "short_name": "NIK",
-    "id": "nik-comic",
+    "name": "Writing Down Good Reasons to Freeze to Death",
+    "short_name": "Writing Down Good Reasons",
+    "id": "writing-down-good-reasons",
     "start_url": "/?source=pwa",
     "background_color": "#ffffff",
     "display": "standalone",

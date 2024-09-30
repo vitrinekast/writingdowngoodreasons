@@ -28,7 +28,7 @@ onMounted(() => {
         pagination: true,
         followFinger: true,
         draggable: true,
-        cssMode: true,
+        cssMode: false,
         // effect: 'creative',
         breakpoints: {
             768: {

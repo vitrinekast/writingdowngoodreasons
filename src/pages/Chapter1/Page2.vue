@@ -15,7 +15,7 @@ register();
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
 const prikbordOpen = ref(true);
-
+const coordVideo = ref(null);
 onMounted(() => {
 
     Object.assign(swiperContainerNest.value, {
@@ -30,32 +30,46 @@ onMounted(() => {
 
 const onMenuClose = () => {
     console.log("closed menu");
+    window.setTimeout(function () {
+        coordVideo.value.play();
+    }, 1000)
+}
+
+const on = () =>{
+    console.log("did click", prikbordOpen);
+    prikbordOpen.value = false;
+    onMenuClose();
+
 }
 </script>
 
 <template>
 
     <main>
+<h2 @click="on"> {{ prikbordOpen }}</h2>
+        <!-- <Prikbord v-model="prikbordOpen" @close="onMenuClose" /> -->
 
-        <Prikbord v-model="prikbordOpen" @close="onMenuClose" />
-
-        <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false">
-            <swiper-slide class="slide--auto">
+        <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false" >
+            <swiper-slide class="slide--auto" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-01.jpg" alt="">
+                    <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">  
+                            <source src="@assets/ch-1-p-2_frame_1/animation.mov" type='video/mp4; codecs="hvc1"'>
+                            <source src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm" type="video/webm">
+                        </video>
                 </Page>
             </swiper-slide>
-            <swiper-slide class="slide--auto">
+            <swiper-slide class="slide--auto" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-02.jpg" alt="">
                 </Page>
             </swiper-slide>
-            <swiper-slide class="slide--auto">
+            <swiper-slide class="slide--auto" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-03.jpg" alt="">
                 </Page>
             </swiper-slide>
-            <swiper-slide class="slide--auto">
+            <swiper-slide class="slide--auto" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-04.jpg" alt="">
                 </Page>
