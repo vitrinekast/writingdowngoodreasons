@@ -60,9 +60,22 @@
   }
 
   &__asset-text {
-    background-image: url("../assets/images/gui/text-bg.png");
+    // background-image: url("../assets/images/gui/text-bg.png");
+    background-color: var(--blue);
+    padding: $frame--padding;
     object-fit: contain;
   }
+
+  &__overlay {
+    border: 1px solid blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &__asset--contain {
     object-fit: contain;
   }

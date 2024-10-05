@@ -31,3 +31,4 @@ coverage
 
 .vite-ssg-temp
 /.vite-ssg-temp
+*.asd

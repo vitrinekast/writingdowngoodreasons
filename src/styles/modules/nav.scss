@@ -1,4 +1,12 @@
 .nav {
+
+  &--audio {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px;
+    z-index: 2;
+    position: relative;
+  }
   &--multislide {
     
     position: fixed;

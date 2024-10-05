@@ -1,53 +1,72 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from 'vue';
+import { ref } from 'vue';
+import { useAudioStore } from '../store/audio';
 
-const props = defineProps({
-  sample: { type: String, required: false }
-})
+const audio = useAudioStore();
+const sample = ref();
+const background = ref();
 
-const audioObj = ref();
-const audioEnabled = ref(false);
-
-watchEffect(() => {
-  if (audioEnabled.value && audioObj.value) {
-    audioObj.value.play();
-  } else if (audioObj.value) {
-    audioObj.value.pause();
-  }
-})
-
-const audioSrc = computed(() => {
-
-  return props.sample ? import(`@/assets/audio/${props.sample}.mp3`).then(audioSrc => {
-    if (audioObj.value) {
-      audioObj.value.pause();
+const playSample = (name) => {
+  if (audio.muted) return false;
+  import(`@/assets/audio/${name}.mp3`).then((src) => {
+    if (sample.value) {
+      sample.value.pause();
     }
-    audioObj.value = new Audio(audioSrc.default);
-    audioObj.value.pause();
-    audioObj.value.play();
-  }) : false
-});
+    sample.value = new Audio(src.default);
+    sample.value.pause();
+    sample.value.play();
+    sample.value.onended = () => {
+      audio.play(false);
+    }
+  })
+}
+
+const playBackground = (name) => {
+  if (audio.muted) return false;
+  import(`@/assets/audio/bg/${name}.mp3`).then((src) => {
+    if (background.value) {
+      background.value.pause();
+    }
+    background.value = new Audio(src.default);
+    background.value.pause();
+    background.value.loop = true;
+    background.value.play();
+    background.value.volume = 0.8;
+  })
+}
+
+audio.$subscribe((mutation, state) => {
+  switch (mutation.events.key) {
+    case 'sample':
+      playSample(state.sample);
+      break;
+    case 'background':
+      playBackground(state.background);
+      break;
+    case 'muted':
+      if (state.muted) {
+        if (sample.value) {
+          sample.value.pause();
+        }
+        if (background.value) {
+          background.value.pause();
+        }
+      } else {
+        playBackground(state.background);
+      }
+      break;
+    default:
+      console.info("couldnt figure out this audio event: ", state);
+  }
+
+}, { detached: false })
 
 </script>
 
 <template>
-  
-  <span class="wrapper">{{ audioSrc }}</span>
-  <button class="button--icon" @click="audioEnabled = !audioEnabled;">
-
-    <svg v-if="audioEnabled" viewBox="0 0 24 24" class="icon" stroke="currentColor" stroke-width="2" fill="none"
-      stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-    </svg>
-    <svg v-if="!audioEnabled" viewBox="0 0 24 24" class="icon" stroke="currentColor" stroke-width="2" fill="none"
-      stroke-linecap="round" stroke-linejoin="round">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <line x1="23" y1="9" x2="17" y2="15"></line>
-      <line x1="17" y1="9" x2="23" y2="15"></line>
-    </svg>
-  </button>
-
+  <nav class="nav--audio">
+    <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.toggle"></button>
+  </nav>
 </template>
 
 <style scoped>

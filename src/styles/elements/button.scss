@@ -7,7 +7,32 @@
   color: white;
   display: inline-flex;
   cursor: pointer;
-  text-decoration:none;
+  text-decoration: none;
+
+  &--ic {
+  }
+
+  &--audio {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(@assets/gui/icon--sound-on.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: .2s linear transform;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &.off {
+      background-image: url(@assets/gui/icon--sound-off.png);
+    }
+  }
 
   &:before {
     content: "";
@@ -31,5 +56,6 @@
     transform: scale(1.02) rotate3d(1, 1, 1, 4deg);
   }
 
-  &--rect {}
+  &--rect {
+  }
 }

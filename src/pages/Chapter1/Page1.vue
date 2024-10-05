@@ -11,22 +11,20 @@ import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
 import { swiperParam } from '../../utils';
-
+import { useAudioStore } from "../../store/audio";
 register();
-
 const isMobile = useMediaQuery('(max-width: 900px)');
-
 const pageC = ref(null);
 const spreadC = ref(null);
 const showDown = ref(true);
-
+const audio = useAudioStore();
 onMounted(() => {
+    audio.playBackground("bg__intro");
     Object.assign(pageC.value, {
         ...swiperParam,
         speed: 1200,
-
+        touchStartPreventDefault: false,
         pagination: true,
-        followFinger: true,
         draggable: true,
         cssMode: false,
         // effect: 'creative',
@@ -50,43 +48,36 @@ onMounted(() => {
             }
         }
     });
-
     if (spreadC.value) {
         Object.assign(spreadC.value, {
             ...swiperParam,
             speed: 800,
             direction: "horizontal",
-            navigation: true
+            navigation: true,
+            touchStartPreventDefault: false,
         });
         spreadC.value.initialize();
     }
-
     pageC.value.initialize();
 });
-
 const goDown = () => {
     pageC.value.swiper.slideNext();
 }
-
 const goLeft = () => {
     console.log("go left");
     spreadC.value.swiper.slidePrev();
 }
-
 const goRight = () => {
     console.log("go right", spreadC.value.swiper);
     spreadC.value.swiper.slideNext();
 }
-
 const canGoLeft = false;
 const canGoRight = false;
-
 </script>
-
 <template>
     <main>
         <swiper-container ref="pageC" init="false" parallax>
-            <swiper-slide>
+            <!-- <swiper-slide>
                 <Page>
                     <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
                     <Frame type="fit f-s-snow" mask="ch-1-p-1_frame_2" outline="ch-1-p-1_frame_2">
@@ -111,26 +102,21 @@ const canGoRight = false;
                 <Page type="fit-fill">
                     <div class="frame">
                         <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.webp" alt="">
-
                         <video class="frame__video" autoplay playsinline loop muted>
                             <source src="@assets/ch-1-p-1_frame_4/animation--water.mov" type='video/mp4; codecs="hvc1"'>
                             <source src="@assets/ch-1-p-1_frame_4/animation--water-vp9-chrome.webm" type="video/webm">
                         </video>
                     </div>
                 </Page>
-            </swiper-slide>
+            </swiper-slide> -->
             <swiper-slide data-swiper-parallax>
-
                 <template v-if="!isMobile">
                     <section class="page--spread">
                         <Page3A />
                         <Page3B />
                     </section>
-
                 </template>
-
                 <template v-if="isMobile">
-
                     <swiper-container ref="spreadC" init="false">
                         <swiper-slide lazy="true">
                             <Page3A />
@@ -138,21 +124,17 @@ const canGoRight = false;
                         <swiper-slide lazy="true">
                             <Page3B />
                         </swiper-slide>
-
                     </swiper-container>
                 </template>
-
             </swiper-slide>
             <swiper-slide class="slide--auto">
                 <nextPage to="/chapter-1/page-2" />
             </swiper-slide>
         </swiper-container>
-
         <nav class="nav--multislide" v-if="false">
             <div class="nav__horizontal">
                 <button class='down' @click="goDown" v-if="showDown"></button>
             </div>
-
             <div class="nav__vertical">
                 <button class="left" @click="goLeft" :disabled="canGoLeft"></button>
                 <button class="right" @click="goRight" :disabled="canGoRight"></button>

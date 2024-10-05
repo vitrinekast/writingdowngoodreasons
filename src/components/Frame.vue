@@ -33,7 +33,6 @@ onMounted(() => {
   }
 
   if (props.outline) {
-    console.log(`@assets/${props.outline}/frame_outline.svg`);
     import(`@assets/${props.outline}/frame_outline.svg`).then(imageImports => {
       outlineImg.value = imageImports.default
     })

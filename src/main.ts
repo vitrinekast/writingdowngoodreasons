@@ -1,7 +1,9 @@
 import { ViteSSG } from "vite-ssg";
 import "./styles/_style.scss";
+import { createPinia } from 'pinia'
 
 import App from "./App.vue";
+const pinia = createPinia()
 
 
 const routes = [
@@ -37,5 +39,8 @@ const routes = [
 
 export const createApp = ViteSSG(
   App,
-  { routes }
+  { routes },
+  ({ app, router, routes, isClient, initialState }) => {
+    app.use(pinia)
+  },
 )
