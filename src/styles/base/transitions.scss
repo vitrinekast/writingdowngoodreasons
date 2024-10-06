@@ -2,7 +2,7 @@ $chapter1-duration: 5;
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .4s;
+  transition: opacity 0.4s;
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -12,7 +12,7 @@ $chapter1-duration: 5;
 // Fallback fade transitions
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .4s;
+  transition: opacity 0.4s;
   position: absolute;
   left: 0;
   width: 100%;
@@ -34,6 +34,10 @@ lightbox fade-enter-active fade-enter-to
 .prikbord-enter,
 .prikbord-leave-from {
   transform: translate3d(-50%, -200%, 0);
+
+  @include break($break--mobile) {
+    transform: translate3d(0%, -200%, 0);
+  }
 }
 
 .prikbord-enter-to {
@@ -46,13 +50,17 @@ lightbox fade-enter-active fade-enter-to
 
 .prikbord-leave-active {
   transition:
-    transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
+    transform .8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
     opacity 10s ease;
 }
 
 .prikbord-enter-from,
 .prikbord-leave-to {
   transform: translate3d(-50%, -200%, 0) !important;
+
+  @include break($break--mobile) {
+    transform: translate3d(0%, -200%, 0) !important;
+  }
 }
 
 // Prikbord meter transitions

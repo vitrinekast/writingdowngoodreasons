@@ -18,7 +18,8 @@ body:has(.menu--prikbord) {
     aspect-ratio: 19 / 13;
     max-height: calc(100% - #{$offset * 2 * 1.5});
     width: 100%;
-    overflow: hidden;
+    // overflow: hidden;
+    
 
     @include break($break--mobile) {
       height: 100%;
@@ -50,12 +51,21 @@ body:has(.menu--prikbord) {
       background-size: cover;
       top: 0px;
       z-index: -1;
+      bottom: 0;
+      height: calc(100% - 3px);
+      border-bottom: 3px solid var(--blue-op);
       // opacity: 0.6;
 
       @include break-min($break--mobile) {
         top: $border;
         left: $border;
         right: $border;
+        border: none;
+      }
+
+      @include break($break--mobile) {
+        height: calc(100% - 3px + 100px);
+        top: -97px;
       }
     }
 
@@ -86,6 +96,7 @@ body:has(.menu--prikbord) {
     opacity: 0.3;
     pointer-events: none;
   }
+
   &__meter {
     position: fixed;
     left: 50%;
@@ -128,9 +139,10 @@ body:has(.menu--prikbord) {
     position: absolute;
     top: 0;
     left: 0;
+
     
     @include break($break--mobile) {
-      padding: 12px;
+      padding: 2px;
     }
 
     &:after {
@@ -156,21 +168,20 @@ body:has(.menu--prikbord) {
     
 
     &:nth-child(1) {
-      transform: translate3d(8px, -4px, 0) rotate(-5deg) scale(1);
-      border-color: blue;
-      aspect-ratio: 274/ 818;
+      transform: translate3d(8px, -4px, 0) rotate(5deg) scale(1);
       width: 500px;
-      height: 500px;
       position: absolute;
       top: 0;
       left: 0;
-
+      display: block;
+      z-index: 3;
       @include break($break--mobile) {
         max-width: 76%;
+        max-width: 60%;
       }
 
       &:hover {
-        transform: translate3d(8px, -4px, 0) rotate(-7deg) scale(1.01);
+        transform: translate3d(8px, -4px, 0) rotate(0deg) scale(1.01);
       }
     }
 
@@ -179,16 +190,16 @@ body:has(.menu--prikbord) {
       bottom: 5%;
       left: 15%;
       max-width: 400px;
-      transform: translate3d(-50px, 8px, 0) rotate(3deg) scale(1);
-
+      transform: translate3d(-50px, 8px, 0) rotate(-8deg) scale(1);
+      z-index: 3;
       @include break($break--mobile) {
         max-width: 76%;
-        bottom: 10%;
-        left: auto;
+        bottom: 15%;
+        left: 30%;
       }
 
       &:hover {
-        transform: translate3d(-50px, 8px, 0) rotate(1deg) scale(1);
+        transform: translate3d(-50px, 8px, 0) rotate(-1deg) scale(1);
       }
     }
 
@@ -198,13 +209,36 @@ body:has(.menu--prikbord) {
       left: 45%;
       width: 90%;
       max-width: 500px;
-      transform: translate3d(-30px, -50px, 0) rotate(-15deg) scale(1);
-
+      transform: translate3d(-30px, -50px, 0) rotate(1deg) scale(1);
+      z-index: 3;
+      @include break($break--mobile) {
+        left: 55%;
+      }
      
 
       &:hover {
-        transform: translate3d(-30px, -50px, 0) rotate(-12deg) scale(1.03);
+        transform: translate3d(-30px, -50px, 0) rotate(-3deg) scale(1.03);
       }
+    }
+
+    &:nth-child(4) {
+      transform: rotate(-21deg) scale(1);
+      width: 100px;
+      top: 50%;
+      left: 10px;
+      height: 50px;
+      opacity: .8;
+      filter: blur(.71px);
+    }
+
+    &:nth-child(5) {
+      transform: rotate(-21deg) scale(1);
+      width: 140px;
+      top: 10%;
+      right:  -10%;
+      left: auto;
+      opacity: .8;
+      filter: blur(.71px);
     }
   }
 }
