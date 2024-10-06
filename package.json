@@ -26,8 +26,6 @@
   
     "@tenrok/vue-device-detect": "^1.0.0",
     "@tsparticles/engine": "^3.5.0",
-    "@tsparticles/preset-confetti": "^3.1.0",
-    "@tsparticles/slim": "^3.5.0",
     "@tsparticles/vue3": "^3.0.1",
     "@vueuse/core": "^10.9.0",
     "mitt": "^3.0.1",
