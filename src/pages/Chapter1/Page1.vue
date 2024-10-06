@@ -130,7 +130,7 @@ const canGoRight = false;
                 </template>
             </swiper-slide>
             <swiper-slide class="slide--auto">
-                <nextPage to="/chapter-1/page-2" />
+                <nextPage to="/chapter-1/page-2.html" />
             </swiper-slide>
         </swiper-container>
         <nav class="nav--multislide" v-if="false">

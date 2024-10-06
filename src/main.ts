@@ -4,18 +4,18 @@ import "./styles/_style.scss";
 
 const routes = [
   {
-    path: "/chapter-1/page-1",
+    path: "/chapter-1/page-1.html",
     name: "Chapter 1",
     component: () => import("./pages/Chapter1/Page1.vue"),
     meta: { transition: "chapter-1" },
   },
   {
-    path: "/chapter-1/page-2",
+    path: "/chapter-1/page-2.html",
     name: "Chapter 1 Page 2",
     component: () => import("./pages/Chapter1/Page2.vue"),
   },
   {
-    path: "/chapter-1/page-3",
+    path: "/chapter-1/page-3.html",
     name: "Chapter 1 Page 3",
     component: () => import("./pages/Chapter1/Page3.vue"),
   },

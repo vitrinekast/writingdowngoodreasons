@@ -80,7 +80,7 @@ const on = () => {
                 </Page>
             </swiper-slide>
 
-            <nextPage to="/chapter-1/page-3" />
+            <nextPage to="/chapter-1/page-3.html" />
 
         </swiper-container>
 
