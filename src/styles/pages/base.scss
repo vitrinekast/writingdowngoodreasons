@@ -91,11 +91,13 @@
     @extend .page;
     padding: 0 0;
     height: auto;
+    
+    width: 100%;
 
     @include break($break--mobile) {
       max-width: 100% !important;
     }
-  
+   
   }
 
   //   page specific layouts

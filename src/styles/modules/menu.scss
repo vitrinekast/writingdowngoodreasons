@@ -47,7 +47,8 @@ body:has(.menu--prikbord) {
     }
 
     &:after {
-      background-image: url("@/assets/images/ch-1-p-2_menu/background.png");
+      // background-image: url("@/assets/images/ch-1-p-2_menu/background.png");
+      background-color: var(--blue-op);
       background-size: cover;
       top: 0px;
       z-index: -1;

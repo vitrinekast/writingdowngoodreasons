@@ -21,6 +21,24 @@ main {
   height: 100%;
 }
 
+.background {
+  &--base {
+    background-color: #e8e3d1;
+  }
+
+  &--lightblue {
+    background-color: #dae6e5;
+  }
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   width: 100%;
   max-width: max-content;

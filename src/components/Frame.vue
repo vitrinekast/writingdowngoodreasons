@@ -12,7 +12,7 @@ const props = defineProps({
 const outlineImg = ref()
 
 const styleObject = reactive({
-  transform: 'rotate(0deg)',
+  // transform: 'rotate(0deg)',
 })
 
 const setNewPos = () => {
