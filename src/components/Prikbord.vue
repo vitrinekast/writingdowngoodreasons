@@ -3,6 +3,7 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
 import { useAudioStore } from '../store/audio';
+import { audioBus } from '../helpers/eventBus';
 const emit = defineEmits(['close']);
 
 const lbImage = ref();
@@ -64,6 +65,7 @@ const onMouseMove = (e) => {
     mousePos.transform = `translate(${e.clientX - mousePos.startX - (mousePos.w / 2)}px, ${e.clientY - mousePos.startY - (mousePos.w / 2)}px)`;
 }
 
+
 </script>
 
 <template>
@@ -81,17 +83,17 @@ const onMouseMove = (e) => {
 
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_1.png" alt=""
-                    @click="audio.play('audio__plants-move'); openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
+                    @click="audioBus.emit('playSample', 'audio__plants-move'); openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
             </div>
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox"
                     lightbox-src="/src/assets/images/ch-1-p-2_menu/letter_expanded.png"
                     src="/src/assets/images/ch-1-p-2_menu/letter.png" alt=""
-                    @click="audio.play('audio__page-flip'); openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
+                    @click="audioBus.emit('playSample', 'audio__page-flip'); openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
             </div>
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_2.png" alt=""
-                    @click="audio.play('audio__car-start'); openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
+                    @click="audioBus.emit('playSample', 'audio__car-start'); openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
             </div>
 
         </nav>

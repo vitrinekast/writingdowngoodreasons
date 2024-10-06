@@ -13,6 +13,4 @@ export const install = ({ isClient, initialState, app }) => {
             }
         });
 
-    else
-        console.log("------ ------ ------ ------ not a client")
 }

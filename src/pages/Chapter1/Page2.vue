@@ -10,6 +10,7 @@ import Prikbord from "../../components/Prikbord.vue";
 import NextPage from "../../components/nextPage.vue";
 import { swiperParam } from "../../helpers/utils";
 import { useAudioStore } from "../../store/audio";
+import { audioBus } from "../../helpers/eventBus";
 
 register();
 
@@ -21,7 +22,7 @@ const prikbordOpen = ref(true);
 const coordVideo = ref(null);
 
 onMounted(() => {
-    audio.playBackground("bg__intro");
+    audioBus.on("playBackground", "bg__intro");
     Object.assign(swiperContainerNest.value, {
         ...swiperParam,
         speed: 3000,

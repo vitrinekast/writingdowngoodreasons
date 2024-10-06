@@ -12,6 +12,7 @@ import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
 import { swiperParam } from '../../helpers/utils';
 import { useAudioStore } from "../../store/audio";
+import { audioBus } from "../../helpers/eventBus";
 register();
 const isMobile = useMediaQuery('(max-width: 900px)');
 const pageC = ref(null);
@@ -19,7 +20,8 @@ const spreadC = ref(null);
 const showDown = ref(true);
 const audio = useAudioStore();
 onMounted(() => {
-    audio.playBackground("bg__intro");
+    audioBus.emit("playBackground", "bg__intro");
+    
     Object.assign(pageC.value, {
         ...swiperParam,
         speed: 1200,

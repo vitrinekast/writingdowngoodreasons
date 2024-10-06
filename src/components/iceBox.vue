@@ -3,7 +3,7 @@ import ice1 from '@assets/gui/ice--1.webp';
 import ice2 from '@assets/gui/ice--2.webp';
 import ice3 from '@assets/gui/ice--3.webp';
 import { onMounted, ref } from 'vue';
-import { bus } from '../helpers/eventBus';
+import { audioBus, bus } from '../helpers/eventBus';
 import { useAudioStore } from '../store/audio';
 
 const allImages = [ice1, ice2, ice3];
@@ -18,8 +18,7 @@ const onClick = (e) => {
 
     wiggle.value = true;
     count.value++;
-    audio.play("bbc_ice--" + (Math.floor(Math.random() * 4) + 1));
-
+    audioBus.emit("playSample", "bbc_ice--" + (Math.floor(Math.random() * 4) + 1));
     if (timeout) {
         clearTimeout(timeout);
     }

@@ -4,15 +4,15 @@ import Page from "@/components/Page.vue";
 import { Transition, ref } from "vue";
 import { useAudioStore } from "../../../store/audio";
 import IceBox from "../../iceBox.vue";
+import { audioBus } from "../../../helpers/eventBus";
 
 const showBirdAway = ref(false);
 const audio = useAudioStore();
 
 const onBird = () => {
     console.log("clicke bird");
-    audio.play("audio__bird");
+    audioBus.emit('playSample', "audio__bird");
 }
-
 
 </script>
 

@@ -1,18 +1,52 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useAudioStore } from '../store/audio';
+import { audioBus } from '../helpers/eventBus';
 
 const audio = useAudioStore();
 const sample = ref();
 const background = ref();
+const backgroundSample = ref();
 
-const playSample = (name) => {
-  if (audio.muted || !name) return false;
+onMounted(() => {
+  canPlayAudio().then((isPlayable) => {
+    if (!isPlayable && !audio.muted) {
+      audio.toggle();
+    }
+  });
+})
+
+function canPlayAudio() {
+  const audio = document.createElement('audio');
+
+  // You can set a valid audio source
+  audio.src = 'data:audio/wav;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA=='; // short data URI for testing
+
+  return new Promise((resolve) => {
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        resolve(true);
+      }).catch((error) => {
+        console.log('Audio autoplay is blocked:', error);
+        resolve(false);
+      });
+    } else {
+      resolve(false);
+    }
+  });
+}
+
+
+audioBus.on('playSample', (name) => {
+  if (audio.muted) return false;
+
   import(`@/assets/audio/${name}.mp3`).then((src) => {
-    console.log("load and play");
     if (sample.value) {
       sample.value.pause();
     }
+
     sample.value = new Audio(src.default);
     sample.value.pause();
     sample.value.play();
@@ -20,11 +54,20 @@ const playSample = (name) => {
       audio.play(false);
     }
   })
-}
+})
 
-const playBackground = (name) => {
-  if (audio.muted || !name) return false;
-  import(`@/assets/audio/bg/${name}.mp3`).then((src) => {
+audioBus.on('playBackground', (name) => {
+  backgroundSample.value = name;
+
+  if (audio.muted) {
+    return false
+  };
+
+  playBackground();
+})
+
+const playBackground = () => {
+  import(`@/assets/audio/bg/${backgroundSample.value}.mp3`).then((src) => {
     if (background.value) {
       background.value.pause();
     }
@@ -37,7 +80,6 @@ const playBackground = (name) => {
 }
 
 const parseMutedState = (state) => {
-  console.log(state);
   if (state.muted) {
     if (sample.value) {
       sample.value.pause();
@@ -46,25 +88,12 @@ const parseMutedState = (state) => {
       background.value.pause();
     }
   } else {
-    playBackground(state.background);
+    playBackground();
   }
 }
 
 audio.$subscribe((mutation, state) => {
-  switch (mutation.events.key) {
-    case 'sample':
-      playSample(state.sample);
-      break;
-    case 'background':
-      playBackground(state.background);
-      break;
-    case 'muted':
-      parseMutedState(state);
-      break;
-    default:
-      parseMutedState(state);
-      console.info("couldnt figure out this audio event: ", state, mutation, state.muted);
-  }
+  parseMutedState(state);
 
 }, { detached: false })
 
