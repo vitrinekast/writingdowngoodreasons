@@ -8,13 +8,10 @@ import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
 import Prikbord from "../../components/Prikbord.vue";
 import NextPage from "../../components/nextPage.vue";
-import { swiperParam } from "../../helpers/utils";
-import { useAudioStore } from "../../store/audio";
 import { audioBus } from "../../helpers/eventBus";
+import { swiperParam } from "../../helpers/utils";
 
 register();
-
-const audio = useAudioStore();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
@@ -23,6 +20,7 @@ const coordVideo = ref(null);
 
 onMounted(() => {
     audioBus.on("playBackground", "bg__intro");
+
     Object.assign(swiperContainerNest.value, {
         ...swiperParam,
         speed: 3000,
@@ -31,6 +29,9 @@ onMounted(() => {
 
     swiperContainerNest.value.initialize();
 
+    if(!prikbordOpen.value) {
+        coordVideo.value.play();
+    }
 });
 
 
@@ -41,12 +42,6 @@ const onMenuClose = () => {
     }, 1000)
 }
 
-const on = () => {
-    console.log("did click", prikbordOpen);
-    prikbordOpen.value = false;
-    onMenuClose();
-
-}
 </script>
 
 <template>
