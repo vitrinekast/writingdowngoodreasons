@@ -2,10 +2,9 @@
 import ice1 from '@assets/gui/ice--1.webp';
 import ice2 from '@assets/gui/ice--2.webp';
 import ice3 from '@assets/gui/ice--3.webp';
-import mitt from 'mitt';
 import { onMounted, ref } from 'vue';
-import { useAudioStore } from '../store/audio';
 import { bus } from '../helpers/eventBus';
+import { useAudioStore } from '../store/audio';
 
 const allImages = [ice1, ice2, ice3];
 const audio = useAudioStore();
@@ -13,8 +12,6 @@ const images = ref([]);
 const count = ref(0);
 let timeout = false;
 const wiggle = ref(false);
-
-
 
 const onClick = (e) => {
     if (count.value > 2) return false;

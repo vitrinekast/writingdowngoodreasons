@@ -6,7 +6,6 @@ import Particles from "@tsparticles/vue3";
 import App from "./App.vue";
 const pinia = createPinia()
 
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import { loadFull } from 'tsparticles';
 
 const routes = [

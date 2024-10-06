@@ -38,18 +38,6 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
-"@capacitor/core@^6.1.0":
-  version "6.1.2"
-  resolved "https://registry.npmjs.org/@capacitor/core/-/core-6.1.2.tgz"
-  integrity sha512-xFy1/4qLFLp5WCIzIhtwUuVNNoz36+V7/BzHmLqgVJcvotc4MMjswW/TshnPQaLLujEOaLkA4h8ZJ0uoK3ImGg==
-  dependencies:
-    tslib "^2.1.0"
-
-"@capacitor/ios@^6.1.2":
-  version "6.1.2"
-  resolved "https://registry.npmjs.org/@capacitor/ios/-/ios-6.1.2.tgz"
-  integrity sha512-HaeW68KisBd/7TmavzPDlL2bpoDK5AjR2ZYrqU4TlGwM88GtQfvduBCAlSCj20X0w/4+rWMkseD9dAAkacjiyQ==
-
 "@esbuild/darwin-arm64@0.21.5":
   version "0.21.5"
   resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.21.5.tgz"
@@ -117,30 +105,6 @@
   version "1.0.2"
   resolved "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.0.2.tgz"
   integrity sha512-tcK/41Rq8IKlSaKRCCAuuY3lDJjQnYIW1UXU1kxcEKrfL8WR7N6+rzNoOxoQRJWTAECuKwgAHnPvqXGN8XfkHA==
-
-"@ionic/core@8.3.1":
-  version "8.3.1"
-  resolved "https://registry.npmjs.org/@ionic/core/-/core-8.3.1.tgz"
-  integrity sha512-md4JFwKYLgN/YP+uzoTE5H7ah0W5SQQNZ1cJOQtxhv0ytCCHHaXJrfRVzefdy8iy8NdzL9s6EV5ZTKYH98E+ZQ==
-  dependencies:
-    "@stencil/core" "4.20.0"
-    ionicons "^7.2.2"
-    tslib "^2.1.0"
-
-"@ionic/vue-router@^8.3.1":
-  version "8.3.1"
-  resolved "https://registry.npmjs.org/@ionic/vue-router/-/vue-router-8.3.1.tgz"
-  integrity sha512-ir/RQRo/zyZiRm6KCkGfPenykKRW1Ikk5hiRAwJ92jU0BSSwU6tfXWY4hQr2jfXsGCoJ2LiQOlJtvoCrTIRGaQ==
-  dependencies:
-    "@ionic/vue" "8.3.1"
-
-"@ionic/vue@^8.3.1", "@ionic/vue@8.3.1":
-  version "8.3.1"
-  resolved "https://registry.npmjs.org/@ionic/vue/-/vue-8.3.1.tgz"
-  integrity sha512-UWOVuibeHY4xjWl2Sh93FYiXLBZgAVXoh8ObskV93plm36iS611gpHqw47lBeR29uHwZAohfQVT0WLN6GWQ3JQ==
-  dependencies:
-    "@ionic/core" "8.3.1"
-    ionicons "^7.0.0"
 
 "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.5"
@@ -239,11 +203,6 @@
   version "4.22.4"
   resolved "https://registry.npmjs.org/@rollup/rollup-darwin-arm64/-/rollup-darwin-arm64-4.22.4.tgz"
   integrity sha512-xMM9ORBqu81jyMKCDP+SZDhnX2QEVQzTcC6G18KlTQEzWK8r/oNZtKuZaCcHhnsa6fEeOBionoyl5JsAbE/36Q==
-
-"@stencil/core@^4.0.3", "@stencil/core@4.20.0":
-  version "4.20.0"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-4.20.0.tgz"
-  integrity sha512-WPrTHFngvN081RY+dJPneKQLwnOFD60OMCOQGmmSHfCW0f4ujPMzzhwWU1gcSwXPWXz5O+8cBiiCaxAbJU7kAg==
 
 "@tenrok/vue-device-detect@^1.0.0":
   version "1.0.0"
@@ -2017,13 +1976,6 @@ internal-slot@^1.0.4:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
-ionicons@^7.0.0, ionicons@^7.2.2:
-  version "7.4.0"
-  resolved "https://registry.npmjs.org/ionicons/-/ionicons-7.4.0.tgz"
-  integrity sha512-ZK94MMqgzMCPPMhmk8Ouu6goyVHFIlw/ACP6oe3FrikcI0N7CX0xcwVaEbUc0G/v3W0shI93vo+9ve/KpvcNhQ==
-  dependencies:
-    "@stencil/core" "^4.0.3"
-
 is-arguments@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/is-arguments/-/is-arguments-1.1.1.tgz"
@@ -3121,7 +3073,7 @@ ts-api-utils@^1.0.1:
   resolved "https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-1.2.1.tgz"
   integrity sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==
 
-tslib@^2.0.3, tslib@^2.1.0, tslib@^2.2.0:
+tslib@^2.0.3, tslib@^2.2.0:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==

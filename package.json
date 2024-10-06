@@ -23,9 +23,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@capacitor/ios": "^6.1.2",
-    "@ionic/vue": "^8.3.1",
-    "@ionic/vue-router": "^8.3.1",
+  
     "@tenrok/vue-device-detect": "^1.0.0",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/preset-confetti": "^3.1.0",
