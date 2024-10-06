@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue';
 import ice1 from '@assets/gui/ice--1.webp';
 import ice2 from '@assets/gui/ice--2.webp';
 import ice3 from '@assets/gui/ice--3.webp';
+import mitt from 'mitt';
+import { onMounted, ref } from 'vue';
 import { useAudioStore } from '../store/audio';
+import { bus } from '../helpers/eventBus';
 
 const allImages = [ice1, ice2, ice3];
 const audio = useAudioStore();
@@ -13,7 +15,8 @@ let timeout = false;
 const wiggle = ref(false);
 
 
-const onClick = () => {
+
+const onClick = (e) => {
     if (count.value > 2) return false;
 
     wiggle.value = true;
@@ -27,8 +30,10 @@ const onClick = () => {
     timeout = setTimeout(() => {
         wiggle.value = false;
     }, 250)
-}
 
+    bus.emit('particles', { x: e.clientX, y: e.clientY })
+    
+}
 onMounted(() => {
     const shuffled = [...allImages].sort(() => 0.5 - Math.random());
     images.value = shuffled;
@@ -38,7 +43,7 @@ onMounted(() => {
 <template>
     <div class="frame__overlay" @click="onClick">
         <img v-for="(image, index) in images" :key="index" :src="image"
-            :class="`frame__overlay ${wiggle ? 'wiggle' : ''}`"
+            :class="`frame__ice ${wiggle ? 'wiggle' : ''} ${count > index ? 'frame__ice--broken' : ''}`"
             :style="{ opacity: count > index ? 0 : .85, transition: 'opacity .3s cubic-bezier(0.25, 0, 0, 1)' }" />
     </div>
 </template>

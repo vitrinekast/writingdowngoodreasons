@@ -11,7 +11,7 @@ import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
-import { swiperParam } from '../../utils';
+import { swiperParam } from '../../helpers/utils';
 
 register();
 

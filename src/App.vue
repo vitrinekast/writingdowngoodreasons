@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AudioPlayer from './components/AudioPlayer.vue';
+import Particles from './components/particles.vue';
 
 const router = useRouter();
 const route = useRoute();
@@ -21,7 +22,7 @@ const route = useRoute();
       <component :is="Component" />
     </transition>
   </router-view>
-
+  <Particles />
 
 </template>
 

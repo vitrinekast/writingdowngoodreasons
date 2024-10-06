@@ -8,7 +8,7 @@ import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
 import Prikbord from "../../components/Prikbord.vue";
 import NextPage from "../../components/nextPage.vue";
-import { swiperParam } from "../../utils";
+import { swiperParam } from "../../helpers/utils";
 import { useAudioStore } from "../../store/audio";
 
 register();

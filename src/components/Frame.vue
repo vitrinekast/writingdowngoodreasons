@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, reactive } from 'vue';
-import { BEM } from '../utils';
+import { BEM } from '../helpers/utils';
 
 const props = defineProps({
   size: { type: String, required: false },

@@ -1,10 +1,13 @@
+import { createPinia } from 'pinia';
 import { ViteSSG } from "vite-ssg";
 import "./styles/_style.scss";
-import { createPinia } from 'pinia'
 
+import Particles from "@tsparticles/vue3";
 import App from "./App.vue";
 const pinia = createPinia()
 
+import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadFull } from 'tsparticles';
 
 const routes = [
   {
@@ -41,6 +44,12 @@ export const createApp = ViteSSG(
   App,
   { routes },
   ({ app, router, routes, isClient, initialState }) => {
-    app.use(pinia)
+    app.use(pinia);
+    app.use(Particles, {
+      init: async engine => {
+        // await loadFull(engine); // you can load the full tsParticles library from "tsparticles" if you need it
+        await loadFull(engine); // or you can load the slim version from "@tsparticles/slim" if don't need Shapes or Animations
+      },
+    });
   },
 )

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { BEM } from '../utils';
+import { BEM } from '../helpers/utils';
+
 
 const props = defineProps({
   type: { type: String, required: false },

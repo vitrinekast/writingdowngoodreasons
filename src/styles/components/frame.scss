@@ -66,8 +66,7 @@
     object-fit: contain;
   }
 
-  &__overlay {
-    border: 1px solid blue;
+  &__overlay, &__ice {
     position: absolute;
     top: 0;
     left: 0;
@@ -140,5 +139,9 @@
     height: 100%;
     width: 100%;
     opacity: 1;
+  }
+
+  &:has(.frame__ice:not(.frame__ice--broken)) .frame__outline{
+    opacity: .1;
   }
 }

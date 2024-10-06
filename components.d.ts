@@ -16,6 +16,7 @@ declare module 'vue' {
     Page: typeof import('./src/components/Page.vue')['default']
     Page3A: typeof import('./src/components/frames/Chapter1/Page3A.vue')['default']
     Page3B: typeof import('./src/components/frames/Chapter1/Page3B.vue')['default']
+    Particles: typeof import('./src/components/particles.vue')['default']
     Prikbord: typeof import('./src/components/Prikbord.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
