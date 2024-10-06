@@ -26,7 +26,9 @@ onMounted(() => {
     Object.assign(pageC.value, {
         ...swiperParam,
         direction: 'vertical',
-        speed: 800
+        speed: 2000,
+        allowSwipeNext: false, // this doesnt work atm
+        allowSwipePrev: false
     });
     console.log("init?");
     pageC.value.initialize();
@@ -48,11 +50,11 @@ const onchange = (e) => {
     }
 
     if (e.target.value > 90 && pageState.value === 0) {
-        
+
 
         window.setTimeout(() => {
             pageState.value = 1;
-        pageC.value.swiper.slideNext();
+            pageC.value.swiper.slideNext();
         }, 1000)
 
 
@@ -84,8 +86,9 @@ const onchange = (e) => {
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.png" alt=""
                                 class="frame__asset--contain stretch fadee-in">
                         </Frame>
-                        <Frame class="cell cell--w-6 cell--100"  >
-                            <input class="cell__abs" :style="{ opacity: pageState ==0 ? 1 : 0 }" type="range" min="0" max="100" step="1" value="0" @input="onchange">
+                        <Frame class="cell cell--w-6 cell--100">
+                            <input class="cell__abs" :style="{ opacity: pageState == 0 ? 1 : 0 }" type="range" min="0"
+                                max="100" step="1" value="0" @input="onchange">
                         </Frame>
 
                     </div>

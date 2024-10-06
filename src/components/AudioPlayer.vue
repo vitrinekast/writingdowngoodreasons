@@ -7,8 +7,9 @@ const sample = ref();
 const background = ref();
 
 const playSample = (name) => {
-  if (audio.muted) return false;
+  if (audio.muted || !name) return false;
   import(`@/assets/audio/${name}.mp3`).then((src) => {
+    console.log("load and play");
     if (sample.value) {
       sample.value.pause();
     }
@@ -22,7 +23,7 @@ const playSample = (name) => {
 }
 
 const playBackground = (name) => {
-  if (audio.muted) return false;
+  if (audio.muted || !name) return false;
   import(`@/assets/audio/bg/${name}.mp3`).then((src) => {
     if (background.value) {
       background.value.pause();
@@ -35,6 +36,20 @@ const playBackground = (name) => {
   })
 }
 
+const parseMutedState = (state) => {
+  console.log(state);
+  if (state.muted) {
+    if (sample.value) {
+      sample.value.pause();
+    }
+    if (background.value) {
+      background.value.pause();
+    }
+  } else {
+    playBackground(state.background);
+  }
+}
+
 audio.$subscribe((mutation, state) => {
   switch (mutation.events.key) {
     case 'sample':
@@ -44,19 +59,11 @@ audio.$subscribe((mutation, state) => {
       playBackground(state.background);
       break;
     case 'muted':
-      if (state.muted) {
-        if (sample.value) {
-          sample.value.pause();
-        }
-        if (background.value) {
-          background.value.pause();
-        }
-      } else {
-        playBackground(state.background);
-      }
+      parseMutedState(state);
       break;
     default:
-      console.info("couldnt figure out this audio event: ", state);
+      parseMutedState(state);
+      console.info("couldnt figure out this audio event: ", state, mutation, state.muted);
   }
 
 }, { detached: false })

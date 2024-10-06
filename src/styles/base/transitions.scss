@@ -1,10 +1,18 @@
 $chapter1-duration: 5;
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .4s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 // Fallback fade transitions
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 4s;
+  transition: opacity .4s;
   position: absolute;
   left: 0;
   width: 100%;
@@ -18,6 +26,7 @@ $chapter1-duration: 5;
 .fade-leave-to {
   opacity: 0;
 }
+lightbox fade-enter-active fade-enter-to
 
 
 
@@ -36,7 +45,9 @@ $chapter1-duration: 5;
 }
 
 .prikbord-leave-active {
-  transition: transform .8s cubic-bezier(0.88, -0.1, 0.32, 1.8), opacity 10s ease;
+  transition:
+    transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
+    opacity 10s ease;
 }
 
 .prikbord-enter-from,
@@ -59,7 +70,9 @@ $chapter1-duration: 5;
 }
 
 .prikbord-meter-leave-active {
-  transition: transform .8s cubic-bezier(0.88, -0.1, 0.32, 1.8), opacity 10s ease;
+  transition:
+    transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
+    opacity 10s ease;
 }
 
 .prikbord-meter-enter-from,
@@ -74,9 +87,8 @@ $chapter1-duration: 5;
   .frame__background,
   .frame__outline,
   .f-s-snow__text,
-  .f-s-snow__person, 
+  .f-s-snow__person,
   .f-s-snow__snow {
-
     transition: opacity 4s linear 3s;
   }
 
@@ -93,14 +105,12 @@ $chapter1-duration: 5;
   }
 }
 
-
 .chapter-1-leave-active {
   transition: opacity 10s;
 }
 
 // from intro to chapter 1: disappear the intro
 .chapter-1-leave-to .intro {
-
   // all the zero opacities
   .frame__button,
   .frame__outline,

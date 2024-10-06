@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const emit = defineEmits(['close']);
-const model = defineModel()
+const model = defineModel({default: false})
 
 
 const close = () => {
@@ -10,7 +10,7 @@ const close = () => {
 
 </script>
 <template>
-    <Transition>
+    <Transition name="fade">
         <div class="lightbox" v-if="model">
             <img :src="model" class="lightbox__img fn-lightbox-img" alt="">
             <a class="button lightbox__close" @click="close">

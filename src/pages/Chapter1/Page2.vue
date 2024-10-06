@@ -9,15 +9,19 @@ import { onMounted, ref } from 'vue';
 import Prikbord from "../../components/Prikbord.vue";
 import NextPage from "../../components/nextPage.vue";
 import { swiperParam } from "../../utils";
+import { useAudioStore } from "../../store/audio";
 
 register();
+
+const audio = useAudioStore();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
 const prikbordOpen = ref(true);
 const coordVideo = ref(null);
-onMounted(() => {
 
+onMounted(() => {
+    audio.playBackground("bg__intro");
     Object.assign(swiperContainerNest.value, {
         ...swiperParam,
         speed: 3000,
@@ -25,6 +29,7 @@ onMounted(() => {
     });
 
     swiperContainerNest.value.initialize();
+
 });
 
 
@@ -35,7 +40,7 @@ const onMenuClose = () => {
     }, 1000)
 }
 
-const on = () =>{
+const on = () => {
     console.log("did click", prikbordOpen);
     prikbordOpen.value = false;
     onMenuClose();
@@ -46,17 +51,16 @@ const on = () =>{
 <template>
 
     <main>
-<h2 @click="on"> {{ prikbordOpen }}</h2>
-        <!-- <Prikbord v-model="prikbordOpen" @close="onMenuClose" /> -->
+        <Prikbord v-model="prikbordOpen" @close="onMenuClose" />
 
-        <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false" >
+        <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false">
             <swiper-slide class="slide--auto" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/asset-01.jpg" alt="">
-                    <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">  
-                            <source src="@assets/ch-1-p-2_frame_1/animation.mov" type='video/mp4; codecs="hvc1"'>
-                            <source src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm" type="video/webm">
-                        </video>
+                    <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">
+                        <source src="@assets/ch-1-p-2_frame_1/animation.mov" type='video/mp4; codecs="hvc1"'>
+                        <source src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm" type="video/webm">
+                    </video>
                 </Page>
             </swiper-slide>
             <swiper-slide class="slide--auto" v-if="!prikbordOpen">
@@ -75,7 +79,7 @@ const on = () =>{
                 </Page>
             </swiper-slide>
 
-            <nextPage to="/chapter-1/page-3" /> 
+            <nextPage to="/chapter-1/page-3" />
 
         </swiper-container>
 

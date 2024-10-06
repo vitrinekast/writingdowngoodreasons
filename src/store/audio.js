@@ -23,7 +23,12 @@ export const useAudioStore = defineStore('audio', {
             this.muted = false;
         },
         toggle() {
-            this.muted = !this.muted;
+            if(this.muted) {
+                this.muted = false;
+            } else {
+                this.muted  = true;
+            }
+            // this.muted = !this.muted;
         },
         playBackground(sample) {
             this.background = sample;

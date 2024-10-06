@@ -2,15 +2,16 @@
 import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
+import { useAudioStore } from '../store/audio';
 const emit = defineEmits(['close']);
 
 const lbImage = ref();
-const showMenu = ref(true);
-const sample = ref();
 const cursor = ref();
 const progress = ref([]);
 
 const menuModel = defineModel()
+
+const audio = useAudioStore();
 
 const meterValue = computed(() => {
     return progress.value.length > 0 ? (1 / 3) * progress.value.length : 0;
@@ -70,8 +71,6 @@ const onMouseMove = (e) => {
 
     <Lightbox @mousemove="onMouseMove" v-model="lbImage" @close="onLBClose" />
 
-    <AudioPlayer :sample="sample" />
-
     <Transition name="fade">
         <div class="menu__backdrop" v-if="menuModel"></div>
     </Transition>
@@ -82,19 +81,17 @@ const onMouseMove = (e) => {
 
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_1.png" alt=""
-                    @mouseover="sample = 'audio__plants-move'"
-                    @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
+                    @click="audio.play('audio__plants-move'); openImage('/src/assets/images/ch-1-p-2_menu/photo_1.png')">
             </div>
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox"
                     lightbox-src="/src/assets/images/ch-1-p-2_menu/letter_expanded.png"
-                    src="/src/assets/images/ch-1-p-2_menu/letter.png" alt="" @mouseover="sample = 'audio__page-flip'"
-                    @click="openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
+                    src="/src/assets/images/ch-1-p-2_menu/letter.png" alt=""
+                    @click="audio.play('audio__page-flip'); openImage('/src/assets/images/ch-1-p-2_menu/letter_expanded.png')">
             </div>
             <div class="menu__frame">
                 <img class="frame__asset--contain fn-lightbox" src="/src/assets/images/ch-1-p-2_menu/photo_2.png" alt=""
-                    @mouseover="sample = 'audio__car-start'"
-                    @click="openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
+                    @click="audio.play('audio__car-start'); openImage('/src/assets/images/ch-1-p-2_menu/photo_2.png')">
             </div>
 
         </nav>
