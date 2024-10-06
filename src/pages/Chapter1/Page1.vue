@@ -77,7 +77,7 @@ const canGoRight = false;
 <template>
     <main>
         <swiper-container ref="pageC" init="false" parallax>
-            <!-- <swiper-slide>
+            <swiper-slide>
                 <Page>
                     <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
                     <Frame type="fit f-s-snow" mask="ch-1-p-1_frame_2" outline="ch-1-p-1_frame_2">
@@ -108,7 +108,7 @@ const canGoRight = false;
                         </video>
                     </div>
                 </Page>
-            </swiper-slide>  -->
+            </swiper-slide>
             <swiper-slide data-swiper-parallax>
                 <template v-if="!isMobile">
                     <section class="page--spread">
