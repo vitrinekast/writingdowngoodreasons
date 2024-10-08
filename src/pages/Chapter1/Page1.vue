@@ -5,23 +5,22 @@ import Page3A from "@/components/frames/Chapter1/Page3A.vue";
 import Page3B from "@/components/frames/Chapter1/Page3B.vue";
 import { useMediaQuery } from '@vueuse/core';
 import 'swiper/css';
-import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
-import { swiperParam } from '../../helpers/utils';
-import { useAudioStore } from "../../store/audio";
 import { audioBus } from "../../helpers/eventBus";
+import { swiperParam } from '../../helpers/utils';
+
 register();
+
 const isMobile = useMediaQuery('(max-width: 900px)');
 const pageC = ref(null);
 const spreadC = ref(null);
-const showDown = ref(true);
-const audio = useAudioStore();
+
 onMounted(() => {
     audioBus.emit("playBackground", "bg__intro");
-    
+
     Object.assign(pageC.value, {
         ...swiperParam,
         speed: 1200,
@@ -29,25 +28,10 @@ onMounted(() => {
         pagination: true,
         draggable: true,
         cssMode: false,
-        // effect: 'creative',
         breakpoints: {
             768: {
                 freeMode: true,
             },
-        },
-        creativeEffect: {
-            prev: {
-                shadow: false,
-                translate: [-20, "-10%", -180],
-                scale: .8,
-                rotate: [0, 0, 7],
-                opacity: 0
-            },
-            perspective: true,
-            next: {
-                translate: [0, '100%', 0],
-                opacity: 0
-            }
         }
     });
     if (spreadC.value) {
@@ -62,19 +46,7 @@ onMounted(() => {
     }
     pageC.value.initialize();
 });
-const goDown = () => {
-    pageC.value.swiper.slideNext();
-}
-const goLeft = () => {
-    console.log("go left");
-    spreadC.value.swiper.slidePrev();
-}
-const goRight = () => {
-    console.log("go right", spreadC.value.swiper);
-    spreadC.value.swiper.slideNext();
-}
-const canGoLeft = false;
-const canGoRight = false;
+
 </script>
 <template>
     <main>
@@ -133,14 +105,5 @@ const canGoRight = false;
                 <nextPage to="/chapter-1/page-2.html" />
             </swiper-slide>
         </swiper-container>
-        <nav class="nav--multislide" v-if="false">
-            <div class="nav__horizontal">
-                <button class='down' @click="goDown" v-if="showDown"></button>
-            </div>
-            <div class="nav__vertical">
-                <button class="left" @click="goLeft" :disabled="canGoLeft"></button>
-                <button class="right" @click="goRight" :disabled="canGoRight"></button>
-            </div>
-        </nav>
     </main>
 </template>

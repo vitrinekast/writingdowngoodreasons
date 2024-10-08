@@ -6,20 +6,24 @@ import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
-import Prikbord from "../../components/Prikbord.vue";
-import NextPage from "../../components/nextPage.vue";
-import { audioBus } from "../../helpers/eventBus";
-import { swiperParam } from "../../helpers/utils";
 import head_1 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-1.png';
 import head_2 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-2.png';
 import head_3 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-3.png';
 import head_4 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-4.png';
+import Prikbord from "../../components/Prikbord.vue";
+import NextPage from "../../components/nextPage.vue";
+import { audioBus } from "../../helpers/eventBus";
+import { mapNumRange, swiperParam } from "../../helpers/utils";
+
 register();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
 const prikbordOpen = ref(true);
 const coordVideo = ref(null);
+const turnIndex = ref(0);
+const pageState = ref(0);
+const images = [head_1, head_2, head_3, head_4];
 
 onMounted(() => {
     audioBus.on("playBackground", "bg__intro");
@@ -40,44 +44,29 @@ onMounted(() => {
 
 
 const onMenuClose = () => {
-    console.log("closed menu");
     window.setTimeout(function () {
         coordVideo.value.play();
     }, 1000)
 }
 
-
-const turnIndex = ref(0);
-const pageState = ref(0);
-const images = [head_1, head_2, head_3, head_4];
-const activeSlide = ref(0);
-
-const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
-    ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-
 const onchange = (e) => {
-
     const v = Math.round(mapNumRange(e.target.value, 0, 100, 0, 3));
+
     if (v !== turnIndex.value) {
         turnIndex.value = v;
     }
 
     if (e.target.value > 90 && pageState.value === 0) {
-
-
         window.setTimeout(() => {
             pageState.value = 1;
             pageC.value.swiper.slideNext();
         }, 1000)
 
-
         window.setTimeout(() => {
             pageState.value = 2;
             pageC.value.swiper.slideNext();
         }, 5000)
-
     }
-
 }
 </script>
 
@@ -146,14 +135,6 @@ const onchange = (e) => {
                             <input class="cell__abs" type="range" min="0" :disabled="value > 90"
                                 max="100" step="1" value="0" @input="onchange">
                         </Frame>
-
-                    </div>
-                </Page>
-            </swiper-slide>
-
-            <swiper-slide class="slide--xs background--base">
-                <Page>
-                    <div class="grid grid--center">
                         <Frame class="cell cell--w-2">
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.png" alt=""
                                 class="frame__asset--contain stretch fadee-in">
@@ -167,13 +148,21 @@ const onchange = (e) => {
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_5/frame_asset.png" alt=""
                                 class="frame__asset--contain stretch fadee-in">
                         </Frame>
+                    </div>
+                </Page>
+            </swiper-slide>
+
+            <swiper-slide class="slide--xs background--base">
+                <Page>
+                    <div class="grid grid--center">
+                      
 
                     </div>
                 </Page>
             </swiper-slide>
 
     
-            <!-- <nextPage to="/chapter-1/page-3.html" /> -->
+            <nextPage to="/chapter-1/page-3.html" />
 
         </swiper-container>
 

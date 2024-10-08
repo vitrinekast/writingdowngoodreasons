@@ -10,7 +10,7 @@ export const swiperParam = {
   speed: 400,
   slidesPerView: "auto",
   keyboard: true,
-  direction: 'vertical',
+  direction: "vertical",
   mousewheel: true,
   modules: swiperModules,
   initialSlide: 0,
@@ -26,3 +26,5 @@ export const swiperParam = {
 `,
   ],
 };
+
+export const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
