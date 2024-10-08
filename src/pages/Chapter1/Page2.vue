@@ -87,7 +87,7 @@ const onchange = (e) => {
         <Prikbord v-model="prikbordOpen" @close="onMenuClose" />
 
         <swiper-container class="mySwiper2" ref="swiperContainerNest" init="false">
-            <!-- <swiper-slide class="slide--100" v-if="!prikbordOpen">
+            <swiper-slide class="slide--100" v-if="!prikbordOpen">
                 <Page class="page--fullwidth">
                     <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="">
                     <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">
@@ -111,7 +111,7 @@ const onchange = (e) => {
                     <img class="frame__asset text--1" src="@assets/ch-1-p-2_frame_1/tekst1.png" alt="">
                     <img class="frame__asset" data-exclude-parallax src="@assets/ch-1-p-2_frame_1/part3.png" alt="">
                 </Page>
-            </swiper-slide> -->
+            </swiper-slide>
 
             <swiper-slide data-swiper-parallax class="slide--auto flex--center background--base">
                 <Page size="sm">
