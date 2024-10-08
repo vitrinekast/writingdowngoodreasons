@@ -19,7 +19,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: sftp://ssh.strato.com
+        server: ssh.strato.com
         username: ftp@writingdowngoodreasons.com
         local-dir: "./dist/"
         server-dir: "./writingdowngoodreasons/"
