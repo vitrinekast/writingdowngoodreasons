@@ -24,3 +24,5 @@ jobs:
         local-dir: "./dist/"
         server-dir: "./writingdowngoodreasons/"
         password: ${{ secrets.PASSWORD }}
+        port: 22
+        protocol: ftps
