@@ -28,6 +28,11 @@ swiper-slide,
   min-height: 350px;
 }
 
+.slide--xs {
+  height: auto;
+  min-height: 50px;
+}
+
 .slide--100 {
   height: 100svh;
   display: flex;
