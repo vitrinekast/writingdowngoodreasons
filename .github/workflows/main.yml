@@ -19,10 +19,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: ssh.strato.com
+        server: ftp.strato.com
         username: ftp@writingdowngoodreasons.com
         local-dir: "./dist/"
         server-dir: "./writingdowngoodreasons/"
         password: ${{ secrets.PASSWORD }}
-        port: 22
-        protocol: ftps
