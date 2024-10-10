@@ -19,13 +19,14 @@ register();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
-const prikbordOpen = ref(true);
+const prikbordOpen = ref(false);
 const coordVideo = ref(null);
 const turnIndex = ref(0);
 const pageState = ref(0);
 const images = [head_1, head_2, head_3, head_4];
 
 onMounted(() => {
+    console.log("onMounted page2.vue");
     audioBus.on("playBackground", "bg__intro");
 
     Object.assign(swiperContainerNest.value, {
@@ -132,7 +133,7 @@ const onchange = (e) => {
                                 class="frame__asset--contain stretch fadee-in">
                         </Frame>
                         <Frame class="cell cell--w-6 cell--100">
-                            <input class="cell__abs" type="range" min="0" :disabled="value > 90"
+                            <input class="cell__abs" type="range" min="0"
                                 max="100" step="1" value="0" @input="onchange">
                         </Frame>
                         <Frame class="cell cell--w-2">

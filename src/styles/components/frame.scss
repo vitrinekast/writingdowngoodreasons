@@ -22,19 +22,10 @@
   &--fit {
     // min-height: 80vh;
     max-width: calc(100vw - #{$page--padding});
-
-    @include break($break--mobile) {
-      aspect-ratio: 2/3;
-    }
   }
 
-  &--masked {
-    // mask-image: var(--mask-url);
-    // mask-size: 100% 100%;
-
-    // img:not(.frame__outline) {
-    //   object-fit: cover;
-    // }
+  &--lg {
+    height :100%;
   }
 
   &--scroller {
@@ -66,7 +57,8 @@
     object-fit: contain;
   }
 
-  &__overlay, &__ice {
+  &__overlay,
+  &__ice {
     position: absolute;
     top: 0;
     left: 0;
@@ -132,7 +124,7 @@
     z-index: 1;
     object-fit: auto;
     // transition: $transition--base;
-    transition: opacity 2s;
+    // transition: opacity 2s;
     pointer-events: none;
     top: 0;
     left: 0;
@@ -141,7 +133,11 @@
     opacity: 1;
   }
 
-  &:has(.frame__ice:not(.frame__ice--broken)) .frame__outline{
-    opacity: .1;
+  &:has(.frame__ice:not(.frame__ice--broken)) .frame__outline {
+    opacity: 0.1;
+  }
+
+  &:has(.frame__ice:not(.frame__ice--broken)) {
+    cursor: pointer;
   }
 }

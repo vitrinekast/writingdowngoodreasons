@@ -22,7 +22,7 @@ const outlineSrc = computed(() => {
 });
 
 const toggleFullScreen = () => {
-  console.log(window.location);
+  if(window.location.hostname === "localhost") return false;
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
   } else if (document.exitFullscreen) {

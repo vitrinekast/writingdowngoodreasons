@@ -1,10 +1,10 @@
-import { Keyboard, Mousewheel, EffectCreative, Navigation } from "swiper/modules";
+import { Keyboard, Mousewheel, EffectCreative, Navigation, HashNavigation } from "swiper/modules";
 
 export const BEM = (base, modifier) => {
   return modifier ? `${base}--${modifier}` : "";
 };
 
-export const swiperModules = [Keyboard, Mousewheel, EffectCreative, Navigation];
+export const swiperModules = [Keyboard, Mousewheel, EffectCreative, Navigation, HashNavigation];
 
 export const swiperParam = {
   speed: 400,

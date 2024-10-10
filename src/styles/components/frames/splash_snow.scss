@@ -1,28 +1,12 @@
+
+
 .f-s-snow {
 
   @at-root .container:has(.f-s-snow) {
-    aspect-ratio: 53/78;
+    height: 100%;
+    padding-top: 1rem;
   }
 
-  @at-root .chapter-1-enter-from {
-    .f-s-snow__text,
-    .f-s-snow__snow,
-    .f-s-snow__person,
-    .frame__outline,
-    .frame__background {
-      opacity: 0;
-    }
-  }
-
-  @at-root .chapter-1-enter-to {
-    .f-s-snow__text,
-    .f-s-snow__snow,
-    .f-s-snow__person,
-    .frame__outline,
-    .frame__background {
-      opacity: 1;
-    }
-  }
   &__text {
     position: absolute;
     top: 60px;

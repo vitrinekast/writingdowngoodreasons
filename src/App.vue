@@ -1,11 +1,28 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AudioPlayer from './components/AudioPlayer.vue';
 import ParticleContainer from './components/ParticleContainer.vue';
 
 const router = useRouter();
 const route = useRoute();
+const routerTransition = ref("page");
+
+router.beforeEach((to, from) => {
+
+  if (from.meta.order < to.meta.order) {
+    routerTransition.value = "page";
+  } else {
+    routerTransition.value = "page-back"
+  }
+
+  console.log(routerTransition.value);
+
+})
+
+watchEffect(() => {
+  console.log("watcheffect", route);
+})
 
 </script>
 
@@ -16,9 +33,11 @@ const route = useRoute();
     <AudioPlayer />
 
   </header>
-
+  <div class="nav">
+    {{ route.meta.transition }}
+  </div>
   <router-view v-slot="{ Component }">
-    <transition :name="route.meta.transition || ''">
+    <transition :name="routerTransition" :page-name="route.name" :duration="100000">
       <component :is="Component" />
     </transition>
   </router-view>
@@ -34,6 +53,4 @@ const route = useRoute();
   gap: 1rem;
   padding: 4px;
 }
-
-
 </style>

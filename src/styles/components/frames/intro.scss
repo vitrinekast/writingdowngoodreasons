@@ -1,8 +1,6 @@
-$transition: all 2s ease-out;
+$pt-transition: var(--pt-duration) ease-out;
 
 .frame.intro {
-  // aspect-ratio: 2/3;
-
   display: grid;
   grid-template-rows: 280px 80px 80px 1fr;
   justify-content: center;
@@ -12,7 +10,10 @@ $transition: all 2s ease-out;
   padding: 10vh 2rem;
   height: 100%;
   perspective: 1200px;
-  transition: $transition;
+  transition:
+    opacity $pt-transition 1s,
+    transform $pt-transition;
+  will-change: opacity, transform;
   transform: rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
   backface-visibility: visible;
@@ -20,70 +21,69 @@ $transition: all 2s ease-out;
   @include break-min($break--mobile) {
     aspect-ratio: 148 / 210;
   }
-  
 
   @include break($break--mobile) {
     grid-template-rows: 150px 80px 80px 100px;
-    .frame__outline  {
+
+    .frame__outline {
       display: none;
     }
   }
 
+  @at-root .page-leave-to & {
+    transform: translateZ(100px) scale(0.8) translateY(120px) rotateX(12deg);
+    // z-index: -1;
+    // opacity: 0;
+  }
+
   .frame__button {
     transform: translate3d(0, 0, 0);
-    transition: 0.5s linear;
+    transition:
+      transform $pt-transition,
+      opacity $pt-transition;
     align-self: start;
     margin-top: 50px;
     z-index: 10;
 
-    @at-root .chapter-1-leave-to & {
+    @at-root .page-leave-to & {
       transform: translate3d(0, 10px, 100px);
+      opacity: 0;
     }
   }
 
   .intro__text {
     transform: translateZ(0px);
-    transition: $transition;
-
+    transition:
+      opacity $pt-transition,
+      transform $pt-transition;
     transform-origin: center bottom;
     object-position: center center;
-
     object-fit: contain;
-
 
     &--top {
       transition:
-        transform 2s linear 0s,
-        opacity 2s linear 6s;
+        transform var(--pt-duration) ease-out 40s,
+        opacity var(--pt-duration) ease-out 6s;
     }
 
-    @at-root .chapter-1-leave-to & {
-      transform: translateZ(100px) scale(0.8) translateY(150px) rotateX(12deg);
-      z-index: -1;
+    @at-root .page-leave-to & {
       opacity: 0;
     }
   }
 
   .frame__outline {
     filter: blur(0px);
-    transition:
-      1s filter 0s,
-      1s opacity 1s;
   }
 
   .frame__background {
     transform: scale(1.2) translateZ(0px);
-    transition: $transition;
     transform-origin: center 90%;
     z-index: 2;
     opacity: 1;
-    transition:
-      transform 3s,
-      opacity 2s 0.5s;
 
-    @at-root .chapter-1-leave-to & {
-      opacity: 0;
+    @at-root .page-leave-to & {
       transform: scale(1.1) translateZ(100px);
+      opacity: 0;
     }
   }
 }

@@ -1,134 +1,139 @@
-$chapter1-duration: 5;
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-// Fallback fade transitions
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s;
-  position: absolute;
-  left: 0;
-  width: 100%;
-}
-
-.fade-enter-from .fade-leave {
-  opacity: 1;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-lightbox fade-enter-active fade-enter-to
-
-
-
-// // Priknbord transitions
-.prikbord-enter,
-.prikbord-leave-from {
-  transform: translate3d(-50%, -200%, 0);
-
-  @include break($break--mobile) {
-    transform: translate3d(0%, -200%, 0);
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity 0.4s;
   }
-}
-
-.prikbord-enter-to {
-  transform: translate3d(-50%, -59%, 0);
-}
-
-.prikbord-enter-active {
-  transition: transform 0s ease;
-}
-
-.prikbord-leave-active {
-  transition:
-    transform .8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
-    opacity 10s ease;
-}
-
-.prikbord-enter-from,
-.prikbord-leave-to {
-  transform: translate3d(-50%, -200%, 0) !important;
-
-  @include break($break--mobile) {
-    transform: translate3d(0%, -200%, 0) !important;
-  }
-}
-
-// Prikbord meter transitions
-.prikbord-meter-enter,
-.prikbord-meter-leave-from {
-  transform: translate3d(-50%, 200%, 0);
-}
-
-.prikbord-meter-enter-to {
-  transform: translate3d(-50%, 59%, 0);
-}
-
-.prikbord-meter-enter-active {
-  transition: transform 0s ease;
-}
-
-.prikbord-meter-leave-active {
-  transition:
-    transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
-    opacity 10s ease;
-}
-
-.prikbord-meter-enter-from,
-.prikbord-meter-leave-to {
-  transform: translate3d(-50%, 200%, 0) !important;
-}
-
-// Chapter 1 page in
-.chapter-1-enter-active {
-  transition: opacity 30s;
-
-  .frame__background,
-  .frame__outline,
-  .f-s-snow__text,
-  .f-s-snow__person,
-  .f-s-snow__snow {
-    transition: opacity 4s linear 3s;
-  }
-
-  .frame__background {
-    transition-delay: 5s;
-  }
-
-  .f-s-snow__text {
-    transition-delay: 12s;
-  }
-
-  .f-s-snow__person {
-    transition-delay: 8s;
-  }
-}
-
-.chapter-1-leave-active {
-  transition: opacity 10s;
-}
-
-// from intro to chapter 1: disappear the intro
-.chapter-1-leave-to .intro {
-  // all the zero opacities
-  .frame__button,
-  .frame__outline,
-  .intro__text--middle,
-  .intro__text--bottom,
-  .frame__background {
+  &-enter-from,
+  &-leave-to {
     opacity: 0;
   }
+}
 
-  .frame__outline {
-    filter: blur(1px);
+.page-back {
+  &-leave-active {
+    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1) 0s;
+  }
+
+  &-enter-active {
+    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1) 0.2s;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+}
+
+.prikbord {
+  &-enter,
+  &-leave-from {
+    transform: translate3d(-50%, -200%, 0);
+
+    @include break($break--mobile) {
+      transform: translate3d(0%, -200%, 0);
+    }
+  }
+
+  &-enter-to {
+    transform: translate3d(-50%, -59%, 0);
+  }
+
+  &-enter-active {
+    transition: transform 0s ease;
+  }
+
+  &-leave-active {
+    transition:
+      transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
+      opacity 10s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translate3d(-50%, -200%, 0) !important;
+
+    @include break($break--mobile) {
+      transform: translate3d(0%, -200%, 0) !important;
+    }
+  }
+}
+
+:root {
+  --pt-start-delay: 0s;
+}
+
+body:has(.page-leave-active[page-name="start"]) {
+  // boy, we've got a start! got to start a bit later then.
+  --pt-start-delay: 4s;
+}
+
+.page {
+  &-enter-active,
+  &-leave-active {
+    // It takes this amount of time for a page to leave.
+    --pt-duration: 3s;
+
+    // all the delays
+    &[page-name="chapter-1"] {
+      .f-s-snow__person,
+      .frame__background,
+      .f-s-snow__snow-wrapper,
+      .f-s-snow__text,
+      .frame__outline, .swiper-pagination {
+        transition: opacity 2s;
+      }
+
+      .frame__outline {
+        transition-delay: calc(var(--pt-start-delay) + 1s);
+      }
+
+      .f-s-snow__person,
+      .frame__background {
+        transition-delay: calc(var(--pt-start-delay) + 4s);
+      }
+
+      .f-s-snow__text, .swiper-pagination {
+        transition-delay: calc(var(--pt-start-delay) + 6s);
+      }
+    }
+
+    &[page-name="start"],
+    &[page-name="chapter-1"],
+    &[page-name="chapter-1-page-2"],
+    &[page-name="chapter-1-page-3"] {
+      transition: all 2.8s cubic-bezier(0.2, 0, 0, 1);
+    }
+  }
+
+  &-enter-active {
+    &[page-name="chapter-1"],
+    &[page-name="chapter-1-page-2"],
+    &[page-name="chapter-1-page-3"] {
+      transition-delay: 1s;
+    }
+  }
+
+  // all the styles when invisible
+  &-enter-from,
+  &-leave-to {
+  
+    &[page-name="chapter-1"] {
+      .f-s-snow__person,
+      .frame__background,
+      .f-s-snow__snow-wrapper,
+      .f-s-snow__snow-wrapper,
+      .f-s-snow__text,
+      .frame__outline {
+        opacity: 0;
+      }
+    }
+    &[page-name="chapter-1-page-2"],
+    &[page-name="chapter-1-page-3"] {
+      opacity: 0;
+      transform: translate3d(0, 24px, 0);
+    }
+
+    // Intro frame styles are in frames/intro.scss
   }
 }

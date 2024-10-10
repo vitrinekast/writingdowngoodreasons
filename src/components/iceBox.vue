@@ -7,11 +7,14 @@ import { audioBus, bus } from '../helpers/eventBus';
 import { useAudioStore } from '../store/audio';
 
 const allImages = [ice1, ice2, ice3];
-const audio = useAudioStore();
 const images = ref([]);
 const count = ref(0);
 let timeout = false;
 const wiggle = ref(false);
+
+const props = defineProps({
+  name: { type: String, required: false }
+})
 
 const onClick = (e) => {
     if (count.value > 2) return false;
@@ -28,6 +31,10 @@ const onClick = (e) => {
     }, 250)
 
     bus.emit('particles', { x: e.clientX, y: e.clientY })
+
+    if(count.value > 2) {
+        bus.emit('brokenIce', { id: props.name })
+    }
     
 }
 onMounted(() => {
