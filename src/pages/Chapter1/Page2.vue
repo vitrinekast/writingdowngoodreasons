@@ -19,7 +19,7 @@ register();
 
 const swiperContainer = ref(null);
 const swiperContainerNest = ref(null);
-const prikbordOpen = ref(false);
+const prikbordOpen = ref(true);
 const coordVideo = ref(null);
 const turnIndex = ref(0);
 const pageState = ref(0);
