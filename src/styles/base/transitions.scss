@@ -1,3 +1,24 @@
+// dont know why, maar deze zijn allemaal nodig..
+.page-enter-from swiper-container::part(pagination) {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 2s;
+  transform: translate3d(30px, -50%, 0) !important;
+}
+
+.page-enter-to swiper-container::part(pagination) {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 4s;
+  transform: translate3d(0px, -50%, 0) !important;
+}
+
+.page-leave-to swiper-container::part(pagination) {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 0s;
+  transform: translate3d(30px, -50%, 0) !important;
+}
+
+.page-leave-from swiper-container::part(pagination) {
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 2s;
+  transform: translate3d(0px, -50%, 0) !important;
+}
+
 .fade {
   &-enter-active,
   &-leave-active {
@@ -80,7 +101,8 @@ body:has(.page-leave-active[page-name="start"]) {
       .frame__background,
       .f-s-snow__snow-wrapper,
       .f-s-snow__text,
-      .frame__outline, .swiper-pagination {
+      .frame__outline,
+      .swiper-pagination {
         transition: opacity 2s;
       }
 
@@ -93,7 +115,8 @@ body:has(.page-leave-active[page-name="start"]) {
         transition-delay: calc(var(--pt-start-delay) + 4s);
       }
 
-      .f-s-snow__text, .swiper-pagination {
+      .f-s-snow__text,
+      .swiper-pagination {
         transition-delay: calc(var(--pt-start-delay) + 6s);
       }
     }
@@ -114,10 +137,14 @@ body:has(.page-leave-active[page-name="start"]) {
     }
   }
 
+  &-enter-from {
+    &[page-name="chapter-1-page-2"] {
+    }
+  }
+
   // all the styles when invisible
   &-enter-from,
   &-leave-to {
-  
     &[page-name="chapter-1"] {
       .f-s-snow__person,
       .frame__background,
@@ -128,6 +155,7 @@ body:has(.page-leave-active[page-name="start"]) {
         opacity: 0;
       }
     }
+
     &[page-name="chapter-1-page-2"],
     &[page-name="chapter-1-page-3"] {
       opacity: 0;

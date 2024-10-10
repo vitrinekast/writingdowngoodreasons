@@ -37,7 +37,7 @@ watchEffect(() => {
     {{ route.meta.transition }}
   </div>
   <router-view v-slot="{ Component }">
-    <transition :name="routerTransition" :page-name="route.name" :duration="100000">
+    <transition :name="routerTransition" :page-name="route.name" :duration="routerTransition === 'page' ? 12000 : 3000">
       <component :is="Component" />
     </transition>
   </router-view>
