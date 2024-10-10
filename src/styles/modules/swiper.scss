@@ -71,19 +71,32 @@ swiper-container::part(button-prev) {
   pointer-events: none;
 }
 
-swiper-slide[data-swiper-parallax] .container > *:not([data-exclude-parallax]) {
+swiper-slide[data-swiper-parallax] {
+  --delay: 0.2s;
+  --duration: 0.8s;
+}
+swiper-slide[data-swiper-parallax] [swiper-parallax-item] {
   transform: translate3d(0, 32px, 0) !important;
-  transition: all 0.8s cubic-bezier(0.2, 0, 0, 1) !important;
+  transition: all var(--duration) cubic-bezier(0.2, 0, 0, 1) !important;
   opacity: 0;
+
+  &[slow] {
+    --delay: 2s;
+    --duration: 3s;
+  }
+
+  &[opacity] {
+    transform: translate3d(0, 0px, 0) !important;
+  }
 
   @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
-      transition-delay: ($i * 0.15s + 0.2s) !important ;
+      transition-delay: calc(#{$i * 0.15s} + var(--delay)) !important;
     }
   }
 }
 
-swiper-slide[data-swiper-parallax].swiper-slide-active .container > *:not([data-exclude-parallax]) {
+swiper-slide[data-swiper-parallax].swiper-slide-active [swiper-parallax-item] {
   transform: translate3d(0px, 0px, 0) !important;
   backface-visibility: visible;
   opacity: 1;

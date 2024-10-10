@@ -60,7 +60,7 @@ bus.on('brokenIce', (e) => {
 </script>
 <template>
     <main :allow-slide-next="brokenIces.length > 1">
-        <swiper-container ref="pageC" init="false" parallax>
+        <swiper-container ref="pageC" init="false">
             <swiper-slide data-hash="1">
                 <Page>
                     <img class="f-s-snow__text" src="@assets/ch-1-p-1_frame_2/frame_text.svg">
@@ -75,16 +75,16 @@ bus.on('brokenIce', (e) => {
             </swiper-slide>
             <swiper-slide data-hash="2" data-swiper-parallax>
                 <Page size="sm">
-                    <h2>I've always found great</h2>
-                    <Frame size="sm" data-swiper-parallax>
+                    <h2 swiper-parallax-item>I've always found great</h2>
+                    <Frame size="sm" swiper-parallax-item>
                         <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_3/asset--trimmed.webp" alt="">
                     </Frame>
-                    <h2 data-swiper-parallax>comfort in the cold</h2>
+                    <h2 swiper-parallax-item>comfort in the cold</h2>
                 </Page>
             </swiper-slide>
             <swiper-slide data-hash="3" data-swiper-parallax>
                 <Page type="fit-fill">
-                    <div class="frame">
+                    <div class="frame" swiper-parallax-item>
                         <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.webp" alt="">
                         <video class="frame__video" autoplay playsinline loop muted>
                             <source src="@assets/ch-1-p-1_frame_4/animation--water.mov" type='video/mp4; codecs="hvc1"'>

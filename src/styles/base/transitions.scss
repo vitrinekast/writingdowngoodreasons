@@ -1,21 +1,28 @@
+.t {
+  &--opacity {
+    transition: opacity 0.8s ease-in;
+    opacity: 0;
+  }
+}
+
 // dont know why, maar deze zijn allemaal nodig..
 .page-enter-from swiper-container::part(pagination) {
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 2s;
+  transition: transform 0.8s ease-in 2s;
   transform: translate3d(30px, -50%, 0) !important;
 }
 
 .page-enter-to swiper-container::part(pagination) {
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 4s;
+  transition: transform 0.8s ease-in 4s;
   transform: translate3d(0px, -50%, 0) !important;
 }
 
 .page-leave-to swiper-container::part(pagination) {
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 0s;
+  transition: transform 0.8s ease-in 0s;
   transform: translate3d(30px, -50%, 0) !important;
 }
 
 .page-leave-from swiper-container::part(pagination) {
-  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1) 2s;
+  transition: transform 0.8s ease-in 2s;
   transform: translate3d(0px, -50%, 0) !important;
 }
 
@@ -32,11 +39,11 @@
 
 .page-back {
   &-leave-active {
-    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1) 0s;
+    transition: all 0.8s ease-in 0s;
   }
 
   &-enter-active {
-    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1) 0.2s;
+    transition: all 0.8s ease-in 0.2s;
   }
 
   &-enter-from,
@@ -125,7 +132,7 @@ body:has(.page-leave-active[page-name="start"]) {
     &[page-name="chapter-1"],
     &[page-name="chapter-1-page-2"],
     &[page-name="chapter-1-page-3"] {
-      transition: all 2.8s cubic-bezier(0.2, 0, 0, 1);
+      transition: all 2.8s ease-in;
     }
   }
 

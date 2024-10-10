@@ -56,9 +56,6 @@ onMounted(() => {
 
 
 <style scoped>
-.frame {
-  transition: transform 7s;
-}
 
 .frame--masked {
   mask-size: 100% 100%;
