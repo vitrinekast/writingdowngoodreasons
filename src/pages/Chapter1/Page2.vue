@@ -133,8 +133,8 @@ const onchange = (e) => {
                                 class="frame__asset--contain stretch fadee-in">
                         </Frame>
                         <Frame class="cell cell--w-6 cell--100">
-                            <input class="cell__abs" type="range" min="0"
-                                max="100" step="1" value="0" @input="onchange">
+                            <input class="cell__abs" type="range" min="0" max="100" step="1" value="0"
+                                @input="onchange">
                         </Frame>
                         <Frame class="cell cell--w-2">
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.png" alt=""
@@ -156,14 +156,13 @@ const onchange = (e) => {
             <swiper-slide class="slide--xs background--base">
                 <Page>
                     <div class="grid grid--center">
-                      
+
 
                     </div>
                 </Page>
             </swiper-slide>
 
-    
-            <nextPage to="/chapter-1/page-3.html" />
+            <nextPage to="/chapter-1/page-3" />
 
         </swiper-container>
 

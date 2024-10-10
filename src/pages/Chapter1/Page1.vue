@@ -112,6 +112,6 @@ bus.on('brokenIce', (e) => {
                 </template>
             </swiper-slide>
         </swiper-container>
-        <nextPage to="/chapter-1/page-2.html" v-if="brokenIces.length > 2" />
+        <nextPage to="/chapter-1/page-2" v-if="brokenIces.length > 2" />
     </main>
 </template>

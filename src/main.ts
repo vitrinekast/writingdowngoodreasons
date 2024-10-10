@@ -4,19 +4,19 @@ import "./styles/_style.scss";
 
 const routes = [
   {
-    path: "/chapter-1/page-1.html",
+    path: "/chapter-1/page-1",
     name: "chapter-1",
     component: () => import("./pages/Chapter1/Page1.vue"),
     meta: { order: 1 },
   },
   {
-    path: "/chapter-1/page-2.html",
+    path: "/chapter-1/page-2",
     name: "chapter-1-page-2",
     component: () => import("./pages/Chapter1/Page2.vue"),
     meta: { order: 2 },
   },
   {
-    path: "/chapter-1/page-3.html",
+    path: "/chapter-1/page-3",
     name: "Chapter 1 Page 3",
     component: () => import("./pages/Chapter1/Page3.vue"),
     meta: { order: 3 },

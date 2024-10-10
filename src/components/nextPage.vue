@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-    to: { type: String, required: false, default: '/chapter-1/page-2.html' }
+    to: { type: String, required: false, default: '/chapter-1/page-2' }
 })
 
 </script>
