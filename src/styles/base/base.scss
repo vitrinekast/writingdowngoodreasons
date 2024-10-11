@@ -29,6 +29,9 @@ main {
   &--lightblue {
     background-color: #dae6e5;
   }
+  &--blue {
+    background-color: var(--blue);
+  }
 }
 
 .absolute {

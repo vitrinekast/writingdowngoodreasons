@@ -15,6 +15,12 @@ const routes = [
     meta: { order: 2 },
   },
   {
+    path: "/chapter-1/page-3",
+    name: "chapter-1-page-3",
+    component: () => import("./pages/SeeYouSoon.vue"),
+    meta: { order: 2 },
+  },
+  {
     path: "/",
     name: "start",
     component: () => import("./pages/Start.vue"),

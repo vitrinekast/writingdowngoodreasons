@@ -37,6 +37,10 @@
     @extend .page;
   }
 
+  &--end {
+    background-color: var(--blue);
+  }
+
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;

@@ -129,7 +129,7 @@ const onchange = (e) => {
                         </Frame>
                         <Frame class="cell cell--w-3" swiper-parallax-item>
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.png" alt=""
-                                class="frame__asset--contain stretch fadee-in">
+                                class="frame__asset--contain stretch">
                         </Frame>
                         <Frame class="cell cell--w-6 cell--100" swiper-parallax-item>
                             <input class="cell__abs" type="range" min="0" max="100" step="1" value="0"
@@ -137,29 +137,27 @@ const onchange = (e) => {
                         </Frame>
                         <Frame class="cell cell--w-2 t--opacity" :style="{ 'opacity': showLast ? 1 : 0 }">
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.png" alt=""
-                                class="frame__asset--contain stretch fadee-in">
+                                class="frame__asset--contain stretch">
                         </Frame>
                         <Frame class="cell cell--w-4 t--opacity"
                             :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '.5s' }">
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_4/frame_asset.png" alt=""
-                                class="frame__asset--contain stretch fadee-in">
+                                class="frame__asset--contain stretch">
                         </Frame>
 
                         <Frame class="cell cell--w-6 t--opacity"
                             :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }">
                             <img loading='lazy' src="@assets/ch-1-p-3_frame_5/frame_asset.png" alt=""
-                                class="frame__asset--contain stretch fadee-in">
+                                class="frame__asset--contain stretch">
                         </Frame>
+
+                        <nextPage to="/chapter-1/page-3" v-if="showLast"
+                            :style="{ 'pointer-events': showLast ? 'all' : 'none', 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }" />
                     </div>
                 </Page>
             </swiper-slide>
 
-
-
-            <nextPage to="/chapter-1/page-3" />
-
         </swiper-container>
-
 
     </main>
 </template>
