@@ -9,19 +9,12 @@ const route = useRoute();
 const routerTransition = ref("page");
 
 router.beforeEach((to, from) => {
-
   if (from.meta.order < to.meta.order) {
     routerTransition.value = "page";
   } else {
     routerTransition.value = "page-back"
   }
 
-  console.log(routerTransition.value);
-
-})
-
-watchEffect(() => {
-  console.log("watcheffect", route);
 })
 
 </script>

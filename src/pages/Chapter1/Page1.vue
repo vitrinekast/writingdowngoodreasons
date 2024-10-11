@@ -53,7 +53,6 @@ onMounted(() => {
 });
 
 bus.on('brokenIce', (e) => {
-    console.log("got some broken ice", brokenIces)
     brokenIces.value.push(e.id);
 })
 

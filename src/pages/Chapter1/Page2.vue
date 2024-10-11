@@ -25,7 +25,6 @@ const turnIndex = ref(0);
 const images = [head_1, head_2, head_3, head_4];
 const showLast = ref(false);
 onMounted(() => {
-    console.log("onMounted page2.vue");
     audioBus.on("playBackground", "bg__intro");
 
     Object.assign(pageC.value, {

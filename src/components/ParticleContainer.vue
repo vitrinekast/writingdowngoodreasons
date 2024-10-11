@@ -13,8 +13,6 @@ bus.on('particles', (e) => {
     if (container.value) {
         container.value.init();
         container.value.play();
-    } else {
-        console.log("container not loaded yet");
     }
 })
 

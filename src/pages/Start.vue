@@ -16,7 +16,6 @@ const maskSrc = computed(() => {
 
 const outlineSrc = computed(() => {
   return import(`@assets/ch-intro/frame_outline.svg`).then(imageImports => {
-    console.log(imageImports.default);
     outlineImg.value = imageImports.default
   });
 });

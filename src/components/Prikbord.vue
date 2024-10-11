@@ -32,7 +32,6 @@ const openImage = (src) => {
 }
 
 const onLBClose = () => {
-    console.log(progress.value.length)
     if (progress.value.length >= 3) {
         closeMenu();
     }
@@ -44,7 +43,6 @@ const closeMenu = () => {
 
 
 onMounted(() => {
-    console.log("mount", cursor.value);
     setCursorPos(cursor.value);
 })
 
@@ -54,8 +52,6 @@ const setCursorPos = (el) => {
         mousePos.w = c.width;
         mousePos.startX = c.left
         mousePos.startY = c.top
-    } else {
-        console.log("started with a closed menu so didnt set the cursor");
     }
 }
 

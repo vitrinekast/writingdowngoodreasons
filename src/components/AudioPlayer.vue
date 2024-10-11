@@ -29,7 +29,7 @@ function canPlayAudio() {
       playPromise.then(() => {
         resolve(true);
       }).catch((error) => {
-        console.log('Audio autoplay is blocked:', error);
+        console.info('Audio autoplay is blocked:', error);
         resolve(false);
       });
     } else {
