@@ -18,7 +18,7 @@ const routes = [
     path: "/chapter-1/page-3",
     name: "chapter-1-page-3",
     component: () => import("./pages/SeeYouSoon.vue"),
-    meta: { order: 2 },
+    meta: { order: 2999 },
   },
   {
     path: "/",

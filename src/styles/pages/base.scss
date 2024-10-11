@@ -39,6 +39,10 @@
 
   &--end {
     background-color: var(--blue);
+    color: var(--light);
+    img {
+      max-width: 400px;
+    }
   }
 
   &--spread {
