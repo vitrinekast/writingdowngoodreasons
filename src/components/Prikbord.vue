@@ -3,7 +3,7 @@ import { computed, onMounted, reactive, ref } from 'vue';
 import AudioPlayer from './AudioPlayer.vue';
 import Lightbox from './Lightbox.vue';
 import { useAudioStore } from '../store/audio';
-import { audioBus } from '../helpers/eventBus';
+import { bus } from '../helpers/eventBus';
 
 const emit = defineEmits(['close']);
 
@@ -13,8 +13,6 @@ const progress = ref([]);
 const topElement = ref(3);
 const menuModel = defineModel()
 const folder = "/src/assets/images/ch-1-p-2_menu";
-
-const audio = useAudioStore();
 
 const mousePos = reactive({
     top: 0,
@@ -56,7 +54,7 @@ const setCursorPos = (el) => {
 }
 
 const onClick = (sample, image, index) => {
-    audioBus.emit('playSample', sample);
+    bus.emit('playSample', sample);
     openImage(`${folder}/${image}`);
     topElement.value = index;
 }
@@ -107,7 +105,8 @@ const onMouseMove = (e) => {
 
     <Transition name="prikbord-meter" :duration="5500" v-if="menuModel">
         <div class="menu__meter progress">
-            <li v-for="(item, index) in new Array(4)" class="progress__inner" :step="index" :active="progress.length === index">
+            <li v-for="(item, index) in new Array(4)" class="progress__inner" :step="index"
+                :active="progress.length === index">
             </li>
         </div>
     </Transition>

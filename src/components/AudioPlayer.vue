@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useAudioStore } from '../store/audio';
-import { audioBus } from '../helpers/eventBus';
+import { bus } from '../helpers/eventBus';
 
 const audio = useAudioStore();
 const sample = ref();
@@ -39,7 +39,7 @@ function canPlayAudio() {
 }
 
 
-audioBus.on('playSample', (name) => {
+bus.on('playSample', (name) => {
   if (audio.muted) return false;
 
   import(`@/assets/audio/${name}.mp3`).then((src) => {
@@ -51,12 +51,12 @@ audioBus.on('playSample', (name) => {
     sample.value.pause();
     sample.value.play();
     sample.value.onended = () => {
-      audio.play(false);
+      // audio.play(false);
     }
   })
 })
 
-audioBus.on('playBackground', (name) => {
+bus.on('playBackground', (name) => {
   backgroundSample.value = name;
 
   if (audio.muted) {

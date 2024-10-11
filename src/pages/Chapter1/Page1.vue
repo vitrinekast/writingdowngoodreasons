@@ -21,7 +21,7 @@ const spreadC = ref(null);
 const brokenIces = ref([]);
 
 onMounted(() => {
-    // audioBus.emit("playBackground", "bg__intro");
+    // bus.emit("playBackground", "bg__intro");
 
     Object.assign(pageC.value, {
         ...swiperParam,

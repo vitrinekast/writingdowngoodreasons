@@ -12,7 +12,7 @@ import head_3 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-3.png';
 import head_4 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-4.png';
 import Prikbord from "../../components/Prikbord.vue";
 import NextPage from "../../components/nextPage.vue";
-import { audioBus } from "../../helpers/eventBus";
+import { bus } from "../../helpers/eventBus";
 import { mapNumRange, swiperParam } from "../../helpers/utils";
 
 register();
@@ -25,7 +25,7 @@ const turnIndex = ref(0);
 const images = [head_1, head_2, head_3, head_4];
 const showLast = ref(false);
 onMounted(() => {
-    audioBus.on("playBackground", "bg__intro");
+    bus.on("playBackground", "bg__intro");
 
     Object.assign(pageC.value, {
         ...swiperParam,

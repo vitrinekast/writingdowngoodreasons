@@ -2,7 +2,7 @@
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import { ref } from "vue";
-import { audioBus } from "../../../helpers/eventBus";
+import { bus } from "../../../helpers/eventBus";
 import { useAudioStore } from "../../../store/audio";
 import IceBox from "../../iceBox.vue";
 
@@ -10,7 +10,7 @@ const showBirdAway = ref(false);
 const audio = useAudioStore();
 
 const onBird = () => {
-    audioBus.emit('playSample', "audio__bird");
+    bus.emit('playSample', "audio__bird");
 }
 
 </script>

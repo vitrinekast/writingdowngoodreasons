@@ -2,18 +2,10 @@
 const props = defineProps({
     to: { type: String, required: false, default: '/chapter-1/page-2' }
 })
-
 </script>
-
 <template>
-
-
-
     <router-link :to="props.to" class="button">Next</router-link>
-
-
 </template>
-
 <style scoped>
 .button {
     position: fixed;

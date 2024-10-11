@@ -9,10 +9,13 @@ const route = useRoute();
 const routerTransition = ref("page");
 
 router.beforeEach((to, from) => {
-  if (from.meta.order < to.meta.order) {
+  const fromOrder = from.meta.order as number; // Type assertion
+  const toOrder = to.meta.order as number; // Type assertion
+
+  if (fromOrder < toOrder) {
     routerTransition.value = "page";
   } else {
-    routerTransition.value = "page-back"
+    routerTransition.value = "page-back";
   }
 
 })
