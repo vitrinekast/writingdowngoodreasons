@@ -44,6 +44,7 @@ $pt-transition: var(--pt-duration) ease-out;
     align-self: start;
     margin-top: 50px;
     z-index: 10;
+    text-align: center;
 
     @at-root .page-leave-to & {
       transform: translate3d(0, 10px, 100px);

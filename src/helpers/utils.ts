@@ -1,17 +1,16 @@
-import { Keyboard, Mousewheel, EffectCreative, Navigation, HashNavigation } from "swiper/modules";
+import { EffectCreative, HashNavigation, Keyboard, Navigation } from "swiper/modules";
 
 export const BEM = (base, modifier) => {
   return modifier ? `${base}--${modifier}` : "";
 };
 
-export const swiperModules = [Keyboard, Mousewheel, EffectCreative, Navigation, HashNavigation];
+export const swiperModules = [Keyboard, EffectCreative, Navigation, HashNavigation];
 
 export const swiperParam = {
   speed: 400,
   slidesPerView: "auto",
   keyboard: true,
   direction: "vertical",
-  mousewheel: true,
   modules: swiperModules,
   initialSlide: 0,
   pagination: false,

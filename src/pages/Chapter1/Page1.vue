@@ -6,7 +6,6 @@ import Page3B from "@/components/frames/Chapter1/Page3B.vue";
 import { useMediaQuery } from '@vueuse/core';
 import 'swiper/css';
 import { register } from 'swiper/element/bundle';
-import 'swiper/element/css/mousewheel';
 import 'swiper/element/css/pagination';
 import 'swiper/element/css/thumbs';
 import { onMounted, ref } from 'vue';

@@ -21,7 +21,7 @@ const outlineSrc = computed(() => {
 });
 
 const toggleFullScreen = () => {
-  if(window.location.hostname === "localhost") return false;
+  if (window.location.hostname === "localhost") return false;
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
   } else if (document.exitFullscreen) {
@@ -46,10 +46,11 @@ const toggleFullScreen = () => {
           <img class="frame__asset intro__text intro__text--top" src="@assets/ch-intro/intro_top.webp" alt="">
           <img class="frame__asset intro__text intro__text--middle" src="@assets/ch-intro/intro_middle.webp" alt="">
           <img class="frame__asset intro__text intro__text--bottom" src="@assets/ch-intro/intro_bottom.webp" alt="">
-          <div>
 
-            <router-link @click="toggleFullScreen" class="button frame__button"
-              to="/chapter-1/page-1">Begin</router-link>
+          <div class="frame__button">
+            <p class='system' style="margin-bottom: 1.5rem;">For a more engaging experience, <br>please enable your
+              audio.</p>
+            <router-link @click="toggleFullScreen" class="button " to="/chapter-1/page-1">Begin</router-link>
           </div>
         </div>
 
@@ -58,5 +59,4 @@ const toggleFullScreen = () => {
   </main>
 
 </template>
-<style>
-</style>
+<style></style>

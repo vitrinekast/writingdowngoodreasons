@@ -5,6 +5,10 @@
   @at-root .container:has(.f-s-snow) {
     height: 100%;
     padding-top: 1rem;
+
+    @include break-min($break--mobile) {
+      aspect-ratio: 3/5;
+    }
   }
 
   &__text {

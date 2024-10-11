@@ -23,13 +23,16 @@ main {
 
 .background {
   &--base {
+    transition: .2s linear;
     background-color: #e8e3d1;
   }
 
   &--lightblue {
+    transition: .2s linear;
     background-color: #dae6e5;
   }
   &--blue {
+    transition: .2s linear;
     background-color: var(--blue);
   }
 }

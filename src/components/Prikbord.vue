@@ -13,6 +13,7 @@ const progress = ref([]);
 const topElement = ref(3);
 const menuModel = defineModel()
 const folder = "/src/assets/images/ch-1-p-2_menu";
+const showMeter = ref(false);
 
 const mousePos = reactive({
     top: 0,
@@ -29,11 +30,7 @@ const openImage = (src) => {
     lbImage.value = src;
 }
 
-const onLBClose = () => {
-    if (progress.value.length >= 3) {
-        closeMenu();
-    }
-}
+
 const closeMenu = () => {
     menuModel.value = false
     emit('close');
@@ -76,38 +73,48 @@ const onMouseMove = (e) => {
     </Transition>
 
     <Transition name="prikbord" :duration="5500">
-        <nav class="menu menu--prikbord" v-if="menuModel" @mousemove="onMouseMove">
+        <div v-if="menuModel">
+            <nav class="menu menu--prikbord" @mousemove="onMouseMove">
 
-            <div class="menu__frame" :style="{ 'z-index': (topElement === 1 ? 10 : 2) }">
-                <img class="frame__asset--contain" :src="`${folder}/photo_1.webp`" alt=""
-                    @click="onClick('audio__plants-move', 'photo_1.webp', 1)">
-            </div>
-            <div class="menu__frame" :style="{ 'z-index': (topElement === 2 ? 10 : 2) }">
-                <img class="frame__asset--contain" :lightbox-src="`${folder}/letter_expanded.webp`"
-                    :src="`${folder}/letter.webp`" alt=""
-                    @click="onClick('audio__page-flip', 'letter_expanded.webp', 2)">
-            </div>
-            <div class="menu__frame" :style="{ 'z-index': (topElement === 3 ? 10 : 2) }">
-                <img class="frame__asset--contain" :src="`${folder}/photo_2.webp`" alt=""
-                    @click="onClick('audio__car-start', 'photo_2.webp', 3)">
-            </div>
+                <div class="menu__border"></div>
 
-            <div class="menu__frame static">
-                <img class="frame__asset--contain" :src="`${folder}/sticker.webp`" alt="">
-            </div>
+                <div class="menu__frame" :style="{ 'z-index': (topElement === 1 ? 10 : 2) }">
+                    <img class="frame__asset--contain" :src="`${folder}/photo_1.webp`" alt=""
+                        @click="onClick('audio__plants-move', 'photo_1.webp', 1)">
+                </div>
+                <div class="menu__frame" :style="{ 'z-index': (topElement === 2 ? 10 : 2) }">
+                    <img class="frame__asset--contain" :lightbox-src="`${folder}/letter_expanded.webp`"
+                        :src="`${folder}/letter.webp`" alt=""
+                        @click="onClick('audio__page-flip', 'letter_expanded.webp', 2)">
+                </div>
+                <div class="menu__frame" :style="{ 'z-index': (topElement === 3 ? 10 : 2) }">
+                    <img class="frame__asset--contain" :src="`${folder}/photo_2.webp`" alt=""
+                        @click="onClick('audio__car-start', 'photo_2.webp', 3)">
+                </div>
 
-            <div class="menu__frame static">
-                <img class="frame__asset--contain" :src="`${folder}/todolist.webp`" alt="">
-            </div>
-        </nav>
+                <div class="menu__frame static">
+                    <img class="frame__asset--contain" :src="`${folder}/sticker.webp`" alt="">
+                </div>
 
-    </Transition>
+                <div class="menu__frame static">
+                    <img class="frame__asset--contain" :src="`${folder}/todolist.webp`" alt="">
+                </div>
+            </nav>
 
-    <Transition name="prikbord-meter" :duration="5500" v-if="menuModel">
-        <div class="menu__meter progress">
-            <li v-for="(item, index) in new Array(4)" class="progress__inner" :step="index"
-                :active="progress.length === index">
-            </li>
+            <Transition name="fade" :duration="5000">
+                <div class="menu__meter progress" v-if="progress.length < 3">
+                    <li v-for="(item, index) in new Array(4)" class="progress__inner" :step="index"
+                        :active="progress.length === index">
+                    </li>
+                </div>
+            </Transition>
+
+            <Transition name="fade" :duration="5000">
+                <div v-if="progress.length > 2" class="menu__meter">
+                    <button class="ic--arrow down" @click="closeMenu"></button>
+                </div>
+            </Transition>
         </div>
+
     </Transition>
 </template>
