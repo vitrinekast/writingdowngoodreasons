@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, reactive } from 'vue';
+import { computed, ref, onMounted, reactive, watchEffect } from 'vue';
 import { BEM } from '../helpers/utils';
+import Nudge from './Nudge.vue';
 
 const props = defineProps({
   size: { type: String, required: false },
-  type: { type: String, require: false },
-  mask: { type: String, require: false },
-  outline: { type: String, require: false }
+  type: { type: String, required: false },
+  mask: { type: String, required: false },
+  nudge: { type: [String, Boolean], required: false },
+  outline: { type: String, required: false }
 })
 
 const outlineImg = ref()
 
-const styleObject = reactive({
-  // transform: 'rotate(0deg)',
-})
-
-const setNewPos = () => {
-  const offset1 = 5;
-  const offset2 = 2;
-  // styleObject.transform = `rotate(${Math.random() * offset2 - offset2}deg) translate(${Math.random() * offset1 - offset2}px, ${Math.random() * offset1 - offset2}px) scale(1)`;
-  // setTimeout(setNewPos, Math.random() * 10000 + 1000);
-
-}
+const styleObject = reactive({})
 
 
 onMounted(() => {
@@ -38,26 +30,24 @@ onMounted(() => {
     })
   }
 
-  setTimeout(setNewPos, 1000);
-
 });
 
 </script>
 
 <template>
-  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`"
-    :style="styleObject">
+  <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
     <img v-if="props.outline" class="frame__outline" :src="outlineImg" alt="" />
-    <slot></slot>
-
+    <div :style="styleObject" class="things">
+      <slot></slot>
+    </div>
+    <Nudge v-if="props.nudge" :nudge="props.nudge" />
   </div>
 </template>
 
 
 
 <style scoped>
-
-.frame--masked {
+.frame--masked .things {
   mask-size: 100% 100%;
 }
 </style>

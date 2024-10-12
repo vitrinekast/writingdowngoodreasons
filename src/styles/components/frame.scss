@@ -14,6 +14,11 @@
     max-height: 100%;
   }
 
+  .things {
+    width: 100%;
+    height: 100%;
+  }
+
   &--sm {
     max-height: 30vh;
     margin: 1rem auto;
@@ -46,7 +51,7 @@
   &__asset,
   &__asset--hover {
     width: 100%;
-    // height: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -54,6 +59,7 @@
     // background-image: url("../assets/images/gui/text-bg.png");
     background-color: var(--blue);
     padding: $frame--padding;
+    height: 100%;
     object-fit: contain;
   }
 

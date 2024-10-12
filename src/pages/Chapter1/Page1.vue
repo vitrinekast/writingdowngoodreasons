@@ -11,6 +11,7 @@ import 'swiper/element/css/thumbs';
 import { onMounted, ref } from 'vue';
 import { bus } from "../../helpers/eventBus";
 import { swiperParam } from '../../helpers/utils';
+import Nudge from "../../components/Nudge.vue";
 
 register();
 
@@ -18,6 +19,7 @@ const isMobile = useMediaQuery('(max-width: 900px)');
 const pageC = ref(null);
 const spreadC = ref(null);
 const brokenIces = ref([]);
+const showNudge = ref(true);
 
 onMounted(() => {
     // bus.emit("playBackground", "bg__intro");
@@ -49,15 +51,28 @@ onMounted(() => {
         spreadC.value.initialize();
     }
     pageC.value.initialize();
+
+    pageC.value.addEventListener('swiperslidechange', (event) => {
+        // hide the nudge on slide 3
+        showNudge.value = event.detail[0].activeIndex != 3;
+        bus.emit("extendNudge");
+    });
+
+    pageC.value.addEventListener('swipersliderfirstmove', (event) => {
+        showNudge.value  = false;
+    });
 });
 
 bus.on('brokenIce', (e) => {
     brokenIces.value.push(e.id);
 })
 
+
+
 </script>
 <template>
     <main :allow-slide-next="brokenIces.length > 1">
+
         <swiper-container ref="pageC" init="false">
             <swiper-slide data-hash="1">
                 <Page>
@@ -99,7 +114,7 @@ bus.on('brokenIce', (e) => {
                     </section>
                 </template>
                 <template v-if="isMobile">
-                    <swiper-container ref="spreadC" init="false" >
+                    <swiper-container ref="spreadC" init="false">
                         <swiper-slide data-hash="5" lazy="true">
                             <Page3A />
                         </swiper-slide>
@@ -110,6 +125,7 @@ bus.on('brokenIce', (e) => {
                 </template>
             </swiper-slide>
         </swiper-container>
+        <Nudge nudge="slide" v-if="showNudge" />
         <nextPage to="/chapter-1/page-2" v-if="brokenIces.length > 2" />
     </main>
 </template>

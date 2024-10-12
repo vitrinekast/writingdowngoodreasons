@@ -1,0 +1,64 @@
+@keyframes nudge {
+    
+    0%, 15%, 32%,100% {
+        transform: rotate(var(--rotation)) scale(1);
+    }
+    5%, 28% {
+        transform: rotate(var(--rotation)) scale(1.1);
+    }
+}
+
+
+@keyframes nudge-slide {
+    0%, 100% {
+        transform: rotate(var(--rotation)) translate3d(0, 0, 0);
+        opacity: 0;
+    }
+
+    40% {
+        transform: rotate(var(--rotation)) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+    55% {
+        transform: rotate(var(--rotation)) translate3d(0, -32px, 0);
+        opacity: 1;
+    }
+
+    80% {
+        transform: rotate(var(--rotation)) translate3d(0, -32px, 0);
+        opacity: 0;
+    }
+}
+
+.nudge {
+    --rotation: 10deg;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 50px;
+    height: 20px;
+    background: url(@assets/gui/nudge--tap.webp) no-repeat;
+    background-size: contain;
+    transform: rotate(20deg);
+    animation: 2s nudge infinite;
+    
+    &--slide {
+        --rotation: 0deg;
+        background-image: url(@assets/gui/nudge--slide.webp);
+        animation: 1s nudge-slide infinite;
+        bottom: 20px;
+        left: calc(50% - 25px);
+        z-index: 9;
+        mix-blend-mode: hard-light;
+    }
+
+    &--photo {
+        --rotation: -5deg;
+        z-index: 2;
+        top: 50%;
+        left: 20%;
+        background-image: url(@assets/gui/nudge--tap-light.webp);
+
+    }
+}

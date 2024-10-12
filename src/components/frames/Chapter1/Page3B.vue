@@ -13,6 +13,12 @@ const onBird = () => {
     bus.emit('playSample', "audio__bird");
 }
 
+const brokenIces = ref([]);
+
+bus.on('brokenIce', (e) => {
+    brokenIces.value.push(e.id);
+})
+
 </script>
 
 <template>
@@ -34,8 +40,8 @@ const onBird = () => {
                 </Transition>
             </Frame>
 
-            <Frame class="cell cell--w-4 " mask='ch-1-p-1_frame_5b-4' outline="ch-1-p-1_frame_5b-4">
-                <IceBox />
+            <Frame class="cell cell--w-4 " mask='ch-1-p-1_frame_5b-4' outline="ch-1-p-1_frame_5b-4" :nudge="brokenIces?.indexOf('3B1') === -1">
+                <IceBox name="3B1" />
                 <img loading='lazy' src="@assets/ch-1-p-1_frame_5b-4/frame_asset.webp" alt="" class="frame__asset-text">
             </Frame>
 

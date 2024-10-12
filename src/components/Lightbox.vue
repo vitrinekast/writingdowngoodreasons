@@ -1,20 +1,28 @@
 <script setup lang="ts">
-const emit = defineEmits(['close']);
-const model = defineModel({default: false})
+import { ref } from 'vue';
+import { bus } from '../helpers/eventBus';
 
+const src = ref(null);
+const id = ref(null);
 
 const close = () => {
-    model.value = false;
-    emit('close');
+    bus.emit("lightboxclose", id);
+    src.value = null;
+    id.value = null;
 }
+
+bus.on("showLightbox", (data) => {
+    src.value = data.src;
+    id.value = data.id;
+});
 
 </script>
 <template>
     <Transition name="fade">
-        <div class="lightbox" v-if="model">
-            <img :src="model" class="lightbox__img fn-lightbox-img" alt="">
+        <div class="lightbox" v-if="src">
+            <img :src="src" class="lightbox__img fn-lightbox-img" alt="">
             <a class="button lightbox__close" @click="close">
-                sluit
+                X
             </a>
         </div>
     </Transition>

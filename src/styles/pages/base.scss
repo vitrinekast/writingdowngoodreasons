@@ -19,6 +19,11 @@
     padding-top: #{$page--padding * .5};  
     padding-bottom: #{$page--padding * .5};  
     max-width: calc(100svw - #{$page--padding * 0.5});
+
+    &:has(.intro) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   .page {

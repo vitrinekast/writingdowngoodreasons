@@ -13,11 +13,13 @@ declare module 'vue' {
     IceBox: typeof import('./src/components/iceBox.vue')['default']
     Lightbox: typeof import('./src/components/Lightbox.vue')['default']
     NextPage: typeof import('./src/components/nextPage.vue')['default']
+    Nudge: typeof import('./src/components/Nudge.vue')['default']
     Page: typeof import('./src/components/Page.vue')['default']
     Page3A: typeof import('./src/components/frames/Chapter1/Page3A.vue')['default']
     Page3B: typeof import('./src/components/frames/Chapter1/Page3B.vue')['default']
     ParticleContainer: typeof import('./src/components/ParticleContainer.vue')['default']
     Prikbord: typeof import('./src/components/Prikbord.vue')['default']
+    PrikbordItem: typeof import('./src/components/PrikbordItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

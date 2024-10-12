@@ -37,19 +37,6 @@
   }
 }
 
-
-.down {
-  &-enter-active,
-  &-leave-active {
-    transition: opacity 0.8s;
-  }
-  &-enter-from,
-  &-leave-to {
-    opacity: 0;
-  }
-}
-
-
 .page-back {
   &-leave-active {
     transition: all 0.8s ease-in 0s;
@@ -67,35 +54,52 @@
 }
 
 .prikbord {
-  &-enter,
-  &-leave-from {
-    transform: translate3d(-50%, -200%, 0);
+  &-enter-active {
+    .menu--prikbord {
+      transition: transform 1.3s cubic-bezier(0.88, -0.21, 0.2, 1.1);
+    }
 
-    @include break($break--mobile) {
-      transform: translate3d(0%, -200%, 0);
+    .menu__meter {
+      transition:
+        transform 0.5s ease-out 1.2s,
+        opacity 2s linear;
+    }
+
+    .menu__frame .frame__asset--contain {
+      transition:
+        transform 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1),
+        opacity 2s linear;
     }
   }
-
-  &-enter-to {
-    transform: translate3d(-50%, -59%, 0);
-  }
-
-  &-enter-active {
-    transition: transform 0s ease;
-  }
-
   &-leave-active {
-    transition:
-      transform 0.8s cubic-bezier(0.88, -0.1, 0.32, 1.8),
-      opacity 10s ease;
+    .menu--prikbord {
+      transition: transform 1.8s cubic-bezier(0.88, -0.21, 0.32, 1.8);
+    }
+    .menu__frame .frame__asset--contain {
+      transition:
+        transform 1.8s cubic-bezier(0.88, -0.21, 0.32, 1.8),
+        opacity 2s linear;
+    }
+
+    .menu__meter {
+      transition:
+        transform 0.5s ease-out,
+        opacity 2s linear;
+    }
   }
 
   &-enter-from,
   &-leave-to {
-    transform: translate3d(-50%, -200%, 0) !important;
-
-    @include break($break--mobile) {
-      transform: translate3d(0%, -200%, 0) !important;
+    .menu--prikbord {
+      transform: translate3d(0px, -200%, 0px);
+      opacity: 1;
+    }
+    .menu__frame .frame__asset--contain {
+      transform: translate3d(0px, 100%, 0px);
+      opacity: 1;
+    }
+    .menu__meter {
+      transform: translate3d(-50%, 200px, 0px);
     }
   }
 }

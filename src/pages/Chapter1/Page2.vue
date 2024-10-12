@@ -23,8 +23,13 @@ const coordVideo = ref(null);
 const turnIndex = ref(0);
 const images = [head_1, head_2, head_3, head_4];
 const showLast = ref(false);
+const showNudge = ref(true);
+
+
 onMounted(() => {
-    bus.on("playBackground", "bg__intro");
+    bus.emit("playBackground", "bg__intro");
+
+    prikbordOpen.value = true;
 
     Object.assign(pageC.value, {
         ...swiperParam,
@@ -39,17 +44,31 @@ onMounted(() => {
         activeIndex.value = event.detail[0].activeIndex;
     });
 
+    pageC.value.addEventListener('swiperslidechange', (event) => {
+        // hide the nudge on slide 3
+        showNudge.value = event.detail[0].activeIndex != 4;
+        // showNudge.value = event.detail[0].activeIndex != 3;
+        bus.emit("extendNudge");
+    });
+
+    pageC.value.addEventListener('swipersliderfirstmove', (event) => {
+        showNudge.value  = false;
+    });
+
+    pageC.value.addEventListener('touchend', (event) => {
+        showNudge.value  = true;
+    });
+
     if (!prikbordOpen.value && coordVideo.value) {
         coordVideo.value.play();
     }
 });
 
-
-const onMenuClose = () => {
+bus.on('closePrikbord', () => {
     window.setTimeout(function () {
         coordVideo.value.play();
     }, 1000)
-}
+})
 
 const onchange = (e) => {
     const v = Math.round(mapNumRange(e.target.value, 0, 100, 0, 3));
@@ -66,9 +85,9 @@ const onchange = (e) => {
 
 <template>
 
-    <main  class="background--base" :class='activeIndex > 0 ? "background--base" : "background--lightblue"'>
+    <main class="background--base" :class='activeIndex > 0 ? "background--base" : "background--lightblue"'>
 
-        <Prikbord v-model="prikbordOpen" @close="onMenuClose" />
+        <Prikbord v-model="prikbordOpen" />
 
         <div class="sideburn">
             <swiper-container class="swiper-container sideburn__container" ref="pageC" init="false">
@@ -158,6 +177,7 @@ const onchange = (e) => {
                 </swiper-slide>
 
             </swiper-container>
+            <Nudge nudge="slide" v-if="showNudge && !prikbordOpen" />
         </div>
 
     </main>
@@ -179,5 +199,11 @@ const onchange = (e) => {
     left: 0rem;
     object-fit: contain;
     height: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .text--1 {
+        left: 2rem;
+    }
 }
 </style>

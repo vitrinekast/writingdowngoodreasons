@@ -17,6 +17,7 @@ $pt-transition: var(--pt-duration) ease-out;
   transform: rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
   backface-visibility: visible;
+  width: 100%;
 
   @include break-min($break--mobile) {
     aspect-ratio: 148 / 210;
@@ -77,7 +78,6 @@ $pt-transition: var(--pt-duration) ease-out;
   }
 
   .frame__background {
-    transform: scale(1.2) translateZ(0px);
     transform-origin: center 90%;
     z-index: 2;
     opacity: 1;
