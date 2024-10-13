@@ -1,12 +1,30 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue';
-import { bus } from '../helpers/eventBus';
-import Lightbox from './Lightbox.vue';
-import PrikbordItem from './PrikbordItem.vue';
+import photo_letter from '../assets/images/ch-1-p-2_menu/letter.webp';
+import photo_letter_exp from '../assets/images/ch-1-p-2_menu/letter_expanded.webp';
 import photo_1 from '../assets/images/ch-1-p-2_menu/photo_1.webp';
 import photo_2 from '../assets/images/ch-1-p-2_menu/photo_2.webp';
-import photo_letter from '../assets/images/ch-1-p-2_menu/photo_2.webp';
-import photo_letter_exp from '../assets/images/ch-1-p-2_menu/photo_2.webp';
+import { bus } from '../helpers/eventBus';
+import Lightbox from './Lightbox.vue';
+
+
+const images = [
+    {
+        src: photo_1,
+        lightbox: photo_1,
+        sample: 'audio__plants-move'
+    },
+    {
+        src: photo_letter,
+        lightbox: photo_letter_exp,
+        sample: 'audio__page-flip'
+    },
+    {
+        src: photo_2,
+        lightbox: photo_2,
+        sample: 'audio__car-start'
+    },
+]
 
 const lbImage = ref();
 const cursor = ref();
@@ -71,23 +89,6 @@ const onMouseMove = (e) => {
 
 
 
-const images = [
-    {
-        src: photo_1,
-        lightbox: photo_1,
-        sample: 'audio__plants-move'
-    },
-    {
-        src: 'letter',
-        lightbox: 'letter_expanded',
-        sample: 'audio__page-flip'
-    },
-    {
-        src: 'photo_2',
-        lightbox: 'photo_2',
-        sample: 'audio__car-start'
-    },
-]
 
 </script>
 
