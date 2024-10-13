@@ -24,7 +24,7 @@ const brokenIces = ref([]);
 const showNudge = ref(true);
 
 onMounted(() => {
-    // bus.emit("playBackground", "bg__intro_compressed");
+    // bus.emit("playBackground", "bg__intro");
 
     Object.assign(pageC.value, {
         ...swiperParam,

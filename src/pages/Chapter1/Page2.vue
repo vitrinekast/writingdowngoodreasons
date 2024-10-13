@@ -27,7 +27,7 @@ const showNudge = ref(true);
 
 
 onMounted(() => {
-    bus.emit("playBackground", "bg__intro_compressed");
+    bus.emit("playBackground", "bg__cold");
 
     prikbordOpen.value = true;
 

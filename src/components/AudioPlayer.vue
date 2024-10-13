@@ -67,7 +67,7 @@ bus.on('playBackground', (name) => {
 })
 
 const playBackground = () => {
-  import(`@/assets/audio/bg/${backgroundSample.value}.mp3`).then((src) => {
+  import(`@/assets/audio/${backgroundSample.value}.mp3`).then((src) => {
     if (background.value) {
       background.value.pause();
     }

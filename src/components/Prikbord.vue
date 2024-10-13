@@ -7,26 +7,24 @@ import { bus } from '@/helpers/eventBus';
 import { onMounted, reactive, ref } from 'vue';
 import Lightbox from './Lightbox.vue';
 
-
 const images = [
     {
         src: photo_1,
         lightbox: photo_1,
-        sample: 'audio__plants-move'
+        sample: 'plants-move'
     },
     {
         src: photo_letter,
         lightbox: photo_letter_exp,
-        sample: 'audio__page-flip'
+        sample: 'page-flip'
     },
     {
         src: photo_2,
         lightbox: photo_2,
-        sample: 'audio__car-start'
+        sample: 'car-start'
     },
 ]
 
-const lbImage = ref();
 const cursor = ref();
 const progress = ref([]);
 const topElement = ref(3);
@@ -72,11 +70,8 @@ const setCursorPos = (el) => {
 
 const onClick = (item, index) => {
     bus.emit('playSample', item.sample);
-
-    lbImage.value = `@assets/ch-1-p-2_menu/${item.lightbox ? item.lightbox : item.src}.webp`;
-
     bus.emit("showLightbox", {
-        src: `@assets/ch-1-p-2_menu/${item.lightbox ? item.lightbox : item.src}.webp`,
+        src: item.lightbox,
         id: item.src
     })
 

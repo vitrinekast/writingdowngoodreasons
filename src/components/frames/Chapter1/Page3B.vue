@@ -10,7 +10,7 @@ const showBirdAway = ref(false);
 const audio = useAudioStore();
 
 const onBird = () => {
-    bus.emit('playSample', "audio__bird");
+    bus.emit('playSample', "bird");
 }
 
 const brokenIces = ref([]);
