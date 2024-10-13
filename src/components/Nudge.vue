@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, watchEffect } from 'vue';
 import { bus } from '../helpers/eventBus';
+import { isClient } from '@vueuse/core';
 
 const props = defineProps({
     nudge: { type: [String, Boolean], required: false },
@@ -20,7 +21,7 @@ const doNudge = () => {
 }
 
 watchEffect(() => {
-    if (props.nudge) {
+    if (props.nudge && isClient) {
         setTimeout(doNudge, 12000)
     }
 })
