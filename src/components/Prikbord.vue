@@ -3,6 +3,10 @@ import { onMounted, reactive, ref } from 'vue';
 import { bus } from '../helpers/eventBus';
 import Lightbox from './Lightbox.vue';
 import PrikbordItem from './PrikbordItem.vue';
+import photo_1 from '../assets/images/ch-1-p-2_menu/photo_1.webp';
+import photo_2 from '../assets/images/ch-1-p-2_menu/photo_2.webp';
+import photo_letter from '../assets/images/ch-1-p-2_menu/photo_2.webp';
+import photo_letter_exp from '../assets/images/ch-1-p-2_menu/photo_2.webp';
 
 const lbImage = ref();
 const cursor = ref();
@@ -65,10 +69,12 @@ const onMouseMove = (e) => {
     mousePos.transform = `translate(${e.clientX - mousePos.startX - (mousePos.w / 2)}px, ${e.clientY - mousePos.startY - (mousePos.w / 2)}px)`;
 }
 
+
+
 const images = [
     {
-        src: 'photo_1',
-        lightbox: 'photo_1',
+        src: photo_1,
+        lightbox: photo_1,
         sample: 'audio__plants-move'
     },
     {
@@ -103,7 +109,7 @@ const images = [
                 <div v-for="(item, index) in images"
                     :class="`menu__frame ${progress.indexOf(item.src) != -1 ? 'seen' : ''}`"
                     :style="{ 'z-index': (topElement === index ? 10 : 2) }">
-                    <img class="frame__asset--contain" :src="`@assets/ch-1-p-2_menu/${item.src}.webp`" alt=""
+                    <img class="frame__asset--contain" :src="item.src" alt=""
                         @click="onClick(item, index)">
 
                     <Nudge :nudge="'photo'" v-if="index == 0 && progress.indexOf(item.src) != -1" />
