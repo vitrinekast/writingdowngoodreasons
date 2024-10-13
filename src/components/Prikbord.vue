@@ -28,7 +28,7 @@ bus.on("lightboxclose", (name) => {
         progress.value.push(name.value);
     }
 
-    if(progress.value.length === 3) {
+    if (progress.value.length === 3) {
         console.log("its hree");
         setTimeout(() => {
             progress.value.push("emptyness");
@@ -55,8 +55,8 @@ const onClick = (item, index) => {
     lbImage.value = `${folder}/${item.lightbox ? item.lightbox : item.src}.webp`;
 
     bus.emit("showLightbox", {
-         src: `${folder}/${item.lightbox ? item.lightbox : item.src}.webp`,
-         id: item.src
+        src: `${folder}/${item.lightbox ? item.lightbox : item.src}.webp`,
+        id: item.src
     })
 
     topElement.value = index;
@@ -89,7 +89,7 @@ const images = [
 <template>
     <div class="menu__cursor" :style="mousePos" ref="cursor" v-if="menuModel"></div>
 
-    <Lightbox @mousemove="onMouseMove"  />
+    <Lightbox @mousemove="onMouseMove" />
 
     <Transition name="fade">
         <div class="menu__backdrop" v-if="menuModel"></div>
@@ -112,11 +112,11 @@ const images = [
 
 
                 <div class="menu__frame static">
-                    <img class="frame__asset--contain" :src="`${folder}/sticker.webp`" alt="">
+                    <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_2/ch-1-p-2_menusticker.webp" alt="">
                 </div>
 
                 <div class="menu__frame static">
-                    <img class="frame__asset--contain" :src="`${folder}/todolist.webp`" alt="">
+                    <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_2/ch-1-p-2_menutodolist.webp" alt="">
                 </div>
             </nav>
 
@@ -128,7 +128,7 @@ const images = [
             </Transition>
 
             <Transition name="fade" :duration="5000">
-                <div v-if="progress.length > 3  " class="menu__meter">
+                <div v-if="progress.length > 3" class="menu__meter">
                     <button class="ic--arrow down" @click="closeMenu"></button>
                 </div>
             </Transition>
