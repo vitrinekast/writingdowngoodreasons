@@ -112,11 +112,11 @@ const images = [
 
 
                 <div class="menu__frame static">
-                    <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/ch-1-p-2_menusticker.webp" alt="">
+                    <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/sticker.webp" alt="">
                 </div>
 
                 <div class="menu__frame static">
-                    <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/ch-1-p-2_menutodolist.webp" alt="">
+                    <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/todolist.webp" alt="">
                 </div>
             </nav>
 
