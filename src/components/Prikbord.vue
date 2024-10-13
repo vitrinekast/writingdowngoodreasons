@@ -9,7 +9,7 @@ const cursor = ref();
 const progress = ref([]);
 const topElement = ref(3);
 const menuModel = defineModel()
-const folder = "/src/assets/images/ch-1-p-2_menu";
+const folder = "@assets/ch-1-p-2_menu";
 
 const mousePos = reactive({
     top: 0,
