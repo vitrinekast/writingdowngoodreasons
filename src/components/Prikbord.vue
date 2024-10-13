@@ -9,7 +9,6 @@ const cursor = ref();
 const progress = ref([]);
 const topElement = ref(3);
 const menuModel = defineModel()
-const folder = "@assets/ch-1-p-2_menu";
 
 const mousePos = reactive({
     top: 0,
@@ -52,10 +51,10 @@ const setCursorPos = (el) => {
 const onClick = (item, index) => {
     bus.emit('playSample', item.sample);
 
-    lbImage.value = `${folder}/${item.lightbox ? item.lightbox : item.src}.webp`;
+    lbImage.value = `@assets/ch-1-p-2_menu/${item.lightbox ? item.lightbox : item.src}.webp`;
 
     bus.emit("showLightbox", {
-        src: `${folder}/${item.lightbox ? item.lightbox : item.src}.webp`,
+        src: `@assets/ch-1-p-2_menu/${item.lightbox ? item.lightbox : item.src}.webp`,
         id: item.src
     })
 
@@ -104,7 +103,7 @@ const images = [
                 <div v-for="(item, index) in images"
                     :class="`menu__frame ${progress.indexOf(item.src) != -1 ? 'seen' : ''}`"
                     :style="{ 'z-index': (topElement === index ? 10 : 2) }">
-                    <img class="frame__asset--contain" :src="`${folder}/${item.src}.webp`" alt=""
+                    <img class="frame__asset--contain" :src="`@assets/ch-1-p-2_menu/${item.src}.webp`" alt=""
                         @click="onClick(item, index)">
 
                     <Nudge :nudge="'photo'" v-if="index == 0 && progress.indexOf(item.src) != -1" />
