@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watchEffect } from 'vue';
-import { bus } from '../helpers/eventBus';
+import { bus } from '@/helpers/eventBus';
 import { isClient } from '@vueuse/core';
+import { ref, watchEffect } from 'vue';
 
 const props = defineProps({
     nudge: { type: [String, Boolean], required: false },

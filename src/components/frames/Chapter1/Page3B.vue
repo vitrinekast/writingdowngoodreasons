@@ -2,9 +2,9 @@
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
 import { ref } from "vue";
-import { bus } from "../../../helpers/eventBus";
-import { useAudioStore } from "../../../store/audio";
-import IceBox from "../../iceBox.vue";
+import { bus } from "@/helpers/eventBus";
+import { useAudioStore } from "@/store/audio";
+import IceBox from "@/components/iceBox.vue";
 
 const showBirdAway = ref(false);
 const audio = useAudioStore();

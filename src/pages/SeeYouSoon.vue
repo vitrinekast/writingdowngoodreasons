@@ -1,6 +1,5 @@
 <script setup>
-import Page from '../components/Page.vue';
-// import asset frmo ''
+import Page from '@/components/Page.vue';
 
 </script>
 

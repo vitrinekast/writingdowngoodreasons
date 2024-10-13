@@ -9,9 +9,11 @@ import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import 'swiper/element/css/thumbs';
 import { onMounted, ref } from 'vue';
-import { bus } from "../../helpers/eventBus";
-import { swiperParam } from '../../helpers/utils';
-import Nudge from "../../components/Nudge.vue";
+import Nudge from "@/components/Nudge.vue";
+import { bus } from "@/helpers/eventBus";
+import { swiperParam } from '@/helpers/utils';
+
+
 
 register();
 
@@ -22,7 +24,7 @@ const brokenIces = ref([]);
 const showNudge = ref(true);
 
 onMounted(() => {
-    // bus.emit("playBackground", "bg__intro");
+    // bus.emit("playBackground", "bg__intro_compressed");
 
     Object.assign(pageC.value, {
         ...swiperParam,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useAudioStore } from '../store/audio';
-import { bus } from '../helpers/eventBus';
+import { useAudioStore } from '@/store/audio';
+import { bus } from '@/helpers/eventBus';
 
 const audio = useAudioStore();
 const sample = ref();

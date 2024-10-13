@@ -1,10 +1,9 @@
 <script setup>
+import { bus } from '@/helpers/eventBus';
 import ice1 from '@assets/gui/ice--1.webp';
 import ice2 from '@assets/gui/ice--2.webp';
 import ice3 from '@assets/gui/ice--3.webp';
 import { onMounted, ref } from 'vue';
-import { bus } from '../helpers/eventBus';
-import { useAudioStore } from '../store/audio';
 
 const allImages = [ice1, ice2, ice3];
 const images = ref([]);
@@ -13,7 +12,7 @@ let timeout = false;
 const wiggle = ref(false);
 
 const props = defineProps({
-  name: { type: String, required: false }
+    name: { type: String, required: false }
 })
 
 const onClick = (e) => {
@@ -32,10 +31,10 @@ const onClick = (e) => {
 
     bus.emit('particles', { x: e.clientX, y: e.clientY })
 
-    if(count.value > 2) {
+    if (count.value > 2) {
         bus.emit('brokenIce', { id: props.name })
     }
-    
+
 }
 onMounted(() => {
     const shuffled = [...allImages].sort(() => 0.5 - Math.random());

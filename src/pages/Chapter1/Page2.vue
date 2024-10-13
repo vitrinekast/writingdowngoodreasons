@@ -5,14 +5,14 @@ import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
-import head_1 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-1.png';
-import head_2 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-2.png';
-import head_3 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-3.png';
-import head_4 from '../../assets/images/ch-1-p-3_frame_1/frame_asset-4.png';
-import Prikbord from "../../components/Prikbord.vue";
-import NextPage from "../../components/nextPage.vue";
-import { bus } from "../../helpers/eventBus";
-import { mapNumRange, swiperParam } from "../../helpers/utils";
+import head_1 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-1.png';
+import head_2 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-2.png';
+import head_3 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-3.png';
+import head_4 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-4.png';
+import Prikbord from "@/components/Prikbord.vue";
+import NextPage from "@/components/nextPage.vue";
+import { bus } from "@/helpers/eventBus";
+import { mapNumRange, swiperParam } from "@/helpers/utils";
 
 register();
 
@@ -27,7 +27,7 @@ const showNudge = ref(true);
 
 
 onMounted(() => {
-    bus.emit("playBackground", "bg__intro");
+    bus.emit("playBackground", "bg__intro_compressed");
 
     prikbordOpen.value = true;
 

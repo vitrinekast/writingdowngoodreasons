@@ -1,6 +1,6 @@
 <script setup>
+import { bus } from '@/helpers/eventBus';
 import { ref } from 'vue';
-import { bus } from '../helpers/eventBus';
 
 const container = ref(null);
 const el = ref(null);

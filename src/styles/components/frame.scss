@@ -30,7 +30,7 @@
   }
 
   &--lg {
-    height :100%;
+    height: 100%;
   }
 
   &--scroller {
@@ -56,7 +56,6 @@
   }
 
   &__asset-text {
-    // background-image: url("../assets/images/gui/text-bg.png");
     background-color: var(--blue);
     padding: $frame--padding;
     height: 100%;

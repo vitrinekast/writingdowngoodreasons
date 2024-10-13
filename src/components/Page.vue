@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BEM } from '../helpers/utils';
+import { BEM } from '@/helpers/utils';
 
 
 const props = defineProps({
@@ -15,4 +15,3 @@ const props = defineProps({
     </div>
   </section>
 </template>
-

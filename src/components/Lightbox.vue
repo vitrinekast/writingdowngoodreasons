@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { bus } from '@/helpers/eventBus';
 import { ref } from 'vue';
-import { bus } from '../helpers/eventBus';
 
 const src = ref(null);
 const id = ref(null);

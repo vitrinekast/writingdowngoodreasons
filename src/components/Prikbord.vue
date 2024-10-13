@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import photo_letter from '@/assets/images/ch-1-p-2_menu/letter.webp';
+import photo_letter_exp from '@/assets/images/ch-1-p-2_menu/letter_expanded.webp';
+import photo_1 from '@/assets/images/ch-1-p-2_menu/photo_1.webp';
+import photo_2 from '@/assets/images/ch-1-p-2_menu/photo_2.webp';
+import { bus } from '@/helpers/eventBus';
 import { onMounted, reactive, ref } from 'vue';
-import photo_letter from '../assets/images/ch-1-p-2_menu/letter.webp';
-import photo_letter_exp from '../assets/images/ch-1-p-2_menu/letter_expanded.webp';
-import photo_1 from '../assets/images/ch-1-p-2_menu/photo_1.webp';
-import photo_2 from '../assets/images/ch-1-p-2_menu/photo_2.webp';
-import { bus } from '../helpers/eventBus';
 import Lightbox from './Lightbox.vue';
 
 
@@ -110,8 +110,7 @@ const onMouseMove = (e) => {
                 <div v-for="(item, index) in images"
                     :class="`menu__frame ${progress.indexOf(item.src) != -1 ? 'seen' : ''}`"
                     :style="{ 'z-index': (topElement === index ? 10 : 2) }">
-                    <img class="frame__asset--contain" :src="item.src" alt=""
-                        @click="onClick(item, index)">
+                    <img class="frame__asset--contain" :src="item.src" alt="" @click="onClick(item, index)">
 
                     <Nudge :nudge="'photo'" v-if="index == 0 && progress.indexOf(item.src) != -1" />
                 </div>

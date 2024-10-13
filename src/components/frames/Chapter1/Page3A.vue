@@ -1,9 +1,9 @@
 <script setup>
 import Frame from "@/components/Frame.vue";
 import Page from "@/components/Page.vue";
-import IceBox from "../../iceBox.vue";
-import { bus } from "../../../helpers/eventBus";
-import { onMounted, ref } from "vue";
+import IceBox from "@/components/iceBox.vue";
+import { bus } from "@/helpers/eventBus";
+import { ref } from "vue";
 
 const brokenIces = ref([]);
 
