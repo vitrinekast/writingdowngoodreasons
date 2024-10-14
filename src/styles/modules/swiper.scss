@@ -57,7 +57,7 @@ swiper-container::part(button-prev) {
   background-repeat: no-repeat;
   background-position: center center;
   top: auto;
-  bottom: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-top, 20px));
   width: 2rem;
   left: calc(50% + 1rem);
   transform: translate3d(-50%, var(--offset), 0) rotate(3deg);
