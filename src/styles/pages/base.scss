@@ -16,8 +16,8 @@
 
   @include break($break--mobile) {
     padding: 0;
-    padding-top: #{$page--padding * .5};  
-    padding-bottom: #{$page--padding * .5};  
+    padding-top: calc(#{$page--padding * .5} + env(safe-area-inset-top, 20px));  
+    padding-bottom: calc(#{$page--padding * .5} + env(safe-area-inset-bottom, 20px));  
     max-width: calc(100svw - #{$page--padding * 0.5});
 
     &:has(.intro) {

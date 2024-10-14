@@ -5,6 +5,7 @@ body {
 
 body {
   background-color: #e8e3d1;
+  padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
 }
 
 body,
@@ -23,16 +24,16 @@ main {
 
 .background {
   &--base {
-    transition: .2s linear;
+    transition: 0.2s linear;
     background-color: #e8e3d1;
   }
 
   &--lightblue {
-    transition: .2s linear;
+    transition: 0.2s linear;
     background-color: #dae6e5;
   }
   &--blue {
-    transition: .2s linear;
+    transition: 0.2s linear;
     background-color: var(--blue);
   }
 }
