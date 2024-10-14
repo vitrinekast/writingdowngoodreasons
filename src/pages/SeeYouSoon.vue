@@ -5,9 +5,12 @@ import Page from '@/components/Page.vue';
 
 <template>
     <main class="background--blue">
-        <Page type="end">   
+        <Page type="end">
             <img loading='lazy' src="@assets/ch-end/text.webp" alt="" class="frame__asset-text">
-            <h5 style="margin-top: 2.5rem">Created by <a href="https://www.instagram.com/niksfilmrol/">niksfilmrol</a> and <a href="https://www.instagram.com/vitrinekast/">vitrinekast</a></h5>
+            <h5 style="margin-top: 2.5rem">Created by <a href="https://www.instagram.com/niksfilmrol/">niksfilmrol</a>
+                and <a href="https://www.instagram.com/vitrinekast/">vitrinekast</a></h5>
+            <button v-if="document?.exitFullscreen" @click="document.exitFullscreen()">close the full screen</button>
+            <button>restart</button>
             
         </Page>
 

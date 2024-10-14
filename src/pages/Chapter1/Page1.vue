@@ -84,7 +84,7 @@ bus.on('brokenIce', (e) => {
                             <img class="f-s-snow__snow" src="@assets/ch-1-p-1_frame_2/frame_snow.webp" alt="">
                         </div>
                         <img class="f-s-snow__person" src="@assets/ch-1-p-1_frame_2/frame_person.webp" alt="">
-                        <img class="frame__background" src="@assets/ch-1-p-1_frame_2/frame_background.webp" alt="">
+                        <img class="frame__background" src="@assets/ch-1-p-1_frame_2/frame_background-mobile.webp" alt="">
                     </Frame>
                 </Page>
             </swiper-slide>

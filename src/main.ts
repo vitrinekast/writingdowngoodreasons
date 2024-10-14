@@ -21,6 +21,12 @@ const routes = [
     meta: { order: 2999 },
   },
   {
+    path: "/garagecafe",
+    name: "garagecafe",
+    component: () => import("./pages/GarageCafe.vue"),
+    meta: { order: 0 },
+  },
+  {
     path: "/",
     name: "start",
     component: () => import("./pages/Start.vue"),
