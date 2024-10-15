@@ -86,7 +86,7 @@ const onchange = (e) => {
 <template>
 
     <main class="background--base" :class='activeIndex > 0 ? "background--base" : "background--lightblue"'>
-
+        <nextPage to="/chapter-1/page-3"  />
         <Prikbord v-model="prikbordOpen" />
 
         <div class="sideburn">
@@ -170,6 +170,7 @@ const onchange = (e) => {
                                     class="frame__asset--contain stretch">
                             </Frame>
 
+                            
                             <nextPage to="/chapter-1/page-3" v-if="showLast"
                                 :style="{ 'pointer-events': showLast ? 'all' : 'none', 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }" />
                         </div>

@@ -152,28 +152,28 @@ body:has(.page-leave-active[page-name="start"]) {
     &[page-name="chapter-1-page-2"] {
       transition: all 0.5s ease-in;
 
-      .prikbord-enter-active  {
+      .prikbord-enter-active {
         --added-delay: 1s;
       }
     }
-
-    &[page-name="start"],
-    &[page-name="chapter-1"],
     &[page-name="chapter-1-page-3"] {
+      transition: all 0.8s ease-in 2s;
+    }
+    &[page-name="start"],
+    &[page-name="chapter-1"] {
       transition: all 2.8s ease-in;
     }
   }
 
   &-enter-active {
     &[page-name="chapter-1"],
-    &[page-name="chapter-1-page-2"],
-    &[page-name="chapter-1-page-3"] {
+    &[page-name="chapter-1-page-2"] {
       transition-delay: 1s;
     }
   }
   &-leave-active {
     &[page-name="chapter-1"] {
-      transition: 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1) ;
+      transition: 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1);
       transform: translate3d(0, 100svh, 0);
     }
   }
@@ -192,8 +192,11 @@ body:has(.page-leave-active[page-name="start"]) {
       }
     }
 
-    &[page-name="chapter-1-page-2"],
     &[page-name="chapter-1-page-3"] {
+      opacity: 0;
+    }
+
+    &[page-name="chapter-1-page-2"] {
       opacity: 0;
       transform: translate3d(0, 24px, 0);
     }

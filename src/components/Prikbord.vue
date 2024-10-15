@@ -118,8 +118,6 @@ const onMouseMove = (e) => {
                 <div class="menu__frame static">
                     <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/todolist.webp" alt="">
                 </div>
-
-                <nextPage to="/chapter-1/page-1#4"  />
             </nav>
 
             <Transition name="fade" :duration="15000">
