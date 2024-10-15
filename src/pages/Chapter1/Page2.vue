@@ -42,11 +42,16 @@ onMounted(() => {
 
     pageC.value.addEventListener('swiperslidechangetransitionend', (event) => {
         activeIndex.value = event.detail[0].activeIndex;
+        
+        if(activeIndex.value == 1) {
+            bus.emit("playSample", "steps");
+        }
     });
 
     pageC.value.addEventListener('swiperslidechange', (event) => {
         // hide the nudge on slide 3
         showNudge.value = event.detail[0].activeIndex != 4;
+        
         // showNudge.value = event.detail[0].activeIndex != 3;
         bus.emit("extendNudge");
     });
@@ -86,7 +91,6 @@ const onchange = (e) => {
 <template>
 
     <main class="background--base" :class='activeIndex > 0 ? "background--base" : "background--lightblue"'>
-        <nextPage to="/chapter-1/page-3"  />
         <Prikbord v-model="prikbordOpen" />
 
         <div class="sideburn">
