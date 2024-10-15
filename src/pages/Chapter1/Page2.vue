@@ -5,10 +5,10 @@ import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
-import head_1 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-1.png';
-import head_2 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-2.png';
-import head_3 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-3.png';
-import head_4 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-4.png';
+import head_1 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-1.webp';
+import head_2 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-2.webp';
+import head_3 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-3.webp';
+import head_4 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-4.webp';
 import Prikbord from "@/components/Prikbord.vue";
 import NextPage from "@/components/nextPage.vue";
 import { bus } from "@/helpers/eventBus";
@@ -112,11 +112,11 @@ const onchange = (e) => {
                     <Page class="page--fullwidth">
 
                         <Frame class="frame--1" swiper-parallax-item>
-                            <img loading='lazy' src="@assets/ch-1-p-2_frame_1/frame1.png" alt="" class="frame__asset">
+                            <img loading='lazy' src="@assets/ch-1-p-2_frame_1/frame1.webp" alt="" class="frame__asset">
                         </Frame>
-                        <img class="frame__asset text--1" src="@assets/ch-1-p-2_frame_1/tekst1.png" alt=""
+                        <img class="frame__asset text--1" src="@assets/ch-1-p-2_frame_1/tekst1.webp" alt=""
                             swiper-parallax-item>
-                        <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part3.png" alt="">
+                        <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part3.webp" alt="">
                     </Page>
                 </swiper-slide>
 
@@ -147,7 +147,7 @@ const onchange = (e) => {
                                 </div>
                             </Frame>
                             <Frame class="cell cell--w-3" swiper-parallax-item>
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.png" alt=""
+                                <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
                             <Frame class="cell cell--w-6 cell--100" swiper-parallax-item>
@@ -155,18 +155,18 @@ const onchange = (e) => {
                                     @input="onchange">
                             </Frame>
                             <Frame class="cell cell--w-2 t--opacity" :style="{ 'opacity': showLast ? 1 : 0 }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.png" alt=""
+                                <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
                             <Frame class="cell cell--w-4 t--opacity"
                                 :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '.5s' }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_4/frame_asset.png" alt=""
+                                <img loading='lazy' src="@assets/ch-1-p-3_frame_4/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
 
                             <Frame class="cell cell--w-6 t--opacity"
                                 :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_5/frame_asset.png" alt=""
+                                <img loading='lazy' src="@assets/ch-1-p-3_frame_5/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
 
