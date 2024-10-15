@@ -4,7 +4,7 @@
   gap: $grid--gap;
   height: 100%;
   grid-auto-rows: minmax(0, 1fr);
-
+  max-height: calc(100svh - $page--padding - $page--padding);
   &--center {
     justify-items: center;
     align-content: center;
