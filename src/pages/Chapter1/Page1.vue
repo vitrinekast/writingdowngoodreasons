@@ -31,7 +31,7 @@ onMounted(() => {
         speed: 1200,
         touchStartPreventDefault: false,
         pagination: true,
-        draggable: true,
+        draggable: false,
         cssMode: false,
         hashNavigation: {
             replaceState: true,

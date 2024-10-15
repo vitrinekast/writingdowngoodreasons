@@ -5,10 +5,12 @@ import Markdown from 'unplugin-vue-markdown/vite';
 import { defineConfig } from "vite";
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import Pages from 'vite-plugin-pages';
+import preloadPlugin from 'vite-preload/plugin';
 
 export default defineConfig({
   
   plugins: [
+    preloadPlugin(),
     Vue({
       include: [/\.vue$/, /\.md$/],
       template: {
