@@ -10,6 +10,7 @@ declare module 'vue' {
     AudioPlayer: typeof import('./src/components/AudioPlayer.vue')['default']
     Button: typeof import('./src/components/Button.vue')['default']
     Frame: typeof import('./src/components/Frame.vue')['default']
+    HeadTurn: typeof import('./src/components/frames/Chapter1/headTurn.vue')['default']
     IceBox: typeof import('./src/components/iceBox.vue')['default']
     Lightbox: typeof import('./src/components/Lightbox.vue')['default']
     NextPage: typeof import('./src/components/nextPage.vue')['default']

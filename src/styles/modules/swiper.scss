@@ -79,10 +79,15 @@ swiper-slide[data-swiper-parallax] {
   --delay: 0.2s;
   --duration: 0.8s;
 }
+:root {
+  --par-transform: 32px;
+  --par-opacity: 0;
+}
+
 swiper-slide[data-swiper-parallax] [swiper-parallax-item] {
-  transform: translate3d(0, 32px, 0) !important;
+  transform: translate3d(0, var(--par-transform), 0) !important;
   transition: all var(--duration) cubic-bezier(0.2, 0, 0, 1) !important;
-  opacity: 0;
+  opacity: var(--par-opacity);
 
   &[slow] {
     --delay: 2s;
@@ -100,10 +105,21 @@ swiper-slide[data-swiper-parallax] [swiper-parallax-item] {
   }
 }
 
-swiper-slide[data-swiper-parallax].swiper-slide-active [swiper-parallax-item] {
-  transform: translate3d(0px, 0px, 0) !important;
+swiper-slide[data-swiper-parallax][data-swiper-seen="true"]
+  [swiper-parallax-item],
+swiper-slide[data-swiper-parallax].swiper-slide-prev [swiper-parallax-item] {
+  transition-delay: 0s !important;
+}
+
+swiper-slide[data-swiper-parallax].swiper-slide-active,
+swiper-slide[data-swiper-parallax].swiper-slide-prev,
+swiper-slide[data-swiper-parallax][data-swiper-seen="true"] {
+  // transform: translate3d(0px, 0px, 0) !important;
   backface-visibility: visible;
-  opacity: 1;
+  // opacity: 1;
+
+  --par-transform: 0px;
+  --par-opacity: 1;
 }
 
 .sideburn {
@@ -111,7 +127,15 @@ swiper-slide[data-swiper-parallax].swiper-slide-active [swiper-parallax-item] {
     @include break-min(900px) {
       max-width: 900px;
       position: relative;
-      mask-image: -webkit-gradient(linear, left 0%, right 0%, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.05, rgba(0, 0, 0, 1)), color-stop(0.9, rgba(0, 0, 0, 1)), color-stop(1, rgba(0, 0, 0, 0)));
+      mask-image: -webkit-gradient(
+        linear,
+        left 0%,
+        right 0%,
+        color-stop(0, rgba(0, 0, 0, 0)),
+        color-stop(0.05, rgba(0, 0, 0, 1)),
+        color-stop(0.9, rgba(0, 0, 0, 1)),
+        color-stop(1, rgba(0, 0, 0, 0))
+      );
 
       .page:not(.page--fullwidth) {
         padding-left: 50px;

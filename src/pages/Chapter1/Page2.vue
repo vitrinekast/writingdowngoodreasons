@@ -20,11 +20,14 @@ const pageC = ref(null);
 const activeIndex = ref(0);
 const prikbordOpen = ref(false);
 const coordVideo = ref(null);
-const turnIndex = ref(0);
-const images = [head_1, head_2, head_3, head_4];
 const showLast = ref(false);
 const showNudge = ref(true);
 
+bus.on("turnedHead", () => {
+    setTimeout(() => {
+        showLast.value = true;
+    }, 1000);
+})
 
 onMounted(() => {
     bus.emit("playBackground", "bg__cold");
@@ -42,8 +45,8 @@ onMounted(() => {
 
     pageC.value.addEventListener('swiperslidechangetransitionend', (event) => {
         activeIndex.value = event.detail[0].activeIndex;
-        
-        if(activeIndex.value == 1) {
+
+        if (activeIndex.value == 1) {
             bus.emit("playSample", "steps");
         }
     });
@@ -51,17 +54,17 @@ onMounted(() => {
     pageC.value.addEventListener('swiperslidechange', (event) => {
         // hide the nudge on slide 3
         showNudge.value = event.detail[0].activeIndex != 4;
-        
+
         // showNudge.value = event.detail[0].activeIndex != 3;
         bus.emit("extendNudge");
     });
 
     pageC.value.addEventListener('swipersliderfirstmove', (event) => {
-        showNudge.value  = false;
+        showNudge.value = false;
     });
 
     pageC.value.addEventListener('touchend', (event) => {
-        showNudge.value  = true;
+        showNudge.value = true;
     });
 
     if (!prikbordOpen.value && coordVideo.value) {
@@ -71,21 +74,11 @@ onMounted(() => {
 
 bus.on('closePrikbord', () => {
     window.setTimeout(function () {
+        console.log("play it!");
         coordVideo.value.play();
     }, 1000)
 })
 
-const onchange = (e) => {
-    const v = Math.round(mapNumRange(e.target.value, 0, 100, 0, 3));
-
-    if (v !== turnIndex.value) {
-        turnIndex.value = v;
-    }
-
-    if (e.target.value > 90) {
-        showLast.value = true;
-    }
-}
 </script>
 
 <template>
@@ -95,7 +88,7 @@ const onchange = (e) => {
 
         <div class="sideburn">
             <swiper-container class="swiper-container sideburn__container" ref="pageC" init="false">
-                <swiper-slide class="slide--100" v-if="!prikbordOpen">
+                <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
                     <Page class="page--fullwidth">
                         <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="">
                         <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">
@@ -104,7 +97,8 @@ const onchange = (e) => {
                         </video>
                     </Page>
                 </swiper-slide>
-                <swiper-slide class="slide--auto" v-if="!prikbordOpen" data-swiper-parallax>
+                <swiper-slide class="slide--auto" v-if="!prikbordOpen" data-swiper-parallax
+                    :data-swiper-seen="activeIndex > 1">
                     <Page class="page--fullwidth">
                         <img class="frame__overlay" src="@assets/ch-1-p-2_frame_1/part2--feet.webp" alt=""
                             swiper-parallax-item slow opacity>
@@ -112,7 +106,7 @@ const onchange = (e) => {
                     </Page>
                 </swiper-slide>
                 <swiper-slide data-swiper-parallax class="slide--auto background--base" v-if="!prikbordOpen"
-                    style="--delay: 1.5s; duration: 1.2s;">
+                    style="--delay: 1.5s; duration: 1.2s;" :data-swiper-seen="activeIndex > 2">
                     <Page class="page--fullwidth">
 
                         <Frame class="frame--1" swiper-parallax-item>
@@ -125,7 +119,7 @@ const onchange = (e) => {
                 </swiper-slide>
 
                 <swiper-slide data-swiper-parallax class="slide--auto flex--center background--base"
-                    style="--delay: 1.5s; duration: 1.2s;">
+                    style="--delay: 1.5s; duration: 1.2s;" :data-swiper-seen="activeIndex > 3">
                     <Page size="sm">
 
                         <div class="grid">
@@ -140,24 +134,11 @@ const onchange = (e) => {
                     </Page>
                 </swiper-slide>
                 <swiper-slide class="slide--xs background--base" data-swiper-parallax
-                    style="--delay: 1.5s; duration: 1.2s;">
+                    :data-swiper-seen="activeIndex > 4" style="--delay: 1.5s; duration: 1.2s;">
                     <Page size="sm">
                         <div class="grid grid--center">
-                            <Frame class="cell cell--w-3 cell--100" swiper-parallax-item>
-                                <div v-for="(item, index) in images" :key="index" :data-index="index"
-                                    :style="{ opacity: index == turnIndex ? 1 : 0, transitionDelay: index == turnIndex ? 2.51 : 0 }"
-                                    class="frame__element stretch">
-                                    <img loading='lazy' :src="item" alt="" class="frame__asset--contain stretch">
-                                </div>
-                            </Frame>
-                            <Frame class="cell cell--w-3" swiper-parallax-item>
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.webp" alt=""
-                                    class="frame__asset--contain stretch">
-                            </Frame>
-                            <Frame class="cell cell--w-6 cell--100" swiper-parallax-item>
-                                <input class="cell__abs" type="range" min="0" max="100" step="1" value="0"
-                                    @input="onchange">
-                            </Frame>
+                            <HeadTurn />
+
                             <Frame class="cell cell--w-2 t--opacity" :style="{ 'opacity': showLast ? 1 : 0 }">
                                 <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
@@ -174,7 +155,7 @@ const onchange = (e) => {
                                     class="frame__asset--contain stretch">
                             </Frame>
 
-                            
+
                             <nextPage to="/chapter-1/page-3" v-if="showLast"
                                 :style="{ 'pointer-events': showLast ? 'all' : 'none', 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }" />
                         </div>
@@ -210,5 +191,9 @@ const onchange = (e) => {
     .text--1 {
         left: 2rem;
     }
+}
+
+.frame__video {
+    top: 25%;
 }
 </style>
