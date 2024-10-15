@@ -57,6 +57,7 @@ bus.on('playSample', (name) => {
 })
 
 bus.on('playBackground', (name) => {
+  
   backgroundSample.value = name;
 
   if (audio.muted) {
@@ -67,6 +68,7 @@ bus.on('playBackground', (name) => {
 })
 
 const playBackground = () => {
+  if(!backgroundSample.value) return false;
   import(`@/assets/audio/${backgroundSample.value}.mp3`).then((src) => {
     if (background.value) {
       background.value.pause();
@@ -101,7 +103,7 @@ audio.$subscribe((mutation, state) => {
 
 <template>
   <nav class="nav--audio">
-    <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.toggle"></button>
+    <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.unmute"></button>
   </nav>
 </template>
 

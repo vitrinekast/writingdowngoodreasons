@@ -30,7 +30,11 @@ a {
 }
 
 .system {
-  // font-family: monospace;
+  font-family:serif;
   font-size: 14px;
-  margin-top: 2px;
+  margin-bottom: .05rem;
+}
+
+.text--center {
+  text-align: center;
 }

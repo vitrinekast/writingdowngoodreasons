@@ -37,15 +37,11 @@ $pt-transition: var(--pt-duration) ease-out;
     // opacity: 0;
   }
 
-  .frame__button {
+  .nav--bottom {
     transform: translate3d(0, 0, 0);
     transition:
       transform $pt-transition,
       opacity $pt-transition;
-    align-self: start;
-    margin-top: 50px;
-    z-index: 10;
-    text-align: center;
 
     @at-root .page-leave-to & {
       transform: translate3d(0, 10px, 100px);
@@ -65,7 +61,7 @@ $pt-transition: var(--pt-duration) ease-out;
     &--top {
       transition:
         transform var(--pt-duration) ease-out 40s,
-        opacity var(--pt-duration) ease-out 6s;
+        opacity var(--pt-duration) ease-out 2s;
     }
 
     @at-root .page-leave-to & {
