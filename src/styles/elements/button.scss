@@ -1,7 +1,7 @@
 .button {
   border: none;
   font-family: $font-family;
-  color: $color--text;
+  color: white;
   padding: $gutter--md $gutter--lg;
   position: relative;
   display: inline-flex;
@@ -11,6 +11,7 @@
   -webkit-appearance: none;
   background-color: none;
   z-index: 2;
+
   &--ic {
     appearance: none;
     background-color: transparent;

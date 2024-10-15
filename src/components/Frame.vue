@@ -37,7 +37,7 @@ onMounted(() => {
 <template>
   <div :class="`frame ${BEM('frame', props.size)} ${BEM('frame', props.type)} ${props.mask ? 'frame--masked' : ''}`">
     <img v-if="props.outline" class="frame__outline" :src="outlineImg" alt="" />
-    <div :style="styleObject" class="things">
+    <div :style="styleObject" class="frame__inner">
       <slot></slot>
     </div>
     <Nudge v-if="props.nudge" :nudge="props.nudge" />
@@ -47,7 +47,7 @@ onMounted(() => {
 
 
 <style scoped>
-.frame--masked .things {
+.frame--masked .frame__inner {
   mask-size: 100% 100%;
 }
 </style>

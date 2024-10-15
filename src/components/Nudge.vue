@@ -41,7 +41,7 @@ bus.on("extendNudge", () => {
 
 
 <style scoped>
-.frame--masked .things {
+.frame--masked .frame__inner {
     mask-size: 100% 100%;
 }
 </style>
