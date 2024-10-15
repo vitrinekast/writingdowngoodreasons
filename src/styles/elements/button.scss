@@ -4,33 +4,45 @@
   color: $color--text;
   padding: $gutter--md $gutter--lg;
   position: relative;
-  color: white;
   display: inline-flex;
   cursor: pointer;
   text-decoration: none;
-
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: none;
+  z-index: 2;
   &--ic {
-  }
-
-  &--audio {
     appearance: none;
     background-color: transparent;
     border: none;
     outline: none;
     width: 1.5rem;
     height: 1.5rem;
-    background-image: url(@assets/gui/icon--sound-on.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    transition: .2s linear transform;
+    transition: 0.2s linear transform;
     cursor: pointer;
     &:hover {
       transform: scale(1.1);
     }
+  }
+
+  &--audio {
+    @extend .button--ic;
+    background-image: url(@assets/gui/icon--sound-on.png);
 
     &.off {
       background-image: url(@assets/gui/icon--sound-off.png);
+    }
+  }
+
+  &--fullscreen {
+    @extend .button--ic;
+    background-image: url(@assets/gui/fullscreen-exit.svg);
+
+    &.off {
+      background-image: url(@assets/gui/fullscreen.svg);
     }
   }
 
@@ -57,5 +69,12 @@
   }
 
   &--rect {
+  }
+  &--link {
+    text-decoration: underline;
+    padding: 8px;
+  }
+  &--light:before {
+    background-image: url(@assets/gui/button--2-white.png);
   }
 }

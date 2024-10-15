@@ -11,6 +11,21 @@
       padding: .75rem 1rem;
     }
   }
+
+  &--bottom {
+    position: fixed;
+  bottom: calc(env(safe-area-inset-top, 20px) + $page--padding);
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .button {
+      min-width: 250px;
+      justify-content: center;
+    }
+   
+  }
   &--multislide {
     
     position: fixed;

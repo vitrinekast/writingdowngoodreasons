@@ -11,7 +11,6 @@ bus.on('brokenIce', (e) => {
     brokenIces.value.push(e.id);
 })
 
-
 </script>
 <template>
     <Page type="fit">

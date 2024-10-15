@@ -29,7 +29,7 @@ const routes = [
   {
     path: "/",
     name: "start",
-    component: () => import("./pages/Start.vue"),
+    component: () => import("./pages/index.vue"),
     meta: { order: 0 },
   },
   {
