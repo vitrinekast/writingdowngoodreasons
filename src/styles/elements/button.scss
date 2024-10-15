@@ -38,15 +38,6 @@
     }
   }
 
-  &--fullscreen {
-    @extend .button--ic;
-    background-image: url(@assets/gui/fullscreen-exit.svg);
-
-    &.off {
-      background-image: url(@assets/gui/fullscreen.svg);
-    }
-  }
-
   &--next {
     @extend .button--ic;
     background-image: url(@assets/gui/icon--next.png);
