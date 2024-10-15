@@ -128,6 +128,7 @@ bus.on('brokenIce', (e) => {
             </swiper-slide>
         </swiper-container>
         <Nudge nudge="slide" v-if="showNudge" />
-        <nextPage to="/chapter-1/page-2" v-if="brokenIces.length > 2" />
+        <nextPage to="/chapter-1/page-2"  />
+            <nextPage to="/chapter-1/page-2" v-if="brokenIces.length > 2" />
     </main>
 </template>

@@ -96,7 +96,7 @@ const onMouseMove = (e) => {
         <div class="menu__backdrop" v-if="menuModel"></div>
     </Transition>
 
-    <Transition name="prikbord" :duration="5500">
+    <Transition name="prikbord" :duration="15500">
         <div v-if="menuModel">
             <nav class="menu menu--prikbord" @mousemove="onMouseMove">
 
@@ -118,16 +118,18 @@ const onMouseMove = (e) => {
                 <div class="menu__frame static">
                     <img class="frame__asset--contain" src="@assets/ch-1-p-2_menu/todolist.webp" alt="">
                 </div>
+
+                <nextPage to="/chapter-1/page-1#4"  />
             </nav>
 
-            <Transition name="fade" :duration="5000">
+            <Transition name="fade" :duration="15000">
                 <div class="menu__meter progress" v-if="progress.length < 4">
                     <li class="progress__inner" :step="progress.length">
                     </li>
                 </div>
             </Transition>
 
-            <Transition name="fade" :duration="5000">
+            <Transition name="fade" :duration="15000">
                 <div v-if="progress.length > 3" class="menu__meter">
                     <button class="ic--arrow down" @click="closeMenu"></button>
                 </div>

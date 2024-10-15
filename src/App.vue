@@ -17,7 +17,6 @@ router.beforeEach((to, from) => {
   } else {
     routerTransition.value = "page-back";
   }
-
 })
 
 </script>
@@ -29,9 +28,6 @@ router.beforeEach((to, from) => {
     <AudioPlayer />
 
   </header>
-  <div class="nav">
-    {{ route.meta.transition }}
-  </div>
   <router-view v-slot="{ Component }">
     <transition :name="routerTransition" :page-name="route.name" :duration="routerTransition === 'page' ? 12000 : 3000">
       <component :is="Component" />
@@ -40,13 +36,3 @@ router.beforeEach((to, from) => {
   <ParticleContainer />
 
 </template>
-
-<style lang="scss">
-.nav {
-  position: fixed;
-  z-index: 999;
-  display: flex;
-  gap: 1rem;
-  padding: 4px;
-}
-</style>

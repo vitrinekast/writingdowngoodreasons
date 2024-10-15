@@ -1,3 +1,7 @@
+:root {
+  --added-delay: 0s;
+}
+
 .t {
   &--opacity {
     transition: opacity 0.8s ease-in;
@@ -56,19 +60,19 @@
 .prikbord {
   &-enter-active {
     .menu--prikbord {
-      transition: transform 1.3s cubic-bezier(0.88, -0.21, 0.2, 1.1);
+      transition: transform 1.3s cubic-bezier(0.88, -0.21, 0.2, 1.1) var(--added-delay);
     }
 
     .menu__meter {
       transition:
-        transform 0.5s ease-out 1.2s,
-        opacity 2s linear;
+        transform 0.5s ease-out calc(var(--added-delay) + 0.2s),
+        opacity 2s linear var(--added-delay);
     }
 
     .menu__frame .frame__asset--contain {
       transition:
-        transform 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1),
-        opacity 2s linear;
+        transform 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1) var(--added-delay),
+        opacity 2s linear var(--added-delay);
     }
   }
   &-leave-active {
@@ -145,9 +149,16 @@ body:has(.page-leave-active[page-name="start"]) {
       }
     }
 
+    &[page-name="chapter-1-page-2"] {
+      transition: all 0.5s ease-in;
+
+      .prikbord-enter-active  {
+        --added-delay: 1s;
+      }
+    }
+
     &[page-name="start"],
     &[page-name="chapter-1"],
-    &[page-name="chapter-1-page-2"],
     &[page-name="chapter-1-page-3"] {
       transition: all 2.8s ease-in;
     }
@@ -160,9 +171,10 @@ body:has(.page-leave-active[page-name="start"]) {
       transition-delay: 1s;
     }
   }
-
-  &-enter-from {
-    &[page-name="chapter-1-page-2"] {
+  &-leave-active {
+    &[page-name="chapter-1"] {
+      transition: 1.8s cubic-bezier(0.88, -0.21, 0.2, 1.1) ;
+      transform: translate3d(0, 100svh, 0);
     }
   }
 
