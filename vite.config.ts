@@ -1,44 +1,52 @@
-import Vue from '@vitejs/plugin-vue';
+import Vue from "@vitejs/plugin-vue";
 import { fileURLToPath, URL } from "node:url";
-import Components from 'unplugin-vue-components/vite';
-import Markdown from 'unplugin-vue-markdown/vite';
+import Components from "unplugin-vue-components/vite";
+import Markdown from "unplugin-vue-markdown/vite";
 import { defineConfig } from "vite";
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import Pages from 'vite-plugin-pages';
-import preloadPlugin from 'vite-preload/plugin';
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import Pages from "vite-plugin-pages";
 
 export default defineConfig({
-  
   plugins: [
-    preloadPlugin(),
     Vue({
       include: [/\.vue$/, /\.md$/],
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith('swiper-')
-        }
-      }
+          isCustomElement: (tag) => tag.startsWith("swiper-"),
+        },
+      },
     }),
     ViteImageOptimizer({
+      svg: {
+        multipass: true,
+        plugins: [
+          {
+            name: "preset-default",
+          },
+        ],
+      },
       png: {
-        quality: 10,
+        quality: 100,
+      },
+      webp: {
+        lossless: false,
       },
     }),
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ["vue", "md"],
     }),
     Markdown({
       headEnabled: true,
     }),
     Components({
-      extensions: ['vue', 'md'],
+      extensions: ["vue", "md"],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
     }),
   ],
   ssgOptions: {
-    script: 'async',
-    formatting: 'prettify',
+    script: "async",
+    formatting: "prettify",
   },
   resolve: {
     alias: [
