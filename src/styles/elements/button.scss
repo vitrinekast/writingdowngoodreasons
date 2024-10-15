@@ -47,6 +47,12 @@
     }
   }
 
+  &--next {
+    @extend .button--ic;
+    background-image: url(@assets/gui/icon--next.png);
+    background-size: contain;
+  }
+
   &:before {
     content: "";
     position: absolute;

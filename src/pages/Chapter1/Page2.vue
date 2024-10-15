@@ -1,18 +1,14 @@
 <script setup>
 import Page from "@/components/Page.vue";
+import Prikbord from "@/components/Prikbord.vue";
+import NextPage from "@/components/nextPage.vue";
+import { bus } from "@/helpers/eventBus";
+import { swiperParam } from "@/helpers/utils";
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
-import head_1 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-1.webp';
-import head_2 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-2.webp';
-import head_3 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-3.webp';
-import head_4 from '@/assets/images/ch-1-p-3_frame_1/frame_asset-4.webp';
-import Prikbord from "@/components/Prikbord.vue";
-import NextPage from "@/components/nextPage.vue";
-import { bus } from "@/helpers/eventBus";
-import { mapNumRange, swiperParam } from "@/helpers/utils";
 
 register();
 

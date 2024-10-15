@@ -4,13 +4,14 @@ const props = defineProps({
 })
 </script>
 <template>
-    <router-link :to="props.to" class="button">Next</router-link>
+    <router-link :to="props.to" class="button--next"></router-link>
 </template>
 <style scoped>
-.button {
+.button--next {
     position: fixed;
-    bottom: 0;
-    right: 0;
+    bottom: calc(env(safe-area-inset-top, 20px) + 12px);
+    right: calc(env(safe-area-inset-top, 20px) + 12px);
     z-index: 999;
+    width: 100px;
 }
 </style>
