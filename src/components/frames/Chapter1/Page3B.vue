@@ -45,7 +45,7 @@ bus.on('brokenIce', (e) => {
                 <img  src="@assets/ch-1-p-1_frame_5b-4/frame_asset.webp" alt="" class="frame__asset-text">
             </Frame>
 
-            <Frame class=" cell--w-2 " mask='ch-1-p-1_frame_5b-5' outline="ch-1-p-1_frame_5b-5">
+            <Frame class=" cell--w-2 " mask='ch-1-p-1_frame_5b-3' outline="ch-1-p-1_frame_5b-5">
                 <img  src="@assets/ch-1-p-1_frame_5b-5/frame_asset.webp" alt="" class="frame__asset">
             </Frame>
 
