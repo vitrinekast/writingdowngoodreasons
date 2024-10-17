@@ -1,6 +1,5 @@
 <script setup>
 import Page from '@/components/Page.vue';
-import { isClient } from '@vueuse/core';
 import { onMounted, ref } from 'vue';
 import { colors, setThemeColor } from '../helpers/utils';
 
@@ -8,7 +7,7 @@ const showExit = ref(false);
 
 onMounted(() => {
     setTimeout(() => {
-        setThemeColor(colors.blue);    
+        setThemeColor(colors.blue);
     }, 1000)
 
     if (document && document.fullscreenElement) {
@@ -36,8 +35,8 @@ const toggleFullScreen = () => {
                 and <a href="https://www.instagram.com/vitrinekast/">vitrinekast</a></h5>
 
             <nav class="nav--bottom">
-                <router-link class="button button--light"  to="/">Play again</router-link>
-                <div class="button--link" v-if="showExit" @click="document.exitFullscreen()">Toggle full screen</div>
+                <router-link class="button button--light" to="/">Play again</router-link>
+                <div class="button--link" v-if="showExit" @click="toggleFullScreen">Toggle full screen</div>
             </nav>
         </Page>
 

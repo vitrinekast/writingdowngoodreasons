@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref, onMounted, reactive, watchEffect } from 'vue';
 import { BEM } from '@/helpers/utils';
+import { onMounted, reactive, ref } from 'vue';
 import Nudge from './Nudge.vue';
 
 const props = defineProps({

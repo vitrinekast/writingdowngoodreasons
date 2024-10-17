@@ -107,6 +107,7 @@ const onMouseMove = (e) => {
                 <div class="menu__border"></div>
 
                 <div v-for="(item, index) in images"
+                    :key="index"
                     :class="`menu__frame ${progress.indexOf(item.src) != -1 ? 'seen' : ''}`"
                     :style="{ 'z-index': (topElement === index ? 10 : 2) }">
                     <img class="frame__asset--contain" :src="item.src" alt="" @click="onClick(item, index)">

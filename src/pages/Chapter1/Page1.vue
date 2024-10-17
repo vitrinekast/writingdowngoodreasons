@@ -1,17 +1,17 @@
 <script setup>
 import Frame from "@/components/Frame.vue";
+import Nudge from "@/components/Nudge.vue";
 import Page from "@/components/Page.vue";
 import Page3A from "@/components/frames/Chapter1/Page3A.vue";
 import Page3B from "@/components/frames/Chapter1/Page3B.vue";
+import { bus } from "@/helpers/eventBus";
+import { swiperParam } from '@/helpers/utils';
 import { useMediaQuery } from '@vueuse/core';
 import 'swiper/css';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import 'swiper/element/css/thumbs';
 import { onMounted, ref } from 'vue';
-import Nudge from "@/components/Nudge.vue";
-import { bus } from "@/helpers/eventBus";
-import { swiperParam } from '@/helpers/utils';
 import { colors, setThemeColor } from "../../helpers/utils";
 
 register();
@@ -61,7 +61,7 @@ onMounted(() => {
         bus.emit("extendNudge");
     });
 
-    pageC.value.addEventListener('swipersliderfirstmove', (event) => {
+    pageC.value.addEventListener('swipersliderfirstmove', () => {
         showNudge.value  = false;
     });
 });

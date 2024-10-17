@@ -1,9 +1,9 @@
 <script setup>
 import Page from "@/components/Page.vue";
-import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
 import { bus } from '@/helpers/eventBus';
-const router = useRouter();
+import { computed, ref } from "vue";
+import { colors, setThemeColor } from "../helpers/utils";
+
 const showIntro = ref(true);
 const outlineImg = ref()
 const maskImg = ref()
@@ -22,6 +22,7 @@ const outlineSrc = computed(() => {
 
 const begin = () => {
   bus.emit("startAudio");
+  
   setThemeColor(colors.body);    
   
   if (window.location.hostname === "localhost") return false;

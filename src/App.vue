@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue';
+import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AudioPlayer from './components/AudioPlayer.vue';
 import ParticleContainer from './components/ParticleContainer.vue';
@@ -9,8 +9,8 @@ const route = useRoute();
 const routerTransition = ref("page");
 
 router.beforeEach((to, from) => {
-  const fromOrder = from.meta.order as number; // Type assertion
-  const toOrder = to.meta.order as number; // Type assertion
+  const fromOrder = from.meta.order;
+  const toOrder = to.meta.order;
 
   if (fromOrder < toOrder) {
     routerTransition.value = "page";

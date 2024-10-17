@@ -63,11 +63,11 @@ onMounted(() => {
         bus.emit("extendNudge");
     });
 
-    pageC.value.addEventListener('swipersliderfirstmove', (event) => {
+    pageC.value.addEventListener('swipersliderfirstmove', () => {
         showNudge.value = false;
     });
 
-    pageC.value.addEventListener('touchend', (event) => {
+    pageC.value.addEventListener('touchend', () => {
         showNudge.value = true;
     });
 

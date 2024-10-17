@@ -1,8 +1,7 @@
 <script setup>
 import Page from '@/components/Page.vue';
-import { ref } from 'vue';
-import { useAudioStore } from '@/store/audio';
 import { bus } from '@/helpers/eventBus';
+import { useAudioStore } from '@/store/audio';
 
 const audio = useAudioStore();
 const onClick = () => {
