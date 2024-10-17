@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	import photo_letter from "@/assets/images/ch-1-p-2_menu/letter.webp";
-	import photo_letter_exp from "@/assets/images/ch-1-p-2_menu/letter_expanded.webp";
-	import photo_1 from "@/assets/images/ch-1-p-2_menu/photo_1.webp";
-	import photo_2 from "@/assets/images/ch-1-p-2_menu/photo_2.webp";
+	import photo_letter from "@assets/ch-1-p-2_menu/letter.webp";
+	import photo_letter_exp from "@assets/ch-1-p-2_menu/letter_expanded.webp";
+	import photo_1 from "@assets/ch-1-p-2_menu/photo_1.webp";
+	import photo_2 from "@assets/ch-1-p-2_menu/photo_2.webp";
 	import { bus } from "@/helpers/eventBus";
 	import { onMounted, reactive, ref } from "vue";
 	import Lightbox from "./Lightbox.vue";

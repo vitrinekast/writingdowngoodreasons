@@ -1,8 +1,8 @@
 <script setup>
-	import head_1 from "@/assets/images/ch-1-p-3_frame_1/frame_asset-1.webp";
-	import head_2 from "@/assets/images/ch-1-p-3_frame_1/frame_asset-2.webp";
-	import head_3 from "@/assets/images/ch-1-p-3_frame_1/frame_asset-3.webp";
-	import head_4 from "@/assets/images/ch-1-p-3_frame_1/frame_asset-4.webp";
+	import head_1 from "@assets/ch-1-p-3_frame_1/frame_asset-1.webp";
+	import head_2 from "@assets/ch-1-p-3_frame_1/frame_asset-2.webp";
+	import head_3 from "@assets/ch-1-p-3_frame_1/frame_asset-3.webp";
+	import head_4 from "@assets/ch-1-p-3_frame_1/frame_asset-4.webp";
 	import { mapNumRange } from "@/helpers/utils";
 	import "swiper/css";
 	import "swiper/css/effect-creative";
