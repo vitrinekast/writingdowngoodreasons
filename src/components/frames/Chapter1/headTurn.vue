@@ -26,7 +26,6 @@ const onchange = (e) => {
 }
 
 function lowerValue(el) {
-    console.log("lowering the value of ", el);
     if (el.value < 3) {
         el.value = 0;
     } else {
@@ -37,7 +36,6 @@ function lowerValue(el) {
 }
 
 const onend = (e) => {
-    console.log("end!");
     if (e.target.value > 90) {
         showLast.value = true;
         bus.emit("turnedHead");
@@ -51,11 +49,11 @@ const onend = (e) => {
         <div v-for="(item, index) in images" :key="index" :data-index="index"
             :style="{ opacity: index == turnIndex ? 1 : 0, transitionDelay: index == turnIndex ? 2.51 : 0 }"
             class="frame__element stretch">
-            <img loading='lazy' :src="item" alt="" class="frame__asset--contain stretch">
+            <img  :src="item" alt="" class="frame__asset--contain stretch">
         </div>
     </Frame>
     <Frame class="cell cell--w-3" swiper-parallax-item>
-        <img loading='lazy' src="@assets/ch-1-p-3_frame_2/frame_asset.webp" alt=""
+        <img  src="@assets/ch-1-p-3_frame_2/frame_asset.webp" alt=""
             class="frame__asset--contain stretch">
     </Frame>
     <Frame class="cell cell--w-6 cell--100" swiper-parallax-item>

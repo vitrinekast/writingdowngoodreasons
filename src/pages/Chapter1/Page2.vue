@@ -9,6 +9,7 @@ import 'swiper/css/effect-creative';
 import { register } from 'swiper/element/bundle';
 import 'swiper/element/css/pagination';
 import { onMounted, ref } from 'vue';
+import { colors, setThemeColor } from "../../helpers/utils";
 
 register();
 
@@ -30,9 +31,11 @@ onMounted(() => {
 
     prikbordOpen.value = true;
 
+    setThemeColor(colors.Prikbord);
+
     Object.assign(pageC.value, {
         ...swiperParam,
-        speed: 2000,
+        speed: 1200,
         centeredSlides: true,
         pagination: true,
     });
@@ -41,6 +44,11 @@ onMounted(() => {
 
     pageC.value.addEventListener('swiperslidechangetransitionend', (event) => {
         activeIndex.value = event.detail[0].activeIndex;
+
+        if(activeIndex.value > 1) {
+            setThemeColor(colors.body);
+        }
+        
 
         if (activeIndex.value == 1) {
             bus.emit("playSample", "steps");
@@ -69,8 +77,8 @@ onMounted(() => {
 });
 
 bus.on('closePrikbord', () => {
+    setThemeColor(colors.body);
     window.setTimeout(function () {
-        console.log("play it!");
         coordVideo.value.play();
     }, 1000)
 })
@@ -98,7 +106,7 @@ bus.on('closePrikbord', () => {
                     <Page class="page--fullwidth">
                         <img class="frame__overlay" src="@assets/ch-1-p-2_frame_1/part2--feet.webp" alt=""
                             swiper-parallax-item slow opacity>
-                        <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part2.webp" alt="">
+                        <img class="frame__asset--contain" src="@assets/ch-1-p-2_frame_1/part2.webp" alt="">
                     </Page>
                 </swiper-slide>
                 <swiper-slide data-swiper-parallax class="slide--auto background--base" v-if="!prikbordOpen"
@@ -106,7 +114,7 @@ bus.on('closePrikbord', () => {
                     <Page class="page--fullwidth">
 
                         <Frame class="frame--1" swiper-parallax-item>
-                            <img loading='lazy' src="@assets/ch-1-p-2_frame_1/frame1.webp" alt="" class="frame__asset">
+                            <img  src="@assets/ch-1-p-2_frame_1/frame1.webp" alt="" class="frame__asset--contain">
                         </Frame>
                         <img class="frame__asset text--1" src="@assets/ch-1-p-2_frame_1/tekst1.webp" alt=""
                             swiper-parallax-item>
@@ -136,18 +144,18 @@ bus.on('closePrikbord', () => {
                             <HeadTurn />
 
                             <Frame class="cell cell--w-2 t--opacity" :style="{ 'opacity': showLast ? 1 : 0 }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_3/frame_asset.webp" alt=""
+                                <img  src="@assets/ch-1-p-3_frame_3/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
                             <Frame class="cell cell--w-4 t--opacity"
                                 :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '.5s' }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_4/frame_asset.webp" alt=""
+                                <img  src="@assets/ch-1-p-3_frame_4/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
 
                             <Frame class="cell cell--w-6 t--opacity"
                                 :style="{ 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }">
-                                <img loading='lazy' src="@assets/ch-1-p-3_frame_5/frame_asset.webp" alt=""
+                                <img  src="@assets/ch-1-p-3_frame_5/frame_asset.webp" alt=""
                                     class="frame__asset--contain stretch">
                             </Frame>
 
@@ -172,6 +180,10 @@ bus.on('closePrikbord', () => {
     left: 1rem;
     top: 0%;
     height: 50%;
+}
+
+.frame--1 img {
+object-position: left;
 }
 
 .text--1 {

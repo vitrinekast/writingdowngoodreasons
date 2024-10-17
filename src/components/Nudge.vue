@@ -27,7 +27,6 @@ watchEffect(() => {
 })
 
 bus.on("extendNudge", () => {
-    console.log("got the instruction to extend the nudge!");
     clearTimeout(timeout);
     setTimeout(doNudge, 12000)
 })

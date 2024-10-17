@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import AudioPlayer from './components/AudioPlayer.vue';
 import ParticleContainer from './components/ParticleContainer.vue';
@@ -18,6 +18,7 @@ router.beforeEach((to, from) => {
     routerTransition.value = "page-back";
   }
 })
+
 
 </script>
 

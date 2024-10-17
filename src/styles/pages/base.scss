@@ -45,14 +45,19 @@
   &--end {
     background-color: var(--blue);
     color: var(--light);
+    
+
     img {
       max-width: 400px;
+      width: 100%;
+      height: auto;
     }
   }
 
   &--spread {
     @extend .page;
     gap: $grid--gap * 2;
+    // width: 100%;
 
     &>.page {
       flex-basis: 50%;

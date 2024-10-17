@@ -12,8 +12,7 @@ import { onMounted, ref } from 'vue';
 import Nudge from "@/components/Nudge.vue";
 import { bus } from "@/helpers/eventBus";
 import { swiperParam } from '@/helpers/utils';
-
-
+import { colors, setThemeColor } from "../../helpers/utils";
 
 register();
 
@@ -24,7 +23,9 @@ const brokenIces = ref([]);
 const showNudge = ref(true);
 
 onMounted(() => {
-    // bus.emit("playBackground", "bg__intro");
+    bus.emit("playBackground", "bg__intro");
+
+    setThemeColor(colors.body);
 
     Object.assign(pageC.value, {
         ...swiperParam,
@@ -117,10 +118,10 @@ bus.on('brokenIce', (e) => {
                 </template>
                 <template v-if="isMobile">
                     <swiper-container ref="spreadC" init="false">
-                        <swiper-slide data-hash="5" lazy="true">
+                        <swiper-slide data-hash="5" >
                             <Page3A />
                         </swiper-slide>
-                        <swiper-slide data-hash="6" lazy="true">
+                        <swiper-slide data-hash="6" >
                             <Page3B />
                         </swiper-slide>
                     </swiper-container>

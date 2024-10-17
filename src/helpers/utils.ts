@@ -1,3 +1,4 @@
+import { isClient } from "@vueuse/core";
 import { EffectCreative, HashNavigation, Keyboard, Navigation } from "swiper/modules";
 
 export const BEM = (base, modifier) => {
@@ -27,3 +28,19 @@ export const swiperParam = {
 };
 
 export const mapNumRange = (num, inMin, inMax, outMin, outMax) => ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+
+
+export const setThemeColor = (color) => {
+  if(isClient) {
+    var theme = document.querySelector('meta[name="theme-color"]');
+    if(theme) {
+      theme.setAttribute("content", color);
+    }
+  }
+} 
+
+export const colors = {
+  blue: "#025354",
+  prikbord: "#839E96",
+  body: "#e8e3d178"
+}

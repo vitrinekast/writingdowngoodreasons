@@ -2,11 +2,13 @@
 import Page from '@/components/Page.vue';
 import { isClient } from '@vueuse/core';
 import { onMounted, ref } from 'vue';
+import { colors, setThemeColor } from '../helpers/utils';
 
 const showExit = ref(false);
 
 onMounted(() => {
-    console.log("mounting", document.fullscreenElement);
+    setThemeColor(colors.blue);    
+
     if (document && document.fullscreenElement) {
         showExit.value = true;
     }
@@ -26,7 +28,7 @@ const toggleFullScreen = () => {
 <template>
     <main class="background--blue">
         <Page type="end">
-            <img loading='lazy' src="@assets/ch-end/text.webp" alt="" class="frame__asset-text">
+            <img src="@assets/ch-end/text.webp" alt="" class="frame__asset-text">
             <h5 style="margin-top: 2.5rem">Created by <a href="https://www.instagram.com/niksfilmrol/">niksfilmrol</a>
 
                 and <a href="https://www.instagram.com/vitrinekast/">vitrinekast</a></h5>

@@ -2,7 +2,7 @@ $pt-transition: var(--pt-duration) ease-out;
 
 .frame.intro {
   display: grid;
-  grid-template-rows: 280px 80px 80px 1fr;
+  grid-template-rows: min-content 80px 1fr 100px;
   justify-content: center;
   align-items: center;
   justify-items: center;

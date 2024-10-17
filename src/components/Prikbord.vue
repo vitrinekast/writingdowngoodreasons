@@ -6,6 +6,7 @@ import photo_2 from '@/assets/images/ch-1-p-2_menu/photo_2.webp';
 import { bus } from '@/helpers/eventBus';
 import { onMounted, reactive, ref } from 'vue';
 import Lightbox from './Lightbox.vue';
+import { colors, setThemeColor } from '../helpers/utils';
 
 const images = [
     {
@@ -43,15 +44,17 @@ const closeMenu = () => {
 }
 
 bus.on("lightboxclose", (name) => {
+    
+    setThemeColor(colors.prikbord);
+
     if (progress.value.indexOf(name.value) == -1) {
         progress.value.push(name.value);
     }
 
     if (progress.value.length === 3) {
-        console.log("its hree");
         setTimeout(() => {
             progress.value.push("emptyness");
-        }, 500)
+        }, 250)
     }
 });
 
@@ -70,6 +73,7 @@ const setCursorPos = (el) => {
 
 const onClick = (item, index) => {
     bus.emit('playSample', item.sample);
+    setThemeColor(colors.body);
     bus.emit("showLightbox", {
         src: item.lightbox,
         id: item.src
