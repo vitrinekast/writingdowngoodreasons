@@ -1,102 +1,105 @@
 <script setup>
-import Page from "@/components/Page.vue";
-import Prikbord from "@/components/Prikbord.vue";
-import NextPage from "@/components/nextPage.vue";
-import { bus } from "@/helpers/eventBus";
-import { swiperParam } from "@/helpers/utils";
-import "swiper/css";
-import "swiper/css/effect-creative";
-import { register } from "swiper/element/bundle";
-import "swiper/element/css/pagination";
-import { onMounted, ref } from "vue";
-import { colors, setThemeColor } from "../../helpers/utils";
+	import Page from "@/components/Page.vue";
+	import Prikbord from "@/components/Prikbord.vue";
+	import NextPage from "@/components/nextPage.vue";
+	import { bus } from "@/helpers/eventBus";
+	import { swiperParam } from "@/helpers/utils";
+	import "swiper/css";
+	import "swiper/css/effect-creative";
+	import { register } from "swiper/element/bundle";
+	import "swiper/element/css/pagination";
+	import { onMounted, ref } from "vue";
+	import { colors, setThemeColor } from "../../helpers/utils";
 
-register();
+	register();
 
-const pageC = ref(null);
-const activeIndex = ref(0);
-const prikbordOpen = ref(false);
-const coordVideo = ref(null);
-const showLast = ref(false);
-const showNextPage = ref(false);
-const showNudge = ref(true);
+	const pageC = ref(null);
+	const activeIndex = ref(0);
+	const prikbordOpen = ref(false);
+	const coordVideo = ref(null);
+	const showLast = ref(false);
+	const showNextPage = ref(false);
+	const showNudge = ref(true);
 
-bus.on("turnedHead", () => {
-	setTimeout(() => {
-		showLast.value = true;
-	}, 1000);
+	bus.on("turnedHead", () => {
+		setTimeout(() => {
+			showLast.value = true;
+		}, 1000);
 
-	setTimeout(() => {
-		showNextPage.value = true;
-	}, 6000);
-
-
-});
-
-onMounted(() => {
-	bus.emit("playBackground", "bg__cold");
-
-	prikbordOpen.value = true;
-
-	setThemeColor(colors.Prikbord);
-
-	Object.assign(pageC.value, {
-		...swiperParam,
-		speed: 1200,
-		centeredSlides: true,
-		pagination: true,
+		setTimeout(() => {
+			showNextPage.value = true;
+		}, 6000);
 	});
 
-	pageC.value.initialize();
+	onMounted(() => {
+		bus.emit("playBackground", "bg__cold");
 
-	pageC.value.addEventListener("swiperslidechangetransitionend", (event) => {
-		activeIndex.value = event.detail[0].activeIndex;
+		prikbordOpen.value = true;
 
-		if (activeIndex.value > 1) {
-			setThemeColor(colors.body);
-			bus.emit("playBackground", "bg__intro");
+		setThemeColor(colors.Prikbord);
+
+		Object.assign(pageC.value, {
+			...swiperParam,
+			speed: 1200,
+			centeredSlides: true,
+			pagination: true,
+		});
+
+		pageC.value.initialize();
+
+		pageC.value.addEventListener("swiperslidechangetransitionend", (event) => {
+			activeIndex.value = event.detail[0].activeIndex;
+
+			if (activeIndex.value > 1) {
+				setThemeColor(colors.body);
+				bus.emit("playBackground", "bg__intro");
+			}
+
+			if (activeIndex.value == 1) {
+				bus.emit("playSample", "steps");
+			}
+		});
+
+		pageC.value.addEventListener("swiperslidechange", (event) => {
+			// hide the nudge on slide 3
+			showNudge.value = event.detail[0].activeIndex < 4;
+
+			// showNudge.value = event.detail[0].activeIndex != 3;
+			bus.emit("extendNudge");
+		});
+
+		pageC.value.addEventListener("swipersliderfirstmove", () => {
+			showNudge.value = false;
+		});
+
+		pageC.value.addEventListener("touchend", () => {
+			showNudge.value = true;
+		});
+
+		if (!prikbordOpen.value && coordVideo.value) {
+			coordVideo.value.play();
 		}
-
-		if (activeIndex.value == 1) {
-			bus.emit("playSample", "steps");
-		}
 	});
 
-	pageC.value.addEventListener("swiperslidechange", (event) => {
-		// hide the nudge on slide 3
-		showNudge.value = event.detail[0].activeIndex < 4;
-
-		// showNudge.value = event.detail[0].activeIndex != 3;
-		bus.emit("extendNudge");
+	bus.on("closePrikbord", () => {
+		setThemeColor(colors.body);
+		window.setTimeout(function () {
+			coordVideo.value.play();
+		}, 1000);
 	});
-
-	pageC.value.addEventListener("swipersliderfirstmove", () => {
-		showNudge.value = false;
-	});
-
-	pageC.value.addEventListener("touchend", () => {
-		showNudge.value = true;
-	});
-
-	if (!prikbordOpen.value && coordVideo.value) {
-		coordVideo.value.play();
-	}
-});
-
-bus.on("closePrikbord", () => {
-	setThemeColor(colors.body);
-	window.setTimeout(function () {
-		coordVideo.value.play();
-	}, 1000);
-});
 </script>
 
 <template>
-	<main class="background--base" :class="activeIndex > 0 ? 'background--base' : 'background--lightblue'">
+	<main
+		class="background--base"
+		:class="activeIndex > 0 ? 'background--base' : 'background--lightblue'">
 		<Prikbord v-model="prikbordOpen" />
 
 		<div class="sideburn">
-			<swiper-container class="swiper-container sideburn__container" ref="pageC" init="false">
+			<swiper-container
+				class="swiper-container sideburn__container"
+				ref="pageC"
+				init="false">
 				<!-- <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
 					<Page class="page--fullwidth">
 						<img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="" />
@@ -141,73 +144,95 @@ bus.on("closePrikbord", () => {
 						</div>
 					</Page>
 				</swiper-slide> -->
-				<swiper-slide class="slide--xs background--base" data-swiper-parallax
-					:data-swiper-seen="activeIndex > 4" style="--delay: 1.5s; duration: 1.2s">
+				<swiper-slide
+					class="slide--xs background--base"
+					data-swiper-parallax
+					:data-swiper-seen="activeIndex > 4"
+					style="--delay: 1.5s; duration: 1.2s">
 					<Page size="sm">
 						<div class="grid grid--center">
 							<HeadTurn />
 
-							<Frame class="cell cell--w-2 t--opacity" :style="{ opacity: showLast ? 1 : 0 }">
-								<img src="@assets/ch-1-p-3_frame_3/frame_asset.webp" alt=""
+							<Frame
+								class="cell cell--w-2 t--opacity"
+								:style="{ opacity: showLast ? 1 : 0 }">
+								<img
+									src="@assets/ch-1-p-3_frame_3/frame_asset.webp"
+									alt=""
 									class="frame__asset--contain stretch" />
 							</Frame>
-							<Frame class="cell cell--w-4 t--opacity" :style="{
-								opacity: showLast ? 1 : 0,
-								'transition-delay': '.5s',
-							}">
-								<img src="@assets/ch-1-p-3_frame_4/frame_asset.webp" alt=""
+							<Frame
+								class="cell cell--w-4 t--opacity"
+								:style="{
+									opacity: showLast ? 1 : 0,
+									'transition-delay': '.5s',
+								}">
+								<img
+									src="@assets/ch-1-p-3_frame_4/frame_asset.webp"
+									alt=""
 									class="frame__asset--contain stretch" />
 							</Frame>
 
-							<Frame class="cell cell--w-6 t--opacity" :style="{
-								opacity: showLast ? 1 : 0,
-								'transition-delay': '3s',
-							}">
-								<img src="@assets/ch-1-p-3_frame_5/frame_asset.webp" alt=""
+							<Frame
+								class="cell cell--w-6 t--opacity"
+								:style="{
+									opacity: showLast ? 1 : 0,
+									'transition-delay': '3s',
+								}">
+								<img
+									src="@assets/ch-1-p-3_frame_5/frame_asset.webp"
+									alt=""
 									class="frame__asset--contain stretch" />
 							</Frame>
 
-							<Transition name="fade" :duration="2000">
-								<nextPage to="/chapter-1/page-3" :push="true" v-if="showNextPage" />
+							<Transition
+								name="fade"
+								:duration="2000">
+								<nextPage
+									to="/chapter-1/page-3"
+									:push="true"
+									v-if="showNextPage" />
 							</Transition>
 						</div>
 					</Page>
 				</swiper-slide>
 			</swiper-container>
-			<Nudge nudge="slide" v-if="showNudge && !prikbordOpen" />
+			<Nudge
+				nudge="slide"
+				v-if="showNudge && !prikbordOpen" />
 		</div>
 	</main>
 </template>
 
 <style scoped>
-.frame--1,
-.text--1 {
-	position: absolute;
-	left: 1rem;
-	top: 0%;
-	height: 50%;
-}
-
-.frame--1 img {
-	object-position: left;
-}
-
-.text--1 {
-	top: 55%;
-	width: 100%;
-	max-width: 50%;
-	left: 0rem;
-	object-fit: contain;
-	height: 50px;
-}
-
-@media screen and (max-width: 800px) {
+	.frame--1,
 	.text--1 {
-		left: 2rem;
+		position: absolute;
+		left: 1rem;
+		top: 0%;
+		height: 50%;
 	}
-}
 
-.frame__video {
-	top: 25%;
-}
+	.frame--1 img {
+		object-position: left;
+	}
+
+	.text--1 {
+		top: 55%;
+		width: 100%;
+		max-width: 50%;
+		left: 0rem;
+		object-fit: contain;
+		height: 50px;
+	}
+
+	@media screen and (max-width: 800px) {
+		.text--1 {
+			left: 2rem;
+		}
+	}
+
+	.frame__video {
+		top: 25%;
+	}
 </style>

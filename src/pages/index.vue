@@ -1,21 +1,14 @@
 <script setup>
 	import Page from "@/components/Page.vue";
 	import { bus } from "@/helpers/eventBus";
-	import { computed, ref } from "vue";
+	import { onMounted, ref } from "vue";
 	import { colors, setThemeColor } from "../helpers/utils";
 
 	const showIntro = ref(true);
 	const outlineImg = ref();
-	const maskImg = ref();
 
-	const maskSrc = computed(() => {
-		return import(`@assets/ch-intro/frame_mask.svg`).then((image) => {
-			maskImg.value = `url('${image.default}')`;
-		});
-	});
-
-	const outlineSrc = computed(() => {
-		return import(`@assets/ch-intro/frame_outline.svg`).then((imageImports) => {
+	onMounted(() => {
+		import(`@assets/ch-intro/frame_outline.svg`).then((imageImports) => {
 			outlineImg.value = imageImports.default;
 		});
 	});

@@ -91,7 +91,8 @@
 			background.value.pause();
 			background.value.loop = true;
 			background.value.play();
-			background.value.volume = currentRouteName.value === "garagecafe" ? 0.8 : 0.2;
+			background.value.volume =
+				currentRouteName.value === "garagecafe" ? 0.8 : 0.2;
 		});
 	};
 
