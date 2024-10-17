@@ -52,7 +52,6 @@
 
 			if (activeIndex.value > 1) {
 				setThemeColor(colors.body);
-				bus.emit("playBackground", "bg__intro");
 			}
 
 			if (activeIndex.value == 1) {

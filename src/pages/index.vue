@@ -8,6 +8,7 @@
 	const outlineImg = ref(false);
 
 	onMounted(() => {
+		setThemeColor(colors.body);
 		import(`@assets/ch-intro/frame_outline.svg`).then((imageImports) => {
 			outlineImg.value = imageImports.default;
 		});
