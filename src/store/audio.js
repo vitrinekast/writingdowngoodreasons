@@ -12,7 +12,6 @@ export const useAudioStore = defineStore('audio', {
             this.muted = true;
         },
         unmute ()  {
-            console.log(this);
             this.muted = false;
         },
         toggle() {

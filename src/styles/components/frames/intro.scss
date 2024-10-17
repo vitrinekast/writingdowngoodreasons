@@ -71,6 +71,11 @@ $pt-transition: var(--pt-duration) ease-out;
 
   .frame__outline {
     filter: blur(0px);
+    transition: .8s linear;
+
+    @at-root .page-leave-to & {
+      opacity: 0;
+    }
   }
 
   .frame__background {

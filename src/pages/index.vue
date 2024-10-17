@@ -2,7 +2,7 @@
 import Page from "@/components/Page.vue";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
-
+import { bus } from '@/helpers/eventBus';
 const router = useRouter();
 const showIntro = ref(true);
 const outlineImg = ref()
@@ -20,7 +20,9 @@ const outlineSrc = computed(() => {
   });
 });
 
-const toggleFullScreen = () => {
+const begin = () => {
+  bus.emit("startAudio");
+  
   if (window.location.hostname === "localhost") return false;
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
@@ -48,7 +50,7 @@ const toggleFullScreen = () => {
           <img class="frame__asset intro__text intro__text--middle" src="@assets/ch-intro/intro_middle.webp" alt="">
           <p class="intro__text text--center">By Nik van der Meulen & <br> Rosa Schuurmans</p>
           <nav class="nav--bottom">
-            <router-link @click="toggleFullScreen" class="button " to="/chapter-1/audio">Begin</router-link>
+            <router-link @click="begin" class="button " to="/chapter-1/audio">Begin</router-link>
           </nav>
         </div>
 

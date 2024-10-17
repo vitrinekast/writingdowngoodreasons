@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useAudioStore } from '@/store/audio';
 import { bus } from '@/helpers/eventBus';
+import { useRoute } from 'vue-router';
 
 const audio = useAudioStore();
 const sample = ref();
 const background = ref();
 const backgroundSample = ref();
+const route = useRoute()
+const currentRouteName = computed(() => route.name)
 
 onMounted(() => {
   canPlayAudio().then((isPlayable) => {
     if (!isPlayable && !audio.muted) {
-      audio.toggle();
+      audio.mute();
     }
   });
 })
@@ -54,6 +57,16 @@ bus.on('playSample', (name) => {
       // audio.play(false);
     }
   })
+})
+
+bus.on("startAudio", () => {
+  canPlayAudio().then((isPlayable) => {
+    if (!isPlayable && !audio.muted) {
+      audio.mute();
+    } else {
+      audio.unmute();
+    }
+  });
 })
 
 bus.on('playBackground', (name) => {
@@ -102,7 +115,7 @@ audio.$subscribe((mutation, state) => {
 </script>
 
 <template>
-  <nav class="nav--audio">
+  <nav class="nav--audio" :visible="currentRouteName != 'start' && currentRouteName != 'chapter-1-audio'">
     <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.unmute"></button>
   </nav>
 </template>
