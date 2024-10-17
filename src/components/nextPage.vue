@@ -11,7 +11,7 @@ const props = defineProps({
 .button--next {
     position: fixed;
     bottom: calc(env(safe-area-inset-bottom, 20px) + 16px);
-    right: calc(env(safe-area-inset-top, 20px) + 22px);
+    right: calc(env(safe-area-inset-right, 20px) + 22px);
     z-index: 999;
     width: 80px;
     background-position: right;

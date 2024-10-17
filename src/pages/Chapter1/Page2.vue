@@ -95,7 +95,7 @@ bus.on('closePrikbord', () => {
                 <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
                     <Page class="page--fullwidth">
                         <img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="">
-                        <video class="frame__video" playsinline muted style="height: 90px" ref="coordVideo">
+                        <video class="frame__video" disablePictureInPicture playsinline muted style="height: 90px" ref="coordVideo">
                             <source src="@assets/ch-1-p-2_frame_1/animation.mov" type='video/mp4; codecs="hvc1"'>
                             <source src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm" type="video/webm">
                         </video>

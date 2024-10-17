@@ -102,7 +102,7 @@ bus.on('brokenIce', (e) => {
                 <Page type="fit-fill">
                     <div class="frame" swiper-parallax-item>
                         <img class="frame__asset--contain" src="@assets/ch-1-p-1_frame_4/asset.webp" alt="">
-                        <video class="frame__video" autoplay playsinline loop muted>
+                        <video class="frame__video" disablePictureInPicture autoplay playsinline loop muted>
                             <source src="@assets/ch-1-p-1_frame_4/animation--water.mov" type='video/mp4; codecs="hvc1"'>
                             <source src="@assets/ch-1-p-1_frame_4/animation--water-vp9-chrome.webm" type="video/webm">
                         </video>
