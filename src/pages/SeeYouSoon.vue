@@ -7,7 +7,9 @@ import { colors, setThemeColor } from '../helpers/utils';
 const showExit = ref(false);
 
 onMounted(() => {
-    setThemeColor(colors.blue);    
+    setTimeout(() => {
+        setThemeColor(colors.blue);    
+    }, 1000)
 
     if (document && document.fullscreenElement) {
         showExit.value = true;
