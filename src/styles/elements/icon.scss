@@ -30,6 +30,10 @@
 		&.down {
 			transform: rotate(90deg);
 		}
+
+		&.light {
+			background-image: url(@assets/gui/arrow-light.png);
+		}
 	}
 
 	&--enter {

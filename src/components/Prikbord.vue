@@ -160,7 +160,7 @@
 					v-if="progress.length > 3"
 					class="menu__meter">
 					<button
-						class="ic--arrow down"
+						class="ic--arrow down light"
 						@click="closeMenu"></button>
 				</div>
 			</Transition>
