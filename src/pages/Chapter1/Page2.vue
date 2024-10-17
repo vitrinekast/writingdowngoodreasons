@@ -82,7 +82,7 @@
 
 	bus.on("closePrikbord", () => {
 		setThemeColor(colors.body);
-		
+
 		window.setTimeout(function () {
 			coordVideo.value.play();
 		}, 1000);
@@ -119,7 +119,7 @@
 					</Page>
 				</swiper-slide>
 				<swiper-slide data-swiper-parallax class="slide--auto background--base" v-if="!prikbordOpen"
-					style="--delay: 1.5s; duration: 1.2s" :data-swiper-seen="activeIndex > 2">
+					style="--delay: .5s; duration: .2s" :data-swiper-seen="activeIndex > 2">
 					<Page class="page--fullwidth">
 						<Frame class="frame--1" swiper-parallax-item>
 							<img src="@assets/ch-1-p-2_frame_1/frame1.webp" alt="" class="frame__asset--contain" />
