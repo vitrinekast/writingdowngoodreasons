@@ -7,7 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"sass": "sass --watch src/styles/_style.scss:public/styles.css",
 		"start": "vite --host",
-		"build": "clear && npm run lint && npm run format && vite-ssg build",
+		"build": "clear && vite-ssg build",
 		"release": "vite-ssg build",
 		"lint": "eslint . --fix",
 		"format": "prettier --write src/"

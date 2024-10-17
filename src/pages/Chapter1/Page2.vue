@@ -100,7 +100,7 @@
 				class="swiper-container sideburn__container"
 				ref="pageC"
 				init="false">
-				<!-- <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
+			 <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
 					<Page class="page--fullwidth">
 						<img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="" />
 						<video class="frame__video" disablePictureInPicture playsinline muted style="height: 90px"
@@ -143,7 +143,7 @@
 							</Frame>
 						</div>
 					</Page>
-				</swiper-slide> -->
+				</swiper-slide> 
 				<swiper-slide
 					class="slide--xs background--base"
 					data-swiper-parallax
