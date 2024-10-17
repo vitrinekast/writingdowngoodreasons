@@ -40,7 +40,7 @@ bus.on('brokenIce', (e) => {
                 </Transition>
             </Frame>
 
-            <Frame class="cell cell--w-4 " mask='ch-1-p-1_frame_5b-4' outline="ch-1-p-1_frame_5b-4" :nudge="brokenIces?.indexOf('3B1') === -1">
+            <Frame class="cell cell--w-4 " mask='ch-1-p-1_frame_5b-3'  outline="ch-1-p-1_frame_5b-4" :nudge="brokenIces?.indexOf('3B1') === -1">
                 <IceBox name="3B1" />
                 <img  src="@assets/ch-1-p-1_frame_5b-4/frame_asset.webp" alt="" class="frame__asset-text">
             </Frame>
