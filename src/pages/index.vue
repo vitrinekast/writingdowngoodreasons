@@ -5,7 +5,7 @@
 	import { colors, setThemeColor } from "../helpers/utils";
 
 	const showIntro = ref(true);
-	const outlineImg = ref();
+	const outlineImg = ref(false);
 
 	onMounted(() => {
 		import(`@assets/ch-intro/frame_outline.svg`).then((imageImports) => {
@@ -35,13 +35,11 @@
 				v-if="showIntro">
 				<div class="intro frame">
 					<img
-						v-if="outlineSrc"
+						v-if="outlineImg"
 						class="frame__outline"
 						:src="outlineImg"
 						alt="" />
-					<span
-						v-if="maskSrc"
-						style="display: none"></span>
+
 					<img
 						class="frame__asset frame__background"
 						src="@assets/ch-intro/intro_bergen.webp"
