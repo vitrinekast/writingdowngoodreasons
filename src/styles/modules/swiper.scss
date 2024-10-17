@@ -90,8 +90,8 @@ swiper-slide[data-swiper-parallax] [swiper-parallax-item] {
   opacity: var(--par-opacity);
 
   &[slow] {
-    --delay: 2s;
-    --duration: 3s;
+    --delay: 1s;
+    --duration: 2s;
   }
 
   &[opacity] {

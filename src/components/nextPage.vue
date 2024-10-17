@@ -5,7 +5,7 @@ const props = defineProps({
 })
 </script>
 <template>
-    <router-link :class="`button--next ${props.push ? 'push' : ''}`" :to="props.to" class="button--next"></router-link>
+    <router-link :class="`button--next ${props.push ? 'push' : ''}`" :to="props.to"></router-link>
 </template>
 <style scoped>
 .button--next {
@@ -17,9 +17,10 @@ const props = defineProps({
 
     background-position: right;
 
-    .push {
-        bottom: env(safe-area-inset-bottom, 20px);
-        transform: translate3d(0, 012px, 0);
-    }
+}
+
+.button--next.push {
+    bottom: env(safe-area-inset-bottom, 20px);
+    transform: translate3d(0, 012px, 0);
 }
 </style>
