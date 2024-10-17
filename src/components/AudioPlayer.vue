@@ -116,7 +116,7 @@ audio.$subscribe((mutation, state) => {
 
 <template>
   <nav class="nav--audio" :visible="currentRouteName != 'start' && currentRouteName != 'chapter-1-audio'">
-    <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.unmute"></button>
+    <button class="button--audio" :class="audio.muted ? 'off' : 'on'" @click="audio.toggle"></button>
   </nav>
 </template>
 

@@ -160,8 +160,8 @@ bus.on('closePrikbord', () => {
                             </Frame>
 
 
-                            <nextPage to="/chapter-1/page-3" v-if="showLast"
-                                :style="{ 'pointer-events': showLast ? 'all' : 'none', 'opacity': showLast ? 1 : 0, 'transition-delay': '3s' }" />
+                            <nextPage to="/chapter-1/page-3" :push="true" v-if="showLast"
+                                :style="{ 'pointer-events': showLast ? 'all' : 'none', 'opacity': showLast ? 1 : 0, 'transition-delay': '5s' }" />
                         </div>
                     </Page>
                 </swiper-slide>
