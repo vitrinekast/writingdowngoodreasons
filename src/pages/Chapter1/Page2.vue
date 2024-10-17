@@ -47,6 +47,7 @@
 
 			if (activeIndex.value > 1) {
 				setThemeColor(colors.body);
+				bus.emit("playBackground", "bg__intro");
 			}
 
 			if (activeIndex.value == 1) {
@@ -56,7 +57,7 @@
 
 		pageC.value.addEventListener("swiperslidechange", (event) => {
 			// hide the nudge on slide 3
-			showNudge.value = event.detail[0].activeIndex != 4;
+			showNudge.value = event.detail[0].activeIndex < 4;
 
 			// showNudge.value = event.detail[0].activeIndex != 3;
 			bus.emit("extendNudge");
