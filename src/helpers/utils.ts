@@ -52,5 +52,5 @@ export const setThemeColor = (color) => {
 export const colors = {
 	blue: "#025354",
 	prikbord: "#839E96",
-	body: "#e8e3d178",
+	body: "#e8e3d1",
 };

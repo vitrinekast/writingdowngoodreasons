@@ -82,6 +82,7 @@
 
 	bus.on("closePrikbord", () => {
 		setThemeColor(colors.body);
+		
 		window.setTimeout(function () {
 			coordVideo.value.play();
 		}, 1000);
