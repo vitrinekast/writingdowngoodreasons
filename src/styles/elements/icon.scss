@@ -1,44 +1,44 @@
 .ic {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  &--sound {
-    background-image: url(@assets/gui/icon--sound-on.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: 0.2s linear transform;
-    cursor: pointer;
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	&--sound {
+		background-image: url(@assets/gui/icon--sound-on.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: 0.2s linear transform;
+		cursor: pointer;
 
-    &.off {
-      background-image: url(@assets/gui/icon--sound-off.png);
-    }
-  }
+		&.off {
+			background-image: url(@assets/gui/icon--sound-off.png);
+		}
+	}
 
-  &--arrow {
-    @extend .ic;
-    background-image: url(@assets/gui/arrow.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: 0.2s linear transform;
-    cursor: pointer;
+	&--arrow {
+		@extend .ic;
+		background-image: url(@assets/gui/arrow.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: 0.2s linear transform;
+		cursor: pointer;
 
-    &.down {
-        transform: rotate(90deg);
-    }
-  }
+		&.down {
+			transform: rotate(90deg);
+		}
+	}
 
-  &--enter {
-    @extend .ic;
-    background-image: url(@assets/gui/icon--enter.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    transition: 0.2s linear transform;
-    cursor: pointer;
-  }
+	&--enter {
+		@extend .ic;
+		background-image: url(@assets/gui/icon--enter.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: 0.2s linear transform;
+		cursor: pointer;
+	}
 }

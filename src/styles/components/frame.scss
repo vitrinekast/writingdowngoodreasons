@@ -1,154 +1,152 @@
 * .frame {
-  margin: 0 auto;
-  text-align: center;
+	margin: 0 auto;
+	text-align: center;
 
-  mask-size: 100%;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  max-height: calc(100svh - #{$page--padding * 2});
-  display: flex;
-  position: relative;
-  text-align: left;
+	mask-size: 100%;
+	mask-repeat: no-repeat;
+	mask-position: center center;
+	max-height: calc(100svh - #{$page--padding * 2});
+	display: flex;
+	position: relative;
+	text-align: left;
 
-  user-select: none;
+	user-select: none;
 
-  @include break($break--mobile) {
-    max-height: 100%;
-  }
+	@include break($break--mobile) {
+		max-height: 100%;
+	}
 
-  .frame__inner {
-    width: 100%;
-    height: 100%;
-  }
+	.frame__inner {
+		width: 100%;
+		height: 100%;
+	}
 
-  &--sm {
-    max-height: 30vh;
-    margin: 1rem auto;
-  }
+	&--sm {
+		max-height: 30vh;
+		margin: 1rem auto;
+	}
 
-  &--fit {
-    // min-height: 80vh;
-    max-width: calc(100vw - #{$page--padding});
-  }
+	&--fit {
+		// min-height: 80vh;
+		max-width: calc(100vw - #{$page--padding});
+	}
 
-  &--lg {
-    height: 100%;
-  }
+	&--lg {
+		height: 100%;
+	}
 
-  &--scroller {
-    mask-image: none;
-    max-height: none;
-  }
+	&--scroller {
+		mask-image: none;
+		max-height: none;
+	}
 
-  &--hoverable {
-    cursor: pointer;
-  }
+	&--hoverable {
+		cursor: pointer;
+	}
 
-  &__element {
-    position: absolute;
-    opacity: 1;
-    transition: opacity 0.41s linear;
-  }
+	&__element {
+		position: absolute;
+		opacity: 1;
+		transition: opacity 0.41s linear;
+	}
 
-  &__asset,
-  &__asset--hover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+	&__asset,
+	&__asset--hover {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-  &__asset-text {
-    background-color: var(--blue);
-    padding: $frame--padding;
-    height: 100%;
-    object-fit: contain;
-  }
+	&__asset-text {
+		background-color: var(--blue);
+		padding: $frame--padding;
+		height: 100%;
+		object-fit: contain;
+	}
 
-  &__overlay,
-  &__ice {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  
-  
-  }
+	&__overlay,
+	&__ice {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
-  &__asset--contain {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+	&__asset--contain {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
 
-  &__asset--hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
+	&__asset--hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
 
-  &__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
 
-  &--filled {
-    background: $color--frame-bg;
-    color: white;
-    padding: $gutter--md;
+	&--filled {
+		background: $color--frame-bg;
+		color: white;
+		padding: $gutter--md;
 
-    .frame__text {
-      align-self: center;
-    }
+		.frame__text {
+			align-self: center;
+		}
 
-    @media screen and (max-width: 800px) {
-      padding: $gutter--sm;
-      font-size: 12px;
-    }
-  }
+		@media screen and (max-width: 800px) {
+			padding: $gutter--sm;
+			font-size: 12px;
+		}
+	}
 
-  &__background {
-    z-index: -1;
-  }
+	&__background {
+		z-index: -1;
+	}
 
-  &__person,
-  &__background {
-    position: absolute;
-    max-width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-  }
+	&__person,
+	&__background {
+		position: absolute;
+		max-width: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		top: 0;
+	}
 
-  &__outline {
-    position: absolute;
-    color: $color--text;
-    z-index: 1;
-    object-fit: auto;
-    // transition: $transition--base;
-    // transition: opacity 2s;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 1;
-  }
+	&__outline {
+		position: absolute;
+		color: $color--text;
+		z-index: 1;
+		object-fit: auto;
+		// transition: $transition--base;
+		// transition: opacity 2s;
+		pointer-events: none;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 1;
+	}
 
-  &:has(.frame__ice:not(.frame__ice--broken)) .frame__outline {
-    opacity: 0.1;
-  }
+	&:has(.frame__ice:not(.frame__ice--broken)) .frame__outline {
+		opacity: 0.1;
+	}
 
-  &:has(.frame__ice:not(.frame__ice--broken)) {
-    cursor: pointer;
-  }
+	&:has(.frame__ice:not(.frame__ice--broken)) {
+		cursor: pointer;
+	}
 }

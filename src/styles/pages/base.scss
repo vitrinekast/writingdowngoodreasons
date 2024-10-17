@@ -1,127 +1,125 @@
 .page {
-  color: $color--text;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: calc(100svw - #{$page--padding * 2});
-  height: 100%;
-  margin: 0 auto;
-  padding-top: #{$page--padding * 1};  
-  padding-bottom: #{$page--padding * 1};  
+	color: $color--text;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: calc(100svw - #{$page--padding * 2});
+	height: 100%;
+	margin: 0 auto;
+	padding-top: #{$page--padding * 1};
+	padding-bottom: #{$page--padding * 1};
 
-  &:has(.frame--scroller) {
-    overflow: scroll;
-    display: block;
-  }
+	&:has(.frame--scroller) {
+		overflow: scroll;
+		display: block;
+	}
 
-  @include break($break--mobile) {
-    padding: 0;
-    padding-top: calc(#{$page--padding * .5} + env(safe-area-inset-top, 20px));  
-    padding-bottom: calc(#{$page--padding * .5} + env(safe-area-inset-bottom, 20px));  
-    max-width: calc(100svw - #{$page--padding * 0.5});
+	@include break($break--mobile) {
+		padding: 0;
+		padding-top: calc(#{$page--padding * 0.5} + env(safe-area-inset-top, 20px));
+		padding-bottom: calc(
+			#{$page--padding * 0.5} + env(safe-area-inset-bottom, 20px)
+		);
+		max-width: calc(100svw - #{$page--padding * 0.5});
 
-    &:has(.intro) {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
+		&:has(.intro) {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
 
-  .page {
-    padding: 0 0;
-    min-height: auto;
-    margin-bottom: unset;
-    max-height: auto;
-  }
+	.page {
+		padding: 0 0;
+		min-height: auto;
+		margin-bottom: unset;
+		max-height: auto;
+	}
 
-  .grid,
-  .page:not(.page--fit) {
-    align-self: stretch;
-  }
+	.grid,
+	.page:not(.page--fit) {
+		align-self: stretch;
+	}
 
-  &--sm {
-    @extend .page;
-  }
+	&--sm {
+		@extend .page;
+	}
 
-  &--end {
-    background-color: var(--blue);
-    color: var(--light);
-    
+	&--end {
+		background-color: var(--blue);
+		color: var(--light);
 
-    img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-    }
-  }
+		img {
+			max-width: 400px;
+			width: 100%;
+			height: auto;
+		}
+	}
 
-  &--spread {
-    @extend .page;
-    gap: $grid--gap * 2;
-    // width: 100%;
+	&--spread {
+		@extend .page;
+		gap: $grid--gap * 2;
+		// width: 100%;
 
-    &>.page {
-      flex-basis: 50%;
-      height: 100%;
-      max-width: 50%;
-    }
+		& > .page {
+			flex-basis: 50%;
+			height: 100%;
+			max-width: 50%;
+		}
 
-    @media screen and (max-height: 800px) {
-      gap: 2rem;
-    }
+		@media screen and (max-height: 800px) {
+			gap: 2rem;
+		}
 
-    @include break($break--mobile) {
-      padding: 1rem;
-      min-height: 100svh;
-      flex-direction: column;
-      gap: 0;
+		@include break($break--mobile) {
+			padding: 1rem;
+			min-height: 100svh;
+			flex-direction: column;
+			gap: 0;
 
-      .page {
-        flex-basis: 100%;
-      }
-    }
-  }
+			.page {
+				flex-basis: 100%;
+			}
+		}
+	}
 
+	&--fit {
+		align-self: center;
+		height: 100%;
+		@media screen and (min-width: 800px) {
+			aspect-ratio: 148 / 210;
+		}
+	}
 
-  &--fit {
-    align-self: center;
-    height: 100%;
-    @media screen and (min-width: 800px) {
-      aspect-ratio: 148 / 210;
-    }
+	&--fit-fill {
+		padding: 0 0;
+	}
 
-  }
+	&--fixed {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		max-width: 100%;
+		& > .container {
+			height: 100%;
+		}
+	}
 
-  &--fit-fill {
-    padding: 0 0;
-  }
+	&--fullwidth {
+		@extend .page;
+		padding: 0 0;
+		height: auto;
 
-  &--fixed {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-     & > .container {
-      height: 100%;
-     }
-  }
+		width: 100%;
 
-  &--fullwidth {
-    @extend .page;
-    padding: 0 0;
-    height: auto;
-    
-    width: 100%;
+		@include break($break--mobile) {
+			max-width: 100% !important;
+		}
+	}
 
-    @include break($break--mobile) {
-      max-width: 100% !important;
-    }
-   
-  }
-
-  //   page specific layouts
-  &--3 {
-    .frame__asset {
-      max-height: 30vh;
-    }
-  }
+	//   page specific layouts
+	&--3 {
+		.frame__asset {
+			max-height: 30vh;
+		}
+	}
 }

@@ -1,43 +1,41 @@
 .grid {
-  display: grid !important;
-  grid-template-columns: repeat(6, 1fr);
-  gap: $grid--gap;
-  height: 100%;
-  grid-auto-rows: minmax(0, 1fr);
-  max-height: calc(100svh - $page--padding - $page--padding);
-  &--center {
-    justify-items: center;
-    align-content: center;
-    grid-auto-rows: min-content;
-  }
+	display: grid !important;
+	grid-template-columns: repeat(6, 1fr);
+	gap: $grid--gap;
+	height: 100%;
+	grid-auto-rows: minmax(0, 1fr);
+	max-height: calc(100svh - $page--padding - $page--padding);
+	&--center {
+		justify-items: center;
+		align-content: center;
+		grid-auto-rows: min-content;
+	}
 
-  @include break($break--mobile) {
-    gap: 1rem;
-  }
+	@include break($break--mobile) {
+		gap: 1rem;
+	}
 
-  @media screen and (max-height: 800px) {
-    gap: 1rem;
-  }
+	@media screen and (max-height: 800px) {
+		gap: 1rem;
+	}
 
-  .cell {
-    grid-column-end: span 3;
-    margin: 0 0;
-    height: 100%;
+	.cell {
+		grid-column-end: span 3;
+		margin: 0 0;
+		height: 100%;
 
-    &--100 {
-      width: 100%;
-    }
-  }
+		&--100 {
+			width: 100%;
+		}
+	}
 
-  @for $i from 1 through 6 {
-    .cell--w-#{$i} {
-      grid-column-end: span $i;
-    }
+	@for $i from 1 through 6 {
+		.cell--w-#{$i} {
+			grid-column-end: span $i;
+		}
 
-    .cell--h-#{$i} {
-      grid-row-end: span $i;
-    }
-  }
+		.cell--h-#{$i} {
+			grid-row-end: span $i;
+		}
+	}
 }
-
-

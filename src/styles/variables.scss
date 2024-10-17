@@ -4,9 +4,9 @@ $page--padding: 4rem;
 $frame--padding: 1rem;
 
 :root {
-  --blue: #025354;
-  --blue-op: #0253547a;
-  --light: #e8e3d178;
+	--blue: #025354;
+	--blue-op: #0253547a;
+	--light: #e8e3d178;
 }
 
 $gutter--sm: 0.5rem;
@@ -31,21 +31,20 @@ $font-family: "Nik";
 $break--mobile: 800px;
 
 @mixin break($break-size: $break--mobile) {
-  @media screen and (max-width: $break-size) {
-    @content;
-  }
+	@media screen and (max-width: $break-size) {
+		@content;
+	}
 }
 
 @mixin break-min($break-size: $break--mobile) {
-  @media screen and (min-width: $break-size) {
-    @content;
-  }
+	@media screen and (min-width: $break-size) {
+		@content;
+	}
 }
 
-
 .flex {
-  &--center {
-    justify-content: center !important;
-    align-items: center !important;
-  }
+	&--center {
+		justify-content: center !important;
+		align-items: center !important;
+	}
 }

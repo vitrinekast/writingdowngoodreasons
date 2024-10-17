@@ -1,81 +1,77 @@
-
-
 .f-s-snow {
+	@at-root .container:has(.f-s-snow) {
+		height: 100%;
+		padding-top: 1rem;
 
-  @at-root .container:has(.f-s-snow) {
-    height: 100%;
-    padding-top: 1rem;
+		@include break-min($break--mobile) {
+			aspect-ratio: 3/5;
+		}
+	}
 
-    @include break-min($break--mobile) {
-      aspect-ratio: 3/5;
-    }
-  }
+	&__text {
+		position: absolute;
+		top: 60px;
+		left: 32px;
+		max-width: 70%;
 
-  &__text {
-    position: absolute;
-    top: 60px;
-    left: 32px;
-    max-width: 70%;
-  
-    z-index: $z-text;
-    pointer-events: none;
-    
+		z-index: $z-text;
+		pointer-events: none;
 
-    @include break($break--mobile) {
-      top: 30px;
-      left: 20px;
-    }
-  }
+		@include break($break--mobile) {
+			top: 30px;
+			left: 20px;
+		}
+	}
 
-  &__snow-wrapper {
-    position: absolute;
-    max-width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 30;
-    animation: snow_wiggle 5s linear infinite;
-    pointer-events: none;
-  }
+	&__snow-wrapper {
+		position: absolute;
+		max-width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 30;
+		animation: snow_wiggle 5s linear infinite;
+		pointer-events: none;
+	}
 
-  &__snow {
-    width: 100%;
-    animation: snow 60s linear infinite;
-    pointer-events: none;
-  }
+	&__snow {
+		width: 100%;
+		animation: snow 60s linear infinite;
+		pointer-events: none;
+	}
 
-  &__person {
-    object-fit: contain;
-    height: 100%;
-    z-index: 10;
-  }
+	&__person {
+		object-fit: contain;
+		height: 100%;
+		z-index: 10;
+	}
 }
 
 @keyframes snow {
-  from {
-    transform: translate3d(0%, -100%, 0);
-  }
+	from {
+		transform: translate3d(0%, -100%, 0);
+	}
 
-  to {
-    transform: translate3d(0%, 100vh, 0);
-  }
+	to {
+		transform: translate3d(0%, 100vh, 0);
+	}
 }
 
 @keyframes snow_wiggle {
-  0%,
-  100% {
-    transform: translate3d(-5px, 1px, 0);
-  }
+	0%,
+	100% {
+		transform: translate3d(-5px, 1px, 0);
+	}
 
-  20%,
-  55% {
-    transform: translate3d(-5px, 1px, 0);
-  }
+	20%,
+	55% {
+		transform: translate3d(-5px, 1px, 0);
+	}
 
-  76% {
-    transform: translate3d(4px, -1px, 0);
-  }
+	76% {
+		transform: translate3d(4px, -1px, 0);
+	}
 
-  30% {
-    transform: translate3d(2px, 0, 0);
-  }
+	30% {
+		transform: translate3d(2px, 0, 0);
+	}
 }

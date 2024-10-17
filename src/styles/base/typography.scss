@@ -1,40 +1,38 @@
 @font-face {
-  font-family: "Nik";
-  src:
-    local("../assets/fonts/Nik.otf"),
-    url("../assets/fonts/Nik.otf") format("opentype"),
-    url("../assets/fonts/Nik.otf") format("woff");
+	font-family: "Nik";
+	src:
+		local("../assets/fonts/Nik.otf"),
+		url("../assets/fonts/Nik.otf") format("opentype"),
+		url("../assets/fonts/Nik.otf") format("woff");
 }
 
 :root {
-  font-size: 16px;
-
+	font-size: 16px;
 }
 body {
-  font-family: $font-family;
-  text-align: center;
-  line-height: 1.5;
-  font-size: 1rem;
+	font-family: $font-family;
+	text-align: center;
+	line-height: 1.5;
+	font-size: 1rem;
 }
 
 h1 {
-
 }
 
 h2 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 a {
-  color: inherit;
+	color: inherit;
 }
 
 .system {
-  font-family:serif;
-  font-size: 14px;
-  margin-bottom: .05rem;
+	font-family: serif;
+	font-size: 14px;
+	margin-bottom: 0.05rem;
 }
 
 .text--center {
-  text-align: center;
+	text-align: center;
 }

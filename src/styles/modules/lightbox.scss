@@ -1,19 +1,19 @@
 .lightbox {
-  position: fixed;
-  background-color: $color--backdrop;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  backdrop-filter: blur(3px);
+	position: fixed;
+	background-color: $color--backdrop;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	backdrop-filter: blur(3px);
 
-  &__img {
-    max-width: 80svw;
-    max-height: 80svh;
-  }
+	&__img {
+		max-width: 80svw;
+		max-height: 80svh;
+	}
 }
