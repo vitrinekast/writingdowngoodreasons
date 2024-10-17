@@ -72,7 +72,7 @@
 
 	const onClick = (item, index) => {
 		bus.emit("playSample", item.sample);
-		setThemeColor(colors.body);
+		
 		bus.emit("showLightbox", {
 			src: item.lightbox,
 			id: item.src,
