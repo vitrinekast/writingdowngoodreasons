@@ -6,7 +6,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-name: 🚀 Compile & Deploy website on push to production
+name: 🚀 Prod - Compile & Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
