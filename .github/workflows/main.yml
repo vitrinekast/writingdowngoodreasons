@@ -20,7 +20,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ftp.strato.com
-        username: ftp@writingdowngoodreasons.com
+        username: ${{ secrets.USERNAME }}
         local-dir: "./dist/"
-        server-dir: "./writingdowngoodreasons/"
+        server-dir: ${{ env.RELEASE_FOLDER }}
         password: ${{ secrets.PASSWORD }}
