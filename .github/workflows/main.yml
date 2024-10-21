@@ -22,5 +22,5 @@ jobs:
         server: ftp.strato.com
         username: ${{ secrets.USERNAME }}
         local-dir: "./dist/"
-        server-dir: ${{ env.RELEASE_FOLDER }}
+        server-dir: "./writingdowngoodreasons/"
         password: ${{ secrets.PASSWORD }}
