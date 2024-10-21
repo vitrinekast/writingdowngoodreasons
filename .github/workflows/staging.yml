@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-      - main
+      - staging
   pull_request:
     branches:
-      - main
+      - staging
   workflow_dispatch:
 name: 🚀 Compile & Deploy website on push to production
 jobs:
@@ -29,5 +29,5 @@ jobs:
         server: ftp.strato.com
         username: ${{ secrets.USERNAME }}
         local-dir: "./dist/"
-        server-dir: "./writingdowngoodreasons/"
+        server-dir: "./writingdowngoodreasons-staging/"
         password: ${{ secrets.PASSWORD }}
