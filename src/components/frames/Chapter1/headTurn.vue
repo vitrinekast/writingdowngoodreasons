@@ -5,8 +5,6 @@
 	import head_4 from "@assets/ch-1-p-3_frame_1/frame_asset-4.webp";
 	import { mapNumRange } from "@/helpers/utils";
 	import "swiper/css";
-	import "swiper/css/effect-creative";
-	import "swiper/element/css/pagination";
 	import { ref } from "vue";
 	import { bus } from "@/helpers/eventBus";
 

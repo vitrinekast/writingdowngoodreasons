@@ -9,8 +9,6 @@
 	import { useMediaQuery } from "@vueuse/core";
 	import "swiper/css";
 	import { register } from "swiper/element/bundle";
-	import "swiper/element/css/pagination";
-	import "swiper/element/css/thumbs";
 	import { onMounted, ref } from "vue";
 	import { colors, setThemeColor } from "../../helpers/utils";
 
@@ -31,7 +29,6 @@
 			...swiperParam,
 			speed: 1200,
 			touchStartPreventDefault: false,
-			pagination: true,
 			draggable: false,
 			cssMode: false,
 			hashNavigation: {
