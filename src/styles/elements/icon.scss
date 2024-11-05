@@ -45,4 +45,15 @@
 		transition: 0.2s linear transform;
 		cursor: pointer;
 	}
+
+	&--close {
+	display:block;
+		@extend .ic;
+		background-image: url(@assets/gui/icon--close.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		transition: 0.2s linear transform;
+		cursor: pointer;
+	}
 }

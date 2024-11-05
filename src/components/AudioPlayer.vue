@@ -121,8 +121,9 @@
 	<nav
 		class="nav--audio"
 		:visible="
-			currentRouteName != 'start' && currentRouteName != 'chapter-1-audio'
+			currentRouteName != 'start' && currentRouteName != 'chapter-1-audio' && currentRouteName != 'chapter-1-page-3'
 		">
+		
 		<button
 			class="button--audio"
 			:class="audio.muted ? 'off' : 'on'"

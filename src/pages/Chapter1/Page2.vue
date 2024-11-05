@@ -5,11 +5,10 @@
 	import { bus } from "@/helpers/eventBus";
 	import { swiperParam } from "@/helpers/utils";
 	import "swiper/css";
-	import "swiper/css/effect-creative";
 	import { register } from "swiper/element/bundle";
-	import "swiper/element/css/pagination";
 	import { onMounted, ref } from "vue";
-	import { colors, setThemeColor } from "../../helpers/utils";
+	
+	import {colors } from "@/helpers/utils";
 
 	register();
 
@@ -42,7 +41,6 @@
 			...swiperParam,
 			speed: 1200,
 			centeredSlides: true,
-			pagination: true,
 		});
 
 		pageC.value.initialize();
@@ -100,50 +98,104 @@
 				class="swiper-container sideburn__container"
 				ref="pageC"
 				init="false">
-			 <swiper-slide class="slide--100" v-if="!prikbordOpen" :data-swiper-seen="activeIndex > 0">
+				<swiper-slide
+					class="slide--100"
+					v-if="!prikbordOpen"
+					:data-swiper-seen="activeIndex > 0">
 					<Page class="page--fullwidth">
-						<img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part1.webp" alt="" />
-						<video class="frame__video" disablePictureInPicture playsinline muted style="height: 90px"
+						<img
+							class="frame__asset"
+							src="@assets/ch-1-p-2_frame_1/part1.webp"
+							alt="" />
+						<video
+							class="frame__video"
+							disablePictureInPicture
+							playsinline
+							muted
+							style="height: 90px"
 							ref="coordVideo">
-							<source src="@assets/ch-1-p-2_frame_1/animation.mov" type='video/mp4; codecs="hvc1"' />
-							<source src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm" type="video/webm" />
+							<source
+								src="@assets/ch-1-p-2_frame_1/animation.mov"
+								type='video/mp4; codecs="hvc1"' />
+							<source
+								src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm"
+								type="video/webm" />
 						</video>
 					</Page>
 				</swiper-slide>
-				<swiper-slide class="slide--auto" v-if="!prikbordOpen" data-swiper-parallax
+				<swiper-slide
+					class="slide--auto"
+					v-if="!prikbordOpen"
+					data-swiper-parallax
 					:data-swiper-seen="activeIndex > 1">
 					<Page class="page--fullwidth">
-						<img class="frame__overlay" src="@assets/ch-1-p-2_frame_1/part2--feet.webp" alt=""
-							swiper-parallax-item slow opacity />
-						<img class="frame__asset--contain" src="@assets/ch-1-p-2_frame_1/part2.webp" alt="" />
+						<img
+							class="frame__overlay"
+							src="@assets/ch-1-p-2_frame_1/part2--feet.webp"
+							alt=""
+							swiper-parallax-item
+							slow
+							opacity />
+						<img
+							class="frame__asset--contain"
+							src="@assets/ch-1-p-2_frame_1/part2.webp"
+							alt="" />
 					</Page>
 				</swiper-slide>
-				<swiper-slide data-swiper-parallax class="slide--auto background--base" v-if="!prikbordOpen"
-					style="--delay: .5s; duration: .2s" :data-swiper-seen="activeIndex > 2">
+				<swiper-slide
+					data-swiper-parallax
+					class="slide--auto background--base"
+					v-if="!prikbordOpen"
+					style="--delay: 0.5s; duration: 0.2s"
+					:data-swiper-seen="activeIndex > 2">
 					<Page class="page--fullwidth">
-						<Frame class="frame--1" swiper-parallax-item>
-							<img src="@assets/ch-1-p-2_frame_1/frame1.webp" alt="" class="frame__asset--contain" />
+						<Frame
+							class="frame--1"
+							swiper-parallax-item>
+							<img
+								src="@assets/ch-1-p-2_frame_1/frame1.webp"
+								alt=""
+								class="frame__asset--contain" />
 						</Frame>
-						<img class="frame__asset text--1" src="@assets/ch-1-p-2_frame_1/tekst1.webp" alt=""
+						<img
+							class="frame__asset text--1"
+							src="@assets/ch-1-p-2_frame_1/tekst1.webp"
+							alt=""
 							swiper-parallax-item />
-						<img class="frame__asset" src="@assets/ch-1-p-2_frame_1/part3.webp" alt="" />
+						<img
+							class="frame__asset"
+							src="@assets/ch-1-p-2_frame_1/part3.webp"
+							alt="" />
 					</Page>
 				</swiper-slide>
 
-				<swiper-slide data-swiper-parallax class="slide--auto flex--center background--base"
-					style="--delay: 1.5s; duration: 1.2s" :data-swiper-seen="activeIndex > 3">
+				<swiper-slide
+					data-swiper-parallax
+					class="slide--auto flex--center background--base"
+					style="--delay: 1.5s; duration: 1.2s"
+					:data-swiper-seen="activeIndex > 3">
 					<Page size="sm">
 						<div class="grid">
-							<Frame class="cell cell--w-3" swiper-parallax-item>
-								<img class="frame__asset--contain" src="@assets/ch-1-p-2_frame_1/frame2.webp" alt="" />
+							<Frame
+								class="cell cell--w-3"
+								swiper-parallax-item>
+								<img
+									class="frame__asset--contain"
+									src="@assets/ch-1-p-2_frame_1/frame2.webp"
+									alt="" />
 							</Frame>
 
-							<Frame class="cell cell--w-3" swiper-parallax-item>
-								<img class="frame__asset--contain" src="@assets/ch-1-p-2_frame_1/frame3.webp" alt="" />
+							<Frame
+								class="cell cell--w-3"
+								swiper-parallax-item>
+								<img
+									class="frame__asset--contain"
+									src="@assets/ch-1-p-2_frame_1/frame3.webp"
+									alt="" />
 							</Frame>
 						</div>
 					</Page>
-				</swiper-slide> 
+				</swiper-slide>
 				<swiper-slide
 					class="slide--xs background--base"
 					data-swiper-parallax
