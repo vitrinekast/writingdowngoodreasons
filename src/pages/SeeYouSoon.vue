@@ -56,7 +56,7 @@
 				Street:%0D%0A 
 				House Number:%0D%0A
 				City:%0D%0A
-				ZIP:%0D%0A
+				ZIP:%0D%0A %0D%0A
 				Kind regards,
 				%0D%0A
 				 %0D%0A"
