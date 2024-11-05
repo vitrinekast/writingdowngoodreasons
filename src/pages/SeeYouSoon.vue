@@ -70,7 +70,7 @@
 			<h2>Writing Down Good Reasons</h2>
 			<p>
 				Is an interactive postal exchange by
-				<a href="">Nik van der Meulen</a> and <a href="">Rosa Schuurmans</a>.
+				<a href="https://www.instagram.com/nikvandermeulen/" target="_blank">Nik van der Meulen</a> and <a href="https://vitrinekast.xyz/" target="_blank">Rosa Schuurmans</a>.
 			</p>
 			<p>
 				Do you want to read more? Sign up for €12,- and receive the rest of the
