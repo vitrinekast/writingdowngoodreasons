@@ -8,7 +8,7 @@
 	import { register } from "swiper/element/bundle";
 	import { onMounted, ref } from "vue";
 	
-	import {colors } from "@/helpers/utils";
+	import { colors, setThemeColor } from "@/helpers/utils";
 
 	register();
 
