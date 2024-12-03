@@ -43,7 +43,7 @@
 			<h4>Step 1</h4>
 			<p>Make the one time payment of €12,-, so I can buy the stamps and make the post cards.</p>
 			<a
-				href="https://tikkie.me/pay/gfn15dk92o7s9akgaq44"
+				href="https://tikkie.me/pay/mj58o087fi8egvi5nl6a"
 				target="_blank"
 				class="button"
 				>Complete payment (€12,-)</a
