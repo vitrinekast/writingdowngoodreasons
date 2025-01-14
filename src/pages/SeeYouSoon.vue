@@ -43,7 +43,7 @@
 			<h4>Step 1</h4>
 			<p>Make the one time payment of €12,-, so I can buy the stamps and make the post cards.</p>
 			<a
-				href="https://tikkie.me/pay/2m5fh8tvrc57lc1sqj32"
+				href="https://pay.sumup.com/b2c/Q02B4T21"
 				target="_blank"
 				class="button"
 				>Complete payment (€12,-)</a
