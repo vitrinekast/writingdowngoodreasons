@@ -3,6 +3,10 @@ import { ViteSSG } from "vite-ssg";
 import "./styles/_style.scss";
 const routes = [
 	{
+		path: "/chapter-2.html",
+		redirect: "/chapter-2",
+	},
+	{
 		path: "/chapter-1/page-1",
 		name: "chapter-1",
 		component: () => import("./pages/Chapter1/Page1.vue"),
