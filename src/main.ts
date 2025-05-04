@@ -27,6 +27,24 @@ const routes = [
 		meta: { order: 10 },
 	},
 	{
+		path: "/chapter-2",
+		name: "chapter-2-index",
+		component: () => import("./pages/Chapter2/Index.vue"),
+		meta: { order: 10 },
+	},
+	{
+		path: "/chapter-2/driving",
+		name: "chapter-2-driving",
+		component: () => import("./pages/Chapter2/Driving.vue"),
+		meta: { order: 10 },
+	},
+	{
+		path: "/chapter-2/countries",
+		name: "chapter-2-countries",
+		component: () => import("./pages/Chapter2/Countries.vue"),
+		meta: { order: 10 },
+	},
+	{
 		path: "/garagecafe",
 		name: "garagecafe",
 		component: () => import("./pages/GarageCafe.vue"),
