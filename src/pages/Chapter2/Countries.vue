@@ -2,15 +2,18 @@
 	import Page from "@/components/Page.vue";
 	import Frame from "@/components/Frame.vue";
 	import { onMounted, onUnmounted, ref } from "vue";
-	import { mapNumRange, randBetween, globToImages } from "@/helpers/utils";
+	import { mapNumRange, randBetween } from "@/helpers/utils";
 	import { register } from "swiper/element/bundle";
 	import { swiperParam } from "@/helpers/utils";
 	import "swiper/css";
-	import { filename } from "pathe/utils";
 
 	register();
-	const countriesSlide = ref(null);
+
+	const slider = ref(null);
 	const activeIndex = ref(0);
+
+	const updateActiveIndex = (e) =>
+		(activeIndex.value = event.detail[0].activeIndex);
 
 	const country_image = import.meta.glob("@assets/ch-2/countries/crop_*.webp", {
 		eager: true,
@@ -22,16 +25,8 @@
 		import: "default",
 	});
 
-	const images = Object.fromEntries(
-		Object.entries(country_image).map(([key, value]) => [
-			filename(key),
-			value.default,
-		])
-	);
-
 	onMounted(() => {
-		console.log(images);
-		Object.assign(countriesSlide.value, {
+		Object.assign(slider.value, {
 			...swiperParam,
 			modules: [],
 			speed: 800,
@@ -42,19 +37,15 @@
 			navigation: true,
 			touchStartPreventDefault: false,
 		});
-		countriesSlide.value.initialize();
-		countriesSlide.value.addEventListener(
+		slider.value.initialize();
+		slider.value.addEventListener(
 			"swiperslidechangetransitionstart",
-			(event) => {
-				activeIndex.value = event.detail[0].activeIndex;
-			}
+			updateActiveIndex
 		);
 
-		countriesSlide.value.addEventListener(
+		slider.value.addEventListener(
 			"swiperslidechangetransitionend",
-			(event) => {
-				activeIndex.value = event.detail[0].activeIndex;
-			}
+			updateActiveIndex
 		);
 	});
 </script>
@@ -68,7 +59,7 @@
 					alt=""
 					class="countries__lines"
 				/>
-				<swiper-container ref="countriesSlide" init="false">
+				<swiper-container ref="slider" init="false">
 					<swiper-slide v-for="(c, index, o) in country_image" :index="o">
 						<img :src="c" />
 					</swiper-slide>
