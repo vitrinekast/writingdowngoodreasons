@@ -9,7 +9,7 @@
 				<router-link to="/chapter-2/driving">Go to Driving</router-link>
 			</li>
 			<li>
-				<router-link to="/chapter-2/Countries">Go to Countries</router-link>
+				<router-link to="/chapter-2/countries">Go to Countries</router-link>
 			</li>
 		</ul>
 	</main>
