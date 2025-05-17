@@ -28,7 +28,7 @@ const routes = [
 		path: "/chapter-1/audio",
 		name: "chapter-1-audio",
 		component: () => import("./pages/Audio.vue"),
-		meta: { order: 10 },
+		meta: { order: 10, next: "/chapter-1/page-1" },
 	},
 	{
 		path: "/chapter-2",
@@ -43,9 +43,21 @@ const routes = [
 		meta: { order: 10 },
 	},
 	{
+		path: "/chapter-2/audio",
+		name: "chapter-2-audio",
+		component: () => import("./pages/Audio.vue"),
+		meta: { order: 10, next: "/chapter-2/countries" },
+	},
+	{
 		path: "/chapter-2/countries",
 		name: "chapter-2-countries",
 		component: () => import("./pages/Chapter2/Countries.vue"),
+		meta: { order: 10 },
+	},
+	{
+		path: "/chapter-2/stayed-up",
+		name: "chapter-2-stayed-up",
+		component: () => import("./pages/Chapter2/stayedUp.vue"),
 		meta: { order: 10 },
 	},
 	{

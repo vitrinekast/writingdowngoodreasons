@@ -2,6 +2,10 @@
 	import Page from "@/components/Page.vue";
 	import { bus } from "@/helpers/eventBus";
 	import { useAudioStore } from "@/store/audio";
+	import { useRoute } from "vue-router";
+
+	const route = useRoute();
+	const nextPage = route.meta.next;
 
 	const audio = useAudioStore();
 	const onClick = () => {
@@ -25,7 +29,7 @@
 			<nav class="nav--bottom">
 				<router-link
 					class="button"
-					to="/chapter-1/page-1"
+					:to="nextPage"
 					>Continue</router-link
 				>
 			</nav>
