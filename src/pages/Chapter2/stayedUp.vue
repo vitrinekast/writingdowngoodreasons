@@ -8,13 +8,13 @@
 
 	register();
 	const pageC = ref(null);
-	const spreadC = ref(null);
 	const showNudge = ref(true);
 	const anyBlur = ref(3);
 
 	const onClickAnything = () => {
 		anyBlur.value = 0;
 	};
+
 	onMounted(() => {
 		Object.assign(pageC.value, {
 			...swiperParam,
@@ -49,18 +49,20 @@
 				class="slide--auto"
 				data-swiper-parallax>
 				<Page size="sm">
-					<p class="text--left">
+					<p class="text--left" v-moveText>
 						Thomas and Noa went straight to bed when we got back Eefje and I
 						stayed up. We talked about so many things that night. Lying on the
 						bed looking out at the fog, the doors of the van open. We discussed
 						Eefje's synaesthesia, my fascination with the cold. and the pictures
-						on the walls of her van.<br />
+						on the walls of her van.</p>
+					<p class="text--left" v-scramble>
 						I described how the cold makes my head Clear. How ! wanled to be in
 						the glacier that day. l imagined it would be so peaceful lo be a
 						pârt of nature, entirely engulfed by it frozen in time. I thought of
 						an ice-cold dive in the glacier lake and how it would immediately
 						sort out everything in my life I was confused about. l imagined it
-						would line my priorities right up. <br />We smoked cigarettes out
+						would line my priorities right up. </p>
+					<p class="text--left">We smoked cigarettes out
 						the back of the van. The fos was so thick we couldn't see
 						<span
 							@click="onClickAnything"

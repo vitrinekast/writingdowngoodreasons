@@ -1,6 +1,7 @@
 import App from "./App.vue";
 import { ViteSSG } from "vite-ssg";
 import "./styles/_style.scss";
+import scramble from "./helpers/scramble";
 const routes = [
 	{
 		path: "/chapter-2.html",
@@ -81,4 +82,6 @@ const routes = [
 export const createApp = ViteSSG(App, { routes }, (ctx) => {
 	const modules = import.meta.glob("./modules/*.js", { eager: true });
 	Object.values(modules).forEach((i) => i.install?.(ctx));
+
+	ctx.app.directive("scramble", scramble)
 });
