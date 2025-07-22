@@ -26,10 +26,10 @@
 	// states: off (0), cooking (1), boiling (2), won (3)
 
 	const handleStateChange = (val) => {
-		if (val) state.value = val;
+		state.value = val;
 		if (gameTimer) gameTimer.pause();
 
-		console.log("handleStateChange", state.value);
+		console.trace("handleStateChange", state.value);
 
 		// if the game is idle
 		if (state.value === 0) {
@@ -59,6 +59,7 @@
 				onComplete: (self) => handleStateChange(2),
 				onUpdate: (self) => (gameTimerPassed.value = self.currentTime),
 				onBegin: (self) => (gameTimerPassed.value = self.currentTime),
+				onPause: (self) => (gameTimerPassed.value = 0),
 			});
 
 			// Slowly display heat behind the knob
@@ -166,6 +167,7 @@
 			},
 			onGrab: () => (isDragging.value = true),
 			onRelease: () => {
+        console.log("release!");
 				isDragging.value = false;
 				handleStateChange(state.value === 3 || state.value === 2 ? 3 : 0);
 				animate(knob.value, {
@@ -183,7 +185,7 @@
 			snap: 0,
 		});
 
-		handleStateChange();
+		handleStateChange(state.value);
 	});
 </script>
 <template>
