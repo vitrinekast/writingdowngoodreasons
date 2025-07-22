@@ -209,6 +209,7 @@
 		height: 100px;
 		top: 45%;
 		left: 25%;
+		opacity: 0;
 		border-radius: 100%;
 		filter: blur(50px);
 		z-index: -1;
