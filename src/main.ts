@@ -62,6 +62,12 @@ const routes = [
 		meta: { order: 10 },
 	},
 	{
+		path: "/chapter-2/stove",
+		name: "chapter-2-stove",
+		component: () => import("./pages/Chapter2/stove.vue"),
+		meta: { order: 10 },
+	},
+	{
 		path: "/garagecafe",
 		name: "garagecafe",
 		component: () => import("./pages/GarageCafe.vue"),

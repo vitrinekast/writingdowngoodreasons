@@ -17,6 +17,9 @@
 			<li>
 				<router-link to="/chapter-2/countries">Go to Countries</router-link>
 			</li>
+			<li>
+				<router-link to="/chapter-2/stove">Go to stove</router-link>
+			</li>
 		</ul>
 	</main>
 </template>
