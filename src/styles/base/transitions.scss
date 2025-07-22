@@ -46,6 +46,19 @@
 	}
 }
 
+
+.bottom {
+	&-enter-active,
+	&-leave-active {
+		transition: all 0.7s cubic-bezier(0.88, -0.21, 0.2, 1.1);
+	}
+	&-enter-from,
+	&-leave-to {
+		transform: translateY(200%);
+		opacity: 0;
+	}
+}
+
 .page-back {
 	&-leave-active {
 		transition: all 0.8s ease-in 0s;

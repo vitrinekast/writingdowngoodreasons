@@ -1,6 +1,7 @@
 <script setup>
 	import Frame from "@/components/Frame.vue";
 	import Page from "@/components/Page.vue";
+
 	import {
 		animate,
 		createTimer,
@@ -8,25 +9,40 @@
 		createDraggable,
 		utils,
 	} from "animejs";
+	import { Transition } from "vue";
 	import { onMounted } from "vue";
 	import { ref } from "vue";
 	const knob = ref(null);
 	const lid = ref(null);
-	const test = ref(null);
 	const heat = ref(null);
+	const knobHeat = ref(null);
 	const isDragging = ref(false);
+	const framey = ref(null);
+	const gameTimerPassed = ref(0);
+	const duration = 10000;
+	let gameTimer;
 
 	const state = ref(0);
-	let heatAnimation, lidAnimation;
-	// states: off (0), cooking (1), boiling (2)
+	// states: off (0), cooking (1), boiling (2), won (3)
 
-	const handleStateChange = () => {
-		if (heatAnimation) {
-			heatAnimation.pause();
-		}
+	const handleStateChange = (val) => {
+		if (val) state.value = val;
+		if (gameTimer) gameTimer.pause();
 
-		if (lidAnimation) {
-			lidAnimation.pause();
+		console.log("handleStateChange", state.value);
+
+		// if the game is idle
+		if (state.value === 0) {
+			animate(knobHeat.value, {
+				opacity: 0,
+				easing: "easeOut",
+				duration: 300,
+			});
+
+			animate(heat.value, {
+				opacity: 0,
+				duration: 500,
+			});
 		}
 
 		if (state.value === 0 && !isDragging.value) {
@@ -36,38 +52,27 @@
 				loopDelay: 800,
 			});
 		}
-
 		if (state.value === 1) {
-			animate(knob.value, {
-				rotate: {
-					to: 180,
-				},
-				loop: false,
-				duration: 500,
-				loopDelay: 800,
+			// start the game timer
+			gameTimer = createTimer({
+				duration: duration,
+				onComplete: (self) => handleStateChange(2),
+				onUpdate: (self) => (gameTimerPassed.value = self.currentTime),
+				onBegin: (self) => (gameTimerPassed.value = self.currentTime),
 			});
-		}
 
-		if (state.value === 1) {
-			heatAnimation = animate(heat.value, {
-				scale: {
-					from: 0,
-					duration: 500,
-				},
-				opacity: {
-					from: 0,
-				},
-				duration: 10000,
+			// Slowly display heat behind the knob
+			animate(knobHeat.value, {
+				opacity: 1,
+				duration: duration,
 			});
+
+			animate(heat.value, {
+				opacity: 1,
+				duration: duration,
+			});
+
 			let amplitude = 2; // starting angle
-
-			animate(lid.value, {
-				translateY: -25,
-				scale: 1.2,
-				duration: 20000,
-				delay: 8000,
-				easing: "easeInQuad",
-			});
 
 			function startWiggle() {
 				animate(lid.value, {
@@ -81,8 +86,16 @@
 					easing: "easeInOutSine",
 					onComplete: () => {
 						console.log("amplitude", amplitude);
-						amplitude *= 1.1; // grow amplitude
-						startWiggle(); // repeat
+						amplitude *= 1.1;
+
+						if (state.value === 1) {
+							startWiggle();
+						} else {
+							animate(lid.value, {
+								rotate: 0,
+								duration: 800,
+							});
+						}
 					},
 				});
 			}
@@ -91,10 +104,8 @@
 		}
 
 		if (state.value === 2) {
-			heatAnimation = animate(heat.value, {
-				translateY: {
-					to: 20,
-				},
+			animate(heat.value, {
+				translateY: 20,
 				opacity: {
 					from: 0.8,
 					to: 1,
@@ -104,43 +115,67 @@
 				duration: 100,
 			});
 
-			lidAnimation = animate(lid.value, {
-				rotate: -10,
-				duration: 400,
-				loop: true,
-				alternate: true,
-			});
-
 			animate(lid.value, {
 				translateY: -150,
-				duration: 1000,
-			});
-
-			animate(lid.value, {
 				scale: 1.2,
 				duration: 1000,
 			});
 		}
-	};
 
-	const setState = (val) => {
-		state.value = val;
-		console.log("the new state is");
-		handleStateChange();
+		if (state.value === 3) {
+			animate(heat.value, {
+				opacity: 0,
+				duration: 1000,
+			});
+
+			animate(knobHeat.value, {
+				opacity: 0,
+				duration: 800,
+			});
+
+			animate(lid.value, {
+				rotate: 0,
+				duration: 400,
+			});
+
+			animate(lid.value, {
+				translateY: 0,
+				scale: 1,
+				duration: 400,
+			});
+		}
 	};
 
 	onMounted(() => {
 		console.log("i am mohnted");
 
+		utils.set(knob.value, {
+			scale: "var(--scale)",
+		});
+
 		createDraggable(knob.value, {
 			y: { mapTo: "rotate" },
+			container: [-300, 0, 0, 0],
+			modifier: utils.clamp(-180, 0),
+			snap: 16,
 			x: false,
-			onGrab: () => {
-				console.log("grab!");
+			onSnap: (a) => {
+				if (a.progressY < 0.5 && state.value === 0) {
+					handleStateChange(1);
+				}
+			},
+			onGrab: () => (isDragging.value = true),
+			onRelease: () => {
+				isDragging.value = false;
+				handleStateChange(state.value === 3 || state.value === 2 ? 3 : 0);
+				animate(knob.value, {
+					rotate: 0,
+					duration: 400,
+				});
 			},
 		});
 		createDraggable(lid.value, {
-		container: lid.value.parentNode,
+			container: lid.value.parentNode,
 			releaseEase: createSpring({
 				stiffness: 12,
 				damping: 60,
@@ -148,29 +183,14 @@
 			snap: 0,
 		});
 
-		// animate(lid.value, {
-		// 	translateY: -150,
-		// 	duration: 1000,
-		// });
-
-		// animate(lid.value, {
-		// 	scale: 1.2,
-		// 	duration: 1000,
-		// });
-
 		handleStateChange();
 	});
 </script>
 <template>
 	<main>
 		<Page size="sm">
-			<h2 ref="test">State: {{ state }}</h2>
-			<header>
-				Set state to:
-				<button @click="setState(0)">off</button>
-				<button @click="setState(1)">cooking</button>
-				<button @click="setState(2)">boiling</button>
-			</header>
+			<h2>State: {{ state }} timer: {{ gameTimerPassed }}</h2>
+
 			<Frame class="relative">
 				<div
 					class="heat"
@@ -178,24 +198,40 @@
 					<div class="heat__inner"></div>
 				</div>
 				<img
+					ref="framey"
 					src="@assets/ch-2-stove/stove.webp"
-					alt=""
 					class="frame__asset transition" />
 
-				<div class="lid">
+				<div
+					class="lid"
+					ref="lid">
 					<img
 						src="@assets/ch-2-stove/lid_crop.webp"
-						ref="lid"
-						draggable="false"
-						class="frame__element" />
-				</div>
-				<div class="knob">
-					<img
-						src="@assets/ch-2-stove/knob_crop.webp"
-						class="frame__element"
-						ref="knob"
 						draggable="false" />
 				</div>
+				<div
+					class="knob"
+					ref="knob"
+					:is-dragging="isDragging">
+					<div
+						class="heat"
+						ref="knobHeat"></div>
+					<img
+						src="@assets/ch-2-stove/knob_crop.webp"
+						draggable="false" />
+				</div>
+
+				<Transition name="bottom">
+					<nav
+						class="nav--bottom"
+						v-if="state === 3">
+						<router-link
+							class="button button--dark"
+							to="/chapter-2"
+							>Done</router-link
+						>
+					</nav>
+				</Transition>
 			</Frame>
 		</Page>
 	</main>
@@ -215,9 +251,9 @@
 		z-index: -1;
 		transform: scale(0);
 		-webkit-backface-visibility: hidden;
--moz-backface-visibility: hidden;
--webkit-transform: translate3d(0, 0, 0);
--moz-transform: translate3d(0, 0, 0);
+		-moz-backface-visibility: hidden;
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
 	}
 	.heat__inner {
 		background: yellow;
@@ -237,13 +273,24 @@
 	}
 
 	.knob {
+		--scale: 1;
 		width: 15%;
 		left: 15%;
 		top: 62.3%;
+		transition: 0.1s linear;
 	}
 
-	.frame__inner {
-		border: 1px solid blue;
-		overflow: hidden;
+	.knob .heat {
+		filter: blur(10px);
+		width: 100%;
+		left: 0;
+		top: 0;
+		height: 100%;
+		z-index: 2;
+		transform: scale(0.4);
+	}
+
+	.knob[is-dragging="true"] {
+		--scale: 1.2;
 	}
 </style>
