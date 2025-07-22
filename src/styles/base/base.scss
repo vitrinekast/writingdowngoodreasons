@@ -47,6 +47,11 @@ main {
 	height: 100%;
 }
 
+
+.relative {
+    position: relative;
+}
+
 .container {
 	width: 100%;
 	max-width: max-content;
@@ -75,4 +80,8 @@ img {
 
 * {
 	box-sizing: border-box;
+}
+
+.w--100 {
+    width: 100%;
 }

@@ -156,7 +156,7 @@
 					data-swiper-parallax
 					class="slide--auto background--base"
 					v-if="!prikbordOpen"
-					style="--delay: 0.5s; duration: 0.2s;"
+					style="--delay: 0.5s; transition-duration: 0.2s;"
 					:data-swiper-seen="activeIndex > 2"
 				>
 					<Page class="page--fullwidth">
@@ -184,7 +184,7 @@
 				<swiper-slide
 					data-swiper-parallax
 					class="slide--auto flex--center background--base"
-					style="--delay: 1.5s; duration: 1.2s;"
+					style="--delay: 1.5s; transition-duration: 1.2s;"
 					:data-swiper-seen="activeIndex > 3"
 				>
 					<Page size="sm">

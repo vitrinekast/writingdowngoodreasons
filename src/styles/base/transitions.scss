@@ -2,7 +2,12 @@
 	--added-delay: 0s;
 }
 
+.transition {
+    transition: all .5s ease-out;
+}
+
 .t {
+
 	&--opacity {
 		transition: opacity 0.8s ease-in;
 		opacity: 0;

@@ -122,4 +122,10 @@
 			max-height: 30vh;
 		}
 	}
+
+	&.text--left {
+	    &, .container {
+					align-items: flex-end;
+					}
+	}
 }

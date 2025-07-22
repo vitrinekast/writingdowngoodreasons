@@ -23,6 +23,7 @@
 		}
 
 		if (props.outline) {
+
 			import(`@assets/${props.outline}/frame_outline.svg`).then(
 				(imageImports) => {
 					outlineImg.value = imageImports.default;
