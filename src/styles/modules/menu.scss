@@ -8,7 +8,7 @@ body:has(.menu--prikbord) {
 .menu {
 	&--prikbord {
 		position: fixed;
-		top: calc(50% + 1.5rem);
+		top: calc(50% + 3rem);
 		left: 50%;
 
 		z-index: 2;
@@ -188,7 +188,7 @@ body:has(.menu--prikbord) {
 
 		&:nth-child(3) {
 			top: auto;
-			bottom: 5%;
+			bottom: 10%;
 			left: 15%;
 			max-width: 400px;
 			transform: translate3d(-50px, 8px, 0) rotate(-8deg) scale(1);
@@ -201,11 +201,6 @@ body:has(.menu--prikbord) {
 				border: 2px soli;
 			}
 
-			@include break(1300px) {
-				left: auto;
-				right: 15%;
-			}
-
 			&:hover {
 				transform: translate3d(-50px, 8px, 0) rotate(-1deg) scale(1);
 			}
@@ -213,7 +208,7 @@ body:has(.menu--prikbord) {
 
 		&:nth-child(4) {
 			top: auto;
-			top: 25%;
+			top: 10%;
 			right: 0%;
 			left: auto;
 			width: 90%;
@@ -230,6 +225,8 @@ body:has(.menu--prikbord) {
 				left: 55%;
 				bottom: 25%;
 				max-width: 500px;
+				max-height: 330px;
+				top: auto;
 				transform: translate3d(-30px, -50px, 0) rotate(1deg) scale(1);
 			}
 

@@ -71,7 +71,7 @@
 	</Frame>
 	<Frame
 		class="cell cell--w-6 cell--100"
-		swiper-parallax-item>
+		swiper-parallax-item style="--delay: 1.5s;">
 		<input
 			class="cell__abs"
 			type="range"

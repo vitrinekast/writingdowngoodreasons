@@ -24,5 +24,11 @@
 	.button--next.push {
 		bottom: env(safe-area-inset-bottom, 20px);
 		transform: translate3d(0, 012px, 0);
+
+		@media screen and (min-width: 800px) {
+		    bottom: calc(env(safe-area-inset-bottom, 20px) + 16px);
+		    right: 10%;
+		}
+
 	}
 </style>

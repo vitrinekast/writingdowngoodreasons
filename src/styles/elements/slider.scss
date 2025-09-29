@@ -44,6 +44,7 @@ input[type="range"]::-ms-track {
 	background: transparent;
 	border-color: transparent;
 	color: transparent;
+	border-width: 0px;
 }
 
 /* chromium */
@@ -59,6 +60,7 @@ input[type="range"]::-webkit-slider-thumb {
 	appearance: none;
 	transition: 0.3s;
 	box-shadow: none;
+	border-width: 0px;
 }
 
 input:focus {
@@ -77,4 +79,5 @@ input[type="range"]::-moz-range-thumb {
 	appearance: none;
 	transition: 0.3s;
 	box-shadow: none;
+	border-width: 0px;
 }

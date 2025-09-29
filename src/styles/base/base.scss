@@ -71,6 +71,10 @@ main {
 	&--sm {
 		max-width: max(80vw, 800px);
 	}
+
+	&--xsm {
+		max-width: 500px;
+	}
 }
 
 img {

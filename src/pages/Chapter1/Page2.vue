@@ -184,10 +184,10 @@
 				<swiper-slide
 					data-swiper-parallax
 					class="slide--auto flex--center background--base"
-					style="--delay: 1.5s; transition-duration: 1.2s;"
+					style="--delay: 1s; transition-duration: 1.2s;"
 					:data-swiper-seen="activeIndex > 3"
 				>
-					<Page size="sm">
+					<Page size="xsm">
 						<div class="grid">
 							<Frame class="cell cell--w-3" swiper-parallax-item>
 								<img
@@ -213,7 +213,7 @@
 					:data-swiper-seen="activeIndex > 4"
 					style="--delay: 1.5s; duration: 1.2s;"
 				>
-					<Page size="sm">
+					<Page size="xsm">
 						<div class="grid grid--center">
 							<HeadTurn />
 
@@ -245,7 +245,7 @@
 								class="cell cell--w-6 t--opacity"
 								:style="{
 									opacity: showLast ? 1 : 0,
-									'transition-delay': '3s',
+									'transition-delay': '2s',
 								}"
 							>
 								<img
@@ -300,6 +300,10 @@
 	}
 
 	.frame__video {
-		top: 25%;
+	    top: 60%;
+
+    	@media screen and (max-width: 700px) {
+		    top: 25%;
+		}
 	}
 </style>
