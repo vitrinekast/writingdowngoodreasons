@@ -114,12 +114,15 @@
 	&-enter-from,
 	&-leave-to {
 		.menu--prikbord {
-			transform: translate3d(0px, -200%, 0px);
+			transform: translate3d(-50%, -200%, 0px);
+			@include break($break--mobile) {
+			    transform: translate3d(0px, -200%, 0px);
+			}
 			opacity: 1;
 		}
 		.menu__frame .frame__asset--contain {
 			transform: translate3d(0px, 100%, 0px);
-			opacity: 1;
+			opacity: 0;
 		}
 		.menu__meter {
 			transform: translate3d(-50%, 200px, 0px);
