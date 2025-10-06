@@ -41,3 +41,18 @@ a {
 .text--center {
 	text-align: center;
 }
+
+.text--left {
+	text-align: left;
+}
+
+p, blockquote {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+blockquote {
+    text-align: right;
+    font-weight: bold;
+    font-size: 150%;
+}

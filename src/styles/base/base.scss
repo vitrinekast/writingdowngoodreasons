@@ -47,6 +47,11 @@ main {
 	height: 100%;
 }
 
+
+.relative {
+    position: relative;
+}
+
 .container {
 	width: 100%;
 	max-width: max-content;
@@ -66,6 +71,10 @@ main {
 	&--sm {
 		max-width: max(80vw, 800px);
 	}
+
+	&--xsm {
+		max-width: 500px;
+	}
 }
 
 img {
@@ -75,4 +84,8 @@ img {
 
 * {
 	box-sizing: border-box;
+}
+
+.w--100 {
+    width: 100%;
 }

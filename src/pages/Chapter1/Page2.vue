@@ -7,7 +7,7 @@
 	import "swiper/css";
 	import { register } from "swiper/element/bundle";
 	import { onMounted, ref } from "vue";
-	
+
 	import { colors, setThemeColor } from "@/helpers/utils";
 
 	register();
@@ -90,36 +90,43 @@
 <template>
 	<main
 		class="background--base"
-		:class="activeIndex > 0 ? 'background--base' : 'background--lightblue'">
+		:class="activeIndex > 0 ? 'background--base' : 'background--lightblue'"
+	>
 		<Prikbord v-model="prikbordOpen" />
 
 		<div class="sideburn">
 			<swiper-container
 				class="swiper-container sideburn__container"
 				ref="pageC"
-				init="false">
+				init="false"
+			>
 				<swiper-slide
 					class="slide--100"
 					v-if="!prikbordOpen"
-					:data-swiper-seen="activeIndex > 0">
+					:data-swiper-seen="activeIndex > 0"
+				>
 					<Page class="page--fullwidth">
 						<img
 							class="frame__asset"
 							src="@assets/ch-1-p-2_frame_1/part1.webp"
-							alt="" />
+							alt=""
+						/>
 						<video
 							class="frame__video"
 							disablePictureInPicture
 							playsinline
 							muted
-							style="height: 90px"
-							ref="coordVideo">
+							style="height: 90px;"
+							ref="coordVideo"
+						>
 							<source
 								src="@assets/ch-1-p-2_frame_1/animation.mov"
-								type='video/mp4; codecs="hvc1"' />
+								type='video/mp4; codecs="hvc1"'
+							/>
 							<source
 								src="@assets/ch-1-p-2_frame_1/animation-vp9-chrome.webm"
-								type="video/webm" />
+								type="video/webm"
+							/>
 						</video>
 					</Page>
 				</swiper-slide>
@@ -127,7 +134,8 @@
 					class="slide--auto"
 					v-if="!prikbordOpen"
 					data-swiper-parallax
-					:data-swiper-seen="activeIndex > 1">
+					:data-swiper-seen="activeIndex > 1"
+				>
 					<Page class="page--fullwidth">
 						<img
 							class="frame__overlay"
@@ -135,63 +143,66 @@
 							alt=""
 							swiper-parallax-item
 							slow
-							opacity />
+							opacity
+						/>
 						<img
 							class="frame__asset--contain"
 							src="@assets/ch-1-p-2_frame_1/part2.webp"
-							alt="" />
+							alt=""
+						/>
 					</Page>
 				</swiper-slide>
 				<swiper-slide
 					data-swiper-parallax
 					class="slide--auto background--base"
 					v-if="!prikbordOpen"
-					style="--delay: 0.5s; duration: 0.2s"
-					:data-swiper-seen="activeIndex > 2">
+					style="--delay: 0.5s; transition-duration: 0.2s;"
+					:data-swiper-seen="activeIndex > 2"
+				>
 					<Page class="page--fullwidth">
-						<Frame
-							class="frame--1"
-							swiper-parallax-item>
+						<Frame class="frame--1" swiper-parallax-item>
 							<img
 								src="@assets/ch-1-p-2_frame_1/frame1.webp"
 								alt=""
-								class="frame__asset--contain" />
+								class="frame__asset--contain"
+							/>
 						</Frame>
 						<img
 							class="frame__asset text--1"
 							src="@assets/ch-1-p-2_frame_1/tekst1.webp"
 							alt=""
-							swiper-parallax-item />
+							swiper-parallax-item
+						/>
 						<img
 							class="frame__asset"
 							src="@assets/ch-1-p-2_frame_1/part3.webp"
-							alt="" />
+							alt=""
+						/>
 					</Page>
 				</swiper-slide>
 
 				<swiper-slide
 					data-swiper-parallax
 					class="slide--auto flex--center background--base"
-					style="--delay: 1.5s; duration: 1.2s"
-					:data-swiper-seen="activeIndex > 3">
-					<Page size="sm">
+					style="--delay: 1s; transition-duration: 1.2s;"
+					:data-swiper-seen="activeIndex > 3"
+				>
+					<Page size="xsm">
 						<div class="grid">
-							<Frame
-								class="cell cell--w-3"
-								swiper-parallax-item>
+							<Frame class="cell cell--w-3" swiper-parallax-item>
 								<img
 									class="frame__asset--contain"
 									src="@assets/ch-1-p-2_frame_1/frame2.webp"
-									alt="" />
+									alt=""
+								/>
 							</Frame>
 
-							<Frame
-								class="cell cell--w-3"
-								swiper-parallax-item>
+							<Frame class="cell cell--w-3" swiper-parallax-item>
 								<img
 									class="frame__asset--contain"
 									src="@assets/ch-1-p-2_frame_1/frame3.webp"
-									alt="" />
+									alt=""
+								/>
 							</Frame>
 						</div>
 					</Page>
@@ -200,58 +211,62 @@
 					class="slide--xs background--base"
 					data-swiper-parallax
 					:data-swiper-seen="activeIndex > 4"
-					style="--delay: 1.5s; duration: 1.2s">
-					<Page size="sm">
+					style="--delay: 1.5s; duration: 1.2s;"
+				>
+					<Page size="xsm">
 						<div class="grid grid--center">
 							<HeadTurn />
 
 							<Frame
 								class="cell cell--w-2 t--opacity"
-								:style="{ opacity: showLast ? 1 : 0 }">
+								:style="{ opacity: showLast ? 1 : 0 }"
+							>
 								<img
 									src="@assets/ch-1-p-3_frame_3/frame_asset.webp"
 									alt=""
-									class="frame__asset--contain stretch" />
+									class="frame__asset--contain stretch"
+								/>
 							</Frame>
 							<Frame
 								class="cell cell--w-4 t--opacity"
 								:style="{
 									opacity: showLast ? 1 : 0,
 									'transition-delay': '.5s',
-								}">
+								}"
+							>
 								<img
 									src="@assets/ch-1-p-3_frame_4/frame_asset.webp"
 									alt=""
-									class="frame__asset--contain stretch" />
+									class="frame__asset--contain stretch"
+								/>
 							</Frame>
 
 							<Frame
 								class="cell cell--w-6 t--opacity"
 								:style="{
 									opacity: showLast ? 1 : 0,
-									'transition-delay': '3s',
-								}">
+									'transition-delay': '2s',
+								}"
+							>
 								<img
 									src="@assets/ch-1-p-3_frame_5/frame_asset.webp"
 									alt=""
-									class="frame__asset--contain stretch" />
+									class="frame__asset--contain stretch"
+								/>
 							</Frame>
 
-							<Transition
-								name="fade"
-								:duration="2000">
+							<Transition name="fade" :duration="2000">
 								<nextPage
 									to="/chapter-1/page-3"
 									:push="true"
-									v-if="showNextPage" />
+									v-if="showNextPage"
+								/>
 							</Transition>
 						</div>
 					</Page>
 				</swiper-slide>
 			</swiper-container>
-			<Nudge
-				nudge="slide"
-				v-if="showNudge && !prikbordOpen" />
+			<Nudge nudge="slide" v-if="showNudge && !prikbordOpen" />
 		</div>
 	</main>
 </template>
@@ -285,6 +300,10 @@
 	}
 
 	.frame__video {
-		top: 25%;
+	    top: 60%;
+
+    	@media screen and (max-width: 700px) {
+		    top: 25%;
+		}
 	}
 </style>

@@ -1,0 +1,5 @@
+sh proces_image.sh "ch-2/countries/t_austria.png"
+sh proces_image.sh "ch-2/countries/t_hungary.png"
+sh proces_image.sh "ch-2/countries/t_slovakia.png"
+sh proces_image.sh "ch-2/countries/t_slovenia.png"
+sh proces_image.sh "ch-2/countries/t_switzerland.png"

@@ -8,6 +8,7 @@
 	margin: 0 auto;
 	padding-top: #{$page--padding * 1};
 	padding-bottom: #{$page--padding * 1};
+	width: 100%;
 
 	&:has(.frame--scroller) {
 		overflow: scroll;
@@ -121,5 +122,11 @@
 		.frame__asset {
 			max-height: 30vh;
 		}
+	}
+
+	&.text--left {
+	    &, .container {
+					align-items: flex-end;
+					}
 	}
 }

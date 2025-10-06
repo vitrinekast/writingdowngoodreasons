@@ -5,10 +5,13 @@
 	height: 100%;
 	grid-auto-rows: minmax(0, 1fr);
 	max-height: calc(100svh - $page--padding - $page--padding);
+
 	&--center {
-		justify-items: center;
+		justify-items: left;
 		align-content: center;
-		grid-auto-rows: min-content;
+		grid-auto-rows: minmax(10px, auto);
+
+
 	}
 
 	@include break($break--mobile) {

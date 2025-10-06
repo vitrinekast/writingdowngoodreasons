@@ -124,7 +124,7 @@ swiper-slide[data-swiper-parallax][data-swiper-seen="true"] {
 
 .sideburn {
 	&__container {
-		@include break-min(900px) {
+		@include break-min(800px) {
 			max-width: 900px;
 			position: relative;
 			mask-image: -webkit-gradient(

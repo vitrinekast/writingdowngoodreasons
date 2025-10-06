@@ -11,9 +11,10 @@ input_file="$1"
 
 # Extract the base name without the extension
 base_name=$(basename "$input_file" .png)
+dir_name=$(dirname "$input_file")
 
 mogrify -trim "$input_file"
 
-cwebp "$input_file" -o "$base_name".webp
+cwebp "$input_file" -o "$dir_name"/"$base_name".webp
 
 echo "Trimmed file, set to webp saved as $output_file"

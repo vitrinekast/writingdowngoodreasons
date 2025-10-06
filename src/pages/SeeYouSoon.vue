@@ -28,7 +28,9 @@
 
 <template>
 	<main class="background--blue">
-		<div class="modal--backdrop" v-if="showModal"></div>
+		<div
+			class="modal--backdrop"
+			v-if="showModal"></div>
 		<div
 			class="modal"
 			v-if="showModal">
@@ -41,7 +43,10 @@
 				</div>
 			</header>
 			<h4>Step 1</h4>
-			<p>Make the one time payment of €12,-, so I can buy the stamps and make the post cards.</p>
+			<p>
+				Make the one time payment of €12,-, so I can buy the stamps and make the
+				post cards.
+			</p>
 			<a
 				href="https://pay.sumup.com/b2c/Q02B4T21"
 				target="_blank"
@@ -70,20 +75,33 @@
 			<h2>Writing Down Good Reasons</h2>
 			<p>
 				Is an interactive postal exchange by
-				<a href="https://www.instagram.com/nikvandermeulen/" target="_blank">Nik van der Meulen</a> and <a href="https://vitrinekast.xyz/" target="_blank">Rosa Schuurmans</a>.
+				<a
+					href="https://www.instagram.com/nikvandermeulen/"
+					target="_blank"
+					>Nik van der Meulen</a
+				>
+				and
+				<a
+					href="https://vitrinekast.xyz/"
+					target="_blank"
+					>Rosa Schuurmans</a
+				>.
 			</p>
-			<p>
-				Do you want to read more? Sign up for €12,- and receive the rest of the
-				season via the post.
-			</p>
-			<p>I'll write you from 4 more countries.</p>
+			<p>Do you want to read more? I'll write you from 4 more countries.</p>
 
 			<nav class="nav--bottom">
-				<div
+				<a
 					class="button button--light"
-					@click="showModal = true">
-					I want to sign up
-				</div>
+					href="mailto:nik@writingdowngoodreasons.com?subject=Subscribing to Writing Down Good Reasons&body=Hi Nik,%0D%0A  %0D%0A I would love to receive your next cards. Please send them to my postal address: %0D%0A %0D%0A
+					Street:%0D%0A 
+					House Number:%0D%0A
+					City:%0D%0A
+					ZIP:%0D%0A %0D%0A
+					Kind regards,
+					%0D%0A
+					%0D%0A"
+					>Send an email</a
+				>
 
 				<router-link
 					class="button button--link"
@@ -102,7 +120,6 @@
 </template>
 
 <style scoped>
-
 	.modal .button--ic {
 		position: absolute;
 		top: 0;
